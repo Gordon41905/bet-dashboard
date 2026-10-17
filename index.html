@@ -27,15 +27,15 @@ h1{font-size:22px;font-weight:800}.ts{font-size:13px;color:#9aa6b8;margin:3px 0 
 <div class="st"><div class="k">LOST</div><div class="kv" style="color:#ff6b6b" id="s_lost">–</div></div></div>
 <div id="err"></div></div>
 <div id="tickets"></div>
-<div class="gh" style="border-color:#9b59ff">🏆 Super Bowl futures</div>
+<div class="gh" style="border-color:#9b59ff">🏆 Futures</div>
 <div class="card" style="border-left-color:#9b59ff"><div class="top"><span class="bet">$11 bet</span></div><div class="leg"><div class="need">Super Bowl winner — team not readable in recording</div></div></div>
 <div class="card" style="border-left-color:#9b59ff"><div class="top"><span class="bet">$10 bet</span></div><div class="leg"><div class="need">Super Bowl winner — team not readable in recording</div></div></div>
 <div class="ftr">Updates every 30 seconds · scores from ESPN and MLB Stats API</div>
 <script>
-const COL={WON:"#1fbf5f",WIN:"#1fbf5f",LOST:"#e5484d",LOSE:"#e5484d",PUSH:"#f0b429",PUSHING:"#f0b429",NS:"#5b6575",NA:"#5b6575"};
-const LAB={WON:"WON",WIN:"WINNING",LOST:"LOST",LOSE:"LOSING",PUSH:"PUSH",PUSHING:"ON THE NUMBER",NS:"NOT STARTED",NA:"NO SCORE"};
+const COL={WON:"#1fbf5f",WIN:"#1fbf5f",LOST:"#e5484d",LOSE:"#e5484d",PUSH:"#f0b429",PUSHING:"#f0b429",NS:"#5b6575",NA:"#5b6575",VOID:"#8a63d2"};
+const LAB={WON:"WON",WIN:"WINNING",LOST:"LOST",LOSE:"LOSING",PUSH:"PUSH",PUSHING:"ON THE NUMBER",NS:"NOT STARTED",NA:"NO SCORE",VOID:"NO ACTION?"};
 const RC={DEAD:"#e5484d",CASHED:"#1fbf5f",PUSH:"#f0b429",ALIVE:"#f0b429","NOT STARTED":"#5b6575"};
-const RL={DEAD:"LOST",CASHED:"WON",PUSH:"PUSH — REFUND",ALIVE:"IN PLAY","NOT STARTED":"NOT STARTED YET"};
+const RL={DEAD:"LOST",CASHED:"WON",PUSH:"REFUND (PUSH / NO ACTION)",ALIVE:"IN PLAY","NOT STARTED":"NOT STARTED YET"};
 const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const m=x=>"$"+(Number.isInteger(x)?x:x.toFixed(2));
 const CFB={BG:["Bowling Green","Ball State"],OSU:["Indiana","Ohio State"],WMU:["Central Michigan","Western Michigan"],TOL:["Eastern Michigan","Toledo"],VT:["Virginia Tech","Georgia Tech"],BAMA:["Tennessee","Alabama"]};
@@ -52,7 +52,7 @@ const tot=(game,ou,line)=>({game,f:g=>{const T=g.h+g.a;
   if(ou==="o"){const tgt=Math.floor(line)+1;if(T>line)return["WON",`${T} points, over already hit`];
     if(g.state==="post")return[T===line?"PUSH":"LOST",`final total ${T}`];return["LOSE",`${T} so far, needs ${tgt-T} more`];}
   const lim=Number.isInteger(line)?line-1:Math.floor(line);if(T>line)return["LOST",`${T} points, went over`];
-  if(g.state==="post")return[T===line?"PUSH":"WON",`final total ${T}`];return["WIN",`${T} so far, ${lim-T} points of room left`];}});
+  if(g.state==="post")return[T===line?"PUSH":"WON",`final total ${T}`];if(T===line)return["PUSHING",`${T} so far, exactly on the push number`];return["WIN",`${T} so far, ${lim-T} points of room left`];}});
 const L=(o,needs)=>Object.assign(o,{needs});
 const TICKETS=[
  ["MLB",11,30.14,[L(ml("MLB","h","CLE"),"Guardians beat the Rays"),L(tot("MLB","o",6.5),"7 or more total runs (Rays + Guardians)")]],
@@ -67,44 +67,56 @@ const TICKETS=[
  ["CFB",11,38.94,[L(sp("BG","h",-6,"BG"),"Bowling Green wins by 7 or more (exactly 6 = push)"),L(ml("OSU","h","IND"),"Indiana beats Ohio State")]],
  ["CFB",11,40.15,[L(tot("OSU","o",50.5),"51 or more total points (Ohio State + Indiana)"),L(ml("OSU","h","IND"),"Indiana beats Ohio State")]],
 ];
-const chip=g=>!g?"score unavailable":g.state==="pre"?`${g.aab} @ ${g.hab} · ${g.detail}`:`${g.aab} ${g.a} – ${g.hab} ${g.h} · ${g.detail}`;
+const chip=g=>!g?"score unavailable":g.state==="void"?`${g.aab} @ ${g.hab} · ${g.detail}`:g.state==="pre"?`${g.aab} @ ${g.hab} · ${g.detail}`:`${g.aab} ${g.a} – ${g.hab} ${g.h} · ${g.detail}`;
 async function getJSON(u,label){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error(`${label} HTTP ${r.status}`);return r.json();}
 async function fetchGames(){const G={},errs=[];
  try{const sb=await getJSON("https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?dates=20261017&limit=300&groups=80","ESPN");
   for(const[k,[home,away]]of Object.entries(CFB)){G[k]=null;
    for(const e of sb.events){const c=e.competitions[0],t={};c.competitors.forEach(x=>t[x.homeAway]=x);
     if(t.home.team.displayName.startsWith(home)&&t.away.team.displayName.startsWith(away)){const s=c.status;
-     G[k]={state:s.type.state,detail:s.type.shortDetail,h:+(t.home.score||0),a:+(t.away.score||0),hab:t.home.team.abbreviation,aab:t.away.team.abbreviation};break;}}
+     const nm=s.type.name||"";let state=s.type.state,detail=s.type.shortDetail;if(/POSTPONED|CANCEL|FORFEIT/.test(nm))state="void";
+     if(state==="pre"){const gt=new Date(c.date||e.date);if(!isNaN(gt))detail=`${fmt(gt,"America/New_York")} ET / ${fmt(gt,"America/Los_Angeles")} PT`;}
+     G[k]={start:new Date(c.date||e.date).getTime(),state,detail,h:+(t.home.score||0),a:+(t.away.score||0),hab:t.home.team.abbreviation,aab:t.away.team.abbreviation};break;}}
    if(!G[k])errs.push(`ESPN: ${away} @ ${home} not found`);}
  }catch(e){errs.push("ESPN scores failed: "+e.message)}
  G.MLB=null;
  try{const s=await getJSON("https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=114&date=2026-10-17&hydrate=linescore","MLB");
   let g=null;for(const d of s.dates||[])for(const x of d.games)if(x.teams.home.team.id===114&&x.teams.away.team.id===139)g=x;
   if(!g){const f=await getJSON("https://statsapi.mlb.com/api/v1/schedule?gamePk=849816&hydrate=linescore","MLB");g=f.dates?.[0]?.games?.[0]||null;}
-  if(g){const st={Preview:"pre",Live:"in",Final:"post"}[g.status.abstractGameState]||"pre",ls=g.linescore||{},gt=new Date(g.gameDate);let det=g.status.detailedState;
-   if(st==="in")det=`${ls.inningState||""} ${ls.currentInningOrdinal||""}`.trim()+(ls.outs!=null?` · ${ls.outs} out`:"");
+  if(g){const st={Preview:"pre",Live:"in",Final:"post"}[g.status.abstractGameState]||"pre",ls=g.linescore||{},gt=new Date(g.gameDate);let det=g.status.detailedState;const cs=g.status.codedGameState;let st2=st;if(/Postponed|Cancel/.test(det)||cs==="D"||cs==="C")st2="void";else if(/Suspended/.test(det)||cs==="T"||cs==="U")st2="in";
+   if(st2==="in"&&!/Suspended/.test(det))det=`${ls.inningState||""} ${ls.currentInningOrdinal||""}`.trim()+(ls.outs!=null?` · ${ls.outs} out`:"");
    if(st==="pre")det+=` · ${fmt(gt,"America/New_York")} ET / ${fmt(gt,"America/Los_Angeles")} PT`;
    if(st==="post"&&ls.currentInning&&ls.currentInning!==9)det+=` (${ls.currentInning})`;
-   G.MLB={state:st,detail:det,h:g.teams.home.score||0,a:g.teams.away.score||0,hab:"CLE",aab:"TB"};}
+   G.MLB={start:gt.getTime(),state:st2,detail:det,h:g.teams.home.score||0,a:g.teams.away.score||0,hab:"CLE",aab:"TB"};}
   else errs.push("MLB: Rays @ Guardians not found");
  }catch(e){errs.push("MLB scores failed: "+e.message)}
  return[G,errs];}
 function grade(G){return TICKETS.map(([sport,stake,towin,legs])=>{const LL=legs.map(lg=>{const g=G[lg.game];let st,txt;
-  if(!g){st="NA";txt="score unavailable"}else if(g.state==="pre"){st="NS";txt="not started"}else[st,txt]=lg.f(g);
-  return{needs:lg.needs,status:st,text:txt,score:chip(g)}});const ss=LL.map(x=>x.status);
-  let roll=ss.includes("LOST")?"DEAD":ss.every(s=>s==="WON"||s==="PUSH")?(ss.every(s=>s==="PUSH")?"PUSH":"CASHED"):ss.every(s=>s==="NS"||s==="NA")?"NOT STARTED":"ALIVE";
-  return{sport,stake,towin,legs:LL,roll,left:ss.filter(s=>!["WON","PUSH","LOST"].includes(s)).length}});}
-function card(t){const c=RC[t.roll]||"#5b6575",n=t.legs.length,kind=n>1?`${n}-leg parlay`:"single",rl=RL[t.roll]+(t.roll==="ALIVE"?` · ${t.left} of ${n} left`:"");
+  if(!g){st="NA";txt="score unavailable"}else if(g.state==="pre"){st="NS";txt="not started"}else if(g.state==="void"){st="VOID";txt="game postponed/canceled — usually graded no action (refund or leg dropped); check BetOnline"}else[st,txt]=lg.f(g);
+  return{needs:lg.needs,status:st,text:txt,score:chip(g),gstate:g?g.state:null,start:g?g.start:Infinity}});const ss=LL.map(x=>x.status);
+  const done=s=>s==="WON"||s==="PUSH"||s==="VOID";let roll=ss.includes("LOST")?"DEAD":ss.every(done)?(ss.every(s=>s!=="WON")?"PUSH":"CASHED"):ss.every(s=>s==="NS"||s==="NA")?"NOT STARTED":"ALIVE";
+  return{sport,stake,towin,legs:LL,roll,reduced:roll==="CASHED"&&ss.some(s=>s==="PUSH"||s==="VOID"),left:ss.filter(s=>!["WON","PUSH","LOST","VOID"].includes(s)).length}});}
+function card(t){const c=RC[t.roll]||"#5b6575",n=t.legs.length,kind=n>1?`${n}-leg parlay`:"single",rl=RL[t.roll]+(t.roll==="ALIVE"?` · ${t.left} of ${n} left`:"")+(t.reduced?" · reduced payout (push)":"");
  const mlb=t.sport==="MLB"?`<div class="note">Voids if Martinez or Armstrong doesn't start</div>`:"";
  return `<div class="card" style="border-left-color:${c}"><div class="top"><div><div class="bet">${m(t.stake)} bet <span style="font-size:13px;color:#8b97a8;font-weight:600">· ${kind}</span></div>
- <div class="roll" style="color:${c}">${rl}</div></div><div><div class="pay">Wins $${t.towin.toFixed(2)}</div><div class="ret">returns $${(t.stake+t.towin).toFixed(2)}</div></div></div>`+
+ <div class="roll" style="color:${c}">${rl}</div></div><div>${t.roll==="DEAD"?`<div class="pay" style="color:#ff6b6b">Lost ${m(t.stake)}</div><div class="ret">would have won $${t.towin.toFixed(2)}</div>`:t.roll==="PUSH"?`<div class="pay" style="color:#f0b429">Refund ${m(t.stake)}</div>`:`<div class="pay">${t.roll==="CASHED"?"Won":"Wins"} $${t.towin.toFixed(2)}${t.reduced?"*":""}</div><div class="ret">returns $${(t.stake+t.towin).toFixed(2)}${t.reduced?" (less after push)":""}</div>`}</div></div>`+
  t.legs.map(l=>`<div class="leg"><div class="need">${esc(l.needs)}</div><div class="live"><span class="pill" style="background:${COL[l.status]}">${LAB[l.status]}</span><span class="score">${esc(l.score)}</span></div>${l.status!=="NS"&&l.status!=="NA"?`<div class="tx">${esc(l.text)}</div>`:""}</div>`).join("")+mlb+`</div>`}
 let lastOk=null;
+const SETTLED=new Set(["WON","LOST","PUSH","VOID"]);
+function legRank(l){return l.gstate==="in"?0:(l.gstate==="pre"||l.status==="NA")?1:2}
+function order(T){const now=Date.now();
+ T.forEach(t=>{t.legs.sort((a,b)=>legRank(a)-legRank(b)||a.start-b.start);
+  const live=t.legs.filter(l=>l.gstate==="in"),pre=t.legs.filter(l=>l.gstate==="pre"||l.status==="NA");
+  if(["DEAD","CASHED","PUSH"].includes(t.roll)){t.sec=3;t.key=0}
+  else if(live.length){t.sec=0;t.key=Math.min(...live.map(l=>l.start))}
+  else{const nx=pre.length?Math.min(...pre.map(l=>l.start)):Infinity;t.key=nx;t.sec=(nx-now)<=3*3600e3?1:2}});
+ return T.sort((a,b)=>a.sec-b.sec||a.key-b.key||(a.sport<b.sport?-1:1));}
+const SECN=["🔴 Live now","⏱️ Starting soon","🌙 Later today","✅ Settled"],SECC=["#e5484d","#f0b429","#2b6cff","#8b97a8"];
 function render(T){const live=T.filter(t=>t.roll==="ALIVE"||t.roll==="NOT STARTED");
  $("s_live").textContent=m(live.reduce((a,t)=>a+t.stake,0));$("s_maxwin").textContent="can win $"+live.reduce((a,t)=>a+t.towin,0).toFixed(2);
  $("s_won").textContent="$"+T.filter(t=>t.roll==="CASHED").reduce((a,t)=>a+t.towin,0).toFixed(2);$("s_lost").textContent=m(T.filter(t=>t.roll==="DEAD").reduce((a,t)=>a+t.stake,0));
- $("tickets").innerHTML=`<div class="gh" style="border-color:#2b6cff">⚾ Rays @ Guardians · ALCS Game 4</div>`+T.filter(t=>t.sport==="MLB").map(card).join("")+
- `<div class="gh" style="border-color:#e8a317">🏈 College football</div>`+T.filter(t=>t.sport==="CFB").map(card).join("");}
+ let h="",cur=-1;for(const t of order(T)){if(t.sec!==cur){cur=t.sec;h+=`<div class="gh" style="border-color:${SECC[cur]}">${SECN[cur]}</div>`;}h+=card(t);}
+ $("tickets").innerHTML=h;}
 async function poll(){try{const[G,errs]=await fetchGames();const anyData=Object.values(G).some(Boolean);
   if(!anyData)throw new Error(errs.join("; ")||"no data");render(grade(G));lastOk=new Date();
   $("ts").innerHTML=`<span class="dot"></span>Updated ${lastOk.toLocaleTimeString("en-US",{timeZone:"America/Los_Angeles",hour:"numeric",minute:"2-digit",second:"2-digit"})} PT`;
