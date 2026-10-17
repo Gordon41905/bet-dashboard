@@ -19,6 +19,7 @@ h1{font-size:22px;font-weight:800}.ts{font-size:13px;color:#9aa6b8;margin:3px 0 
 .pill{color:#fff;font-size:11px;font-weight:800;border-radius:6px;padding:4px 8px;letter-spacing:.5px;white-space:nowrap}
 .score{font-size:14px;font-weight:700;color:#dbe2ec}.tx{font-size:13px;color:#a3aec0;margin-top:3px}
 .note{font-size:12px;color:#ffcf7a;margin-top:10px}
+.pl{background:#161c26;border-radius:16px;padding:14px 16px;margin-top:12px}.plh{display:flex;justify-content:space-between;align-items:baseline}.plt{font-size:12px;color:#8b97a8;font-weight:700;letter-spacing:1px}.pln{font-size:30px;font-weight:800}.plr{display:flex;justify-content:space-between;font-size:14px;padding:5px 0;border-top:1px solid #263042;color:#c3ccd8}.plr b{color:#eef2f7}.pls{font-size:12px;color:#8b97a8;margin-top:2px}
 .ftr{margin-top:22px;font-size:12px;color:#7f8ba0;line-height:1.5;text-align:center}
 </style></head><body>
 <div class="hdr"><h1>Live Bets · Sat Oct 17</h1><div class="ts" id="ts"><span class="dot"></span>Loading live scores…</div>
@@ -26,9 +27,8 @@ h1{font-size:22px;font-weight:800}.ts{font-size:13px;color:#9aa6b8;margin:3px 0 
 <div class="st"><div class="k">WON</div><div class="kv" style="color:#39e27d" id="s_won">–</div></div>
 <div class="st"><div class="k">LOST</div><div class="kv" style="color:#ff6b6b" id="s_lost">–</div></div><div class="st"><div class="k">REFUNDED</div><div class="kv" style="color:#f0b429" id="s_ref">–</div></div></div>
 <div id="err"></div></div>
+<div class="pl" id="pl"></div>
 <div id="tickets"></div>
-<div class="gh" style="border-color:#9b59ff">🏆 Futures</div>
-<div id="futures"></div>
 <div class="ftr">Updates every 30 seconds · scores from ESPN and MLB Stats API</div>
 <script>
 const COL={WON:"#1fbf5f",WIN:"#1fbf5f",LOST:"#e5484d",LOSE:"#e5484d",PUSH:"#f0b429",PUSHING:"#f0b429",NS:"#5b6575",NA:"#5b6575",VOID:"#8a63d2"};
@@ -54,13 +54,15 @@ const tot=(game,ou,line)=>({game,f:g=>{const T=g.h+g.a;
   if(g.state==="post")return[T===line?"PUSH":"WON",`Total ended ${T}`];if(T===line)return["PUSHING",`${T} so far, exactly on the push number`];return["WIN",`${T} so far, ${lim-T} points of room left`];}});
 const L=(o,needs,odds)=>Object.assign(o,{needs,odds});
 const dec=a=>a>0?1+a/100:1+100/(-a);
-let TICKETS=[];
+let TICKETS=[],FUTS=[];
 function buildTickets(d){CFB=d.cfb_games||{};TICKETS=d.tickets.map(t=>[t.sport,t.stake,t.towin,t.legs.map(l=>{
  const o=l.type==="ml"?ml(l.game,l.side,l.lab):l.type==="sp"?sp(l.game,l.side,l.line,l.lab):tot(l.game,l.ou,l.line);return L(o,l.needs,l.odds)})]);
- $("futures").innerHTML=(d.futures||[]).map(f=>`<div class="card" style="border-left-color:#9b59ff"><div class="top"><div><div class="bet">${m(f.stake)} bet <span style="font-size:13px;color:#8b97a8;font-weight:600">· future</span></div><div class="roll" style="color:#9b59ff">PENDING</div></div><div><div class="pay">Wins $${f.towin.toFixed(2)}</div><div class="ret">returns $${(f.stake+f.towin).toFixed(2)}</div></div></div><div class="leg"><div class="need">${esc(f.pick)}</div></div></div>`).join("");}
+ FUTS=d.futures||[];
+ }
+function futHTML(){return FUTS.length?`<div class="gh" style="border-color:#9b59ff">🏈 Super Bowl bets</div>`+FUTS.map(f=>`<div class="card" style="border-left-color:#9b59ff"><div class="top"><div><div class="bet">${m(f.stake)} bet</div><div class="roll" style="color:#b48cff">PENDING · SETTLES FEB 2027</div></div><div><div class="pay">Wins $${f.towin.toFixed(2)}</div><div class="ret">returns $${(f.stake+f.towin).toFixed(2)}</div></div></div><div class="leg"><div class="need">${esc(f.pick)}</div></div></div>`).join(""):""}
 async function checkVersion(){try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
  if(v&&v!==APP_VERSION){const k="reloaded_"+v;if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,"1");location.replace(location.pathname+"?v="+encodeURIComponent(v));}}}catch(e){}}
-const APP_VERSION="2026-10-17.2";
+const APP_VERSION="2026-10-17.3";
 
 const chip=g=>!g?"score unavailable":g.state==="void"?`${g.aab} @ ${g.hab} · ${g.detail}`:g.state==="pre"?`${g.aab} @ ${g.hab} · ${g.detail}`:`${g.aab} ${g.a} – ${g.hab} ${g.h} · ${g.detail}`;
 async function getJSON(u,label){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error(`${label} HTTP ${r.status}`);return r.json();}
@@ -108,11 +110,27 @@ function order(T){const now=Date.now();
   else{const nx=pre.length?Math.min(...pre.map(l=>l.start)):Infinity;t.key=nx;t.sec=(nx-now)<=3*3600e3?1:2}});
  return T.sort((a,b)=>a.sec-b.sec||a.key-b.key||(a.sport<b.sport?-1:1));}
 const SECN=["🔴 Live now","⏱️ Starting soon","🌙 Later today","✅ Settled"],SECC=["#e5484d","#f0b429","#2b6cff","#8b97a8"];
-function render(T){const live=T.filter(t=>t.roll==="ALIVE"||t.roll==="NOT STARTED");
+function money(x){return (x<0?"−$":"$")+Math.abs(x).toFixed(2)}
+function renderPL(T){const settled=T.filter(t=>["CASHED","DEAD","PUSH"].includes(t.roll)),live=T.filter(t=>t.roll==="ALIVE"||t.roll==="NOT STARTED");
+ const sum=(a,f)=>a.reduce((x,t)=>x+f(t),0);
+ const wagAll=sum(T,t=>t.stake)+sum(FUTS,f=>f.stake),wagSet=sum(settled,t=>t.stake);
+ const ret=sum(settled,t=>t.roll==="CASHED"?t.stake+t.towin:t.roll==="PUSH"?t.stake:0),net=Math.round((ret-wagSet)*100)/100;
+ const pend=sum(live,t=>t.stake)+sum(FUTS,f=>f.stake),liveWin=sum(live,t=>t.towin),futWin=sum(FUTS,f=>f.towin);
+ const best=net+liveWin-sum(FUTS,f=>f.stake)*0,c=net>0?"#39e27d":net<0?"#ff6b6b":"#eef2f7",sg=x=>(x>0?"+":"")+money(x);
+ const allLose=net-sum(live,t=>t.stake);
+ $("pl").innerHTML=`<div class="plh"><span class="plt">NET PROFIT / LOSS · SETTLED BETS</span><span class="pln" style="color:${c}">${sg(net)}</span></div>
+ <div class="pls">${settled.length} settled bets: ${money(wagSet)} bet, ${money(ret)} back</div>
+ <div class="plr" style="margin-top:8px"><span>Total bet (all ${T.length+FUTS.length} bets)</span><b>${money(wagAll)}</b></div>
+ <div class="plr"><span>Total paid back so far</span><b>${money(ret)}</b></div>
+ <div class="plr"><span>Still riding (${live.length} game bets + ${FUTS.length} futures)</span><b>${money(pend)}</b></div>
+ <div class="plr"><span>If every live game bet wins</span><b style="color:#39e27d">${sg(Math.round((net+liveWin)*100)/100)}</b></div>
+ <div class="plr"><span>If every live game bet loses</span><b style="color:#ff6b6b">${sg(Math.round(allLose*100)/100)}</b></div>
+ <div class="pls">Win/lose lines leave out the Super Bowl bets (${money(sum(FUTS,f=>f.stake))} bet, could win ${money(futWin)}, settle Feb 2027).</div>`;}
+function render(T){renderPL(T);const live=T.filter(t=>t.roll==="ALIVE"||t.roll==="NOT STARTED");
  $("s_live").textContent=m(live.reduce((a,t)=>a+t.stake,0));$("s_maxwin").textContent="can win $"+live.reduce((a,t)=>a+t.towin,0).toFixed(2);
  $("s_won").textContent="$"+T.filter(t=>t.roll==="CASHED").reduce((a,t)=>a+t.towin,0).toFixed(2);$("s_lost").textContent=m(T.filter(t=>t.roll==="DEAD").reduce((a,t)=>a+t.stake,0));$("s_ref").textContent=m(T.filter(t=>t.roll==="PUSH").reduce((a,t)=>a+t.stake,0));
- let h="",cur=-1;for(const t of order(T)){if(t.sec!==cur){cur=t.sec;h+=`<div class="gh" style="border-color:${SECC[cur]}">${SECN[cur]}</div>`;}h+=card(t);}
- $("tickets").innerHTML=h;}
+ let h="",cur=-1,fd=false;for(const t of order(T)){if(t.sec!==cur){if(t.sec===3&&!fd){h+=futHTML();fd=true;}cur=t.sec;h+=`<div class="gh" style="border-color:${SECC[cur]}">${SECN[cur]}</div>`;}h+=card(t);}
+ if(!fd)h+=futHTML();$("tickets").innerHTML=h;}
 async function poll(){checkVersion();try{const br=await fetch("bets.json?t="+Date.now(),{cache:"no-store"});if(!br.ok)throw new Error("bets file HTTP "+br.status);buildTickets(await br.json());
  const[G,errs]=await fetchGames();const anyData=Object.values(G).some(Boolean);
   if(!anyData)throw new Error(errs.join("; ")||"no data");render(grade(G));lastOk=new Date();
