@@ -1,0 +1,410 @@
+{
+ "version": "2026-10-17.1",
+ "cfb_games": {
+  "BG": [
+   "Bowling Green",
+   "Ball State"
+  ],
+  "OSU": [
+   "Indiana",
+   "Ohio State"
+  ],
+  "WMU": [
+   "Central Michigan",
+   "Western Michigan"
+  ],
+  "TOL": [
+   "Eastern Michigan",
+   "Toledo"
+  ],
+  "VT": [
+   "Virginia Tech",
+   "Georgia Tech"
+  ],
+  "BAMA": [
+   "Tennessee",
+   "Alabama"
+  ],
+  "WIS": [
+   "UCLA",
+   "Wisconsin"
+  ],
+  "SYR": [
+   "Syracuse",
+   "Louisville"
+  ],
+  "BYU": [
+   "BYU",
+   "Notre Dame"
+  ]
+ },
+ "tickets": [
+  {
+   "sport": "MLB",
+   "stake": 11.0,
+   "towin": 30.14,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "MLB",
+     "needs": "Guardians beat the Rays",
+     "odds": -101,
+     "side": "h",
+     "lab": "CLE"
+    },
+    {
+     "type": "tot",
+     "game": "MLB",
+     "needs": "7 or more total runs (Rays + Guardians)",
+     "odds": -114,
+     "ou": "o",
+     "line": 6.5
+    }
+   ]
+  },
+  {
+   "sport": "MLB",
+   "stake": 11.0,
+   "towin": 10.89,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "MLB",
+     "needs": "Guardians beat the Rays",
+     "odds": -101,
+     "side": "h",
+     "lab": "CLE"
+    }
+   ]
+  },
+  {
+   "sport": "MLB",
+   "stake": 11.0,
+   "towin": 29.92,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "MLB",
+     "needs": "Guardians beat the Rays",
+     "odds": -102,
+     "side": "h",
+     "lab": "CLE"
+    },
+    {
+     "type": "tot",
+     "game": "MLB",
+     "needs": "7 or more total runs (Rays + Guardians)",
+     "odds": -114,
+     "ou": "o",
+     "line": 6.5
+    }
+   ]
+  },
+  {
+   "sport": "MLB",
+   "stake": 22.0,
+   "towin": 19.3,
+   "legs": [
+    {
+     "type": "tot",
+     "game": "MLB",
+     "needs": "7 or more total runs (Rays + Guardians)",
+     "odds": -114,
+     "ou": "o",
+     "line": 6.5
+    }
+   ]
+  },
+  {
+   "sport": "CFB",
+   "stake": 11.0,
+   "towin": 10.0,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "SYR",
+     "needs": "Syracuse wins, or loses by 14 or fewer (vs Louisville)",
+     "odds": -110,
+     "side": "h",
+     "line": 14.5,
+     "lab": "SYR"
+    }
+   ]
+  },
+  {
+   "sport": "CFB",
+   "stake": 5.0,
+   "towin": 13.0,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "BYU",
+     "needs": "BYU wins, or loses by 10 or fewer (vs Notre Dame)",
+     "odds": -108,
+     "side": "h",
+     "line": 10.5,
+     "lab": "BYU"
+    },
+    {
+     "type": "tot",
+     "game": "BYU",
+     "needs": "48 or more total points, Notre Dame + BYU (exactly 47 = push)",
+     "odds": -115,
+     "ou": "o",
+     "line": 47.0
+    }
+   ]
+  },
+  {
+   "sport": "CFB",
+   "stake": 11.0,
+   "towin": 10.19,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "BYU",
+     "needs": "BYU wins, or loses by 10 or fewer (vs Notre Dame)",
+     "odds": -108,
+     "side": "h",
+     "line": 10.5,
+     "lab": "BYU"
+    }
+   ]
+  },
+  {
+   "sport": "CFB",
+   "stake": 22.0,
+   "towin": 20.0,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "WIS",
+     "needs": "Wisconsin beats UCLA (a loss by exactly 1 = push)",
+     "odds": -110,
+     "side": "a",
+     "line": 1.0,
+     "lab": "WIS"
+    }
+   ]
+  },
+  {
+   "sport": "CFB",
+   "stake": 11.0,
+   "towin": 28.6,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "TOL",
+     "needs": "Toledo wins by 8 or more (exactly 7 = push)",
+     "odds": -105,
+     "side": "a",
+     "line": -7.0,
+     "lab": "TOL"
+    },
+    {
+     "type": "sp",
+     "game": "WMU",
+     "needs": "Western Michigan wins by 8 or more (exactly 7 = push)",
+     "odds": -118,
+     "side": "a",
+     "line": -7.0,
+     "lab": "WMU"
+    }
+   ]
+  },
+  {
+   "sport": "CFB",
+   "stake": 22.0,
+   "towin": 31.02,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "WMU",
+     "needs": "Western Michigan wins",
+     "odds": -285,
+     "side": "a",
+     "lab": "WMU"
+    },
+    {
+     "type": "ml",
+     "game": "VT",
+     "needs": "Virginia Tech beats Georgia Tech",
+     "odds": -345,
+     "side": "h",
+     "lab": "VT"
+    },
+    {
+     "type": "ml",
+     "game": "TOL",
+     "needs": "Toledo wins",
+     "odds": -260,
+     "side": "a",
+     "lab": "TOL"
+    }
+   ]
+  },
+  {
+   "sport": "CFB",
+   "stake": 11.0,
+   "towin": 27.72,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "WMU",
+     "needs": "Western Michigan wins by 8 or more (exactly 7 = push)",
+     "odds": -118,
+     "side": "a",
+     "line": -7.0,
+     "lab": "WMU"
+    },
+    {
+     "type": "tot",
+     "game": "WMU",
+     "needs": "44 or more total points (WMU + CMU)",
+     "odds": -110,
+     "ou": "o",
+     "line": 43.5
+    }
+   ]
+  },
+  {
+   "sport": "CFB",
+   "stake": 22.0,
+   "towin": 18.64,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "WMU",
+     "needs": "Western Michigan wins by 8 or more (exactly 7 = push)",
+     "odds": -118,
+     "side": "a",
+     "line": -7.0,
+     "lab": "WMU"
+    }
+   ]
+  },
+  {
+   "sport": "CFB",
+   "stake": 11.0,
+   "towin": 22.88,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "BAMA",
+     "needs": "Alabama wins by 8 or more (exactly 7 = push)",
+     "odds": -135,
+     "side": "a",
+     "line": -7.0,
+     "lab": "BAMA"
+    },
+    {
+     "type": "tot",
+     "game": "BAMA",
+     "needs": "51 or more total points, Alabama + Tennessee (exactly 50 = push)",
+     "odds": -130,
+     "ou": "o",
+     "line": 50.0
+    }
+   ]
+  },
+  {
+   "sport": "CFB",
+   "stake": 11.0,
+   "towin": 8.15,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "BAMA",
+     "needs": "Alabama wins by 8 or more (exactly 7 = push)",
+     "odds": -135,
+     "side": "a",
+     "line": -7.0,
+     "lab": "BAMA"
+    }
+   ]
+  },
+  {
+   "sport": "CFB",
+   "stake": 11.0,
+   "towin": 29.04,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "BG",
+     "needs": "Bowling Green wins by 7 or more (exactly 6 = push)",
+     "odds": -110,
+     "side": "h",
+     "line": -6.0,
+     "lab": "BG"
+    },
+    {
+     "type": "tot",
+     "game": "BG",
+     "needs": "46 or fewer total points, Bowling Green + Ball State (exactly 47 = push)",
+     "odds": -110,
+     "ou": "u",
+     "line": 47.0
+    }
+   ]
+  },
+  {
+   "sport": "CFB",
+   "stake": 11.0,
+   "towin": 38.94,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "BG",
+     "needs": "Bowling Green wins by 7 or more (exactly 6 = push)",
+     "odds": -110,
+     "side": "h",
+     "line": -6.0,
+     "lab": "BG"
+    },
+    {
+     "type": "ml",
+     "game": "OSU",
+     "needs": "Indiana beats Ohio State",
+     "odds": 138,
+     "side": "h",
+     "lab": "IND"
+    }
+   ]
+  },
+  {
+   "sport": "CFB",
+   "stake": 11.0,
+   "towin": 40.15,
+   "legs": [
+    {
+     "type": "tot",
+     "game": "OSU",
+     "needs": "51 or more total points (Ohio State + Indiana)",
+     "odds": -105,
+     "ou": "o",
+     "line": 50.5
+    },
+    {
+     "type": "ml",
+     "game": "OSU",
+     "needs": "Indiana beats Ohio State",
+     "odds": 138,
+     "side": "h",
+     "lab": "IND"
+    }
+   ]
+  }
+ ],
+ "futures": [
+  {
+   "stake": 11,
+   "towin": 79.75,
+   "pick": "Los Angeles Rams win Super Bowl LXI"
+  },
+  {
+   "stake": 10,
+   "towin": 100.0,
+   "pick": "San Francisco 49ers win Super Bowl LXI"
+  }
+ ]
+}

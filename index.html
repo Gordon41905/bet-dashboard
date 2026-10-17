@@ -28,8 +28,7 @@ h1{font-size:22px;font-weight:800}.ts{font-size:13px;color:#9aa6b8;margin:3px 0 
 <div id="err"></div></div>
 <div id="tickets"></div>
 <div class="gh" style="border-color:#9b59ff">🏆 Futures</div>
-<div class="card" style="border-left-color:#9b59ff"><div class="top"><div><div class="bet">$11 bet <span style="font-size:13px;color:#8b97a8;font-weight:600">· future</span></div><div class="roll" style="color:#9b59ff">PENDING · SETTLES FEB 2027</div></div><div><div class="pay">Wins $79.75</div><div class="ret">returns $90.75</div></div></div><div class="leg"><div class="need">Los Angeles Rams win Super Bowl LXI</div></div></div>
-<div class="card" style="border-left-color:#9b59ff"><div class="top"><div><div class="bet">$10 bet <span style="font-size:13px;color:#8b97a8;font-weight:600">· future</span></div><div class="roll" style="color:#9b59ff">PENDING · SETTLES FEB 2027</div></div><div><div class="pay">Wins $100.00</div><div class="ret">returns $110.00</div></div></div><div class="leg"><div class="need">San Francisco 49ers win Super Bowl LXI</div></div></div>
+<div id="futures"></div>
 <div class="ftr">Updates every 30 seconds · scores from ESPN and MLB Stats API</div>
 <script>
 const COL={WON:"#1fbf5f",WIN:"#1fbf5f",LOST:"#e5484d",LOSE:"#e5484d",PUSH:"#f0b429",PUSHING:"#f0b429",NS:"#5b6575",NA:"#5b6575",VOID:"#8a63d2"};
@@ -38,7 +37,7 @@ const RC={DEAD:"#e5484d",CASHED:"#1fbf5f",PUSH:"#f0b429",ALIVE:"#f0b429","NOT ST
 const RL={DEAD:"LOST",CASHED:"WON",PUSH:"REFUNDED (PUSH / NO ACTION)",ALIVE:"IN PLAY","NOT STARTED":"NOT STARTED YET"};
 const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const m=x=>"$"+(Number.isInteger(x)?x:x.toFixed(2));
-const CFB={BG:["Bowling Green","Ball State"],OSU:["Indiana","Ohio State"],WMU:["Central Michigan","Western Michigan"],TOL:["Eastern Michigan","Toledo"],VT:["Virginia Tech","Georgia Tech"],BAMA:["Tennessee","Alabama"],WIS:["UCLA","Wisconsin"],SYR:["Syracuse","Louisville"],BYU:["BYU","Notre Dame"]};
+let CFB={};
 const fmt=(d,tz)=>d.toLocaleTimeString("en-US",{timeZone:tz,hour:"numeric",minute:"2-digit"});
 // leg graders (mirror server.py)
 const ml=(game,side,lab)=>({game,f:g=>{const me=side==="h"?g.h:g.a,op=side==="h"?g.a:g.h,mg=me-op;
@@ -55,25 +54,14 @@ const tot=(game,ou,line)=>({game,f:g=>{const T=g.h+g.a;
   if(g.state==="post")return[T===line?"PUSH":"WON",`Total ended ${T}`];if(T===line)return["PUSHING",`${T} so far, exactly on the push number`];return["WIN",`${T} so far, ${lim-T} points of room left`];}});
 const L=(o,needs,odds)=>Object.assign(o,{needs,odds});
 const dec=a=>a>0?1+a/100:1+100/(-a);
-const TICKETS=[
- ["MLB",11,30.14,[L(ml("MLB","h","CLE"),"Guardians beat the Rays",-101),L(tot("MLB","o",6.5),"7 or more total runs (Rays + Guardians)",-114)]],
- ["MLB",11,10.89,[L(ml("MLB","h","CLE"),"Guardians beat the Rays",-101)]],
- ["MLB",11,29.92,[L(ml("MLB","h","CLE"),"Guardians beat the Rays",-102),L(tot("MLB","o",6.5),"7 or more total runs (Rays + Guardians)",-114)]],
- ["MLB",22,19.30,[L(tot("MLB","o",6.5),"7 or more total runs (Rays + Guardians)",-114)]],
- ["CFB",11,10.00,[L(sp("SYR","h",14.5,"SYR"),"Syracuse wins, or loses by 14 or fewer (vs Louisville)",-110)]],
- ["CFB",5,13.00,[L(sp("BYU","h",10.5,"BYU"),"BYU wins, or loses by 10 or fewer (vs Notre Dame)",-108),L(tot("BYU","o",47),"48 or more total points, Notre Dame + BYU (exactly 47 = push)",-115)]],
- ["CFB",11,10.19,[L(sp("BYU","h",10.5,"BYU"),"BYU wins, or loses by 10 or fewer (vs Notre Dame)",-108)]],
- ["CFB",22,20.00,[L(sp("WIS","a",1,"WIS"),"Wisconsin beats UCLA (a loss by exactly 1 = push)",-110)]],
- ["CFB",11,28.60,[L(sp("TOL","a",-7,"TOL"),"Toledo wins by 8 or more (exactly 7 = push)",-105),L(sp("WMU","a",-7,"WMU"),"Western Michigan wins by 8 or more (exactly 7 = push)",-118)]],
- ["CFB",22,31.02,[L(ml("WMU","a","WMU"),"Western Michigan wins",-285),L(ml("VT","h","VT"),"Virginia Tech beats Georgia Tech",-345),L(ml("TOL","a","TOL"),"Toledo wins",-260)]],
- ["CFB",11,27.72,[L(sp("WMU","a",-7,"WMU"),"Western Michigan wins by 8 or more (exactly 7 = push)",-118),L(tot("WMU","o",43.5),"44 or more total points (WMU + CMU)",-110)]],
- ["CFB",22,18.64,[L(sp("WMU","a",-7,"WMU"),"Western Michigan wins by 8 or more (exactly 7 = push)",-118)]],
- ["CFB",11,22.88,[L(sp("BAMA","a",-7,"BAMA"),"Alabama wins by 8 or more (exactly 7 = push)",-135),L(tot("BAMA","o",50),"51 or more total points, Alabama + Tennessee (exactly 50 = push)",-130)]],
- ["CFB",11,8.15,[L(sp("BAMA","a",-7,"BAMA"),"Alabama wins by 8 or more (exactly 7 = push)",-135)]],
- ["CFB",11,29.04,[L(sp("BG","h",-6,"BG"),"Bowling Green wins by 7 or more (exactly 6 = push)",-110),L(tot("BG","u",47),"46 or fewer total points, Bowling Green + Ball State (exactly 47 = push)",-110)]],
- ["CFB",11,38.94,[L(sp("BG","h",-6,"BG"),"Bowling Green wins by 7 or more (exactly 6 = push)",-110),L(ml("OSU","h","IND"),"Indiana beats Ohio State",138)]],
- ["CFB",11,40.15,[L(tot("OSU","o",50.5),"51 or more total points (Ohio State + Indiana)",-105),L(ml("OSU","h","IND"),"Indiana beats Ohio State",138)]],
-];
+let TICKETS=[];
+function buildTickets(d){CFB=d.cfb_games||{};TICKETS=d.tickets.map(t=>[t.sport,t.stake,t.towin,t.legs.map(l=>{
+ const o=l.type==="ml"?ml(l.game,l.side,l.lab):l.type==="sp"?sp(l.game,l.side,l.line,l.lab):tot(l.game,l.ou,l.line);return L(o,l.needs,l.odds)})]);
+ $("futures").innerHTML=(d.futures||[]).map(f=>`<div class="card" style="border-left-color:#9b59ff"><div class="top"><div><div class="bet">${m(f.stake)} bet <span style="font-size:13px;color:#8b97a8;font-weight:600">· future</span></div><div class="roll" style="color:#9b59ff">PENDING</div></div><div><div class="pay">Wins $${f.towin.toFixed(2)}</div><div class="ret">returns $${(f.stake+f.towin).toFixed(2)}</div></div></div><div class="leg"><div class="need">${esc(f.pick)}</div></div></div>`).join("");}
+async function checkVersion(){try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
+ if(v&&v!==APP_VERSION){const k="reloaded_"+v;if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,"1");location.replace(location.pathname+"?v="+encodeURIComponent(v));}}}catch(e){}}
+const APP_VERSION="2026-10-17.1";
+
 const chip=g=>!g?"score unavailable":g.state==="void"?`${g.aab} @ ${g.hab} · ${g.detail}`:g.state==="pre"?`${g.aab} @ ${g.hab} · ${g.detail}`:`${g.aab} ${g.a} – ${g.hab} ${g.h} · ${g.detail}`;
 async function getJSON(u,label){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error(`${label} HTTP ${r.status}`);return r.json();}
 async function fetchGames(){const G={},errs=[];
@@ -125,7 +113,8 @@ function render(T){const live=T.filter(t=>t.roll==="ALIVE"||t.roll==="NOT STARTE
  $("s_won").textContent="$"+T.filter(t=>t.roll==="CASHED").reduce((a,t)=>a+t.towin,0).toFixed(2);$("s_lost").textContent=m(T.filter(t=>t.roll==="DEAD").reduce((a,t)=>a+t.stake,0));$("s_ref").textContent=m(T.filter(t=>t.roll==="PUSH").reduce((a,t)=>a+t.stake,0));
  let h="",cur=-1;for(const t of order(T)){if(t.sec!==cur){cur=t.sec;h+=`<div class="gh" style="border-color:${SECC[cur]}">${SECN[cur]}</div>`;}h+=card(t);}
  $("tickets").innerHTML=h;}
-async function poll(){try{const[G,errs]=await fetchGames();const anyData=Object.values(G).some(Boolean);
+async function poll(){checkVersion();try{const br=await fetch("bets.json?t="+Date.now(),{cache:"no-store"});if(!br.ok)throw new Error("bets file HTTP "+br.status);buildTickets(await br.json());
+ const[G,errs]=await fetchGames();const anyData=Object.values(G).some(Boolean);
   if(!anyData)throw new Error(errs.join("; ")||"no data");render(grade(G));lastOk=new Date();
   $("ts").innerHTML=`<span class="dot"></span>Updated ${lastOk.toLocaleTimeString("en-US",{timeZone:"America/Los_Angeles",hour:"numeric",minute:"2-digit",second:"2-digit"})} PT`;
   $("err").innerHTML=errs.length?`<div class="err">⚠️ ${errs.map(esc).join("<br>")}</div>`:"";}
