@@ -38,7 +38,7 @@ const RC={DEAD:"#e5484d",CASHED:"#1fbf5f",PUSH:"#f0b429",ALIVE:"#f0b429","NOT ST
 const RL={DEAD:"LOST",CASHED:"WON",PUSH:"REFUND (PUSH / NO ACTION)",ALIVE:"IN PLAY","NOT STARTED":"NOT STARTED YET"};
 const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const m=x=>"$"+(Number.isInteger(x)?x:x.toFixed(2));
-const CFB={BG:["Bowling Green","Ball State"],OSU:["Indiana","Ohio State"],WMU:["Central Michigan","Western Michigan"],TOL:["Eastern Michigan","Toledo"],VT:["Virginia Tech","Georgia Tech"],BAMA:["Tennessee","Alabama"]};
+const CFB={BG:["Bowling Green","Ball State"],OSU:["Indiana","Ohio State"],WMU:["Central Michigan","Western Michigan"],TOL:["Eastern Michigan","Toledo"],VT:["Virginia Tech","Georgia Tech"],BAMA:["Tennessee","Alabama"],WIS:["UCLA","Wisconsin"]};
 const fmt=(d,tz)=>d.toLocaleTimeString("en-US",{timeZone:tz,hour:"numeric",minute:"2-digit"});
 // leg graders (mirror server.py)
 const ml=(game,side,lab)=>({game,f:g=>{const me=side==="h"?g.h:g.a,op=side==="h"?g.a:g.h,mg=me-op;
@@ -57,6 +57,9 @@ const L=(o,needs)=>Object.assign(o,{needs});
 const TICKETS=[
  ["MLB",11,30.14,[L(ml("MLB","h","CLE"),"Guardians beat the Rays"),L(tot("MLB","o",6.5),"7 or more total runs (Rays + Guardians)")]],
  ["MLB",11,10.89,[L(ml("MLB","h","CLE"),"Guardians beat the Rays")]],
+ ["MLB",11,29.92,[L(ml("MLB","h","CLE"),"Guardians beat the Rays"),L(tot("MLB","o",6.5),"7 or more total runs (Rays + Guardians)")]],
+ ["MLB",22,19.30,[L(tot("MLB","o",6.5),"7 or more total runs (Rays + Guardians)")]],
+ ["CFB",22,20.00,[L(sp("WIS","a",1,"WIS"),"Wisconsin beats UCLA (a loss by exactly 1 = push)")]],
  ["CFB",11,28.60,[L(sp("TOL","a",-7,"TOL"),"Toledo wins by 8 or more (exactly 7 = push)"),L(sp("WMU","a",-7,"WMU"),"Western Michigan wins by 8 or more (exactly 7 = push)")]],
  ["CFB",22,31.02,[L(ml("WMU","a","WMU"),"Western Michigan wins"),L(ml("VT","h","VT"),"Virginia Tech beats Georgia Tech"),L(ml("TOL","a","TOL"),"Toledo wins")]],
  ["CFB",11,27.72,[L(sp("WMU","a",-7,"WMU"),"Western Michigan wins by 8 or more (exactly 7 = push)"),L(tot("WMU","o",43.5),"44 or more total points (WMU + CMU)")]],
