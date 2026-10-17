@@ -1,0 +1,114 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="favicon.svg" type="image/svg+xml"><title>Live Bet Tracker</title><style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0d1015;color:#eef2f7;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"DejaVu Sans",Arial,sans-serif;padding:14px;max-width:640px;margin:0 auto}
+.hdr{background:#161c26;border-radius:16px;padding:16px}
+h1{font-size:22px;font-weight:800}.ts{font-size:13px;color:#9aa6b8;margin:3px 0 12px}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#1fbf5f;margin-right:6px;animation:p 2s infinite}@keyframes p{50%{opacity:.3}}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.st{background:#0d1118;border-radius:12px;padding:10px}
+.k{font-size:11px;color:#8b97a8;font-weight:700;letter-spacing:1px}.kv{font-size:22px;font-weight:800;margin-top:2px}.sub{font-size:11px;color:#8b97a8;margin-top:2px}
+.err{background:#3a1114;border:2px solid #e5484d;color:#ffd0d2;border-radius:12px;padding:12px;margin-top:12px;font-size:14px;font-weight:700}
+.gh{font-size:19px;font-weight:800;margin:24px 0 4px;padding-bottom:6px;border-bottom:3px solid}
+.card{background:#171d27;border-radius:14px;border-left:6px solid #5b6575;margin-top:12px;padding:14px}
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.bet{font-size:18px;font-weight:800}.pay{font-size:18px;font-weight:800;color:#39e27d;text-align:right}.ret{font-size:12px;color:#8b97a8;text-align:right;margin-top:1px}
+.roll{display:inline-block;font-size:12px;font-weight:800;letter-spacing:1px;margin-top:4px}
+.leg{margin-top:12px;padding-top:12px;border-top:1px solid #263042}
+.need{font-size:16px;font-weight:700;line-height:1.3}
+.live{margin-top:7px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pill{color:#fff;font-size:11px;font-weight:800;border-radius:6px;padding:4px 8px;letter-spacing:.5px;white-space:nowrap}
+.score{font-size:14px;font-weight:700;color:#dbe2ec}.tx{font-size:13px;color:#a3aec0;margin-top:3px}
+.note{font-size:12px;color:#ffcf7a;margin-top:10px}
+.ftr{margin-top:22px;font-size:12px;color:#7f8ba0;line-height:1.5;text-align:center}
+</style></head><body>
+<div class="hdr"><h1>Live Bets · Sat Oct 17</h1><div class="ts" id="ts"><span class="dot"></span>Loading live scores…</div>
+<div class="g3"><div class="st"><div class="k">STILL LIVE</div><div class="kv" id="s_live">–</div><div class="sub" id="s_maxwin"></div></div>
+<div class="st"><div class="k">WON</div><div class="kv" style="color:#39e27d" id="s_won">–</div></div>
+<div class="st"><div class="k">LOST</div><div class="kv" style="color:#ff6b6b" id="s_lost">–</div></div></div>
+<div id="err"></div></div>
+<div id="tickets"></div>
+<div class="gh" style="border-color:#9b59ff">🏆 Super Bowl futures</div>
+<div class="card" style="border-left-color:#9b59ff"><div class="top"><span class="bet">$11 bet</span></div><div class="leg"><div class="need">Super Bowl winner — team not readable in recording</div></div></div>
+<div class="card" style="border-left-color:#9b59ff"><div class="top"><span class="bet">$10 bet</span></div><div class="leg"><div class="need">Super Bowl winner — team not readable in recording</div></div></div>
+<div class="ftr">Updates every 30 seconds · scores from ESPN and MLB Stats API</div>
+<script>
+const COL={WON:"#1fbf5f",WIN:"#1fbf5f",LOST:"#e5484d",LOSE:"#e5484d",PUSH:"#f0b429",PUSHING:"#f0b429",NS:"#5b6575",NA:"#5b6575"};
+const LAB={WON:"WON",WIN:"WINNING",LOST:"LOST",LOSE:"LOSING",PUSH:"PUSH",PUSHING:"ON THE NUMBER",NS:"NOT STARTED",NA:"NO SCORE"};
+const RC={DEAD:"#e5484d",CASHED:"#1fbf5f",PUSH:"#f0b429",ALIVE:"#f0b429","NOT STARTED":"#5b6575"};
+const RL={DEAD:"LOST",CASHED:"WON",PUSH:"PUSH — REFUND",ALIVE:"IN PLAY","NOT STARTED":"NOT STARTED YET"};
+const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const m=x=>"$"+(Number.isInteger(x)?x:x.toFixed(2));
+const CFB={BG:["Bowling Green","Ball State"],OSU:["Indiana","Ohio State"],WMU:["Central Michigan","Western Michigan"],TOL:["Eastern Michigan","Toledo"],VT:["Virginia Tech","Georgia Tech"],BAMA:["Tennessee","Alabama"]};
+const fmt=(d,tz)=>d.toLocaleTimeString("en-US",{timeZone:tz,hour:"numeric",minute:"2-digit"});
+// leg graders (mirror server.py)
+const ml=(game,side,lab)=>({game,f:g=>{const me=side==="h"?g.h:g.a,op=side==="h"?g.a:g.h,mg=me-op;
+  const txt=`${lab} `+(mg>0?"up "+mg:mg<0?"down "+(-mg):"tied");
+  if(g.state==="post")return[mg>0?"WON":"LOST",txt];return[mg>0?"WIN":"LOSE",txt];}});
+const sp=(game,side,line,lab)=>({game,f:g=>{const me=side==="h"?g.h:g.a,op=side==="h"?g.a:g.h,mg=me-op,cov=mg+line;
+  let txt=`${lab} `+(mg>0?"up "+mg:mg<0?"down "+(-mg):"tied")+", ",r;
+  if(cov>0){r="WIN";txt+=`covering by ${cov}`}else if(cov===0){r="PUSHING";txt+="exactly on the push number"}else{r="LOSE";txt+=`needs ${Math.floor(-cov)+1} more points of margin`}
+  if(g.state==="post")r={WIN:"WON",LOSE:"LOST",PUSHING:"PUSH"}[r];return[r,txt];}});
+const tot=(game,ou,line)=>({game,f:g=>{const T=g.h+g.a;
+  if(ou==="o"){const tgt=Math.floor(line)+1;if(T>line)return["WON",`${T} points, over already hit`];
+    if(g.state==="post")return[T===line?"PUSH":"LOST",`final total ${T}`];return["LOSE",`${T} so far, needs ${tgt-T} more`];}
+  const lim=Number.isInteger(line)?line-1:Math.floor(line);if(T>line)return["LOST",`${T} points, went over`];
+  if(g.state==="post")return[T===line?"PUSH":"WON",`final total ${T}`];return["WIN",`${T} so far, ${lim-T} points of room left`];}});
+const L=(o,needs)=>Object.assign(o,{needs});
+const TICKETS=[
+ ["MLB",11,30.14,[L(ml("MLB","h","CLE"),"Guardians beat the Rays"),L(tot("MLB","o",6.5),"7 or more total runs (Rays + Guardians)")]],
+ ["MLB",11,10.89,[L(ml("MLB","h","CLE"),"Guardians beat the Rays")]],
+ ["CFB",11,28.60,[L(sp("TOL","a",-7,"TOL"),"Toledo wins by 8 or more (exactly 7 = push)"),L(sp("WMU","a",-7,"WMU"),"Western Michigan wins by 8 or more (exactly 7 = push)")]],
+ ["CFB",22,31.02,[L(ml("WMU","a","WMU"),"Western Michigan wins"),L(ml("VT","h","VT"),"Virginia Tech beats Georgia Tech"),L(ml("TOL","a","TOL"),"Toledo wins")]],
+ ["CFB",11,27.72,[L(sp("WMU","a",-7,"WMU"),"Western Michigan wins by 8 or more (exactly 7 = push)"),L(tot("WMU","o",43.5),"44 or more total points (WMU + CMU)")]],
+ ["CFB",22,18.64,[L(sp("WMU","a",-7,"WMU"),"Western Michigan wins by 8 or more (exactly 7 = push)")]],
+ ["CFB",11,22.88,[L(sp("BAMA","a",-7,"BAMA"),"Alabama wins by 8 or more (exactly 7 = push)"),L(tot("BAMA","o",50),"51 or more total points, Alabama + Tennessee (exactly 50 = push)")]],
+ ["CFB",11,8.15,[L(sp("BAMA","a",-7,"BAMA"),"Alabama wins by 8 or more (exactly 7 = push)")]],
+ ["CFB",11,29.04,[L(sp("BG","h",-6,"BG"),"Bowling Green wins by 7 or more (exactly 6 = push)"),L(tot("BG","u",47),"46 or fewer total points, Bowling Green + Ball State (exactly 47 = push)")]],
+ ["CFB",11,38.94,[L(sp("BG","h",-6,"BG"),"Bowling Green wins by 7 or more (exactly 6 = push)"),L(ml("OSU","h","IND"),"Indiana beats Ohio State")]],
+ ["CFB",11,40.15,[L(tot("OSU","o",50.5),"51 or more total points (Ohio State + Indiana)"),L(ml("OSU","h","IND"),"Indiana beats Ohio State")]],
+];
+const chip=g=>!g?"score unavailable":g.state==="pre"?`${g.aab} @ ${g.hab} · ${g.detail}`:`${g.aab} ${g.a} – ${g.hab} ${g.h} · ${g.detail}`;
+async function getJSON(u,label){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error(`${label} HTTP ${r.status}`);return r.json();}
+async function fetchGames(){const G={},errs=[];
+ try{const sb=await getJSON("https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?dates=20261017&limit=300&groups=80","ESPN");
+  for(const[k,[home,away]]of Object.entries(CFB)){G[k]=null;
+   for(const e of sb.events){const c=e.competitions[0],t={};c.competitors.forEach(x=>t[x.homeAway]=x);
+    if(t.home.team.displayName.startsWith(home)&&t.away.team.displayName.startsWith(away)){const s=c.status;
+     G[k]={state:s.type.state,detail:s.type.shortDetail,h:+(t.home.score||0),a:+(t.away.score||0),hab:t.home.team.abbreviation,aab:t.away.team.abbreviation};break;}}
+   if(!G[k])errs.push(`ESPN: ${away} @ ${home} not found`);}
+ }catch(e){errs.push("ESPN scores failed: "+e.message)}
+ G.MLB=null;
+ try{const s=await getJSON("https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=114&date=2026-10-17&hydrate=linescore","MLB");
+  let g=null;for(const d of s.dates||[])for(const x of d.games)if(x.teams.home.team.id===114&&x.teams.away.team.id===139)g=x;
+  if(!g){const f=await getJSON("https://statsapi.mlb.com/api/v1/schedule?gamePk=849816&hydrate=linescore","MLB");g=f.dates?.[0]?.games?.[0]||null;}
+  if(g){const st={Preview:"pre",Live:"in",Final:"post"}[g.status.abstractGameState]||"pre",ls=g.linescore||{},gt=new Date(g.gameDate);let det=g.status.detailedState;
+   if(st==="in")det=`${ls.inningState||""} ${ls.currentInningOrdinal||""}`.trim()+(ls.outs!=null?` · ${ls.outs} out`:"");
+   if(st==="pre")det+=` · ${fmt(gt,"America/New_York")} ET / ${fmt(gt,"America/Los_Angeles")} PT`;
+   if(st==="post"&&ls.currentInning&&ls.currentInning!==9)det+=` (${ls.currentInning})`;
+   G.MLB={state:st,detail:det,h:g.teams.home.score||0,a:g.teams.away.score||0,hab:"CLE",aab:"TB"};}
+  else errs.push("MLB: Rays @ Guardians not found");
+ }catch(e){errs.push("MLB scores failed: "+e.message)}
+ return[G,errs];}
+function grade(G){return TICKETS.map(([sport,stake,towin,legs])=>{const LL=legs.map(lg=>{const g=G[lg.game];let st,txt;
+  if(!g){st="NA";txt="score unavailable"}else if(g.state==="pre"){st="NS";txt="not started"}else[st,txt]=lg.f(g);
+  return{needs:lg.needs,status:st,text:txt,score:chip(g)}});const ss=LL.map(x=>x.status);
+  let roll=ss.includes("LOST")?"DEAD":ss.every(s=>s==="WON"||s==="PUSH")?(ss.every(s=>s==="PUSH")?"PUSH":"CASHED"):ss.every(s=>s==="NS"||s==="NA")?"NOT STARTED":"ALIVE";
+  return{sport,stake,towin,legs:LL,roll,left:ss.filter(s=>!["WON","PUSH","LOST"].includes(s)).length}});}
+function card(t){const c=RC[t.roll]||"#5b6575",n=t.legs.length,kind=n>1?`${n}-leg parlay`:"single",rl=RL[t.roll]+(t.roll==="ALIVE"?` · ${t.left} of ${n} left`:"");
+ const mlb=t.sport==="MLB"?`<div class="note">Voids if Martinez or Armstrong doesn't start</div>`:"";
+ return `<div class="card" style="border-left-color:${c}"><div class="top"><div><div class="bet">${m(t.stake)} bet <span style="font-size:13px;color:#8b97a8;font-weight:600">· ${kind}</span></div>
+ <div class="roll" style="color:${c}">${rl}</div></div><div><div class="pay">Wins $${t.towin.toFixed(2)}</div><div class="ret">returns $${(t.stake+t.towin).toFixed(2)}</div></div></div>`+
+ t.legs.map(l=>`<div class="leg"><div class="need">${esc(l.needs)}</div><div class="live"><span class="pill" style="background:${COL[l.status]}">${LAB[l.status]}</span><span class="score">${esc(l.score)}</span></div>${l.status!=="NS"&&l.status!=="NA"?`<div class="tx">${esc(l.text)}</div>`:""}</div>`).join("")+mlb+`</div>`}
+let lastOk=null;
+function render(T){const live=T.filter(t=>t.roll==="ALIVE"||t.roll==="NOT STARTED");
+ $("s_live").textContent=m(live.reduce((a,t)=>a+t.stake,0));$("s_maxwin").textContent="can win $"+live.reduce((a,t)=>a+t.towin,0).toFixed(2);
+ $("s_won").textContent="$"+T.filter(t=>t.roll==="CASHED").reduce((a,t)=>a+t.towin,0).toFixed(2);$("s_lost").textContent=m(T.filter(t=>t.roll==="DEAD").reduce((a,t)=>a+t.stake,0));
+ $("tickets").innerHTML=`<div class="gh" style="border-color:#2b6cff">⚾ Rays @ Guardians · ALCS Game 4</div>`+T.filter(t=>t.sport==="MLB").map(card).join("")+
+ `<div class="gh" style="border-color:#e8a317">🏈 College football</div>`+T.filter(t=>t.sport==="CFB").map(card).join("");}
+async function poll(){try{const[G,errs]=await fetchGames();const anyData=Object.values(G).some(Boolean);
+  if(!anyData)throw new Error(errs.join("; ")||"no data");render(grade(G));lastOk=new Date();
+  $("ts").innerHTML=`<span class="dot"></span>Updated ${lastOk.toLocaleTimeString("en-US",{timeZone:"America/Los_Angeles",hour:"numeric",minute:"2-digit",second:"2-digit"})} PT`;
+  $("err").innerHTML=errs.length?`<div class="err">⚠️ ${errs.map(esc).join("<br>")}</div>`:"";}
+ catch(e){$("err").innerHTML=`<div class="err">⚠️ Couldn't update scores (${esc(e.message)})${lastOk?" — showing last good update":""}. Retrying in 30s.</div>`;}}
+poll();setInterval(poll,30000);
+</script></body></html>
