@@ -8,7 +8,7 @@ h1{font-size:22px;font-weight:800}.ts{font-size:13px;color:#9aa6b8;margin:3px 0 
 .g3{display:grid;grid-template-columns:1.25fr 1fr 1fr 1fr;gap:8px}.st{background:#0d1118;border-radius:12px;padding:10px}
 .k{font-size:11px;color:#8b97a8;font-weight:700;letter-spacing:1px}.kv{font-size:22px;font-weight:800;margin-top:2px}.sub{font-size:11px;color:#8b97a8;margin-top:2px}
 .err{background:#3a1114;border:2px solid #e5484d;color:#ffd0d2;border-radius:12px;padding:12px;margin-top:12px;font-size:14px;font-weight:700}
-.gh{font-size:19px;font-weight:800;margin:24px 0 4px;padding-bottom:6px;border-bottom:3px solid}
+.gh{font-size:19px;font-weight:800;margin:24px 0 4px;padding-bottom:6px;border-bottom:3px solid;display:flex;justify-content:space-between;align-items:center;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent}.gh .cnt{font-size:13px;color:#8b97a8;font-weight:700;margin-left:4px}.chev{font-size:16px;color:#8b97a8;transition:transform .2s;padding:0 4px}.gh.closed .chev{transform:rotate(-90deg)}.sb[hidden]{display:none}
 .card{background:#171d27;border-radius:14px;border-left:6px solid #5b6575;margin-top:12px;padding:14px}
 .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
 .bet{font-size:18px;font-weight:800}.pay{font-size:18px;font-weight:800;color:#39e27d;text-align:right}.ret{font-size:12px;color:#8b97a8;text-align:right;margin-top:1px}
@@ -59,10 +59,10 @@ function buildTickets(d){CFB=d.cfb_games||{};TICKETS=d.tickets.map(t=>[t.sport,t
  const o=l.type==="ml"?ml(l.game,l.side,l.lab):l.type==="sp"?sp(l.game,l.side,l.line,l.lab):tot(l.game,l.ou,l.line);return L(o,l.needs,l.odds)})]);
  FUTS=d.futures||[];
  }
-function futHTML(){return FUTS.length?`<div class="gh" style="border-color:#9b59ff">🏈 Super Bowl bets</div>`+FUTS.map(f=>`<div class="card" style="border-left-color:#9b59ff"><div class="top"><div><div class="bet">${m(f.stake)} bet</div><div class="roll" style="color:#b48cff">PENDING · SETTLES FEB 2027</div></div><div><div class="pay">Wins $${f.towin.toFixed(2)}</div><div class="ret">returns $${(f.stake+f.towin).toFixed(2)}</div></div></div><div class="leg"><div class="need">${esc(f.pick)}</div></div></div>`).join(""):""}
+function futHTML(){return FUTS.length?section("sb","🏈 Super Bowl bets","#9b59ff",FUTS.map(f=>`<div class="card" style="border-left-color:#9b59ff"><div class="top"><div><div class="bet">${m(f.stake)} bet</div><div class="roll" style="color:#b48cff">PENDING · SETTLES FEB 2027</div></div><div><div class="pay">Wins $${f.towin.toFixed(2)}</div><div class="ret">returns $${(f.stake+f.towin).toFixed(2)}</div></div></div><div class="leg"><div class="need">${esc(f.pick)}</div></div></div>`).join(""),FUTS.length):""}
 async function checkVersion(){try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
  if(v&&v!==APP_VERSION){const k="reloaded_"+v;if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,"1");location.replace(location.pathname+"?v="+encodeURIComponent(v));}}}catch(e){}}
-const APP_VERSION="2026-10-17.4";
+const APP_VERSION="2026-10-17.5";
 
 const chip=g=>!g?"score unavailable":g.state==="void"?`${g.aab} @ ${g.hab} · ${g.detail}`:g.state==="pre"?`${g.aab} @ ${g.hab} · ${g.detail}`:`${g.aab} ${g.a} – ${g.hab} ${g.h} · ${g.detail}`;
 async function getJSON(u,label){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error(`${label} HTTP ${r.status}`);return r.json();}
@@ -109,7 +109,12 @@ function order(T){const now=Date.now();
   else if(live.length){t.sec=0;t.key=Math.min(...live.map(l=>l.start))}
   else{const nx=pre.length?Math.min(...pre.map(l=>l.start)):Infinity;t.key=nx;t.sec=(nx-now)<=3*3600e3?1:2}});
  return T.sort((a,b)=>a.sec-b.sec||a.key-b.key||(a.sport<b.sport?-1:1));}
-const SECN=["🔴 Live now","⏱️ Starting soon","🌙 Later today","✅ Settled"],SECC=["#e5484d","#f0b429","#2b6cff","#8b97a8"];
+const SECN=["🔴 Live now","⏱️ Starting soon","🌙 Later today","✅ Settled"],SECC=["#e5484d","#f0b429","#2b6cff","#3fae7a"];
+const SECK=["live","soon","later","settled"];
+const COLL=(()=>{try{return JSON.parse(localStorage.getItem("collapsed")||"{}")}catch(e){return{}}})();
+function section(k,title,color,body,n){const c=!!COLL[k];return `<div class="gh${c?" closed":""}" data-k="${k}" role="button" style="border-color:${color}"><span>${title} <span class="cnt">${n}</span></span><span class="chev">▾</span></div><div class="sb" data-k="${k}"${c?" hidden":""}>${body}</div>`}
+function toggleSec(k){COLL[k]=!COLL[k];if(!COLL[k])delete COLL[k];try{localStorage.setItem("collapsed",JSON.stringify(COLL))}catch(e){}document.querySelectorAll(`[data-k="${k}"]`).forEach(e=>{if(e.classList.contains("gh"))e.classList.toggle("closed",!!COLL[k]);else e.hidden=!!COLL[k];});}
+document.addEventListener("click",e=>{const g=e.target.closest(".gh[data-k]");if(g)toggleSec(g.dataset.k);});
 function money(x){return (x<0?"−$":"$")+Math.abs(x).toFixed(2)}
 function renderPL(T){const settled=T.filter(t=>["CASHED","DEAD","PUSH"].includes(t.roll)),live=T.filter(t=>t.roll==="ALIVE"||t.roll==="NOT STARTED");
  const sum=(a,f)=>a.reduce((x,t)=>x+f(t),0);
@@ -129,8 +134,9 @@ function renderPL(T){const settled=T.filter(t=>["CASHED","DEAD","PUSH"].includes
 function render(T){renderPL(T);const live=T.filter(t=>t.roll==="ALIVE"||t.roll==="NOT STARTED");
  $("s_live").textContent=m(live.reduce((a,t)=>a+t.stake,0));$("s_maxwin").textContent="can win $"+live.reduce((a,t)=>a+t.towin,0).toFixed(2);
  $("s_won").textContent="$"+T.filter(t=>t.roll==="CASHED").reduce((a,t)=>a+t.towin,0).toFixed(2);$("s_lost").textContent=m(T.filter(t=>t.roll==="DEAD").reduce((a,t)=>a+t.stake,0));$("s_ref").textContent=m(T.filter(t=>t.roll==="PUSH").reduce((a,t)=>a+t.stake,0));
- let h="",cur=-1,fd=false;for(const t of order(T)){if(t.sec!==cur){if(t.sec===3&&!fd){h+=futHTML();fd=true;}cur=t.sec;h+=`<div class="gh" style="border-color:${SECC[cur]}">${SECN[cur]}</div>`;}h+=card(t);}
- if(!fd)h+=futHTML();$("tickets").innerHTML=h;}
+ const G=[[],[],[],[]];for(const t of order(T))G[t.sec].push(card(t));
+ let h="";for(const i of [0,1,2,"f",3]){if(i==="f"){h+=futHTML();continue;}if(G[i].length)h+=section(SECK[i],SECN[i],SECC[i],G[i].join(""),G[i].length);}
+ $("tickets").innerHTML=h;}
 async function poll(){checkVersion();try{const br=await fetch("bets.json?t="+Date.now(),{cache:"no-store"});if(!br.ok)throw new Error("bets file HTTP "+br.status);buildTickets(await br.json());
  const[G,errs]=await fetchGames();const anyData=Object.values(G).some(Boolean);
   if(!anyData)throw new Error(errs.join("; ")||"no data");render(grade(G));lastOk=new Date();
