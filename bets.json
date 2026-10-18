@@ -1,5 +1,5 @@
 {
- "version": "2026-10-17.15",
+ "version": "2026-10-17.16",
  "cfb_games": {
   "BG": [
    "Bowling Green",
@@ -36,6 +36,10 @@
   "BYU": [
    "BYU",
    "Notre Dame"
+  ],
+  "HOU": [
+   "Houston",
+   "Oklahoma State"
   ]
  },
  "tickets": [
@@ -144,6 +148,30 @@
      "side": "h",
      "line": 14.5,
      "lab": "SYR"
+    }
+   ]
+  },
+  {
+   "sport": "CFB",
+   "stake": 11.0,
+   "towin": 22.0,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "SYR",
+     "needs": "Syracuse wins, or loses by 14 or fewer (vs Louisville)",
+     "odds": -110,
+     "side": "h",
+     "line": 14.5,
+     "lab": "SYR"
+    },
+    {
+     "type": "ml",
+     "game": "HOU",
+     "needs": "Houston beats Oklahoma State",
+     "odds": -175,
+     "side": "h",
+     "lab": "HOU"
     }
    ]
   },
