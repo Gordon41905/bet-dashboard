@@ -80,6 +80,21 @@
   {
    "sport": "MLB",
    "stake": 11.0,
+   "towin": 15.4,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "MLB",
+     "needs": "Guardians beat the Rays",
+     "odds": 140,
+     "side": "h",
+     "lab": "CLE"
+    }
+   ]
+  },
+  {
+   "sport": "MLB",
+   "stake": 11.0,
    "towin": 29.92,
    "legs": [
     {
