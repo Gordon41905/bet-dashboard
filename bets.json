@@ -1,5 +1,5 @@
 {
- "version": "2026-10-18.1",
+ "version": "2026-10-18.2",
  "cfb_games": {
   "BG": [
    "Bowling Green",
@@ -61,6 +61,16 @@
   "JAX": [
    "Jacksonville Jaguars",
    "Houston Texans",
+   "20261018"
+  ],
+  "CLE": [
+   "Cleveland Browns",
+   "Baltimore Ravens",
+   "20261018"
+  ],
+  "TB": [
+   "Tampa Bay Buccaneers",
+   "Pittsburgh Steelers",
    "20261018"
   ]
  },
@@ -563,6 +573,85 @@
      "side": "h",
      "line": -2.5,
      "lab": "JAX"
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 11.0,
+   "towin": 7.33,
+   "settled": "2026-10-18",
+   "legs": [
+    {
+     "type": "sp",
+     "game": "JAX",
+     "needs": "Texans beat the Jaguars (a tie = push)",
+     "odds": -150,
+     "side": "a",
+     "line": 0.0,
+     "lab": "HOU"
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 22.0,
+   "towin": 20.0,
+   "legs": [
+    {
+     "type": "tot",
+     "game": "CLE",
+     "needs": "40 or more total points, Ravens + Browns",
+     "odds": -110,
+     "ou": "o",
+     "line": 39.5
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 11.0,
+   "towin": 28.27,
+   "legs": [
+    {
+     "type": "tot",
+     "game": "TB",
+     "needs": "39 or more total points, Steelers + Buccaneers",
+     "odds": -105,
+     "ou": "o",
+     "line": 38.5
+    },
+    {
+     "type": "tot",
+     "game": "CLE",
+     "needs": "40 or more total points, Ravens + Browns (exactly 39 = push)",
+     "odds": -120,
+     "ou": "o",
+     "line": 39.0
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 11.0,
+   "towin": 24.97,
+   "legs": [
+    {
+     "type": "tot",
+     "game": "CLE",
+     "needs": "40 or more total points, Ravens + Browns",
+     "odds": -110,
+     "ou": "o",
+     "line": 39.5
+    },
+    {
+     "type": "sp",
+     "game": "TB",
+     "needs": "Buccaneers win, or lose by 2 or fewer vs Steelers (lose by exactly 3 = push)",
+     "odds": -140,
+     "side": "h",
+     "line": 3.0,
+     "lab": "TB"
     }
    ]
   }
