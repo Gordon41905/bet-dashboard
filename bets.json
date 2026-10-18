@@ -1,5 +1,5 @@
 {
- "version": "2026-10-18.7",
+ "version": "2026-10-18.8",
  "cfb_games": {
   "BG": [
    "Bowling Green",
@@ -86,6 +86,11 @@
   "IND": [
    "Indianapolis Colts",
    "Tennessee Titans",
+   "20261018"
+  ],
+  "GB": [
+   "Green Bay Packers",
+   "Dallas Cowboys",
    "20261018"
   ]
  },
@@ -698,6 +703,31 @@
      "odds": -300,
      "side": "h",
      "lab": "IND"
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 11.0,
+   "towin": 25.52,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "KC",
+     "needs": "Chiefs win by 7 or more (vs Chargers)",
+     "odds": -135,
+     "side": "h",
+     "line": -6.5,
+     "lab": "KC"
+    },
+    {
+     "type": "sp",
+     "game": "GB",
+     "needs": "Packers beat the Cowboys (a tie = push)",
+     "odds": -110,
+     "side": "h",
+     "line": 0.0,
+     "lab": "GB"
     }
    ]
   }
