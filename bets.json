@@ -1,5 +1,5 @@
 {
- "version": "2026-10-18.5",
+ "version": "2026-10-18.6",
  "cfb_games": {
   "BG": [
    "Bowling Green",
@@ -71,6 +71,21 @@
   "TB": [
    "Tampa Bay Buccaneers",
    "Pittsburgh Steelers",
+   "20261018"
+  ],
+  "PHI": [
+   "Philadelphia Eagles",
+   "Carolina Panthers",
+   "20261018"
+  ],
+  "KC": [
+   "Kansas City Chiefs",
+   "Los Angeles Chargers",
+   "20261018"
+  ],
+  "IND": [
+   "Indianapolis Colts",
+   "Tennessee Titans",
    "20261018"
   ]
  },
@@ -652,6 +667,37 @@
      "side": "h",
      "line": 3.0,
      "lab": "TB"
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 22.0,
+   "towin": 38.06,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "PHI",
+     "needs": "Panthers beat the Eagles",
+     "odds": -150,
+     "side": "a",
+     "lab": "CAR"
+    },
+    {
+     "type": "ml",
+     "game": "KC",
+     "needs": "Chiefs beat the Chargers",
+     "odds": -440,
+     "side": "h",
+     "lab": "KC"
+    },
+    {
+     "type": "ml",
+     "game": "IND",
+     "needs": "Colts beat the Titans",
+     "odds": -300,
+     "side": "h",
+     "lab": "IND"
     }
    ]
   }
