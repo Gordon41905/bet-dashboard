@@ -17,7 +17,7 @@ h1{font-size:22px;font-weight:800}.ts{font-size:13px;color:#9aa6b8;margin:3px 0 
 .need{font-size:16px;font-weight:700;line-height:1.3}
 .live{margin-top:7px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .pill{color:#fff;font-size:11px;font-weight:800;border-radius:6px;padding:4px 8px;letter-spacing:.5px;white-space:nowrap}
-.score{font-size:14px;font-weight:700;color:#dbe2ec}.tx{font-size:13px;color:#a3aec0;margin-top:3px;display:flex;gap:5px;white-space:nowrap}.tt{overflow:hidden;text-overflow:ellipsis;min-width:0}.lo{color:#7f8ba0;flex:none}
+.score{font-size:14px;font-weight:700;color:#dbe2ec}.tx{font-size:13px;color:#a3aec0;margin-top:3px;display:flex;gap:5px;white-space:nowrap}.tt{overflow:hidden;text-overflow:ellipsis;min-width:0}.lo{color:#7f8ba0;flex:none}.hm{color:#6b7686;font-size:11px;flex:none;align-self:center}.he{display:inline-block;font-size:10px;margin-left:2px;animation:hf 2s ease-in-out infinite}@keyframes hf{0%,100%{opacity:1}50%{opacity:.25}}@media (prefers-reduced-motion:reduce){.he{animation:none}}
 .note{font-size:12px;color:#ffcf7a;margin-top:10px}
 .pl{background:#161c26;border-radius:16px;padding:14px 16px;margin-top:12px}.plc{display:flex;justify-content:space-between;gap:8px;background:#161c26;border-radius:12px;padding:9px 12px;margin-top:6px;white-space:nowrap;font-size:14px;color:#a3aec0}.plc b{color:#eef2f7;margin-left:4px}.plc{align-items:baseline}.plc .pn{font-size:22px}.sub{font-size:13px;color:#8b97a8;font-weight:700;letter-spacing:1px;margin:16px 0 0;text-transform:uppercase}[hidden]{display:none!important}.plh{display:flex;justify-content:space-between;align-items:baseline}.plt{font-size:12px;color:#8b97a8;font-weight:700;letter-spacing:1px}.pln{font-size:22px;font-weight:800;white-space:nowrap}.plh{gap:10px}.plr{display:flex;justify-content:space-between;font-size:14px;padding:5px 0;border-top:1px solid #263042;color:#c3ccd8}.plr b{color:#eef2f7}.pls{font-size:12px;color:#8b97a8;margin-top:2px}
 .tsr{display:flex;justify-content:space-between;align-items:baseline;gap:8px}.tsr .ts{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nav{font-size:12px;color:#8b97a8;font-weight:700;text-decoration:none;white-space:nowrap;flex:none;border:1px solid #2c3646;border-radius:999px;padding:1px 8px;-webkit-tap-highlight-color:transparent}.nav:active,.nav:hover{color:#eef2f7;border-color:#8b97a8}
@@ -69,7 +69,7 @@ function buildTickets(d){CFB=d.cfb_games||{};NFL=d.nfl_games||{};TICKETS=d.ticke
 function futHTML(){return FUTS.length?section("sb","🏈 Super Bowl bets","#9b59ff",FUTS.map(f=>`<div class="card" style="border-left-color:#9b59ff"><div class="top"><div><div class="bet">${m(f.stake)} bet</div><div class="roll" style="color:#b48cff">PENDING · SETTLES FEB 2027</div></div><div><div class="pay">Wins $${f.towin.toFixed(2)}</div><div class="ret">returns $${(f.stake+f.towin).toFixed(2)}</div></div></div><div class="leg"><div class="need">${esc(f.pick)}</div></div></div>`).join(""),FUTS.length):""}
 async function checkVersion(){try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
  if(v&&v!==APP_VERSION){const k="reloaded_"+v;if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,"1");location.replace(location.pathname+"?v="+encodeURIComponent(v));}}}catch(e){}}
-const APP_VERSION="2026-10-17.21";
+const APP_VERSION="2026-10-17.22";
 
 const chip=g=>!g?"score unavailable":g.state==="void"?`${g.aab} @ ${g.hab} · ${g.detail}`:g.state==="pre"?`${g.aab} @ ${g.hab} · ${g.detail}`:`${g.aab} ${g.a} – ${g.hab} ${g.h} · ${g.detail}`;
 async function getJSON(u,label){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error(`${label} HTTP ${r.status}`);return r.json();}
@@ -133,8 +133,7 @@ async function fetchOdds(G){const out={};
 const prob=a=>a<0?(-a)/((-a)+100):100/(a+100);
 function oddsTag(l){const sp=l.spec,O=ODDS[l.game];if(!O||!sp||sp.type==="ml1h"||SETTLED.has(l.status))return"";let txt="",good=null;
  const mk=sp.type==="ml"?O.ml:sp.type==="sp"?O.sp:sp.type==="tot"?O.ou:null;if(!mk)return"";const o={mlh:O.ml?.h,mla:O.ml?.a,hs:O.sp?.hs,ou:O.ou?.v};
- const asof=mk.fresh?"":`<span style="color:#6b7686;font-size:11px;flex:none;align-self:center">${mk.at?"as of "+new Date(mk.at).toLocaleTimeString("en-US",{timeZone:"America/Los_Angeles",hour:"numeric",minute:"2-digit"}).replace(/\s?[AP]M$/,""):"stale"}</span>`;
- const team=sp.lab||"";const fmtn=x=>(x>0?"+":"")+x;
+ const asof=mk.fresh?"":(()=>{const age=mk.at?Date.now()-mk.at:Infinity;return `<span class="hm">${mk.at?"as of "+new Date(mk.at).toLocaleTimeString("en-US",{timeZone:"America/Los_Angeles",hour:"numeric",minute:"2-digit"}).replace(/\s?[AP]M$/,""):"stale"}<span class="he">${age<=300000?"👻":"💀"}</span></span>`})();const fmtn=x=>(x>0?"+":"")+x;
  if(sp.type==="ml"){const v=sp.side==="h"?o.mlh:o.mla;if(v==null)return"";txt=`now ${team} ${fmtn(v)}`;good=prob(v)>prob(sp.odds)?1:prob(v)<prob(sp.odds)?-1:0;}
  else if(sp.type==="sp"){if(o.hs==null)return"";const v=sp.side==="h"?o.hs:-o.hs;txt=`now ${team} ${fmtn(v)}`;good=v<sp.line?1:v>sp.line?-1:0;}
  else if(sp.type==="tot"){if(o.ou==null)return"";txt=`now ${sp.ou==="o"?"O":"U"} ${o.ou}`;good=sp.ou==="o"?(o.ou>sp.line?1:o.ou<sp.line?-1:0):(o.ou<sp.line?1:o.ou>sp.line?-1:0);}
