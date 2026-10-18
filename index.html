@@ -22,9 +22,10 @@ h1{font-size:22px;font-weight:800}.ts{font-size:13px;color:#9aa6b8;margin:3px 0 
 .pl{background:#161c26;border-radius:16px;padding:14px 16px;margin-top:12px}.plc{display:flex;justify-content:space-between;gap:8px;background:#161c26;border-radius:12px;padding:9px 12px;margin-top:6px;white-space:nowrap;font-size:14px;color:#a3aec0}.plc b{color:#eef2f7;margin-left:4px}.plc{align-items:baseline}.plc .pn{font-size:22px}.sub{font-size:13px;color:#8b97a8;font-weight:700;letter-spacing:1px;margin:16px 0 0;text-transform:uppercase}[hidden]{display:none!important}.plh{display:flex;justify-content:space-between;align-items:baseline}.plt{font-size:12px;color:#8b97a8;font-weight:700;letter-spacing:1px}.pln{font-size:22px;font-weight:800;white-space:nowrap}.plh{gap:10px}.plr{display:flex;justify-content:space-between;font-size:14px;padding:5px 0;border-top:1px solid #263042;color:#c3ccd8}.plr b{color:#eef2f7}.pls{font-size:12px;color:#8b97a8;margin-top:2px}
 .tsr{display:flex;justify-content:space-between;align-items:baseline;gap:8px}.tsr .ts{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nav{font-size:12px;color:#8b97a8;font-weight:700;text-decoration:none;white-space:nowrap;flex:none;border:1px solid #2c3646;border-radius:999px;padding:1px 8px;-webkit-tap-highlight-color:transparent}.nav:active,.nav:hover{color:#eef2f7;border-color:#8b97a8}
 .ght{white-space:nowrap;flex:none}.gh .chev{margin-left:auto}.ghs{margin-left:10px;font-size:11.5px;font-weight:600;letter-spacing:-.2px;color:#8b97a8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}.ghs b{font-weight:800;color:#c3ccd8}.ghs .gn{font-size:14.5px;letter-spacing:-.3px}
+.sb[data-k="archive"] .gh{font-size:15px;margin:12px 0 2px;padding-bottom:4px;border-bottom-width:2px}.sb[data-k="archive"] .gh .chev{font-size:13px}
 .ftr{margin-top:22px;font-size:12px;color:#7f8ba0;line-height:1.5;text-align:center}
 </style></head><body>
-<div class="hdr"><div class="hrow"><h1>Live Bets · Sat Oct 17</h1><span class="cw" id="s_maxwin"></span></div><div class="tsr"><div class="ts" id="ts"><span class="dot"></span>Loading live scores…</div><a id="nav" class="nav" href="https://gordon41905.github.io/tomorrow-winners/">Winners</a></div>
+<div class="hdr"><div class="hrow"><h1 id="title">Live Bets</h1><span class="cw" id="s_maxwin"></span></div><div class="tsr"><div class="ts" id="ts"><span class="dot"></span>Loading live scores…</div><a id="nav" class="nav" href="https://gordon41905.github.io/tomorrow-winners/">Winners</a></div>
 <div class="g3"><div class="st"><div class="k">STILL LIVE</div><div class="kv" id="s_live">–</div></div>
 <div class="st"><div class="k">WON</div><div class="kv" style="color:#39e27d" id="s_won">–</div></div>
 <div class="st"><div class="k">LOST</div><div class="kv" style="color:#ff6b6b" id="s_lost">–</div></div><div class="st"><div class="k">REFUNDED</div><div class="kv" style="color:#f0b429" id="s_ref">–</div></div></div>
@@ -62,20 +63,20 @@ const tot=(game,ou,line)=>({game,f:g=>{const T=g.h+g.a;
 const L=(o,needs,odds)=>Object.assign(o,{needs,odds});
 const dec=a=>a>0?1+a/100:1+100/(-a);
 let TICKETS=[],FUTS=[];
-function buildTickets(d){CFB=d.cfb_games||{};NFL=d.nfl_games||{};TICKETS=d.tickets.map(t=>[t.sport,t.stake,t.towin,t.legs.map(l=>{
+function buildTickets(d){CFB=d.cfb_games||{};NFL=d.nfl_games||{};TICKETS=d.tickets.map(t=>[t.sport,t.stake,t.towin,t.settled||null,t.legs.map(l=>{
  const o=l.type==="ml"?ml(l.game,l.side,l.lab):l.type==="ml1h"?ml1h(l.game,l.side,l.lab):l.type==="sp"?sp(l.game,l.side,l.line,l.lab):tot(l.game,l.ou,l.line);return Object.assign(L(o,l.needs,l.odds),{type:l.type,side:l.side,line:l.line,ou:l.ou,lab:l.lab})})]);
  FUTS=d.futures||[];
  }
 function futHTML(){return FUTS.length?section("sb","🏈 Super Bowl bets","#9b59ff",FUTS.map(f=>`<div class="card" style="border-left-color:#9b59ff"><div class="top"><div><div class="bet">${m(f.stake)} bet</div><div class="roll" style="color:#b48cff">PENDING · SETTLES FEB 2027</div></div><div><div class="pay">Wins $${f.towin.toFixed(2)}</div><div class="ret">returns $${(f.stake+f.towin).toFixed(2)}</div></div></div><div class="leg"><div class="need">${esc(f.pick)}</div></div></div>`).join(""),FUTS.length):""}
 async function checkVersion(){try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
  if(v&&v!==APP_VERSION){const k="reloaded_"+v;if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,"1");location.replace(location.pathname+"?v="+encodeURIComponent(v));}}}catch(e){}}
-const APP_VERSION="2026-10-17.24";
+const APP_VERSION="2026-10-18.1";
 
 const chip=g=>!g?"score unavailable":g.state==="void"?`${g.aab} @ ${g.hab} · ${g.detail}`:g.state==="pre"?`${g.aab} @ ${g.hab} · ${g.detail}`:`${g.aab} ${g.a} – ${g.hab} ${g.h} · ${g.detail}`;
 async function getJSON(u,label){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error(`${label} HTTP ${r.status}`);return r.json();}
 async function fetchGames(){const G={},errs=[];
- try{const sb=await getJSON("https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?dates=20261017&limit=300&groups=80","ESPN");
-  for(const[k,[home,away]]of Object.entries(CFB)){G[k]=null;
+ try{const SBC={};for(const v of Object.values(CFB)){const dt=v[2]||"20261017";if(!SBC[dt])SBC[dt]=getJSON(`https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?dates=${dt}&limit=300&groups=80`,"ESPN");}
+  for(const[k,[home,away,dt]]of Object.entries(CFB)){G[k]=null;const sb=await SBC[dt||"20261017"];
    for(const e of sb.events){const c=e.competitions[0],t={};c.competitors.forEach(x=>t[x.homeAway]=x);
     if(t.home.team.displayName.startsWith(home)&&t.away.team.displayName.startsWith(away)){const s=c.status;
      const nm=s.type.name||"";let state=s.type.state,detail=s.type.shortDetail;if(/POSTPONED|CANCEL|FORFEIT/.test(nm))state="void";
@@ -83,8 +84,8 @@ async function fetchGames(){const G={},errs=[];
      G[k]={start:new Date(c.date||e.date).getTime(),state,detail,h:+(t.home.score||0),a:+(t.away.score||0),hab:t.home.team.abbreviation,aab:t.away.team.abbreviation,eid:e.id,lg:"football/leagues/college-football",per:s.period,nm,hl:t.home.linescores&&t.home.linescores.length?t.home.linescores:null,al:t.away.linescores&&t.away.linescores.length?t.away.linescores:null};break;}}
    if(!G[k])errs.push(`ESPN: ${away} @ ${home} not found`);}
  }catch(e){errs.push("ESPN scores failed: "+e.message)}
- if(Object.keys(NFL).length)try{const sb=await getJSON("https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=20261018","ESPN NFL");
-  for(const[k,[home,away]]of Object.entries(NFL)){G[k]=null;
+ if(Object.keys(NFL).length)try{const SBN={};for(const v of Object.values(NFL)){const dt=v[2]||"20261018";if(!SBN[dt])SBN[dt]=getJSON(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=${dt}`,"ESPN NFL");}
+  for(const[k,[home,away,dt]]of Object.entries(NFL)){G[k]=null;const sb=await SBN[dt||"20261018"];
    for(const e of sb.events||[]){const c=e.competitions[0],t={};c.competitors.forEach(x=>t[x.homeAway]=x);
     if(t.home.team.displayName===home&&t.away.team.displayName===away){const s=c.status,nm=s.type.name||"";let state=s.type.state,detail=s.type.shortDetail;if(/POSTPONED|CANCEL|FORFEIT/.test(nm))state="void";
      const gt=new Date(c.date||e.date);if(state==="pre"&&!isNaN(gt)){const nd=pday(gt)!==pday(new Date())?wday(gt)+" ":"";detail=`${nd}${fmt(gt,"America/New_York")} ET / ${nd}${fmt(gt,"America/Los_Angeles")} PT`;}
@@ -103,12 +104,12 @@ async function fetchGames(){const G={},errs=[];
   else errs.push("MLB: Rays @ Guardians not found");
  }catch(e){errs.push("MLB scores failed: "+e.message)}
  return[G,errs];}
-function grade(G){return TICKETS.map(([sport,stake,towin,legs],idx)=>{const LL=legs.map(lg=>{const g=G[lg.game];let st,txt;
+function grade(G){return TICKETS.map(([sport,stake,towin,settled,legs],idx)=>{const LL=legs.map(lg=>{const g=G[lg.game];let st,txt;
   if(!g){st="NA";txt="score unavailable"}else if(g.state==="pre"){st="NS";txt="not started"}else if(g.state==="void"){st="VOID";txt="game postponed/canceled — usually graded no action (refund or leg dropped); check BetOnline"}else[st,txt]=lg.f(g);
   return{spec:lg,game:lg.game,needs:lg.needs,status:st,text:txt,score:chip(g),gstate:g?g.state:null,start:g?g.start:Infinity}});const ss=LL.map(x=>x.status);
   const done=s=>s==="WON"||s==="PUSH"||s==="VOID";let roll=ss.includes("LOST")?"DEAD":ss.every(done)?(ss.every(s=>s!=="WON")?"PUSH":"CASHED"):ss.every(s=>s==="NS"||s==="NA")?"NOT STARTED":"ALIVE";
   const red=ss.some(s=>s==="PUSH"||s==="VOID");let adj=towin;if(red){const rem=legs.filter((lg,i)=>ss[i]!=="PUSH"&&ss[i]!=="VOID");adj=rem.length?Math.round((stake*rem.reduce((p,lg)=>p*dec(lg.odds),1)-stake)*100)/100:0;}
-  return{idx,sport,stake,towin:adj,orig:towin,legs:LL,roll,reduced:red&&roll!=="PUSH",left:ss.filter(s=>!["WON","PUSH","LOST","VOID"].includes(s)).length}});}
+  return{idx,sport,stake,settled,towin:adj,orig:towin,legs:LL,roll,reduced:red&&roll!=="PUSH",left:ss.filter(s=>!["WON","PUSH","LOST","VOID"].includes(s)).length}});}
 function card(t){const c=RC[t.roll]||"#5b6575",n=t.legs.length,kind=n>1?`${n}-leg parlay`:"single",rl=RL[t.roll]+(t.roll==="ALIVE"?` · ${t.left} of ${n} left`:"");
  const mlb="";
  return `<div class="card" style="border-left-color:${c}"><div class="top"><div><div class="bet">${m(t.stake)} bet <span style="font-size:13px;color:#8b97a8;font-weight:600">· ${kind}</span></div>
@@ -162,32 +163,44 @@ function order(T){const now=Date.now();
 const SECN=["🔴 Live now","⏱️ Starting soon","🌙 Later today","✅ Settled"],SECC=["#e5484d","#f0b429","#2b6cff","#3fae7a"];
 const SECK=["live","soon","later","settled"];
 const COLL=(()=>{try{return JSON.parse(localStorage.getItem("collapsed")||"{}")}catch(e){return{}}})();
-function section(k,title,color,body,n,summary,inline){const c=!!COLL[k];return `<div class="gh${c?" closed":""}" data-k="${k}" role="button" style="border-color:${color}${k==="results"?";margin-top:16px":""}"><span class="ght">${title} <span class="cnt">${n}</span></span>${inline||""}<span class="chev">▾</span></div>${summary?`<div class="inv" data-k="${k}"${c?"":" hidden"}>${summary}</div>`:""}<div class="sb" data-k="${k}"${c?" hidden":""}>${body}</div>`}
-function toggleSec(k){COLL[k]=!COLL[k];if(!COLL[k])delete COLL[k];try{localStorage.setItem("collapsed",JSON.stringify(COLL))}catch(e){}document.querySelectorAll(`[data-k="${k}"]`).forEach(e=>{if(e.classList.contains("gh"))e.classList.toggle("closed",!!COLL[k]);else e.hidden=e.classList.contains("inv")?!COLL[k]:!!COLL[k];});}
+const isC=k=>k in COLL?!!COLL[k]:/^arc_/.test(k);
+function section(k,title,color,body,n,summary,inline){const c=isC(k);return `<div class="gh${c?" closed":""}" data-k="${k}" role="button" style="border-color:${color}${k==="results"?";margin-top:16px":""}"><span class="ght">${title} <span class="cnt">${n}</span></span>${inline||""}<span class="chev">▾</span></div>${summary?`<div class="inv" data-k="${k}"${c?"":" hidden"}>${summary}</div>`:""}<div class="sb" data-k="${k}"${c?" hidden":""}>${body}</div>`}
+function toggleSec(k){const nc=!isC(k);if(nc===/^arc_/.test(k))delete COLL[k];else COLL[k]=nc;try{localStorage.setItem("collapsed",JSON.stringify(COLL))}catch(e){}document.querySelectorAll(`[data-k="${k}"]`).forEach(e=>{if(e.classList.contains("gh"))e.classList.toggle("closed",isC(k));else e.hidden=e.classList.contains("inv")?!isC(k):isC(k);});}
 document.addEventListener("click",e=>{const g=e.target.closest(".gh[data-k]");if(g)toggleSec(g.dataset.k);});
 function money(x){return (x<0?"−$":"$")+Math.abs(x).toFixed(2)}
-function renderPL(T){const settled=T.filter(t=>["CASHED","DEAD","PUSH"].includes(t.roll)),live=T.filter(t=>t.roll==="ALIVE"||t.roll==="NOT STARTED");
+function renderPL(T,FU,lbl){FU=FU||[];const settled=T.filter(t=>["CASHED","DEAD","PUSH"].includes(t.roll)),live=T.filter(t=>t.roll==="ALIVE"||t.roll==="NOT STARTED");
  const sum=(a,f)=>a.reduce((x,t)=>x+f(t),0);
- const wagAll=sum(T,t=>t.stake)+sum(FUTS,f=>f.stake),wagSet=sum(settled,t=>t.stake);
+ const wagAll=sum(T,t=>t.stake)+sum(FU,f=>f.stake),wagSet=sum(settled,t=>t.stake);
  const ret=sum(settled,t=>t.roll==="CASHED"?t.stake+t.towin:t.roll==="PUSH"?t.stake:0),net=Math.round((ret-wagSet)*100)/100;
- const pend=sum(live,t=>t.stake)+sum(FUTS,f=>f.stake),liveWin=sum(live,t=>t.towin),futWin=sum(FUTS,f=>f.towin);
- const best=net+liveWin-sum(FUTS,f=>f.stake)*0,c=net>0?"#39e27d":net<0?"#ff6b6b":"#eef2f7",sg=x=>(x>0?"+":"")+money(x);
+ const pend=sum(live,t=>t.stake)+sum(FU,f=>f.stake),liveWin=sum(live,t=>t.towin),futWin=sum(FU,f=>f.towin);
+ const best=net+liveWin-sum(FU,f=>f.stake)*0,c=net>0?"#39e27d":net<0?"#ff6b6b":"#eef2f7",sg=x=>(x>0?"+":"")+money(x);
  const allLose=net-sum(live,t=>t.stake);
  const compact=`<span class="ghs">net <b class="gn" style="color:${c}">${sg(net)}</b> · bet <b>${m(wagAll)}</b> · back <b>${m(ret)}</b></span>`;
- return [compact,`<div class="pl"><div class="plh"><span class="plt">NET PROFIT / LOSS · SETTLED BETS</span><span class="pln" style="color:${c}">${sg(net)}</span></div>
+ return [compact,`<div class="pl"><div class="plh"><span class="plt">NET PROFIT / LOSS · ${lbl||"SETTLED BETS"}</span><span class="pln" style="color:${c}">${sg(net)}</span></div>
  <div class="pls">${settled.length} settled bets: ${money(wagSet)} bet, ${money(ret)} back</div>
- <div class="plr" style="margin-top:8px"><span>Total bet (all ${T.length+FUTS.length} bets)</span><b>${money(wagAll)}</b></div>
+ <div class="plr" style="margin-top:8px"><span>Total bet (all ${T.length+FU.length} bets)</span><b>${money(wagAll)}</b></div>
  <div class="plr"><span>Total paid back so far</span><b>${money(ret)}</b></div>
- <div class="plr"><span>Still riding (${live.length} game bets + ${FUTS.length} futures)</span><b>${money(pend)}</b></div>
+ <div class="plr"><span>Still riding (${live.length} game bets${FU.length?` + ${FU.length} futures`:""})</span><b>${money(pend)}</b></div>
  <div class="plr"><span>If every live game bet wins</span><b style="color:#39e27d">${sg(Math.round((net+liveWin)*100)/100)}</b></div>
  <div class="plr"><span>If every live game bet loses</span><b style="color:#ff6b6b">${sg(Math.round(allLose*100)/100)}</b></div>
- <div class="pls">Win/lose lines leave out the Super Bowl bets (${money(sum(FUTS,f=>f.stake))} bet, could win ${money(futWin)}, settle Feb 2027).</div></div>`];}
-function render(T){const [plc,plf]=renderPL(T);const live=T.filter(t=>t.roll==="ALIVE"||t.roll==="NOT STARTED");
+ ${FU.length?`<div class="pls">Win/lose lines leave out the Super Bowl bets (${money(sum(FU,f=>f.stake))} bet, could win ${money(futWin)}, settle Feb 2027).</div>`:""}</div>`];}
+const pkey=d=>d.toLocaleDateString("en-CA",{timeZone:"America/Los_Angeles"});
+const dlab=k=>new Date(k+"T12:00:00Z").toLocaleDateString("en-US",{timeZone:"UTC",weekday:"short",month:"short",day:"numeric"}).replace(",","");
+function setDay(t){if(!["DEAD","CASHED","PUSH"].includes(t.roll))return null;if(t.settled)return t.settled;
+ const ok=x=>isFinite(x.start),lo=t.legs.filter(l=>l.status==="LOST"&&ok(l)),al=t.legs.filter(ok);const st=t.roll==="DEAD"?(lo.length?Math.min(...lo.map(l=>l.start)):0):(al.length?Math.max(...al.map(l=>l.start)):0);return st?pkey(new Date(st)):null;}
+function render(TA){const today=pkey(new Date());$("title").textContent="Live Bets · "+dlab(today);
+ const ARC={},T=[];for(const t of TA){const d=setDay(t);if(d&&d<today)(ARC[d]=ARC[d]||[]).push(t);else T.push(t);}
+ const [plc,plf]=renderPL(T,[],"TODAY");const live=T.filter(t=>t.roll==="ALIVE"||t.roll==="NOT STARTED");
  $("s_live").textContent=m(live.reduce((a,t)=>a+t.stake,0));$("s_maxwin").innerHTML="can win <b>$"+live.reduce((a,t)=>a+t.towin,0).toFixed(2)+"</b>";
  $("s_won").textContent="$"+T.filter(t=>t.roll==="CASHED").reduce((a,t)=>a+t.towin,0).toFixed(2);$("s_lost").textContent=m(T.filter(t=>t.roll==="DEAD").reduce((a,t)=>a+t.stake,0));$("s_ref").textContent=m(T.filter(t=>t.roll==="PUSH").reduce((a,t)=>a+t.stake,0));
  const G=[[],[],[],[]];for(const t of order(T))G[t.sec].push(card(t));
  let h="";for(const i of [0,1,2]){if(G[i].length)h+=section(SECK[i],SECN[i],SECC[i],G[i].join(""),G[i].length);}
  h+=section("results","✅ Settled",SECC[3],plf+G[3].join(""),G[3].length,null,plc);h+=futHTML();
+ const days=Object.keys(ARC).sort().reverse();
+ if(days.length){const [ac,af]=renderPL(TA,FUTS,"ALL-TIME");
+  let ab=section("arc_all","All-time totals","#5b6575",af,TA.length+FUTS.length);
+  for(const d of days){const L=order(ARC[d]);const [dc]=renderPL(L,[]);ab+=section("arc_"+d,dlab(d),"#3b4556",L.map(card).join(""),L.length,null,dc);}
+  h+=section("archive","🗂️ Past days","#5b6575",ab,days.length,null,ac.replace("net <b",'all-time <b'));}
  $("tickets").innerHTML=h;}
 async function poll(){checkVersion();try{const br=await fetch("bets.json?t="+Date.now(),{cache:"no-store"});if(!br.ok)throw new Error("bets file HTTP "+br.status);buildTickets(await br.json());
  const[G,errs]=await fetchGames();{const fresh=await fetchOdds(G),now=Date.now();for(const[k,v]of Object.entries(fresh)){const p=ODDS_LAST[k]&&ODDS_LAST[k].eid===v.eid?ODDS_LAST[k]:{eid:v.eid};for(const m of ["ml","sp","ou"])if(v[m])p[m]={...v[m],at:now,fresh:true};else if(p[m])p[m].fresh=false;ODDS_LAST[k]=p;}
