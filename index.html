@@ -64,7 +64,7 @@ function buildTickets(d){CFB=d.cfb_games||{};TICKETS=d.tickets.map(t=>[t.sport,t
 function futHTML(){return FUTS.length?section("sb","🏈 Super Bowl bets","#9b59ff",FUTS.map(f=>`<div class="card" style="border-left-color:#9b59ff"><div class="top"><div><div class="bet">${m(f.stake)} bet</div><div class="roll" style="color:#b48cff">PENDING · SETTLES FEB 2027</div></div><div><div class="pay">Wins $${f.towin.toFixed(2)}</div><div class="ret">returns $${(f.stake+f.towin).toFixed(2)}</div></div></div><div class="leg"><div class="need">${esc(f.pick)}</div></div></div>`).join(""),FUTS.length):""}
 async function checkVersion(){try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
  if(v&&v!==APP_VERSION){const k="reloaded_"+v;if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,"1");location.replace(location.pathname+"?v="+encodeURIComponent(v));}}}catch(e){}}
-const APP_VERSION="2026-10-17.12";
+const APP_VERSION="2026-10-17.13";
 
 const chip=g=>!g?"score unavailable":g.state==="void"?`${g.aab} @ ${g.hab} · ${g.detail}`:g.state==="pre"?`${g.aab} @ ${g.hab} · ${g.detail}`:`${g.aab} ${g.a} – ${g.hab} ${g.h} · ${g.detail}`;
 async function getJSON(u,label){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error(`${label} HTTP ${r.status}`);return r.json();}
@@ -97,7 +97,7 @@ function grade(G){return TICKETS.map(([sport,stake,towin,legs])=>{const LL=legs.
   const red=ss.some(s=>s==="PUSH"||s==="VOID");let adj=towin;if(red){const rem=legs.filter((lg,i)=>ss[i]!=="PUSH"&&ss[i]!=="VOID");adj=rem.length?Math.round((stake*rem.reduce((p,lg)=>p*dec(lg.odds),1)-stake)*100)/100:0;}
   return{sport,stake,towin:adj,orig:towin,legs:LL,roll,reduced:red&&roll!=="PUSH",left:ss.filter(s=>!["WON","PUSH","LOST","VOID"].includes(s)).length}});}
 function card(t){const c=RC[t.roll]||"#5b6575",n=t.legs.length,kind=n>1?`${n}-leg parlay`:"single",rl=RL[t.roll]+(t.roll==="ALIVE"?` · ${t.left} of ${n} left`:"");
- const mlb=t.sport==="MLB"?`<div class="note">Voids if Martinez or Armstrong doesn't start</div>`:"";
+ const mlb="";
  return `<div class="card" style="border-left-color:${c}"><div class="top"><div><div class="bet">${m(t.stake)} bet <span style="font-size:13px;color:#8b97a8;font-weight:600">· ${kind}</span></div>
  <div class="roll" style="color:${c}">${rl}</div></div><div>${t.roll==="DEAD"?`<div class="pay" style="color:#ff6b6b">Lost ${m(t.stake)}</div><div class="ret">would have won $${t.towin.toFixed(2)}</div>`:t.roll==="PUSH"?`<div class="pay" style="color:#f0b429">Refunded ${m(t.stake)}</div>`:`<div class="pay">${t.roll==="CASHED"?"Won":t.reduced?"Now wins":"Wins"} ${t.reduced?"~":""}$${t.towin.toFixed(2)}${t.reduced?" (push)":""}</div><div class="ret">${t.reduced?`was $${t.orig.toFixed(2)} · `:""}returns $${(t.stake+t.towin).toFixed(2)}</div>`}</div></div>`+
  t.legs.map(l=>`<div class="leg"><div class="need">${esc(l.needs)}</div><div class="live"><span class="pill" style="background:${COL[l.status]}">${LAB[l.status]}</span><span class="score">${esc(l.score)}</span></div>${l.status!=="NS"&&l.status!=="NA"?`<div class="tx"><span class="tt">${esc(l.text)}</span>${oddsTag(l)}</div>`:""}</div>`).join("")+mlb+`</div>`}
