@@ -17,7 +17,7 @@ h1{font-size:22px;font-weight:800}.ts{font-size:13px;color:#9aa6b8;margin:3px 0 
 .need{font-size:16px;font-weight:700;line-height:1.3}
 .live{margin-top:7px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .pill{color:#fff;font-size:11px;font-weight:800;border-radius:6px;padding:4px 8px;letter-spacing:.5px;white-space:nowrap}
-.score{font-size:14px;font-weight:700;color:#dbe2ec}.tx{font-size:13px;color:#a3aec0;margin-top:3px;display:flex;gap:5px;white-space:nowrap}.tt{overflow:hidden;text-overflow:ellipsis;min-width:0}.lo{color:#7f8ba0;flex:none}.hm{color:#6b7686;font-size:11px;flex:none;align-self:center}.he{display:inline-block;font-size:10px;margin-left:2px;animation:hf 2s ease-in-out infinite}@keyframes hf{0%,100%{opacity:1}50%{opacity:.25}}@media (prefers-reduced-motion:reduce){.he{animation:none}}
+.score{font-size:14px;font-weight:700;color:#dbe2ec}.tx{font-size:13px;color:#a3aec0;margin-top:3px;display:flex;gap:5px;white-space:nowrap}.tt{overflow:hidden;text-overflow:ellipsis;min-width:0}.lo{color:#7f8ba0;flex:none}.od{font-size:12px;color:#7f8ba0;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.sep{margin:0 6px;color:#4a5568}.hm{color:#6b7686;font-size:11px;flex:none;align-self:center}.he{display:inline-block;font-size:10px;margin-left:2px;animation:hf 2s ease-in-out infinite}@keyframes hf{0%,100%{opacity:1}50%{opacity:.25}}@media (prefers-reduced-motion:reduce){.he{animation:none}}
 .note{font-size:12px;color:#ffcf7a;margin-top:10px}
 .pl{background:#161c26;border-radius:16px;padding:14px 16px;margin-top:12px}.plc{display:flex;justify-content:space-between;gap:8px;background:#161c26;border-radius:12px;padding:9px 12px;margin-top:6px;white-space:nowrap;font-size:14px;color:#a3aec0}.plc b{color:#eef2f7;margin-left:4px}.plc{align-items:baseline}.plc .pn{font-size:22px}.sub{font-size:13px;color:#8b97a8;font-weight:700;letter-spacing:1px;margin:16px 0 0;text-transform:uppercase}[hidden]{display:none!important}.plh{display:flex;justify-content:space-between;align-items:baseline}.plt{font-size:12px;color:#8b97a8;font-weight:700;letter-spacing:1px}.pln{font-size:22px;font-weight:800;white-space:nowrap}.plh{gap:10px}.plr{display:flex;justify-content:space-between;font-size:14px;padding:5px 0;border-top:1px solid #263042;color:#c3ccd8}.plr b{color:#eef2f7}.pls{font-size:12px;color:#8b97a8;margin-top:2px}
 .tsr{display:flex;justify-content:space-between;align-items:baseline;gap:8px}.tsr .ts{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nav{font-size:12px;color:#8b97a8;font-weight:700;text-decoration:none;white-space:nowrap;flex:none;border:1px solid #2c3646;border-radius:999px;padding:1px 8px;-webkit-tap-highlight-color:transparent}.nav:active,.nav:hover{color:#eef2f7;border-color:#8b97a8}
@@ -69,7 +69,7 @@ function buildTickets(d){CFB=d.cfb_games||{};NFL=d.nfl_games||{};TICKETS=d.ticke
 function futHTML(){return FUTS.length?section("sb","🏈 Super Bowl bets","#9b59ff",FUTS.map(f=>`<div class="card" style="border-left-color:#9b59ff"><div class="top"><div><div class="bet">${m(f.stake)} bet</div><div class="roll" style="color:#b48cff">PENDING · SETTLES FEB 2027</div></div><div><div class="pay">Wins $${f.towin.toFixed(2)}</div><div class="ret">returns $${(f.stake+f.towin).toFixed(2)}</div></div></div><div class="leg"><div class="need">${esc(f.pick)}</div></div></div>`).join(""),FUTS.length):""}
 async function checkVersion(){try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
  if(v&&v!==APP_VERSION){const k="reloaded_"+v;if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,"1");location.replace(location.pathname+"?v="+encodeURIComponent(v));}}}catch(e){}}
-const APP_VERSION="2026-10-17.23";
+const APP_VERSION="2026-10-17.24";
 
 const chip=g=>!g?"score unavailable":g.state==="void"?`${g.aab} @ ${g.hab} · ${g.detail}`:g.state==="pre"?`${g.aab} @ ${g.hab} · ${g.detail}`:`${g.aab} ${g.a} – ${g.hab} ${g.h} · ${g.detail}`;
 async function getJSON(u,label){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error(`${label} HTTP ${r.status}`);return r.json();}
@@ -113,15 +113,24 @@ function card(t){const c=RC[t.roll]||"#5b6575",n=t.legs.length,kind=n>1?`${n}-le
  const mlb="";
  return `<div class="card" style="border-left-color:${c}"><div class="top"><div><div class="bet">${m(t.stake)} bet <span style="font-size:13px;color:#8b97a8;font-weight:600">· ${kind}</span></div>
  <div class="roll" style="color:${c}">${rl}</div></div><div>${t.roll==="DEAD"?`<div class="pay" style="color:#ff6b6b">Lost ${m(t.stake)}</div><div class="ret">would have won $${t.towin.toFixed(2)}</div>`:t.roll==="PUSH"?`<div class="pay" style="color:#f0b429">Refunded ${m(t.stake)}</div>`:`<div class="pay">${t.roll==="CASHED"?"Won":t.reduced?"Now wins":"Wins"} ${t.reduced?"~":""}$${t.towin.toFixed(2)}${t.reduced?" (push)":""}</div><div class="ret">${t.reduced?`was $${t.orig.toFixed(2)} · `:""}returns $${(t.stake+t.towin).toFixed(2)}</div>`}</div></div>`+
- t.legs.map(l=>`<div class="leg"><div class="need">${esc(l.needs)}</div><div class="live"><span class="pill" style="background:${COL[l.status]}">${LAB[l.status]}</span><span class="score">${esc(l.score)}</span></div>${l.status!=="NS"&&l.status!=="NA"?`<div class="tx"><span class="tt">${esc(l.text)}</span>${oddsTag(l)}</div>`:""}</div>`).join("")+mlb+`</div>`}
+ t.legs.map(l=>`<div class="leg"><div class="need">${esc(l.needs)}</div><div class="live"><span class="pill" style="background:${COL[l.status]}">${LAB[l.status]}</span><span class="score">${esc(l.score)}</span></div>${l.status!=="NS"&&l.status!=="NA"?`<div class="tx"><span class="tt">${esc(l.text)}</span>${oddsTag(l)}</div>`:""}${preTag(l)}</div>`).join("")+mlb+`</div>`}
+let PRE=(()=>{try{return JSON.parse(localStorage.getItem("pre_lines")||"{}")}catch(e){return{}}})(),LASTG={};
+function preTag(l){if(SETTLED.has(l.status)||l.status==="NA")return"";const g=LASTG[l.game],sp=l.spec;if(!g||!g.eid||!sp)return"";const P=PRE[g.eid];if(!P)return"";
+ const started=g.state!=="pre",nw=started?(P.close||P.now):P.now,n=v=>(v>0?"+":"")+v;
+ const f=x=>{if(!x)return"";if(sp.type==="ml"){const v=sp.side==="h"?x.mlh:x.mla;return v==null?"":`${sp.lab} ${n(v)}`}if(sp.type==="sp"){const v=sp.side==="h"?x.hs:x.as;return v==null?"":`${sp.lab} ${v===0?"PK":n(v)}`}if(sp.type==="tot")return x.ou==null?"":`O/U ${x.ou}`;return""};
+ const a=f(P.open),b=f(nw);if(!a&&!b)return"";return `<div class="od">${a?`Open ${esc(a)}`:""}${a&&b?`<span class="sep">|</span>`:""}${b?`${started?"Close":"Now"} ${esc(b)}`:""}</div>`;}
 let lastOk=null,ODDS={},ODDS_LAST=(()=>{try{const s=JSON.parse(localStorage.getItem("odds_last")||"{}");for(const p of Object.values(s))for(const m of ["ml","sp","ou"])if(p&&p[m])p[m].fresh=false;return s}catch(e){return{}}})();
 async function fetchOdds(G){const out={};
  try{if(G.MLB&&G.MLB.state==="in"&&!G.MLB.eid){const sb=await getJSON("https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard?dates=20261017&t="+Date.now(),"ESPN MLB");
    for(const e of sb.events||[]){const c=e.competitions[0];const h=c.competitors.find(x=>x.homeAway==="home");if(h&&h.team.abbreviation==="CLE"){G.MLB.eid=e.id;G.MLB.lg="baseball/leagues/mlb";}}}}catch(e){}
- await Promise.all(Object.entries(G).filter(([k,g])=>g&&g.state==="in"&&g.eid).map(async([k,g])=>{try{
+ await Promise.all(Object.entries(G).filter(([k,g])=>g&&(g.state==="in"||g.state==="pre")&&g.eid).map(async([k,g])=>{try{
   const d=await getJSON(`https://sports.core.api.espn.com/v2/sports/${g.lg}/events/${g.eid}/competitions/${g.eid}/odds?t=${Date.now()}`,"odds");
   const items=d.items||[],it=items.find(x=>/live/i.test(x.provider?.name||"")||x.provider?.id==="200"),rg=items.find(x=>x!==it&&(x.provider?.id==="100"||x.provider?.name==="DraftKings"));
   const num=v=>typeof v==="number"&&isFinite(v)?v:null,am=x=>{const n=parseFloat(x?.american);return isFinite(n)?n:null},o={eid:g.eid};
+  if(rg){const H=rg.homeTeamOdds||{},A=rg.awayTeamOdds||{},pk=(h,a,t)=>({mlh:am(h?.moneyLine),mla:am(a?.moneyLine),hs:am(h?.pointSpread),as:am(a?.pointSpread),ou:am(t?.total)}),has=x=>Object.values(x).some(v=>v!=null),P=PRE[g.eid]||(PRE[g.eid]={});
+   if(!P.open){const op=pk(H.open,A.open,rg.open);if(has(op))P.open=op;}
+   if(g.state==="pre"){const c=pk(H.current,A.current,rg.current);if(has(c))P.now={...c,at:Date.now()};}else{const cl=pk(H.close,A.close,rg.close);if(has(cl))P.close=cl;}}
+  if(g.state!=="in")return;
   if(it){const lp=it.provider.name+" (provider "+it.provider.id+")";const h=num(it.homeTeamOdds?.moneyLine),a=num(it.awayTeamOdds?.moneyLine),hs=num(it.spread),ou=num(it.overUnder);
    if(h!=null||a!=null)o.ml={h,a,src:lp+" moneyLine"};if(hs!=null)o.sp={hs,src:lp+" spread"};if(ou!=null)o.ou={v:ou,src:lp+" overUnder"};}
   if(rg){const rp=rg.provider.name+" (provider "+rg.provider.id+") current",H=rg.homeTeamOdds||{},A=rg.awayTeamOdds||{},mv=(c,cl)=>c!=null&&cl!=null&&c!==cl;
@@ -129,6 +138,7 @@ async function fetchOdds(G){const out={};
    if(!o.sp&&mv(am(H.current?.pointSpread),am(H.close?.pointSpread)))o.sp={hs:am(H.current?.pointSpread),src:rp+".pointSpread"};
    if(!o.ou&&mv(am(rg.current?.total),am(rg.close?.total)))o.ou={v:am(rg.current?.total),src:rp+".total"};}
   out[k]=o;}catch(e){}}));
+ try{localStorage.setItem("pre_lines",JSON.stringify(PRE))}catch(e){}
  return out;}
 const prob=a=>a<0?(-a)/((-a)+100):100/(a+100);
 function oddsTag(l){const sp=l.spec,O=ODDS[l.game];if(!O||!sp||sp.type==="ml1h"||SETTLED.has(l.status))return"";let txt="",good=null;
@@ -183,7 +193,7 @@ async function poll(){checkVersion();try{const br=await fetch("bets.json?t="+Dat
  const[G,errs]=await fetchGames();{const fresh=await fetchOdds(G),now=Date.now();for(const[k,v]of Object.entries(fresh)){const p=ODDS_LAST[k]&&ODDS_LAST[k].eid===v.eid?ODDS_LAST[k]:{eid:v.eid};for(const m of ["ml","sp","ou"])if(v[m])p[m]={...v[m],at:now,fresh:true};else if(p[m])p[m].fresh=false;ODDS_LAST[k]=p;}
   for(const[k,p]of Object.entries(ODDS_LAST))if(!fresh[k])for(const m of ["ml","sp","ou"])if(p[m])p[m].fresh=false;
   try{localStorage.setItem("odds_last",JSON.stringify(ODDS_LAST))}catch(e){}ODDS={};for(const[k,v]of Object.entries(ODDS_LAST))if(G[k]&&G[k].state==="in"&&G[k].eid===v.eid)ODDS[k]=v;}const anyData=Object.values(G).some(Boolean);
-  if(!anyData)throw new Error(errs.join("; ")||"no data");render(grade(G));lastOk=new Date();
+  if(!anyData)throw new Error(errs.join("; ")||"no data");LASTG=G;render(grade(G));lastOk=new Date();
   $("ts").innerHTML=`<span class="dot"></span>Updated ${lastOk.toLocaleTimeString("en-US",{timeZone:"America/Los_Angeles",hour:"numeric",minute:"2-digit",second:"2-digit"})} PT`;
   $("err").innerHTML=errs.length?`<div class="err">⚠️ ${errs.map(esc).join("<br>")}</div>`:"";}
  catch(e){$("err").innerHTML=`<div class="err">⚠️ Couldn't update scores (${esc(e.message)})${lastOk?" — showing last good update":""}. Retrying in 30s.</div>`;}}
