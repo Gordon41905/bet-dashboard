@@ -1,5 +1,5 @@
 {
- "version": "2026-10-17.17",
+ "version": "2026-10-17.18",
  "cfb_games": {
   "BG": [
    "Bowling Green",
@@ -44,6 +44,12 @@
   "NEB": [
    "Oregon Ducks",
    "Nebraska"
+  ]
+ },
+ "nfl_games": {
+  "JAX": [
+   "Jacksonville Jaguars",
+   "Houston Texans"
   ]
  },
  "tickets": [
@@ -469,6 +475,45 @@
      "odds": -110,
      "side": "a",
      "lab": "NEB"
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 33.0,
+   "towin": 30.0,
+   "legs": [
+    {
+     "type": "tot",
+     "game": "JAX",
+     "needs": "43 or more total points, Texans + Jaguars (exactly 42 = push)",
+     "odds": -110,
+     "ou": "o",
+     "line": 42.0
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 33.0,
+   "towin": 84.48,
+   "legs": [
+    {
+     "type": "tot",
+     "game": "JAX",
+     "needs": "43 or more total points, Texans + Jaguars (exactly 42 = push)",
+     "odds": -110,
+     "ou": "o",
+     "line": 42.0
+    },
+    {
+     "type": "sp",
+     "game": "JAX",
+     "needs": "Jaguars win by 3 or more (vs Texans)",
+     "odds": -115,
+     "side": "h",
+     "line": -2.5,
+     "lab": "JAX"
     }
    ]
   }

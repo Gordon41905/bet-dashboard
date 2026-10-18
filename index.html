@@ -39,7 +39,8 @@ const RC={DEAD:"#e5484d",CASHED:"#1fbf5f",PUSH:"#f0b429",ALIVE:"#f0b429","NOT ST
 const RL={DEAD:"LOST",CASHED:"WON",PUSH:"REFUNDED (PUSH / NO ACTION)",ALIVE:"IN PLAY","NOT STARTED":"NOT STARTED YET"};
 const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const m=x=>"$"+(Number.isInteger(x)?x:x.toFixed(2));
-let CFB={};
+let CFB={},NFL={};
+const pday=d=>d.toLocaleDateString("en-US",{timeZone:"America/Los_Angeles"}),wday=d=>d.toLocaleDateString("en-US",{timeZone:"America/Los_Angeles",weekday:"short"});
 const fmt=(d,tz)=>d.toLocaleTimeString("en-US",{timeZone:tz,hour:"numeric",minute:"2-digit"});
 // leg graders (mirror server.py)
 const ml=(game,side,lab)=>({game,f:g=>{const me=side==="h"?g.h:g.a,op=side==="h"?g.a:g.h,mg=me-op;
@@ -61,14 +62,14 @@ const tot=(game,ou,line)=>({game,f:g=>{const T=g.h+g.a;
 const L=(o,needs,odds)=>Object.assign(o,{needs,odds});
 const dec=a=>a>0?1+a/100:1+100/(-a);
 let TICKETS=[],FUTS=[];
-function buildTickets(d){CFB=d.cfb_games||{};TICKETS=d.tickets.map(t=>[t.sport,t.stake,t.towin,t.legs.map(l=>{
+function buildTickets(d){CFB=d.cfb_games||{};NFL=d.nfl_games||{};TICKETS=d.tickets.map(t=>[t.sport,t.stake,t.towin,t.legs.map(l=>{
  const o=l.type==="ml"?ml(l.game,l.side,l.lab):l.type==="ml1h"?ml1h(l.game,l.side,l.lab):l.type==="sp"?sp(l.game,l.side,l.line,l.lab):tot(l.game,l.ou,l.line);return Object.assign(L(o,l.needs,l.odds),{type:l.type,side:l.side,line:l.line,ou:l.ou,lab:l.lab})})]);
  FUTS=d.futures||[];
  }
 function futHTML(){return FUTS.length?section("sb","🏈 Super Bowl bets","#9b59ff",FUTS.map(f=>`<div class="card" style="border-left-color:#9b59ff"><div class="top"><div><div class="bet">${m(f.stake)} bet</div><div class="roll" style="color:#b48cff">PENDING · SETTLES FEB 2027</div></div><div><div class="pay">Wins $${f.towin.toFixed(2)}</div><div class="ret">returns $${(f.stake+f.towin).toFixed(2)}</div></div></div><div class="leg"><div class="need">${esc(f.pick)}</div></div></div>`).join(""),FUTS.length):""}
 async function checkVersion(){try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
  if(v&&v!==APP_VERSION){const k="reloaded_"+v;if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,"1");location.replace(location.pathname+"?v="+encodeURIComponent(v));}}}catch(e){}}
-const APP_VERSION="2026-10-17.17";
+const APP_VERSION="2026-10-17.18";
 
 const chip=g=>!g?"score unavailable":g.state==="void"?`${g.aab} @ ${g.hab} · ${g.detail}`:g.state==="pre"?`${g.aab} @ ${g.hab} · ${g.detail}`:`${g.aab} ${g.a} – ${g.hab} ${g.h} · ${g.detail}`;
 async function getJSON(u,label){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error(`${label} HTTP ${r.status}`);return r.json();}
@@ -82,6 +83,14 @@ async function fetchGames(){const G={},errs=[];
      G[k]={start:new Date(c.date||e.date).getTime(),state,detail,h:+(t.home.score||0),a:+(t.away.score||0),hab:t.home.team.abbreviation,aab:t.away.team.abbreviation,eid:e.id,lg:"football/leagues/college-football",per:s.period,nm,hl:t.home.linescores&&t.home.linescores.length?t.home.linescores:null,al:t.away.linescores&&t.away.linescores.length?t.away.linescores:null};break;}}
    if(!G[k])errs.push(`ESPN: ${away} @ ${home} not found`);}
  }catch(e){errs.push("ESPN scores failed: "+e.message)}
+ if(Object.keys(NFL).length)try{const sb=await getJSON("https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=20261018","ESPN NFL");
+  for(const[k,[home,away]]of Object.entries(NFL)){G[k]=null;
+   for(const e of sb.events||[]){const c=e.competitions[0],t={};c.competitors.forEach(x=>t[x.homeAway]=x);
+    if(t.home.team.displayName===home&&t.away.team.displayName===away){const s=c.status,nm=s.type.name||"";let state=s.type.state,detail=s.type.shortDetail;if(/POSTPONED|CANCEL|FORFEIT/.test(nm))state="void";
+     const gt=new Date(c.date||e.date);if(state==="pre"&&!isNaN(gt)){const nd=pday(gt)!==pday(new Date())?wday(gt)+" ":"";detail=`${nd}${fmt(gt,"America/New_York")} ET / ${nd}${fmt(gt,"America/Los_Angeles")} PT`;}
+     G[k]={start:gt.getTime(),state,detail,h:+(t.home.score||0),a:+(t.away.score||0),hab:t.home.team.abbreviation,aab:t.away.team.abbreviation,eid:e.id,lg:"football/leagues/nfl"};break;}}
+   if(!G[k])errs.push(`ESPN: ${away} @ ${home} not found`);}
+ }catch(e){errs.push("ESPN NFL scores failed: "+e.message)}
  G.MLB=null;
  try{const s=await getJSON("https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=114&date=2026-10-17&hydrate=linescore","MLB");
   let g=null;for(const d of s.dates||[])for(const x of d.games)if(x.teams.home.team.id===114&&x.teams.away.team.id===139)g=x;
@@ -130,7 +139,7 @@ function order(T){const now=Date.now();
   const live=t.legs.filter(l=>l.gstate==="in"),pre=t.legs.filter(l=>l.gstate==="pre"||l.status==="NA");
   if(["DEAD","CASHED","PUSH"].includes(t.roll)){t.sec=3;t.key=0}
   else if(live.length){t.sec=0;t.key=Math.min(...live.map(l=>l.start))}
-  else{const nx=pre.length?Math.min(...pre.map(l=>l.start)):Infinity;t.key=nx;t.sec=(nx-now)<=3*3600e3?1:2}});
+  else{const nx=pre.length?Math.min(...pre.map(l=>l.start)):Infinity;t.key=nx;t.sec=(nx-now)<=3*3600e3||(nx<Infinity&&pday(new Date(nx))!==pday(new Date(now)))?1:2}});
  return T.sort((a,b)=>a.sec-b.sec||a.key-b.key||(a.sport<b.sport?-1:1));}
 const SECN=["🔴 Live now","⏱️ Starting soon","🌙 Later today","✅ Settled"],SECC=["#e5484d","#f0b429","#2b6cff","#3fae7a"];
 const SECK=["live","soon","later","settled"];
