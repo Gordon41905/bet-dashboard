@@ -50,7 +50,7 @@ const sp=(game,side,line,lab)=>({game,f:g=>{const me=side==="h"?g.h:g.a,op=side=
   if(cov>0){r="WIN";txt+=`covering by ${cov}`}else if(cov===0){r="PUSHING";txt+="exactly on the push number"}else{r="LOSE";{const n=Math.floor(-cov)+1;txt+=`needs ${n} more ${game==="MLB"?(n===1?"run":"runs"):"pts"}`}}
   if(g.state==="post"){const res=mg>0?`won by ${mg}`:mg<0?`lost by ${-mg}`:"tied";r={WIN:"WON",LOSE:"LOST",PUSHING:"PUSH"}[r];txt=r==="WON"?`Covered by ${cov} (${lab} ${res})`:r==="PUSH"?`${lab} ${res.replace(" by "," by exactly ")}`:`${lab} ${mg>0?"won by only "+mg:res}`;}return[r,txt];}});
 const tot=(game,ou,line)=>({game,f:g=>{const T=g.h+g.a;
-  if(ou==="o"){const tgt=Math.floor(line)+1;if(T>line)return["WON",g.state==="post"?`Total ended ${T}`:`${T} points, over already hit`];
+  if(ou==="o"){const tgt=Math.floor(line)+1;if(T>line)return g.state==="post"?["WON",`Total ended ${T}`]:["WIN",`${T} ${game==="MLB"?"runs":"points"}, over already hit`];
     if(g.state==="post")return[T===line?"PUSH":"LOST",`Total ended ${T}`];return["LOSE",`${T} so far, needs ${tgt-T} more`];}
   const lim=Number.isInteger(line)?line-1:Math.floor(line);if(T>line)return["LOST",g.state==="post"?`Total ended ${T}`:`${T} points, went over`];
   if(g.state==="post")return[T===line?"PUSH":"WON",`Total ended ${T}`];if(T===line)return["PUSHING",`${T} so far, exactly on the push number`];return["WIN",`${T} so far, ${lim-T} points of room left`];}});
@@ -64,7 +64,7 @@ function buildTickets(d){CFB=d.cfb_games||{};TICKETS=d.tickets.map(t=>[t.sport,t
 function futHTML(){return FUTS.length?section("sb","🏈 Super Bowl bets","#9b59ff",FUTS.map(f=>`<div class="card" style="border-left-color:#9b59ff"><div class="top"><div><div class="bet">${m(f.stake)} bet</div><div class="roll" style="color:#b48cff">PENDING · SETTLES FEB 2027</div></div><div><div class="pay">Wins $${f.towin.toFixed(2)}</div><div class="ret">returns $${(f.stake+f.towin).toFixed(2)}</div></div></div><div class="leg"><div class="need">${esc(f.pick)}</div></div></div>`).join(""),FUTS.length):""}
 async function checkVersion(){try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
  if(v&&v!==APP_VERSION){const k="reloaded_"+v;if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,"1");location.replace(location.pathname+"?v="+encodeURIComponent(v));}}}catch(e){}}
-const APP_VERSION="2026-10-17.14";
+const APP_VERSION="2026-10-17.15";
 
 const chip=g=>!g?"score unavailable":g.state==="void"?`${g.aab} @ ${g.hab} · ${g.detail}`:g.state==="pre"?`${g.aab} @ ${g.hab} · ${g.detail}`:`${g.aab} ${g.a} – ${g.hab} ${g.h} · ${g.detail}`;
 async function getJSON(u,label){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error(`${label} HTTP ${r.status}`);return r.json();}
