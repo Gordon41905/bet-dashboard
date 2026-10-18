@@ -1,5 +1,5 @@
 {
- "version": "2026-10-18.10",
+ "version": "2026-10-18.11",
  "cfb_games": {
   "BG": [
    "Bowling Green",
@@ -820,6 +820,54 @@
      "lab": "KC"
     }
    ]
+  },
+  {
+   "sport": "MLB",
+   "stake": 22.0,
+   "towin": 17.6,
+   "pitchers": {
+    "game": "MLB5",
+    "a": "D. Rasmussen",
+    "h": "P. Messick"
+   },
+   "legs": [
+    {
+     "type": "ml",
+     "game": "MLB5",
+     "needs": "Rays beat the Guardians (ALCS Game 5)",
+     "odds": -125,
+     "side": "a",
+     "lab": "TB"
+    }
+   ]
+  },
+  {
+   "sport": "MLB",
+   "stake": 22.0,
+   "towin": 55.22,
+   "pitchers": {
+    "game": "MLB5",
+    "a": "D. Rasmussen",
+    "h": "P. Messick"
+   },
+   "legs": [
+    {
+     "type": "ml",
+     "game": "MLB5",
+     "needs": "Rays beat the Guardians (ALCS Game 5)",
+     "odds": -125,
+     "side": "a",
+     "lab": "TB"
+    },
+    {
+     "type": "tot",
+     "game": "MLB5",
+     "needs": "7 or more total runs (Rays + Guardians)",
+     "odds": -105,
+     "ou": "o",
+     "line": 6.5
+    }
+   ]
   }
  ],
  "futures": [
@@ -833,5 +881,19 @@
    "towin": 100.0,
    "pick": "San Francisco 49ers win Super Bowl LXI"
   }
- ]
+ ],
+ "mlb_games": {
+  "MLB": [
+   114,
+   139,
+   "2026-10-17",
+   849816
+  ],
+  "MLB5": [
+   114,
+   139,
+   "2026-10-18",
+   849817
+  ]
+ }
 }
