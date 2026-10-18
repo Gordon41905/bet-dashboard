@@ -1,5 +1,5 @@
 {
- "version": "2026-10-18.8",
+ "version": "2026-10-18.9",
  "cfb_games": {
   "BG": [
    "Bowling Green",
@@ -728,6 +728,55 @@
      "side": "h",
      "line": 0.0,
      "lab": "GB"
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 11.0,
+   "towin": 29.92,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "KC",
+     "needs": "Chiefs win by 8 or more (vs Chargers)",
+     "odds": -105,
+     "side": "h",
+     "line": -7.5,
+     "lab": "KC"
+    },
+    {
+     "type": "sp",
+     "game": "GB",
+     "needs": "Packers beat the Cowboys (a tie = push)",
+     "odds": -110,
+     "side": "h",
+     "line": 0.0,
+     "lab": "GB"
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 33.0,
+   "towin": 88.11,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "GB",
+     "needs": "Packers beat the Cowboys (a tie = push)",
+     "odds": -110,
+     "side": "h",
+     "line": 0.0,
+     "lab": "GB"
+    },
+    {
+     "type": "tot",
+     "game": "GB",
+     "needs": "53 or fewer total points, Cowboys + Packers",
+     "odds": -108,
+     "ou": "u",
+     "line": 53.5
     }
    ]
   }
