@@ -49,6 +49,10 @@ const sp=(game,side,line,lab)=>({game,f:g=>{const me=side==="h"?g.h:g.a,op=side=
   let txt=`${lab} `+(mg>0?"up "+mg:mg<0?"down "+(-mg):"tied")+", ",r;
   if(cov>0){r="WIN";txt+=`covering by ${cov}`}else if(cov===0){r="PUSHING";txt+="exactly on the push number"}else{r="LOSE";{const n=Math.floor(-cov)+1;txt+=`needs ${n} more ${game==="MLB"?(n===1?"run":"runs"):"pts"}`}}
   if(g.state==="post"){const res=mg>0?`won by ${mg}`:mg<0?`lost by ${-mg}`:"tied";r={WIN:"WON",LOSE:"LOST",PUSHING:"PUSH"}[r];txt=r==="WON"?`Covered by ${cov} (${lab} ${res})`:r==="PUSH"?`${lab} ${res.replace(" by "," by exactly ")}`:`${lab} ${mg>0?"won by only "+mg:res}`;}return[r,txt];}});
+const ml1h=(game,side,lab)=>({game,f:g=>{const s12=a=>a.filter(x=>x.period<=2).reduce((p,x)=>p+(+x.value||0),0);const done=g.state==="post"||g.per>2||/HALFTIME/.test(g.nm||"");
+  if(done&&!(g.hl&&g.al))return["NA","1st-half score unavailable"];const H=g.hl?s12(g.hl):g.h,A=g.al?s12(g.al):g.a,me=side==="h"?H:A,op=side==="h"?A:H,mg=me-op;
+  if(done)return mg>0?["WON",`${lab} led ${me}–${op} at halftime`]:mg<0?["LOST",`${lab} trailed ${me}–${op} at halftime`]:["PUSH",`Tied ${me}–${op} at halftime`];
+  return mg>0?["WIN",`1st half: ${lab} up ${mg} (${me}–${op})`]:mg<0?["LOSE",`1st half: ${lab} down ${-mg} (${me}–${op})`]:["PUSHING",`1st half: tied ${me}–${op} (tie at half = push)`];}});
 const tot=(game,ou,line)=>({game,f:g=>{const T=g.h+g.a;
   if(ou==="o"){const tgt=Math.floor(line)+1;if(T>line)return g.state==="post"?["WON",`Total ended ${T}`]:["WIN",`${T} ${game==="MLB"?"runs":"points"}, over already hit`];
     if(g.state==="post")return[T===line?"PUSH":"LOST",`Total ended ${T}`];return["LOSE",`${T} so far, needs ${tgt-T} more`];}
@@ -58,13 +62,13 @@ const L=(o,needs,odds)=>Object.assign(o,{needs,odds});
 const dec=a=>a>0?1+a/100:1+100/(-a);
 let TICKETS=[],FUTS=[];
 function buildTickets(d){CFB=d.cfb_games||{};TICKETS=d.tickets.map(t=>[t.sport,t.stake,t.towin,t.legs.map(l=>{
- const o=l.type==="ml"?ml(l.game,l.side,l.lab):l.type==="sp"?sp(l.game,l.side,l.line,l.lab):tot(l.game,l.ou,l.line);return Object.assign(L(o,l.needs,l.odds),{type:l.type,side:l.side,line:l.line,ou:l.ou,lab:l.lab})})]);
+ const o=l.type==="ml"?ml(l.game,l.side,l.lab):l.type==="ml1h"?ml1h(l.game,l.side,l.lab):l.type==="sp"?sp(l.game,l.side,l.line,l.lab):tot(l.game,l.ou,l.line);return Object.assign(L(o,l.needs,l.odds),{type:l.type,side:l.side,line:l.line,ou:l.ou,lab:l.lab})})]);
  FUTS=d.futures||[];
  }
 function futHTML(){return FUTS.length?section("sb","🏈 Super Bowl bets","#9b59ff",FUTS.map(f=>`<div class="card" style="border-left-color:#9b59ff"><div class="top"><div><div class="bet">${m(f.stake)} bet</div><div class="roll" style="color:#b48cff">PENDING · SETTLES FEB 2027</div></div><div><div class="pay">Wins $${f.towin.toFixed(2)}</div><div class="ret">returns $${(f.stake+f.towin).toFixed(2)}</div></div></div><div class="leg"><div class="need">${esc(f.pick)}</div></div></div>`).join(""),FUTS.length):""}
 async function checkVersion(){try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
  if(v&&v!==APP_VERSION){const k="reloaded_"+v;if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,"1");location.replace(location.pathname+"?v="+encodeURIComponent(v));}}}catch(e){}}
-const APP_VERSION="2026-10-17.16";
+const APP_VERSION="2026-10-17.17";
 
 const chip=g=>!g?"score unavailable":g.state==="void"?`${g.aab} @ ${g.hab} · ${g.detail}`:g.state==="pre"?`${g.aab} @ ${g.hab} · ${g.detail}`:`${g.aab} ${g.a} – ${g.hab} ${g.h} · ${g.detail}`;
 async function getJSON(u,label){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error(`${label} HTTP ${r.status}`);return r.json();}
@@ -75,7 +79,7 @@ async function fetchGames(){const G={},errs=[];
     if(t.home.team.displayName.startsWith(home)&&t.away.team.displayName.startsWith(away)){const s=c.status;
      const nm=s.type.name||"";let state=s.type.state,detail=s.type.shortDetail;if(/POSTPONED|CANCEL|FORFEIT/.test(nm))state="void";
      if(state==="pre"){const gt=new Date(c.date||e.date);if(!isNaN(gt))detail=`${fmt(gt,"America/New_York")} ET / ${fmt(gt,"America/Los_Angeles")} PT`;}
-     G[k]={start:new Date(c.date||e.date).getTime(),state,detail,h:+(t.home.score||0),a:+(t.away.score||0),hab:t.home.team.abbreviation,aab:t.away.team.abbreviation,eid:e.id,lg:"football/leagues/college-football"};break;}}
+     G[k]={start:new Date(c.date||e.date).getTime(),state,detail,h:+(t.home.score||0),a:+(t.away.score||0),hab:t.home.team.abbreviation,aab:t.away.team.abbreviation,eid:e.id,lg:"football/leagues/college-football",per:s.period,nm,hl:t.home.linescores&&t.home.linescores.length?t.home.linescores:null,al:t.away.linescores&&t.away.linescores.length?t.away.linescores:null};break;}}
    if(!G[k])errs.push(`ESPN: ${away} @ ${home} not found`);}
  }catch(e){errs.push("ESPN scores failed: "+e.message)}
  G.MLB=null;
@@ -112,7 +116,7 @@ async function fetchOdds(G){const out={};
   out[k]={src:it.provider.name,mlh:it.homeTeamOdds?.moneyLine,mla:it.awayTeamOdds?.moneyLine,hs,ou:it.overUnder};}catch(e){}}));
  return out;}
 const prob=a=>a<0?(-a)/((-a)+100):100/(a+100);
-function oddsTag(l){const sp=l.spec,o=ODDS[l.game];if(!o||!sp||SETTLED.has(l.status))return"";let txt="",good=null;
+function oddsTag(l){const sp=l.spec,o=ODDS[l.game];if(!o||!sp||sp.type==="ml1h"||SETTLED.has(l.status))return"";let txt="",good=null;
  const team=sp.lab||"";const fmtn=x=>(x>0?"+":"")+x;
  if(sp.type==="ml"){const v=sp.side==="h"?o.mlh:o.mla;if(v==null)return"";txt=`now ${team} ${fmtn(v)}`;good=prob(v)>prob(sp.odds)?1:prob(v)<prob(sp.odds)?-1:0;}
  else if(sp.type==="sp"){if(o.hs==null)return"";const v=sp.side==="h"?o.hs:-o.hs;txt=`now ${team} ${fmtn(v)}`;good=v<sp.line?1:v>sp.line?-1:0;}

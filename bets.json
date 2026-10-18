@@ -1,5 +1,5 @@
 {
- "version": "2026-10-17.16",
+ "version": "2026-10-17.17",
  "cfb_games": {
   "BG": [
    "Bowling Green",
@@ -40,6 +40,10 @@
   "HOU": [
    "Houston",
    "Oklahoma State"
+  ],
+  "NEB": [
+   "Oregon Ducks",
+   "Nebraska"
   ]
  },
  "tickets": [
@@ -435,6 +439,36 @@
      "odds": 138,
      "side": "h",
      "lab": "IND"
+    }
+   ]
+  },
+  {
+   "sport": "CFB",
+   "stake": 11.0,
+   "towin": 11.55,
+   "legs": [
+    {
+     "type": "ml1h",
+     "game": "NEB",
+     "needs": "Nebraska leads Oregon at halftime (tied at half = push)",
+     "odds": 105,
+     "side": "a",
+     "lab": "NEB"
+    }
+   ]
+  },
+  {
+   "sport": "CFB",
+   "stake": 11.0,
+   "towin": 10.0,
+   "legs": [
+    {
+     "type": "ml1h",
+     "game": "NEB",
+     "needs": "Nebraska leads Oregon at halftime (tied at half = push)",
+     "odds": -110,
+     "side": "a",
+     "lab": "NEB"
     }
    ]
   }
