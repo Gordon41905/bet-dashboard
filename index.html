@@ -71,7 +71,7 @@ function buildTickets(d){CFB=d.cfb_games||{};NFL=d.nfl_games||{};TICKETS=d.ticke
 function futHTML(){return FUTS.length?section("sb","🏈 Super Bowl bets","#9b59ff",FUTS.map(f=>`<div class="card" style="border-left-color:#9b59ff"><div class="top"><div><div class="bet">${m(f.stake)} bet</div><div class="roll" style="color:#b48cff">PENDING · SETTLES FEB 2027</div></div><div><div class="pay">Wins $${f.towin.toFixed(2)}</div><div class="ret">returns $${(f.stake+f.towin).toFixed(2)}</div></div></div><div class="leg"><div class="need">${esc(f.pick)}</div></div></div>`).join(""),FUTS.length):""}
 async function checkVersion(){try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
  if(v&&v!==APP_VERSION){const k="reloaded_"+v;if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,"1");location.replace(location.pathname+"?v="+encodeURIComponent(v));}}}catch(e){}}
-const APP_VERSION="2026-10-18.4";
+const APP_VERSION="2026-10-18.5";
 
 const chip=g=>!g?"score unavailable":g.state==="void"?`${g.aab} @ ${g.hab} · ${g.detail}`:g.state==="pre"?`${g.aab} @ ${g.hab} · ${g.detail}`:`${g.aab} ${g.a} – ${g.hab} ${g.h} · ${g.detail}`;
 async function getJSON(u,label){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error(`${label} HTTP ${r.status}`);return r.json();}
@@ -113,13 +113,27 @@ function grade(G){return TICKETS.map(([sport,stake,towin,settled,legs],idx)=>{co
   return{idx,sport,stake,settled,towin:adj,orig:towin,legs:LL,roll,reduced:red&&roll!=="PUSH",left:ss.filter(s=>!["WON","PUSH","LOST","VOID"].includes(s)).length}});}
 let SCP={};
 const gmin=(p,c)=>{const m=String(c||"").match(/(\d+):(\d+)/),left=m?(+m[1])+(+m[2])/60:0;return p<=4?(p-1)*15+15-left:60+(p-5)*10+10-left;};
-async function fetchScoring(G){await Promise.all(Object.entries(G).filter(([k,g])=>g&&g.state==="in"&&g.eid&&/football/.test(g.lg||"")&&TICKETS.some(t=>t[4].some(l=>l.game===k&&l.type==="tot"))).map(async([k,g])=>{try{const lg=g.lg.replace("/leagues/","/");const d=await getJSON(`https://site.api.espn.com/apis/site/v2/sports/${lg}/summary?event=${g.eid}&t=${Date.now()}`,"summary");
- SCP[g.eid]=(d.scoringPlays||[]).map(x=>[gmin(x.period?.number||1,x.clock?.displayValue),(+x.awayScore||0)+(+x.homeScore||0)]).filter(x=>isFinite(x[0])&&isFinite(x[1])).sort((a,b)=>a[0]-b[0]);}catch(e){}}));}
+async function fetchScoring(G){await Promise.all(Object.entries(G).filter(([k,g])=>g&&g.state==="in"&&g.eid&&/football/.test(g.lg||"")&&TICKETS.some(t=>t[4].some(l=>l.game===k&&(l.type==="tot"||l.type==="sp")))).map(async([k,g])=>{try{const lg=g.lg.replace("/leagues/","/");const d=await getJSON(`https://site.api.espn.com/apis/site/v2/sports/${lg}/summary?event=${g.eid}&t=${Date.now()}`,"summary");
+ SCP[g.eid]=(d.scoringPlays||[]).map(x=>[gmin(x.period?.number||1,x.clock?.displayValue),(+x.awayScore||0)+(+x.homeScore||0),+x.awayScore||0,+x.homeScore||0]).filter(x=>isFinite(x[0])&&isFinite(x[1])).sort((a,b)=>a[0]-b[0]);}catch(e){}}));}
 function spark(g,T){const P=g&&SCP[g.eid];if(!P||g.per==null)return"";const now=Math.max(0,gmin(g.per||1,g.clk)),w0=Math.max(0,now-15),win=now-w0;if(win<=0)return"";
  const at=t=>{let v=0;for(const[x,y]of P)if(x<=t)v=y;return v;},base=at(w0),dl=T-base,ym=Math.max(7,dl),X=t=>((t-w0)/win*36+1).toFixed(1),Y=v=>(15-(v-base)/ym*14).toFixed(1);
  let pts=[`${X(w0)},${Y(base)}`],cur=base;for(const[x,y]of P)if(x>w0&&x<=now){pts.push(`${X(x)},${Y(cur)}`,`${X(x)},${Y(y)}`);cur=y;}pts.push(`${X(now)},${Y(T)}`);
  return `<div class="spk" title="${dl} points in the last ${Math.round(win)} game minutes (${T} total)"><svg viewBox="0 0 38 16"><polyline points="${pts.join(" ")}" fill="none" stroke="#7fa6ff" stroke-width="1.5" stroke-linejoin="round"/></svg><span>+${dl}/${Math.round(win)}m</span></div>`;}
-function legMeter(l){try{const sp=l.spec;if(!sp||sp.type!=="tot"||l.gstate!=="in")return"";const g=LASTG[l.game];if(!g)return"";const bet=Number(sp.line),ou=sp.ou,T=g.h+g.a,f=x=>Number.isInteger(x)?x+"":x.toFixed(1);
+function sparkM(g,side,lab,line,cur){const P=g&&SCP[g.eid];if(!P||g.per==null)return"";const now=Math.max(0,gmin(g.per||1,g.clk)),w0=Math.max(0,now-15),win=now-w0;if(win<=0)return"";
+ const mg=x=>(side==="h"?x[3]-x[2]:x[2]-x[3])+line,at=t=>{let v=line;for(const x of P)if(x[0]<=t)v=mg(x);return v;},base=at(w0);
+ const S=[[w0,base]];let c=base;for(const x of P)if(x[0]>w0&&x[0]<=now){S.push([x[0],c]);c=mg(x);S.push([x[0],c]);}S.push([now,cur]);
+ let lo=Math.min(...S.map(p=>p[1]),0),hi=Math.max(...S.map(p=>p[1]),0);if(hi-lo<7){const m=(hi+lo)/2;lo=m-3.5;hi=m+3.5;}
+ const X=t=>((t-w0)/win*36+1).toFixed(1),Y=v=>(15-(v-lo)/(hi-lo)*14).toFixed(1),dl=cur-base;
+ return `<div class="spk" title="${esc(lab)} cover margin ${dl>=0?"+":""}${dl} over the last ${Math.round(win)} game minutes (now ${cur>0?"+":""}${cur})"><svg viewBox="0 0 38 16"><line x1="1" x2="37" y1="${Y(0)}" y2="${Y(0)}" stroke="#4a5568" stroke-width=".6"/><polyline points="${S.map(p=>X(p[0])+","+Y(p[1])).join(" ")}" fill="none" stroke="#7fa6ff" stroke-width="1.5" stroke-linejoin="round"/></svg><span>${esc(lab)} ${dl>=0?"+":""}${dl}/${Math.round(win)}m</span></div>`;}
+function spMeter(l){const sp=l.spec,g=LASTG[l.game];if(!g)return"";const line=Number(sp.line),me=sp.side==="h"?g.h:g.a,op=sp.side==="h"?g.a:g.h,c=me-op+line,lab=sp.lab||"";
+ const rng=Math.max(7,Math.abs(c)+3),pos=x=>Math.min(100,Math.max(0,(rng-x)/(2*rng)*100)),col=c>0?"#39e27d":c<0?"#ff6b6b":"#8b97a8",pv=pos(c),n=x=>(x>0?"+":"")+(Number.isInteger(x)?x:x.toFixed(1));
+ const sk=sparkM(g,sp.side,lab,line,c);let h=`<div class="mtr${sk?" sk":""}" title="${esc(lab)} ${line===0?"PK":n(line)}: ${c>0?"covering by "+n(c).slice(1):c<0?"short by "+n(-c).slice(1):"exactly on the push number"}">`;
+ if(c!==0)h+=`<i class="mf" style="top:${Math.min(50,pv)}%;bottom:${100-Math.max(50,pv)}%;background:${col}"></i>`;
+ h+=`<i class="mn" style="top:50%"></i><i class="md" style="top:${pv}%;background:${col}"></i>`;
+ let lb=50,lv=pv;if(Math.abs(lv-lb)<22){const d=lv<=lb?-1:1,mid=(lb+lv)/2;lb=mid-11*d;lv=mid+11*d;}
+ h+=`<span class="ml" style="top:${lb}%;color:#eef2f7">${line===0?"PK":n(line)}</span><span class="ml" style="top:${lv}%;color:${col}">${c===0?"0":n(c)}</span>`;
+ return h+`</div>`+sk;}
+function legMeter(l){try{const sp=l.spec;if(sp&&sp.type==="sp"&&l.gstate==="in")return spMeter(l);if(!sp||sp.type!=="tot"||l.gstate!=="in")return"";const g=LASTG[l.game];if(!g)return"";const bet=Number(sp.line),ou=sp.ou,T=g.h+g.a,f=x=>Number.isInteger(x)?x+"":x.toFixed(1);
  const O=ODDS[l.game],v=O&&O.ou&&O.ou.v!=null&&isFinite(+O.ou.v)?+O.ou.v:null,sk=spark(g,T),skc=sk?" sk":"";
  if(T>bet){const won=ou==="o",sc=won?"#1fbf5f":"#e5484d",R=won?"WON":"LOST";return `<div class="mtr${skc}" title="Your ${ou==="o"?"over":"under"} ${bet}: ${R.toLowerCase()} (${T} points so far)" style="background:${sc}"><span class="ml" style="top:38%;color:${sc}">${R}</span><span class="ml" style="top:58%;color:#eef2f7">${T}</span></div>`+sk;}
  const rng=Math.max(8,(v!=null?Math.abs(v-bet):0)+3),pos=x=>Math.min(100,Math.max(0,(bet+rng-x)/(2*rng)*100));
