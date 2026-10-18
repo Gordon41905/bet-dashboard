@@ -62,7 +62,7 @@ function buildTickets(d){CFB=d.cfb_games||{};TICKETS=d.tickets.map(t=>[t.sport,t
 function futHTML(){return FUTS.length?section("sb","🏈 Super Bowl bets","#9b59ff",FUTS.map(f=>`<div class="card" style="border-left-color:#9b59ff"><div class="top"><div><div class="bet">${m(f.stake)} bet</div><div class="roll" style="color:#b48cff">PENDING · SETTLES FEB 2027</div></div><div><div class="pay">Wins $${f.towin.toFixed(2)}</div><div class="ret">returns $${(f.stake+f.towin).toFixed(2)}</div></div></div><div class="leg"><div class="need">${esc(f.pick)}</div></div></div>`).join(""),FUTS.length):""}
 async function checkVersion(){try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
  if(v&&v!==APP_VERSION){const k="reloaded_"+v;if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,"1");location.replace(location.pathname+"?v="+encodeURIComponent(v));}}}catch(e){}}
-const APP_VERSION="2026-10-17.8";
+const APP_VERSION="2026-10-17.9";
 
 const chip=g=>!g?"score unavailable":g.state==="void"?`${g.aab} @ ${g.hab} · ${g.detail}`:g.state==="pre"?`${g.aab} @ ${g.hab} · ${g.detail}`:`${g.aab} ${g.a} – ${g.hab} ${g.h} · ${g.detail}`;
 async function getJSON(u,label){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error(`${label} HTTP ${r.status}`);return r.json();}
@@ -99,7 +99,7 @@ function card(t){const c=RC[t.roll]||"#5b6575",n=t.legs.length,kind=n>1?`${n}-le
  return `<div class="card" style="border-left-color:${c}"><div class="top"><div><div class="bet">${m(t.stake)} bet <span style="font-size:13px;color:#8b97a8;font-weight:600">· ${kind}</span></div>
  <div class="roll" style="color:${c}">${rl}</div></div><div>${t.roll==="DEAD"?`<div class="pay" style="color:#ff6b6b">Lost ${m(t.stake)}</div><div class="ret">would have won $${t.towin.toFixed(2)}</div>`:t.roll==="PUSH"?`<div class="pay" style="color:#f0b429">Refunded ${m(t.stake)}</div>`:`<div class="pay">${t.roll==="CASHED"?"Won":t.reduced?"Now wins":"Wins"} ${t.reduced?"~":""}$${t.towin.toFixed(2)}${t.reduced?" (push)":""}</div><div class="ret">${t.reduced?`was $${t.orig.toFixed(2)} · `:""}returns $${(t.stake+t.towin).toFixed(2)}</div>`}</div></div>`+
  t.legs.map(l=>`<div class="leg"><div class="need">${esc(l.needs)}</div><div class="live"><span class="pill" style="background:${COL[l.status]}">${LAB[l.status]}</span><span class="score">${esc(l.score)}</span></div>${l.status!=="NS"&&l.status!=="NA"?`<div class="tx"><span class="tt">${esc(l.text)}</span>${oddsTag(l)}</div>`:""}</div>`).join("")+mlb+`</div>`}
-let lastOk=null,ODDS={};
+let lastOk=null,ODDS={},ODDS_LAST={};
 async function fetchOdds(G){const out={};
  try{if(G.MLB&&G.MLB.state==="in"&&!G.MLB.eid){const sb=await getJSON("https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard?dates=20261017&t="+Date.now(),"ESPN MLB");
    for(const e of sb.events||[]){const c=e.competitions[0];const h=c.competitors.find(x=>x.homeAway==="home");if(h&&h.team.abbreviation==="CLE"){G.MLB.eid=e.id;G.MLB.lg="baseball/leagues/mlb";}}}}catch(e){}
@@ -157,7 +157,7 @@ function render(T){const [plc,plf]=renderPL(T);const live=T.filter(t=>t.roll==="
  h+=section("results","✅ Settled",SECC[3],plf+G[3].join(""),G[3].length,plc);h+=futHTML();
  $("tickets").innerHTML=h;}
 async function poll(){checkVersion();try{const br=await fetch("bets.json?t="+Date.now(),{cache:"no-store"});if(!br.ok)throw new Error("bets file HTTP "+br.status);buildTickets(await br.json());
- const[G,errs]=await fetchGames();ODDS=await fetchOdds(G);const anyData=Object.values(G).some(Boolean);
+ const[G,errs]=await fetchGames();{const fresh=await fetchOdds(G),now=Date.now();for(const[k,v]of Object.entries(fresh))ODDS_LAST[k]={...v,at:now};ODDS={};for(const[k,v]of Object.entries(ODDS_LAST))if(G[k]&&G[k].state==="in"&&now-v.at<300000)ODDS[k]=v;}const anyData=Object.values(G).some(Boolean);
   if(!anyData)throw new Error(errs.join("; ")||"no data");render(grade(G));lastOk=new Date();
   $("ts").innerHTML=`<span class="dot"></span>Updated ${lastOk.toLocaleTimeString("en-US",{timeZone:"America/Los_Angeles",hour:"numeric",minute:"2-digit",second:"2-digit"})} PT`;
   $("err").innerHTML=errs.length?`<div class="err">⚠️ ${errs.map(esc).join("<br>")}</div>`:"";}
