@@ -2,12 +2,12 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><title>Live Bet Tracker</title><style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:#0d1015;color:#eef2f7;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"DejaVu Sans",Arial,sans-serif;padding:14px;max-width:640px;margin:0 auto}
-.hdr{background:#161c26;border-radius:16px;padding:16px}
-h1{font-size:22px;font-weight:800}.ts{font-size:13px;color:#9aa6b8;margin:3px 0 12px}
+.hdr{background:#161c26;border-radius:16px;padding:14px 14px 12px}.hrow{display:flex;justify-content:space-between;align-items:baseline;gap:8px}.cw{font-size:12px;color:#8b97a8;white-space:nowrap;text-align:right}.cw b{color:#39e27d;font-weight:800}
+h1{font-size:22px;font-weight:800}.ts{font-size:13px;color:#9aa6b8;margin:3px 0 10px}
 .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#1fbf5f;margin-right:6px;animation:p 2s infinite}@keyframes p{50%{opacity:.3}}
-.g3{display:grid;grid-template-columns:1.25fr 1fr 1fr 1fr;gap:8px}.st{background:#0d1118;border-radius:12px;padding:10px}
+.g3{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.st{background:#0d1118;border-radius:12px;padding:10px}
 .k{font-size:11px;color:#8b97a8;font-weight:700;letter-spacing:1px}.kv{font-size:22px;font-weight:800;margin-top:2px}.sub{font-size:11px;color:#8b97a8;margin-top:2px}
-.err{background:#3a1114;border:2px solid #e5484d;color:#ffd0d2;border-radius:12px;padding:12px;margin-top:12px;font-size:14px;font-weight:700}
+.err{background:#3a1114;border:2px solid #e5484d;color:#ffd0d2;border-radius:12px;padding:12px;margin-top:10px;font-size:14px;font-weight:700}
 .gh{font-size:19px;font-weight:800;margin:24px 0 4px;padding-bottom:6px;border-bottom:3px solid;display:flex;justify-content:space-between;align-items:center;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent}.gh .cnt{font-size:13px;color:#8b97a8;font-weight:700;margin-left:4px}.chev{font-size:16px;color:#8b97a8;transition:transform .2s;padding:0 4px}.gh.closed .chev{transform:rotate(-90deg)}.sb[hidden]{display:none}
 .card{background:#171d27;border-radius:14px;border-left:6px solid #5b6575;margin-top:12px;padding:14px}
 .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
@@ -19,11 +19,11 @@ h1{font-size:22px;font-weight:800}.ts{font-size:13px;color:#9aa6b8;margin:3px 0 
 .pill{color:#fff;font-size:11px;font-weight:800;border-radius:6px;padding:4px 8px;letter-spacing:.5px;white-space:nowrap}
 .score{font-size:14px;font-weight:700;color:#dbe2ec}.tx{font-size:13px;color:#a3aec0;margin-top:3px;display:flex;gap:5px;white-space:nowrap}.tt{overflow:hidden;text-overflow:ellipsis;min-width:0}.lo{color:#7f8ba0;flex:none}
 .note{font-size:12px;color:#ffcf7a;margin-top:10px}
-.pl{background:#161c26;border-radius:16px;padding:14px 16px;margin-top:12px}.plc{display:flex;justify-content:space-between;gap:8px;background:#161c26;border-radius:12px;padding:9px 12px;margin-top:6px;white-space:nowrap;font-size:14px;color:#a3aec0}.plc b{color:#eef2f7;margin-left:4px}.sub{font-size:13px;color:#8b97a8;font-weight:700;letter-spacing:1px;margin:16px 0 0;text-transform:uppercase}[hidden]{display:none!important}.plh{display:flex;justify-content:space-between;align-items:baseline}.plt{font-size:12px;color:#8b97a8;font-weight:700;letter-spacing:1px}.pln{font-size:30px;font-weight:800;white-space:nowrap}.plh{gap:10px}.plr{display:flex;justify-content:space-between;font-size:14px;padding:5px 0;border-top:1px solid #263042;color:#c3ccd8}.plr b{color:#eef2f7}.pls{font-size:12px;color:#8b97a8;margin-top:2px}
+.pl{background:#161c26;border-radius:16px;padding:14px 16px;margin-top:12px}.plc{display:flex;justify-content:space-between;gap:8px;background:#161c26;border-radius:12px;padding:9px 12px;margin-top:6px;white-space:nowrap;font-size:14px;color:#a3aec0}.plc b{color:#eef2f7;margin-left:4px}.plc{align-items:baseline}.plc .pn{font-size:22px}.sub{font-size:13px;color:#8b97a8;font-weight:700;letter-spacing:1px;margin:16px 0 0;text-transform:uppercase}[hidden]{display:none!important}.plh{display:flex;justify-content:space-between;align-items:baseline}.plt{font-size:12px;color:#8b97a8;font-weight:700;letter-spacing:1px}.pln{font-size:22px;font-weight:800;white-space:nowrap}.plh{gap:10px}.plr{display:flex;justify-content:space-between;font-size:14px;padding:5px 0;border-top:1px solid #263042;color:#c3ccd8}.plr b{color:#eef2f7}.pls{font-size:12px;color:#8b97a8;margin-top:2px}
 .ftr{margin-top:22px;font-size:12px;color:#7f8ba0;line-height:1.5;text-align:center}
 </style></head><body>
-<div class="hdr"><h1>Live Bets · Sat Oct 17</h1><div class="ts" id="ts"><span class="dot"></span>Loading live scores…</div>
-<div class="g3"><div class="st"><div class="k">STILL LIVE</div><div class="kv" id="s_live">–</div><div class="sub" id="s_maxwin"></div></div>
+<div class="hdr"><div class="hrow"><h1>Live Bets · Sat Oct 17</h1><span class="cw" id="s_maxwin"></span></div><div class="ts" id="ts"><span class="dot"></span>Loading live scores…</div>
+<div class="g3"><div class="st"><div class="k">STILL LIVE</div><div class="kv" id="s_live">–</div></div>
 <div class="st"><div class="k">WON</div><div class="kv" style="color:#39e27d" id="s_won">–</div></div>
 <div class="st"><div class="k">LOST</div><div class="kv" style="color:#ff6b6b" id="s_lost">–</div></div><div class="st"><div class="k">REFUNDED</div><div class="kv" style="color:#f0b429" id="s_ref">–</div></div></div>
 <div id="err"></div></div>
@@ -62,7 +62,7 @@ function buildTickets(d){CFB=d.cfb_games||{};TICKETS=d.tickets.map(t=>[t.sport,t
 function futHTML(){return FUTS.length?section("sb","🏈 Super Bowl bets","#9b59ff",FUTS.map(f=>`<div class="card" style="border-left-color:#9b59ff"><div class="top"><div><div class="bet">${m(f.stake)} bet</div><div class="roll" style="color:#b48cff">PENDING · SETTLES FEB 2027</div></div><div><div class="pay">Wins $${f.towin.toFixed(2)}</div><div class="ret">returns $${(f.stake+f.towin).toFixed(2)}</div></div></div><div class="leg"><div class="need">${esc(f.pick)}</div></div></div>`).join(""),FUTS.length):""}
 async function checkVersion(){try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
  if(v&&v!==APP_VERSION){const k="reloaded_"+v;if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,"1");location.replace(location.pathname+"?v="+encodeURIComponent(v));}}}catch(e){}}
-const APP_VERSION="2026-10-17.7";
+const APP_VERSION="2026-10-17.8";
 
 const chip=g=>!g?"score unavailable":g.state==="void"?`${g.aab} @ ${g.hab} · ${g.detail}`:g.state==="pre"?`${g.aab} @ ${g.hab} · ${g.detail}`:`${g.aab} ${g.a} – ${g.hab} ${g.h} · ${g.detail}`;
 async function getJSON(u,label){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error(`${label} HTTP ${r.status}`);return r.json();}
@@ -140,7 +140,7 @@ function renderPL(T){const settled=T.filter(t=>["CASHED","DEAD","PUSH"].includes
  const pend=sum(live,t=>t.stake)+sum(FUTS,f=>f.stake),liveWin=sum(live,t=>t.towin),futWin=sum(FUTS,f=>f.towin);
  const best=net+liveWin-sum(FUTS,f=>f.stake)*0,c=net>0?"#39e27d":net<0?"#ff6b6b":"#eef2f7",sg=x=>(x>0?"+":"")+money(x);
  const allLose=net-sum(live,t=>t.stake);
- const compact=`<div class="plc"><span>Net <b style="color:${c}">${sg(net)}</b></span><span>Bet <b>${money(wagAll)}</b></span><span>Back <b>${money(ret)}</b></span></div>`;
+ const compact=`<div class="plc"><span>Net <b class="pn" style="color:${c}">${sg(net)}</b></span><span>Bet <b>${money(wagAll)}</b></span><span>Back <b>${money(ret)}</b></span></div>`;
  return [compact,`<div class="pl"><div class="plh"><span class="plt">NET PROFIT / LOSS · SETTLED BETS</span><span class="pln" style="color:${c}">${sg(net)}</span></div>
  <div class="pls">${settled.length} settled bets: ${money(wagSet)} bet, ${money(ret)} back</div>
  <div class="plr" style="margin-top:8px"><span>Total bet (all ${T.length+FUTS.length} bets)</span><b>${money(wagAll)}</b></div>
@@ -150,7 +150,7 @@ function renderPL(T){const settled=T.filter(t=>["CASHED","DEAD","PUSH"].includes
  <div class="plr"><span>If every live game bet loses</span><b style="color:#ff6b6b">${sg(Math.round(allLose*100)/100)}</b></div>
  <div class="pls">Win/lose lines leave out the Super Bowl bets (${money(sum(FUTS,f=>f.stake))} bet, could win ${money(futWin)}, settle Feb 2027).</div></div>`];}
 function render(T){const [plc,plf]=renderPL(T);const live=T.filter(t=>t.roll==="ALIVE"||t.roll==="NOT STARTED");
- $("s_live").textContent=m(live.reduce((a,t)=>a+t.stake,0));$("s_maxwin").textContent="can win $"+live.reduce((a,t)=>a+t.towin,0).toFixed(2);
+ $("s_live").textContent=m(live.reduce((a,t)=>a+t.stake,0));$("s_maxwin").innerHTML="can win <b>$"+live.reduce((a,t)=>a+t.towin,0).toFixed(2)+"</b>";
  $("s_won").textContent="$"+T.filter(t=>t.roll==="CASHED").reduce((a,t)=>a+t.towin,0).toFixed(2);$("s_lost").textContent=m(T.filter(t=>t.roll==="DEAD").reduce((a,t)=>a+t.stake,0));$("s_ref").textContent=m(T.filter(t=>t.roll==="PUSH").reduce((a,t)=>a+t.stake,0));
  const G=[[],[],[],[]];for(const t of order(T))G[t.sec].push(card(t));
  let h="";for(const i of [0,1,2]){if(G[i].length)h+=section(SECK[i],SECN[i],SECC[i],G[i].join(""),G[i].length);}
