@@ -83,11 +83,12 @@
    "towin": 15.4,
    "legs": [
     {
-     "type": "ml",
+     "type": "sp",
      "game": "MLB",
-     "needs": "Guardians beat the Rays",
+     "needs": "Guardians win, or lose by 3 or fewer (vs Rays)",
      "odds": 140,
      "side": "h",
+     "line": 3.5,
      "lab": "CLE"
     }
    ]
