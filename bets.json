@@ -1,5 +1,5 @@
 {
- "version": "2026-10-18.9",
+ "version": "2026-10-18.10",
  "cfb_games": {
   "BG": [
    "Bowling Green",
@@ -92,6 +92,16 @@
    "Green Bay Packers",
    "Dallas Cowboys",
    "20261018"
+  ],
+  "LAR": [
+   "Los Angeles Rams",
+   "Arizona Cardinals",
+   "20261018"
+  ],
+  "SF": [
+   "San Francisco 49ers",
+   "Washington Commanders",
+   "20261019"
   ]
  },
  "tickets": [
@@ -777,6 +787,37 @@
      "odds": -108,
      "ou": "u",
      "line": 53.5
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 33.0,
+   "towin": 22.92,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "SF",
+     "needs": "49ers beat the Commanders (Mon night)",
+     "odds": -410,
+     "side": "h",
+     "lab": "SF"
+    },
+    {
+     "type": "ml",
+     "game": "LAR",
+     "needs": "Rams beat the Cardinals",
+     "odds": -900,
+     "side": "h",
+     "lab": "LAR"
+    },
+    {
+     "type": "ml",
+     "game": "KC",
+     "needs": "Chiefs beat the Chargers",
+     "odds": -440,
+     "side": "h",
+     "lab": "KC"
     }
    ]
   }
