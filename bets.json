@@ -1,5 +1,5 @@
 {
- "version": "2026-10-17.18",
+ "version": "2026-10-17.19",
  "cfb_games": {
   "BG": [
    "Bowling Green",
@@ -475,6 +475,21 @@
      "odds": -110,
      "side": "a",
      "lab": "NEB"
+    }
+   ]
+  },
+  {
+   "sport": "CFB",
+   "stake": 33.0,
+   "towin": 22.72,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "NEB",
+     "needs": "Oregon beats Nebraska",
+     "odds": -145,
+     "side": "h",
+     "lab": "ORE"
     }
    ]
   },
