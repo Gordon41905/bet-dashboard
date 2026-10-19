@@ -1,5 +1,5 @@
 {
- "version": "2026-10-19.2",
+ "version": "2026-10-19.3",
  "cfb_games": {
   "BG": [
    "Bowling Green",
@@ -1073,6 +1073,51 @@
      "odds": -117,
      "ou": "o",
      "line": 51.5
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 5.0,
+   "towin": 48.35,
+   "pitchers": {
+    "game": "MLB6",
+    "a": "S. Armstrong",
+    "h": "F. Peralta"
+   },
+   "legs": [
+    {
+     "type": "sp",
+     "game": "SF",
+     "needs": "49ers win by 8 or more (by exactly 7 = push)",
+     "odds": -119,
+     "side": "h",
+     "line": -7.0,
+     "lab": "SF"
+    },
+    {
+     "type": "tot",
+     "game": "MLB6",
+     "needs": "7 or more total runs (Guardians + Rays)",
+     "odds": -125,
+     "ou": "o",
+     "line": 6.5
+    },
+    {
+     "type": "tot",
+     "game": "SF",
+     "needs": "53 or more total points (exactly 52 = push)",
+     "odds": -107,
+     "ou": "o",
+     "line": 52.0
+    },
+    {
+     "type": "ml",
+     "game": "MLB6",
+     "needs": "Rays beat the Guardians (ALCS Game 6)",
+     "odds": -150,
+     "side": "h",
+     "lab": "TB"
     }
    ]
   }
