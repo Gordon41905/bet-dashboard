@@ -1,5 +1,5 @@
 {
- "version": "2026-10-18.16",
+ "version": "2026-10-19.1",
  "cfb_games": {
   "BG": [
    "Bowling Green",
@@ -979,6 +979,78 @@
      "line": 52.5
     }
    ]
+  },
+  {
+   "sport": "SOC",
+   "stake": 17.2,
+   "towin": 10.0,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "TOT",
+     "needs": "Tottenham beat Coventry (a draw loses)",
+     "odds": -172,
+     "side": "h",
+     "lab": "TOT"
+    }
+   ]
+  },
+  {
+   "sport": "MLB",
+   "stake": 11.0,
+   "towin": 22.0,
+   "pitchers": {
+    "game": "MLB6",
+    "a": "S. Armstrong",
+    "h": "F. Peralta"
+   },
+   "legs": [
+    {
+     "type": "ml",
+     "game": "MLB6",
+     "needs": "Rays beat the Guardians (ALCS Game 6)",
+     "odds": -150,
+     "side": "h",
+     "lab": "TB"
+    },
+    {
+     "type": "tot",
+     "game": "MLB6",
+     "needs": "7 or more total runs (Guardians + Rays)",
+     "odds": -125,
+     "ou": "o",
+     "line": 6.5
+    }
+   ]
+  },
+  {
+   "sport": "MLB",
+   "stake": 22.0,
+   "towin": 44.66,
+   "pitchers": {
+    "game": "MLB6",
+    "a": "S. Armstrong",
+    "h": "F. Peralta"
+   },
+   "legs": [
+    {
+     "type": "ml",
+     "game": "SF",
+     "needs": "49ers beat the Commanders (Mon night)",
+     "odds": -420,
+     "side": "h",
+     "lab": "SF"
+    },
+    {
+     "type": "sp",
+     "game": "MLB6",
+     "needs": "Rays win by 2 or more runs (ALCS Game 6, run line -1.5)",
+     "odds": 145,
+     "side": "h",
+     "line": -1.5,
+     "lab": "TB"
+    }
+   ]
   }
  ],
  "futures": [
@@ -1005,6 +1077,19 @@
    139,
    "2026-10-18",
    849817
+  ],
+  "MLB6": [
+   139,
+   114,
+   "2026-10-19",
+   849815
+  ]
+ },
+ "soc_games": {
+  "TOT": [
+   "eng.1",
+   "401879257",
+   "2026-10-19"
   ]
  }
 }
