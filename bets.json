@@ -1,5 +1,5 @@
 {
- "version": "2026-10-18.14",
+ "version": "2026-10-18.15",
  "cfb_games": {
   "BG": [
    "Bowling Green",
@@ -938,6 +938,21 @@
      "side": "a",
      "line": 9.5,
      "lab": "DAL"
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 11.0,
+   "towin": 10.48,
+   "legs": [
+    {
+     "type": "tot",
+     "game": "GB",
+     "needs": "48 or more total points (Cowboys + Packers, live)",
+     "odds": -105,
+     "ou": "o",
+     "line": 47.5
     }
    ]
   }
