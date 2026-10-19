@@ -1,5 +1,5 @@
 {
- "version": "2026-10-19.4",
+ "version": "2026-10-19.5",
  "cfb_games": {
   "BG": [
    "Bowling Green",
@@ -1118,6 +1118,30 @@
      "odds": -150,
      "side": "h",
      "lab": "TB"
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 22.0,
+   "towin": 57.2,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "SF",
+     "needs": "Commanders win, or lose by 7 or fewer (vs 49ers, Mon night)",
+     "odds": null,
+     "side": "a",
+     "line": 7.5,
+     "lab": "WSH"
+    },
+    {
+     "type": "tot",
+     "game": "SF",
+     "needs": "52 or more total points (Commanders + 49ers)",
+     "odds": null,
+     "ou": "o",
+     "line": 51.5
     }
    ]
   }
