@@ -1,5 +1,5 @@
 {
- "version": "2026-10-18.12",
+ "version": "2026-10-18.13",
  "cfb_games": {
   "BG": [
    "Bowling Green",
@@ -906,6 +906,22 @@
      "side": "h",
      "line": -6.5,
      "lab": "SF"
+    }
+   ]
+  },
+  {
+   "sport": "MLB",
+   "stake": 11.0,
+   "towin": null,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "MLB5",
+     "needs": "Guardians win, or lose by 1 run (run line +1.5 vs Rays)",
+     "odds": null,
+     "side": "h",
+     "line": 1.5,
+     "lab": "CLE"
     }
    ]
   }
