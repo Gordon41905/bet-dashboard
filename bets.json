@@ -1,5 +1,5 @@
 {
- "version": "2026-10-18.11",
+ "version": "2026-10-18.12",
  "cfb_games": {
   "BG": [
    "Bowling Green",
@@ -866,6 +866,46 @@
      "odds": -105,
      "ou": "o",
      "line": 6.5
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 22.0,
+   "towin": 18.97,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "GB",
+     "needs": "Cowboys beat the Packers",
+     "odds": -116,
+     "side": "a",
+     "lab": "DAL"
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 11.0,
+   "towin": 25.19,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "GB",
+     "needs": "Packers beat the Cowboys (a tie = push)",
+     "odds": -110,
+     "side": "h",
+     "line": 0.0,
+     "lab": "GB"
+    },
+    {
+     "type": "sp",
+     "game": "SF",
+     "needs": "49ers win by 7 or more (vs Commanders, Mon night)",
+     "odds": -138,
+     "side": "h",
+     "line": -6.5,
+     "lab": "SF"
     }
    ]
   }
