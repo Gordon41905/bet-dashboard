@@ -1,5 +1,5 @@
 {
- "version": "2026-10-18.13",
+ "version": "2026-10-18.14",
  "cfb_games": {
   "BG": [
    "Bowling Green",
@@ -922,6 +922,22 @@
      "side": "h",
      "line": 1.5,
      "lab": "CLE"
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 22.0,
+   "towin": 22.0,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "GB",
+     "needs": "Cowboys win, or lose by 9 or fewer (live +9.5 vs Packers)",
+     "odds": 100,
+     "side": "a",
+     "line": 9.5,
+     "lab": "DAL"
     }
    ]
   }
