@@ -1,5 +1,5 @@
 {
- "version": "2026-10-19.5",
+ "version": "2026-10-20.1",
  "cfb_games": {
   "BG": [
    "Bowling Green",
@@ -1144,6 +1144,60 @@
      "line": 51.5
     }
    ]
+  },
+  {
+   "sport": "SOC",
+   "stake": 11.0,
+   "towin": 30.47,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "POR",
+     "needs": "FC Porto beat PSV Eindhoven (a draw loses)",
+     "odds": -183,
+     "side": "h",
+     "lab": "POR"
+    },
+    {
+     "type": "ml",
+     "game": "PSG",
+     "needs": "Barcelona beat PSG (a draw loses)",
+     "odds": 144,
+     "side": "a",
+     "lab": "BAR"
+    }
+   ]
+  },
+  {
+   "sport": "SOC",
+   "stake": 18.3,
+   "towin": 10.0,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "POR",
+     "needs": "FC Porto beat PSV Eindhoven (a draw loses)",
+     "odds": -183,
+     "side": "h",
+     "lab": "POR"
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 11.0,
+   "towin": 10.0,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "DET",
+     "needs": "Pistons win, or lose by 1 (+1.5 vs Celtics)",
+     "odds": -110,
+     "side": "h",
+     "line": 1.5,
+     "lab": "DET"
+    }
+   ]
   }
  ],
  "futures": [
@@ -1183,6 +1237,22 @@
    "eng.1",
    "401879257",
    "2026-10-19"
+  ],
+  "POR": [
+   "uefa.champions",
+   "401915398",
+   "2026-10-20"
+  ],
+  "PSG": [
+   "uefa.champions",
+   "401915399",
+   "2026-10-20"
+  ]
+ },
+ "nba_games": {
+  "DET": [
+   "401909088",
+   "2026-10-20"
   ]
  }
 }
