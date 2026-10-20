@@ -1,5 +1,5 @@
 {
- "version": "2026-10-20.4",
+ "version": "2026-10-20.5",
  "cfb_games": {
   "BG": [
    "Bowling Green",
@@ -1267,7 +1267,8 @@
      "needs": "Knicks beat the 76ers",
      "odds": null,
      "side": "h",
-     "lab": "NY"
+     "lab": "NY",
+     "pace": true
     }
    ]
   },
@@ -1429,5 +1430,20 @@
    "401909090",
    "2026-10-20"
   ]
+ },
+ "player_lines": {
+  "SAS": {
+   "title": "Thunder\u2013Spurs player lines",
+   "cols": [
+    "PTS",
+    "3PM",
+    "REB",
+    "AST",
+    "PRA"
+   ],
+   "rows": [],
+   "note": "",
+   "sub": "Pre-game, BetOnline Prop Shop"
+  }
  }
 }
