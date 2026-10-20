@@ -1,5 +1,5 @@
 {
- "version": "2026-10-20.1",
+ "version": "2026-10-20.2",
  "cfb_games": {
   "BG": [
    "Bowling Green",
@@ -1198,6 +1198,38 @@
      "lab": "DET"
     }
    ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 20.0,
+   "towin": 124.4,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "DET",
+     "needs": "Pistons beat the Celtics",
+     "odds": -102,
+     "side": "h",
+     "lab": "DET"
+    },
+    {
+     "type": "sp",
+     "game": "NYK",
+     "needs": "76ers win, or lose by 4 or fewer (+4.5 at Knicks)",
+     "odds": -110,
+     "side": "a",
+     "line": 4.5,
+     "lab": "PHI"
+    },
+    {
+     "type": "ml",
+     "game": "SAS",
+     "needs": "Thunder beat the Spurs",
+     "odds": -110,
+     "side": "a",
+     "lab": "OKC"
+    }
+   ]
   }
  ],
  "futures": [
@@ -1252,6 +1284,14 @@
  "nba_games": {
   "DET": [
    "401909088",
+   "2026-10-20"
+  ],
+  "NYK": [
+   "401909089",
+   "2026-10-20"
+  ],
+  "SAS": [
+   "401909090",
    "2026-10-20"
   ]
  }
