@@ -1,5 +1,5 @@
 {
- "version": "2026-10-20.2",
+ "version": "2026-10-20.3",
  "cfb_games": {
   "BG": [
    "Bowling Green",
@@ -1228,6 +1228,41 @@
      "odds": -110,
      "side": "a",
      "lab": "OKC"
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 20.0,
+   "towin": 72.4,
+   "legs": [
+    {
+     "type": "prop",
+     "game": "NYK",
+     "needs": "Embiid (PHI) under 22.5 points (22 or fewer)",
+     "odds": null,
+     "aid": "3059318",
+     "ou": "u",
+     "line": 22.5,
+     "lab": "Embiid"
+    },
+    {
+     "type": "prop",
+     "game": "NYK",
+     "needs": "Brunson (NY) under 26.5 points (26 or fewer)",
+     "odds": null,
+     "aid": "3934672",
+     "ou": "u",
+     "line": 26.5,
+     "lab": "Brunson"
+    },
+    {
+     "type": "ml",
+     "game": "NYK",
+     "needs": "Knicks beat the 76ers",
+     "odds": null,
+     "side": "h",
+     "lab": "NY"
     }
    ]
   }
