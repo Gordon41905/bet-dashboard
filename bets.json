@@ -1,5 +1,5 @@
 {
- "version": "2026-10-20.3",
+ "version": "2026-10-20.4",
  "cfb_games": {
   "BG": [
    "Bowling Green",
@@ -55,6 +55,11 @@
    "Oregon Ducks",
    "Nebraska",
    "20261017"
+  ],
+  "FIU": [
+   "Florida International",
+   "Middle Tennessee",
+   "20261020"
   ]
  },
  "nfl_games": {
@@ -1263,6 +1268,101 @@
      "odds": null,
      "side": "h",
      "lab": "NY"
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 22.0,
+   "towin": 50.16,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "NYK",
+     "needs": "76ers win, or lose by 5 or fewer (+5.5 at Knicks)",
+     "odds": -132,
+     "side": "a",
+     "line": 5.5,
+     "lab": "PHI"
+    },
+    {
+     "type": "sp",
+     "game": "FIU",
+     "needs": "Middle Tennessee win, or lose by 10 or fewer (+10.5 at FIU)",
+     "odds": -115,
+     "side": "a",
+     "line": 10.5,
+     "lab": "MTSU"
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 11.0,
+   "towin": 24.75,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "NYK",
+     "needs": "76ers win, or lose by 5 or fewer (+5.5 at Knicks)",
+     "odds": -132,
+     "side": "a",
+     "line": 5.5,
+     "lab": "PHI"
+    },
+    {
+     "type": "ml",
+     "game": "SAS",
+     "needs": "Thunder beat the Spurs",
+     "odds": -118,
+     "side": "a",
+     "lab": "OKC"
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 11.0,
+   "towin": 21.45,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "SAS",
+     "needs": "Thunder beat the Spurs",
+     "odds": -118,
+     "side": "a",
+     "lab": "OKC"
+    },
+    {
+     "type": "ml",
+     "game": "NYK",
+     "needs": "Knicks beat the 76ers",
+     "odds": -167,
+     "side": "h",
+     "lab": "NY"
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 22.0,
+   "towin": 42.46,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "NYK",
+     "needs": "Knicks beat the 76ers",
+     "odds": -167,
+     "side": "h",
+     "lab": "NY"
+    },
+    {
+     "type": "tot",
+     "game": "NYK",
+     "needs": "232 or fewer total points, 76ers + Knicks",
+     "odds": -120,
+     "ou": "u",
+     "line": 232.5
     }
    ]
   }
