@@ -1,5 +1,5 @@
 {
- "version": "2026-10-20.7",
+ "version": "2026-10-20.8",
  "cfb_games": {
   "BG": [
    "Bowling Green",
@@ -1364,6 +1364,69 @@
      "odds": -120,
      "ou": "u",
      "line": 232.5
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 11.0,
+   "towin": 9.57,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "SAS",
+     "needs": "Spurs win, or lose by 7 or fewer (live +8 vs Thunder; lose by exactly 8 = push)",
+     "odds": -115,
+     "side": "h",
+     "line": 8.0,
+     "lab": "SA"
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 22.0,
+   "towin": 19.13,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "SAS",
+     "needs": "Spurs win, or lose by 3 or fewer (live +4 vs Thunder; lose by exactly 4 = push)",
+     "odds": -115,
+     "side": "h",
+     "line": 4.0,
+     "lab": "SA"
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 11.0,
+   "towin": 12.1,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "SAS",
+     "needs": "Spurs beat the Thunder (live)",
+     "odds": 110,
+     "side": "h",
+     "lab": "SA"
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 11.0,
+   "towin": 9.57,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "SAS",
+     "needs": "Spurs win (live +1 vs Thunder; lose by exactly 1 = push)",
+     "odds": -115,
+     "side": "h",
+     "line": 1.0,
+     "lab": "SA"
     }
    ]
   }
