@@ -1,5 +1,5 @@
 {
- "version": "2026-10-20.9",
+ "version": "2026-10-21.1",
  "cfb_games": {
   "BG": [
    "Bowling Green",
@@ -1592,6 +1592,34 @@
      "side": "a",
      "line": 3.5,
      "lab": "NE"
+    }
+   ]
+  },
+  {
+   "sport": "MLB",
+   "stake": 11.0,
+   "towin": 23.65,
+   "pitchers": {
+    "game": "WS1",
+    "a": "D. Rasmussen",
+    "h": "J. Misiorowski"
+   },
+   "legs": [
+    {
+     "type": "ml",
+     "game": "WS1",
+     "needs": "Brewers beat the Rays (World Series Game 1)",
+     "odds": -151,
+     "side": "h",
+     "lab": "MIL"
+    },
+    {
+     "type": "tot",
+     "game": "WS1",
+     "needs": "5 or fewer total runs, Rays + Brewers (exactly 6 = push)",
+     "odds": -112,
+     "ou": "u",
+     "line": 6.0
     }
    ]
   }
