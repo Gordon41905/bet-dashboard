@@ -77,7 +77,7 @@ function buildTickets(d){CFB=d.cfb_games||{};NFL=d.nfl_games||{};MLBD=d.mlb_game
 function futHTML(){return FUTS.length?section("sb","🏈 Super Bowl bets","#9b59ff",FUTS.map(f=>`<div class="card" style="border-left-color:#9b59ff"><div class="top"><div><div class="bet">${m(f.stake)} bet</div><div class="roll" style="color:#b48cff">PENDING · SETTLES FEB 2027</div></div><div><div class="pay">Wins $${f.towin.toFixed(2)}</div><div class="ret">returns $${(f.stake+f.towin).toFixed(2)}</div></div></div><div class="leg"><div class="need">${esc(f.pick)}</div></div></div>`).join(""),FUTS.length):""}
 async function checkVersion(){try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
  if(v&&v!==APP_VERSION){const k="reloaded_"+v;if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,"1");location.replace(location.pathname+"?v="+encodeURIComponent(v));}}}catch(e){}}
-const APP_VERSION="2026-10-21.2";
+const APP_VERSION="2026-10-21.3";
 
 const chip=g=>!g?"score unavailable":g.state==="void"?`${g.aab} @ ${g.hab} · ${g.detail}`:g.state==="pre"?`${g.aab} @ ${g.hab} · ${g.detail}`:`${g.aab} ${g.a} – ${g.hab} ${g.h} · ${g.detail}`;
 async function getJSON(u,label){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error(`${label} HTTP ${r.status}`);return r.json();}
@@ -286,12 +286,12 @@ function legRank(l){return l.gstate==="in"?0:(l.gstate==="pre"||l.status==="NA")
 function order(T){const now=Date.now();
  T.forEach(t=>{t.legs.sort((a,b)=>legRank(a)-legRank(b)||a.start-b.start);
   const live=t.legs.filter(l=>l.gstate==="in"),pre=t.legs.filter(l=>l.gstate==="pre"||l.status==="NA");
-  if(["DEAD","CASHED","PUSH"].includes(t.roll)){t.sec=3;const ok=x=>isFinite(x.start),lo=t.legs.filter(l=>l.status==="LOST"&&ok(l)),al=t.legs.filter(ok);const st=t.roll==="DEAD"?(lo.length?Math.min(...lo.map(l=>l.start)):0):(al.length?Math.max(...al.map(l=>l.start)):0);t.key=-st-t.idx}
+  if(["DEAD","CASHED","PUSH"].includes(t.roll)){t.sec=4;const ok=x=>isFinite(x.start),lo=t.legs.filter(l=>l.status==="LOST"&&ok(l)),al=t.legs.filter(ok);const st=t.roll==="DEAD"?(lo.length?Math.min(...lo.map(l=>l.start)):0):(al.length?Math.max(...al.map(l=>l.start)):0);t.key=-st-t.idx}
   else if(live.length){t.sec=0;t.key=Math.min(...live.map(l=>l.start))}
-  else{const nx=pre.length?Math.min(...pre.map(l=>l.start)):Infinity;t.key=nx;t.sec=(nx-now)<=3*3600e3?1:2}});
+  else{const nx=pre.length?Math.min(...pre.map(l=>l.start)):Infinity;t.key=nx;const dk=isFinite(nx)?pkey(new Date(nx)):null,tk=pkey(new Date(now));t.sec=(dk&&dk>tk)?3:(nx-now)<=3*3600e3?1:2}});
  return T.sort((a,b)=>a.sec-b.sec||a.key-b.key||(a.sport<b.sport?-1:1));}
-const SECN=["🔴 Live now","⏱️ Starting soon","🌙 Later today","✅ Settled"],SECC=["#e5484d","#f0b429","#2b6cff","#3fae7a"];
-const SECK=["live","soon","later","settled"];
+const SECN=["🔴 Live now","⏱️ Starting soon","🌙 Today","📅 Future","✅ Settled"],SECC=["#e5484d","#f0b429","#2b6cff","#7c5cff","#3fae7a"];
+const SECK=["live","soon","later","future","settled"];
 const COLL=(()=>{try{return JSON.parse(localStorage.getItem("collapsed")||"{}")}catch(e){return{}}})();
 const isC=k=>k in COLL?!!COLL[k]:/^arc_/.test(k);
 function section(k,title,color,body,n,summary,inline){const c=isC(k);return `<div class="gh${c?" closed":""}" data-k="${k}" role="button" style="border-color:${color}${k==="results"?";margin-top:16px":""}"><span class="ght">${title} <span class="cnt">${n}</span></span>${inline||""}<span class="chev">▾</span></div>${summary?`<div class="inv" data-k="${k}"${c?"":" hidden"}>${summary}</div>`:""}<div class="sb" data-k="${k}"${c?" hidden":""}>${body}</div>`}
@@ -323,9 +323,9 @@ function render(TA){const today=pkey(new Date());$("title").textContent="Live Be
  const [plc,plf]=renderPL(T,[],"TODAY");const live=T.filter(t=>t.roll==="ALIVE"||t.roll==="NOT STARTED");
  $("s_live").textContent=m(live.reduce((a,t)=>a+t.stake,0));$("s_maxwin").innerHTML="can win <b>$"+live.reduce((a,t)=>a+t.towin,0).toFixed(2)+"</b>";
  $("s_won").textContent="$"+T.filter(t=>t.roll==="CASHED").reduce((a,t)=>a+t.towin,0).toFixed(2);$("s_lost").textContent=m(T.filter(t=>t.roll==="DEAD").reduce((a,t)=>a+t.stake,0));$("s_ref").textContent=m(T.filter(t=>t.roll==="PUSH").reduce((a,t)=>a+t.stake,0));
- const G=[[],[],[],[]];for(const t of order(T))G[t.sec].push(card(t));
- let h="";for(const i of [0,1,2]){if(G[i].length)h+=section(SECK[i],SECN[i],SECC[i],G[i].join(""),G[i].length);}
- h+=section("results","✅ Settled",SECC[3],plf+G[3].join(""),G[3].length,null,plc);h+=futHTML();
+ const G=[[],[],[],[],[]];for(const t of order(T))G[t.sec].push(card(t));
+ let h="";for(const i of [0,1,2,3]){if(G[i].length)h+=section(SECK[i],SECN[i],SECC[i],G[i].join(""),G[i].length);}
+ h+=section("results","✅ Settled",SECC[4],plf+G[4].join(""),G[4].length,null,plc);h+=futHTML();
  const days=Object.keys(ARC).sort().reverse();
  if(days.length){const [ac,af]=renderPL(TA,FUTS,"ALL-TIME");
   let ab=section("arc_all","All-time totals","#5b6575",af,TA.length+FUTS.length);
