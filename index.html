@@ -77,7 +77,7 @@ function buildTickets(d){CFB=d.cfb_games||{};NFL=d.nfl_games||{};MLBD=d.mlb_game
 function futHTML(){return FUTS.length?section("sb","🏈 Super Bowl bets","#9b59ff",FUTS.map(f=>`<div class="card" style="border-left-color:#9b59ff"><div class="top"><div><div class="bet">${m(f.stake)} bet</div><div class="roll" style="color:#b48cff">PENDING · SETTLES FEB 2027</div></div><div><div class="pay">Wins $${f.towin.toFixed(2)}</div><div class="ret">returns $${(f.stake+f.towin).toFixed(2)}</div></div></div><div class="leg"><div class="need">${esc(f.pick)}</div></div></div>`).join(""),FUTS.length):""}
 async function checkVersion(){try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
  if(v&&v!==APP_VERSION){const k="reloaded_"+v;if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,"1");location.replace(location.pathname+"?v="+encodeURIComponent(v));}}}catch(e){}}
-const APP_VERSION="2026-10-21.1";
+const APP_VERSION="2026-10-21.2";
 
 const chip=g=>!g?"score unavailable":g.state==="void"?`${g.aab} @ ${g.hab} · ${g.detail}`:g.state==="pre"?`${g.aab} @ ${g.hab} · ${g.detail}`:`${g.aab} ${g.a} – ${g.hab} ${g.h} · ${g.detail}`;
 async function getJSON(u,label){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error(`${label} HTTP ${r.status}`);return r.json();}
@@ -288,7 +288,7 @@ function order(T){const now=Date.now();
   const live=t.legs.filter(l=>l.gstate==="in"),pre=t.legs.filter(l=>l.gstate==="pre"||l.status==="NA");
   if(["DEAD","CASHED","PUSH"].includes(t.roll)){t.sec=3;const ok=x=>isFinite(x.start),lo=t.legs.filter(l=>l.status==="LOST"&&ok(l)),al=t.legs.filter(ok);const st=t.roll==="DEAD"?(lo.length?Math.min(...lo.map(l=>l.start)):0):(al.length?Math.max(...al.map(l=>l.start)):0);t.key=-st-t.idx}
   else if(live.length){t.sec=0;t.key=Math.min(...live.map(l=>l.start))}
-  else{const nx=pre.length?Math.min(...pre.map(l=>l.start)):Infinity;t.key=nx;t.sec=(nx-now)<=3*3600e3||(nx<Infinity&&pday(new Date(nx))!==pday(new Date(now)))?1:2}});
+  else{const nx=pre.length?Math.min(...pre.map(l=>l.start)):Infinity;t.key=nx;t.sec=(nx-now)<=3*3600e3?1:2}});
  return T.sort((a,b)=>a.sec-b.sec||a.key-b.key||(a.sport<b.sport?-1:1));}
 const SECN=["🔴 Live now","⏱️ Starting soon","🌙 Later today","✅ Settled"],SECC=["#e5484d","#f0b429","#2b6cff","#3fae7a"];
 const SECK=["live","soon","later","settled"];
