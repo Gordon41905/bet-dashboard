@@ -1,5 +1,5 @@
 {
- "version": "2026-10-21.4",
+ "version": "2026-10-22.1",
  "cfb_games": {
   "BG": [
    "Bowling Green",
@@ -1620,6 +1620,30 @@
      "odds": -112,
      "ou": "u",
      "line": 6.0
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 22.0,
+   "towin": 53.02,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "CHI",
+     "needs": "Patriots win, or lose by 2 or fewer (+3 at Bears; lose by exactly 3 = push)",
+     "odds": -110,
+     "side": "a",
+     "line": 3.0,
+     "lab": "NE"
+    },
+    {
+     "type": "tot",
+     "game": "CHI",
+     "needs": "51 or fewer total points, Patriots + Bears (exactly 52 = push)",
+     "odds": -127,
+     "ou": "u",
+     "line": 52.0
     }
    ]
   }
