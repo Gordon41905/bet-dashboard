@@ -26,8 +26,10 @@ h1{font-size:22px;font-weight:800}.ts{font-size:13px;color:#9aa6b8;margin:3px 0 
 .pace{margin-top:3px}.pace svg{display:block;width:100%;height:20px}.pcl{font-size:12px;font-weight:700;margin-top:1px;display:flex;justify-content:space-between;gap:6px}.pcl small{font-weight:600;color:#7f8ba0;font-size:11px}.pcd{margin-top:6px;border-radius:8px;padding:6px 9px;font-size:13px;font-weight:800;color:#0d1015}
 .leg.lgm{position:relative;padding-right:46px}.leg.lgm .tx{white-space:normal;flex-wrap:wrap}.mtr{position:absolute;top:12px;bottom:4px;right:8px;width:6px;border-radius:3px;background:#2a3343}.mtr.sk{bottom:34px}.mf{position:absolute;left:0;right:0;border-radius:3px}.mn{position:absolute;right:-4px;width:14px;height:3px;margin-top:-1.5px;border-radius:2px;background:#eef2f7}.md{position:absolute;right:-3px;width:12px;height:12px;margin-top:-6px;border-radius:50%;border:2px solid #0d1015;transition:top .6s}.ml{position:absolute;right:10px;font-size:10px;font-weight:800;line-height:1;transform:translateY(-50%);white-space:nowrap;letter-spacing:-.3px;transition:top .6s}.spk{position:absolute;right:2px;bottom:0;width:38px;text-align:center}.spk svg{display:block;width:38px;height:16px}.spk.lgr{width:46px;right:0}.spk.lgr svg{width:38px;margin:0 auto}.spk.lgr span{letter-spacing:-.5px}.spk span{display:block;font-size:9px;font-weight:700;color:#7fa6ff;letter-spacing:-.3px;white-space:nowrap;margin-top:1px}
 .ftr{margin-top:22px;font-size:12px;color:#7f8ba0;line-height:1.5;text-align:center}
+.lgr{display:flex;align-items:center;gap:6px;margin:-4px 0 8px}.lgp{font-size:11px;padding:1px 7px;line-height:18px}.nbp{flex:1;min-width:0;display:flex;align-items:center;gap:6px;padding-right:3px}.lgl{flex:none}.nbs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;min-width:0}.nbs::-webkit-scrollbar{display:none}.nbc{flex:none;display:flex;align-items:center;gap:4px;border-left:3px solid #5b6575;background:#0d1118;border-radius:5px;padding:0 5px;font-size:10.5px;line-height:16px;white-space:nowrap;color:#a3aec0;font-weight:700}.nbc .w{color:#39e27d}.nbc .l{color:#8b97a8}.nbc .t{color:#dbe2ec}.nbc i{font-style:normal;font-weight:800;font-size:9.5px;letter-spacing:.3px}.nbe{font-size:10.5px;color:#7f8ba0;font-weight:600}
 </style></head><body>
-<div class="hdr"><div class="hrow"><h1 id="title">Live Bets</h1><span class="cw" id="s_maxwin"></span></div><div class="tsr"><div class="ts" id="ts"><span class="dot"></span>Loading live scores…</div><a id="nav" class="nav" href="https://gordon41905.github.io/tomorrow-winners/" onclick="this.href='https://gordon41905.github.io/tomorrow-winners/?v='+Date.now()">Winners</a></div>
+<div class="hdr"><div class="hrow"><h1 id="title">Live Bets</h1><span class="cw" id="s_maxwin"></span></div><div class="tsr"><div class="ts" id="ts"><span class="dot"></span>Loading live scores…</div></div>
+<div class="lgr"><a id="nav" class="nav lgp" href="https://gordon41905.github.io/tomorrow-winners/" onclick="this.href='https://gordon41905.github.io/tomorrow-winners/?v='+Date.now()">NFL</a><div class="nav lgp nbp"><span class="lgl">NBA</span><div class="nbs" id="nba"><span class="nbe">Loading…</span></div></div></div>
 <div class="g3"><div class="st"><div class="k">STILL LIVE</div><div class="kv" id="s_live">–</div></div>
 <div class="st"><div class="k">WON</div><div class="kv" style="color:#39e27d" id="s_won">–</div></div>
 <div class="st"><div class="k">LOST</div><div class="kv" style="color:#ff6b6b" id="s_lost">–</div></div><div class="st"><div class="k">REFUNDED</div><div class="kv" style="color:#f0b429" id="s_ref">–</div></div></div>
@@ -77,7 +79,7 @@ function buildTickets(d){CFB=d.cfb_games||{};NFL=d.nfl_games||{};MLBD=d.mlb_game
 function futHTML(){return FUTS.length?section("sb","🏈 Super Bowl bets","#9b59ff",FUTS.map(f=>`<div class="card" style="border-left-color:#9b59ff"><div class="top"><div><div class="bet">${m(f.stake)} bet</div><div class="roll" style="color:#b48cff">PENDING · SETTLES FEB 2027</div></div><div><div class="pay">Wins $${f.towin.toFixed(2)}</div><div class="ret">returns $${(f.stake+f.towin).toFixed(2)}</div></div></div><div class="leg"><div class="need">${esc(f.pick)}</div></div></div>`).join(""),FUTS.length):""}
 async function checkVersion(){try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
  if(v&&v!==APP_VERSION){const k="reloaded_"+v;if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,"1");location.replace(location.pathname+"?v="+encodeURIComponent(v));}}}catch(e){}}
-const APP_VERSION="2026-10-21.3";
+const APP_VERSION="2026-10-21.4";
 
 const chip=g=>!g?"score unavailable":g.state==="void"?`${g.aab} @ ${g.hab} · ${g.detail}`:g.state==="pre"?`${g.aab} @ ${g.hab} · ${g.detail}`:`${g.aab} ${g.a} – ${g.hab} ${g.h} · ${g.detail}`;
 async function getJSON(u,label){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error(`${label} HTTP ${r.status}`);return r.json();}
@@ -332,7 +334,23 @@ function render(TA){const today=pkey(new Date());$("title").textContent="Live Be
   for(const d of days){const L=order(ARC[d]);const [dc]=renderPL(L,[]);ab+=section("arc_"+d,dlab(d),"#3b4556",L.map(card).join(""),L.length,null,dc);}
   h+=section("archive","🗂️ Past days","#5b6575",ab,days.length,null,ac.replace("net <b",'all-time <b'));}
  $("tickets").innerHTML=h;fitNeeds();}
-async function poll(){checkVersion();try{const br=await fetch("bets.json?t="+Date.now(),{cache:"no-store"});if(!br.ok)throw new Error("bets file HTTP "+br.status);buildTickets(await br.json());
+// NBA strip: today's PT date only, same model/status rules as the NFL (Winners) page
+function nbaParse(e){const c=e.competitions[0],t=c.competitors||[],h=t.find(x=>x.homeAway==="home")||t[1],a=t.find(x=>x.homeAway==="away")||t[0],st=e.status.type;
+ const tm=x=>({ab:x.team.abbreviation,score:x.score!=null&&x.score!==""?Number(x.score):null});
+ return{start:new Date(e.date),state:st.state,completed:!!st.completed,detail:st.shortDetail||st.detail||"",name:st.name||"",home:tm(h),away:tm(a)};}
+const nbaSec=g=>g.state==="post"||g.completed?0:g.state==="in"?1:2;
+function nbaChip(g){const s=nbaSec(g),fin=s===0,live=s===1,pre=s===2,a=g.away,h=g.home,canceled=/POSTPONED|CANCEL|SUSPENDED/.test(g.name);
+ let win=null,tie=false;if(fin&&!canceled&&a.score!=null&&h.score!=null){if(a.score>h.score)win=a;else if(h.score>a.score)win=h;else tie=true;}
+ const cls=x=>win?(x===win?"w":"l"):"t",color=canceled?"#8a63d2":fin?(tie?"#f0b429":"#1fbf5f"):live?"#e5484d":"#2b6cff";
+ const tmS=x=>`<span class="${cls(x)}">${esc(x.ab)}${pre||x.score==null?"":" "+x.score}</span>`;
+ const stt=canceled?"NO GAME":fin?"FINAL":live?esc(g.detail.replace(/ - /," ").replace(/End of /,"End ")):fmt(g.start,"America/Los_Angeles")+" PT";
+ return `<span class="nbc" style="border-left-color:${color}">${tmS(a)}<span class="l">@</span>${tmS(h)}<i style="color:${color==="#2b6cff"?"#7fa6ff":color}">${stt}</i></span>`;}
+async function nbaStrip(){const el=$("nba");if(!el)return;const d=new Date().toLocaleDateString("en-CA",{timeZone:"America/Los_Angeles"}).replace(/-/g,"");
+ try{const sb=await getJSON(`https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?dates=${d}&t=${Date.now()}`,"ESPN NBA");
+  const G=(sb.events||[]).map(nbaParse).sort((x,y)=>x.start-y.start),S=[[],[],[]];for(const g of G)S[nbaSec(g)].push(g);S[0].reverse();
+  const h=[1,2,0].flatMap(i=>S[i]).map(nbaChip).join("");el.innerHTML=h||`<span class="nbe">No games today</span>`;el.dataset.d=d;}
+ catch(e){if(!el.dataset.d||el.dataset.d!==d)el.innerHTML=`<span class="nbe">Scores unavailable</span>`;}}
+async function poll(){nbaStrip();checkVersion();try{const br=await fetch("bets.json?t="+Date.now(),{cache:"no-store"});if(!br.ok)throw new Error("bets file HTTP "+br.status);buildTickets(await br.json());
  const[G,errs]=await fetchGames();{const fresh=await fetchOdds(G),now=Date.now();for(const[k,v]of Object.entries(fresh)){const p=ODDS_LAST[k]&&ODDS_LAST[k].eid===v.eid?ODDS_LAST[k]:{eid:v.eid};for(const m of ["ml","sp","ou"])if(v[m])p[m]={...v[m],at:now,fresh:true};else if(p[m])p[m].fresh=false;ODDS_LAST[k]=p;}
   for(const[k,p]of Object.entries(ODDS_LAST))if(!fresh[k])for(const m of ["ml","sp","ou"])if(p[m])p[m].fresh=false;
   try{localStorage.setItem("odds_last",JSON.stringify(ODDS_LAST))}catch(e){}ODDS={};for(const[k,v]of Object.entries(ODDS_LAST))if(G[k]&&G[k].state==="in"&&G[k].eid===v.eid)ODDS[k]=v;recLines(G);recPace(G);}const anyData=Object.values(G).some(Boolean);
