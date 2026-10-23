@@ -34,7 +34,7 @@ h1{font-size:22px;font-weight:800;padding-left:38px;padding-right:38px}.ts{font-
 <div class="sb" data-k="past"><div class="wkp" id="dp"></div><div id="past"></div></div>
 <div class="ftr"><a class="bk" href="./">← Live Bets</a><br>Updates every 30 seconds · scores from ESPN · past days saved in archive/nba</div>
 <script>
-const APP_VERSION="2026-10-23.6",SEASON_START="2026-10-20",TZ="America/Los_Angeles";
+const APP_VERSION="2026-10-23.7",SEASON_START="2026-10-20",TZ="America/Los_Angeles";
 const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 let lastOk=null,DAY=null,DAYS=[],IDX={};
 async function checkVersion(){try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
@@ -62,7 +62,7 @@ function upcomingBody(G){const M=new Map();for(const g of G){const k=kickKey(g);
 function card(g){const s=sec(g),fin=s===0,live=s===1,pre=s===2,a=g.away,h=g.home,canceled=/POSTPONED|CANCEL|SUSPENDED/.test(g.name);
  let win=null,tie=false;if(fin&&!canceled&&a.score!=null&&h.score!=null){if(a.score>h.score)win=a;else if(h.score>a.score)win=h;else tie=true;}
  const cls=x=>win?(x===win?" w":" l"):"",color=canceled?"#8a63d2":fin?(tie?"#f0b429":"#1fbf5f"):live?"#e5484d":"#2b6cff",pill=canceled?"NO GAME":fin?"FINAL":live?"LIVE":"SCHEDULED";
- const tip=`${tf(g.start,TZ)} PT · ${tf(g.start,"America/New_York")} ET`,sc=x=>pre||x.score==null?"":`<span class="s">${x.score}</span>`,where=g.neutral&&g.venue?` · ${esc(g.venue)}`:"";
+ const tip=`${tf(g.start,TZ)} PT`,sc=x=>pre||x.score==null?"":`<span class="s">${x.score}</span>`,where=g.neutral&&g.venue?` · ${esc(g.venue)}`:"";
  const info=live?`${esc(g.detail)} · tipped ${tf(g.start,TZ)} PT`:fin?`${canceled?esc(g.detail)+" · ":""}Tipped ${tip}${where}`:`Tip ${tip}${where}`;
  const res=win?`<div class="win">Winner: ${esc(win.name)}</div>`:tie?`<div class="win tie">Tie ${a.score}–${h.score}</div>`:"";
  return `<div class="card" style="border-left-color:${color}"><div class="top"><span class="lg">NBA</span><span class="pill" style="background:${color}">${pill}</span></div>
