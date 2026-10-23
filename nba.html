@@ -3,7 +3,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:#0d1015;color:#eef2f7;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"DejaVu Sans",Arial,sans-serif;padding:14px;max-width:640px;margin:0 auto}
 .hdr{background:#161c26;border-radius:16px;padding:14px 14px 12px;position:relative}
-h1{font-size:22px;font-weight:800;padding-right:38px}.ts{font-size:13px;color:#9aa6b8;margin:3px 0 10px}
+h1{font-size:22px;font-weight:800;padding-left:38px;padding-right:38px}.ts{font-size:13px;color:#9aa6b8;margin:3px 0 10px}
 .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#1fbf5f;margin-right:6px;animation:p 2s infinite}@keyframes p{50%{opacity:.3}}
 .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.st{background:#0d1118;border-radius:12px;padding:10px}
 .k{font-size:11px;color:#8b97a8;font-weight:700;letter-spacing:1px}.kv{font-size:22px;font-weight:800;margin-top:2px}
@@ -18,12 +18,13 @@ h1{font-size:22px;font-weight:800;padding-right:38px}.ts{font-size:13px;color:#9
 .tx{font-size:13px;color:#a3aec0;margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .win{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:14px;font-weight:800;color:#39e27d;margin-top:6px}.tie{color:#f0b429}
 .rf{position:absolute;top:12px;right:12px;width:32px;height:32px;border-radius:50%;border:1px solid #2c3646;background:#0d1118;color:#9aa6b8;font-size:18px;line-height:30px;text-align:center;cursor:pointer;-webkit-tap-highlight-color:transparent;padding:0}.rf:active{color:#eef2f7;border-color:#8b97a8}
+.xb{position:absolute;top:12px;left:12px;width:32px;height:32px;border-radius:50%;border:1px solid #2c3646;background:#0d1118;color:#9aa6b8;font-size:18px;line-height:30px;text-align:center;cursor:pointer;-webkit-tap-highlight-color:transparent;padding:0;text-decoration:none;display:block}.xb:active{color:#eef2f7;border-color:#8b97a8}
 .bk{font-size:12px;color:#8b97a8;font-weight:700;text-decoration:none;border:1px solid #2c3646;border-radius:999px;padding:1px 8px}
 .wkp{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin:10px 0 0;padding-bottom:2px}.wkp::-webkit-scrollbar{display:none}.wkb{flex:none;font:inherit;font-size:12px;font-weight:700;color:#9aa6b8;background:#161c26;border:1px solid #2c3646;border-radius:999px;padding:4px 10px;cursor:pointer;white-space:nowrap;-webkit-tap-highlight-color:transparent}.wkb.on{color:#0d1015;background:#eef2f7;border-color:#eef2f7}
 .none{font-size:13px;color:#8b97a8;margin-top:8px}
 .ftr{margin-top:22px;font-size:12px;color:#7f8ba0;line-height:1.5;text-align:center}
 </style></head><body>
-<div class="hdr"><button class="rf" id="rf" aria-label="Refresh" title="Refresh">↻</button><h1 id="h1">NBA · Today</h1><div class="ts" id="ts"><span class="dot"></span>Loading games…</div>
+<div class="hdr"><a class="xb" href="./" aria-label="Close" title="Close">✕</a><button class="rf" id="rf" aria-label="Refresh" title="Refresh">↻</button><h1 id="h1">NBA · Today</h1><div class="ts" id="ts"><span class="dot"></span>Loading games…</div>
 <div class="g3"><div class="st"><div class="k">FINAL</div><div class="kv" style="color:#39e27d" id="n_f">–</div></div>
 <div class="st"><div class="k">LIVE</div><div class="kv" style="color:#ff6b6b" id="n_l">–</div></div>
 <div class="st"><div class="k">UPCOMING</div><div class="kv" style="color:#7fa6ff" id="n_u">–</div></div></div>
@@ -33,7 +34,7 @@ h1{font-size:22px;font-weight:800;padding-right:38px}.ts{font-size:13px;color:#9
 <div class="sb" data-k="past"><div class="wkp" id="dp"></div><div id="past"></div></div>
 <div class="ftr"><a class="bk" href="./">← Live Bets</a><br>Updates every 30 seconds · scores from ESPN · past days saved in archive/nba</div>
 <script>
-const APP_VERSION="2026-10-22.4",SEASON_START="2026-10-20",TZ="America/Los_Angeles";
+const APP_VERSION="2026-10-22.5",SEASON_START="2026-10-20",TZ="America/Los_Angeles";
 const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 let lastOk=null,DAY=null,DAYS=[],IDX={};
 async function checkVersion(){try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
