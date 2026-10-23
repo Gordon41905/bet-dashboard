@@ -34,7 +34,7 @@ h1{font-size:22px;font-weight:800;padding-left:38px;padding-right:38px}.ts{font-
 <div class="sb" data-k="past"><div class="wkp" id="dp"></div><div id="past"></div></div>
 <div class="ftr"><a class="bk" href="./">← Live Bets</a><br>Updates every 30 seconds · scores from ESPN · past days saved in archive/nba</div>
 <script>
-const APP_VERSION="2026-10-23.5",SEASON_START="2026-10-20",TZ="America/Los_Angeles";
+const APP_VERSION="2026-10-23.6",SEASON_START="2026-10-20",TZ="America/Los_Angeles";
 const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 let lastOk=null,DAY=null,DAYS=[],IDX={};
 async function checkVersion(){try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
@@ -68,9 +68,15 @@ function card(g){const s=sec(g),fin=s===0,live=s===1,pre=s===2,a=g.away,h=g.home
  return `<div class="card" style="border-left-color:${color}"><div class="top"><span class="lg">NBA</span><span class="pill" style="background:${color}">${pill}</span></div>
  <div class="tm${cls(a)}"><span class="n">${esc(a.name)}${a.record?`<span class="rec">(${esc(a.record)})</span>`:""}</span>${sc(a)}</div><div class="tm${cls(h)}"><span class="n">${g.neutral?"vs ":"@ "}${esc(h.name)}${h.record?`<span class="rec">(${esc(h.record)})</span>`:""}</span>${sc(h)}</div><div class="tx">${info}</div>${res}</div>`;}
 async function sb(d){const r=await fetch(`https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?dates=${d.replace(/-/g,"")}&t=${Date.now()}`,{cache:"no-store"});if(!r.ok)throw new Error("HTTP "+r.status);return(await r.json()).events||[];}
-async function poll(){checkVersion();const today=ptDay(new Date());try{const G=(await sb(today)).map(parse).map(g=>{g.home.record=null;g.away.record=null;return g}).sort((x,y)=>x.start-y.start),S=[[],[],[]];for(const g of G)S[sec(g)].push(g);S[0].reverse();
+async function poll(){checkVersion();const today=ptDay(new Date());try{const G=(await sb(today)).map(parse).map(g=>{g.home.record=null;g.away.record=null;return g}).sort((x,y)=>x.start-y.start),S=[[],[],[]];for(const g of G)S[sec(g)].push(g);
  $("h1").textContent="NBA · Today "+dlab(today);$("n_f").textContent=S[0].length;$("n_l").textContent=S[1].length;$("n_u").textContent=S[2].length;
- let h="";for(const i of [1,2,0])if(S[i].length)h+=section(SECK[i],SECN[i],SECC[i],i===2?upcomingBody(S[i]):S[i].map(card).join(""),S[i].length);
+ // One unified Today section (no separate Final drop-down); past finals live under Past days
+ let h="";
+ if(G.length){const allF=G.every(g=>sec(g)===0),anyL=G.some(g=>sec(g)===1);
+  const lab=(allF?"✅ ":anyL?"🔴 ":"🗓️ ")+"Today "+dlab(today),col=allF?"#3fae7a":anyL?"#e5484d":"#2b6cff";
+  // Upcoming tip groups only when there are still scheduled tips; otherwise flat day list
+  const body=(!allF&&!anyL&&S[2].length===G.length)?upcomingBody(G):G.map(card).join("");
+  h=section("today",lab,col,body,G.length);}
  $("games").innerHTML=h||`<div class="none">No NBA games today (${esc(dlab(today))}).</div>`;lastOk=new Date();
  $("ts").innerHTML=`<span class="dot"></span>Updated ${lastOk.toLocaleTimeString("en-US",{timeZone:TZ,hour:"numeric",minute:"2-digit",second:"2-digit"})} PT<span style="color:#5b6575"> · v.${APP_VERSION.split(".").pop()}</span>`;$("err").innerHTML="";
  if(!DAYS.length||DAYS[0]!==prevDay(today))await loadDays(today);}
