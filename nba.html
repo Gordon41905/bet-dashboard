@@ -14,7 +14,7 @@ h1{font-size:22px;font-weight:800;padding-left:38px;padding-right:38px}.ts{font-
 .lg{font-size:11px;font-weight:800;color:#8b97a8;letter-spacing:1px}
 .pill{color:#fff;font-size:11px;font-weight:800;border-radius:6px;padding:4px 8px;letter-spacing:.5px;white-space:nowrap}
 .tm{display:flex;justify-content:space-between;align-items:baseline;font-size:17px;font-weight:700;margin-top:6px;gap:10px}.tm .n{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.tm .s{font-size:19px;font-weight:800;flex:none}
-.tm.w{color:#39e27d}.tm.l{color:#8b97a8}
+.tm.w{color:#39e27d}.tm.l{color:#8b97a8}.rec{font-size:12px;color:#7f8ba0;font-weight:600;margin-left:6px}
 .tx{font-size:13px;color:#a3aec0;margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .win{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:14px;font-weight:800;color:#39e27d;margin-top:6px}.tie{color:#f0b429}
 .rf{position:absolute;top:12px;right:12px;width:32px;height:32px;border-radius:50%;border:1px solid #2c3646;background:#0d1118;color:#9aa6b8;font-size:18px;line-height:30px;text-align:center;cursor:pointer;-webkit-tap-highlight-color:transparent;padding:0}.rf:active{color:#eef2f7;border-color:#8b97a8}
@@ -34,7 +34,7 @@ h1{font-size:22px;font-weight:800;padding-left:38px;padding-right:38px}.ts{font-
 <div class="sb" data-k="past"><div class="wkp" id="dp"></div><div id="past"></div></div>
 <div class="ftr"><a class="bk" href="./">← Live Bets</a><br>Updates every 30 seconds · scores from ESPN · past days saved in archive/nba</div>
 <script>
-const APP_VERSION="2026-10-22.5",SEASON_START="2026-10-20",TZ="America/Los_Angeles";
+const APP_VERSION="2026-10-22.6",SEASON_START="2026-10-20",TZ="America/Los_Angeles";
 const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 let lastOk=null,DAY=null,DAYS=[],IDX={};
 async function checkVersion(){try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
@@ -42,8 +42,9 @@ async function checkVersion(){try{const r=await fetch("version.txt?t="+Date.now(
 const tf=(d,z)=>d.toLocaleTimeString("en-US",{timeZone:z,hour:"numeric",minute:"2-digit"});
 const ptDay=d=>d.toLocaleDateString("en-CA",{timeZone:TZ});
 const dlab=s=>new Date(s+"T12:00:00Z").toLocaleDateString("en-US",{timeZone:"UTC",weekday:"short",month:"short",day:"numeric"});
+function preRec(x,completed,oppScore){if(x.record)return x.record;const rs=x.records||[],tot=((rs.find(r=>r.type==="total")||rs[0])||{}).summary;if(!tot)return null;if(!completed)return tot;const p=tot.split("-").map(n=>+n);if(p.length<2||p.some(n=>!Number.isFinite(n)))return null;let[w,l,t=0]=p.length===2?[p[0],p[1],0]:p;const sc=x.score!=null&&x.score!==""?+x.score:null,op=oppScore!=null&&oppScore!==""?+oppScore:null;if(sc!=null&&op!=null&&sc===op)t-=1;else if(x.winner===true||(sc!=null&&op!=null&&sc>op))w-=1;else if(x.winner===false||(sc!=null&&op!=null&&sc<op))l-=1;else return null;if(w<0||l<0||t<0)return null;return t?`${w}-${l}-${t}`:`${w}-${l}`;}
 function parse(e){const c=e.competitions[0],t=c.competitors||[],h=t.find(x=>x.homeAway==="home")||t[1],a=t.find(x=>x.homeAway==="away")||t[0],st=e.status.type;
- const tm=x=>({name:x.team.shortDisplayName||x.team.displayName,ab:x.team.abbreviation,score:x.score!=null&&x.score!==""?Number(x.score):null});
+ const tm=x=>({name:x.team.shortDisplayName||x.team.displayName,ab:x.team.abbreviation,score:x.score!=null&&x.score!==""?Number(x.score):null,record:x.record||null});
  return{id:e.id,start:new Date(e.date),state:st.state,completed:!!st.completed,detail:st.shortDetail||st.detail||"",name:st.name||"",home:tm(h),away:tm(a),neutral:!!c.neutralSite,venue:c.venue?.fullName||""};}
 function sec(g){if(g.state==="post"||g.completed)return 0;if(g.state==="in")return 1;return 2;}
 const SECN=["✅ Final","🔴 Live","🗓️ Upcoming"],SECC=["#3fae7a","#e5484d","#2b6cff"],SECK=["final","live","upcoming"];
@@ -58,9 +59,9 @@ function card(g){const s=sec(g),fin=s===0,live=s===1,pre=s===2,a=g.away,h=g.home
  const info=live?`${esc(g.detail)} · tipped ${tf(g.start,TZ)} PT`:fin?`${canceled?esc(g.detail)+" · ":""}Tipped ${tip}${where}`:`Tip ${tip}${where}`;
  const res=win?`<div class="win">Winner: ${esc(win.name)}</div>`:tie?`<div class="win tie">Tie ${a.score}–${h.score}</div>`:"";
  return `<div class="card" style="border-left-color:${color}"><div class="top"><span class="lg">NBA</span><span class="pill" style="background:${color}">${pill}</span></div>
- <div class="tm${cls(a)}"><span class="n">${esc(a.name)}</span>${sc(a)}</div><div class="tm${cls(h)}"><span class="n">${g.neutral?"vs ":"@ "}${esc(h.name)}</span>${sc(h)}</div><div class="tx">${info}</div>${res}</div>`;}
+ <div class="tm${cls(a)}"><span class="n">${esc(a.name)}${a.record?`<span class="rec">(${esc(a.record)})</span>`:""}</span>${sc(a)}</div><div class="tm${cls(h)}"><span class="n">${g.neutral?"vs ":"@ "}${esc(h.name)}${h.record?`<span class="rec">(${esc(h.record)})</span>`:""}</span>${sc(h)}</div><div class="tx">${info}</div>${res}</div>`;}
 async function sb(d){const r=await fetch(`https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?dates=${d.replace(/-/g,"")}&t=${Date.now()}`,{cache:"no-store"});if(!r.ok)throw new Error("HTTP "+r.status);return(await r.json()).events||[];}
-async function poll(){checkVersion();const today=ptDay(new Date());try{const G=(await sb(today)).map(parse).sort((x,y)=>x.start-y.start),S=[[],[],[]];for(const g of G)S[sec(g)].push(g);S[0].reverse();
+async function poll(){checkVersion();const today=ptDay(new Date());try{const G=(await sb(today)).map(parse).map(g=>{g.home.record=null;g.away.record=null;return g}).sort((x,y)=>x.start-y.start),S=[[],[],[]];for(const g of G)S[sec(g)].push(g);S[0].reverse();
  $("h1").textContent="NBA · Today "+dlab(today);$("n_f").textContent=S[0].length;$("n_l").textContent=S[1].length;$("n_u").textContent=S[2].length;
  let h="";for(const i of [1,2,0])if(S[i].length)h+=section(SECK[i],SECN[i],SECC[i],S[i].map(card).join(""),S[i].length);
  $("games").innerHTML=h||`<div class="none">No NBA games today (${esc(dlab(today))}).</div>`;lastOk=new Date();
@@ -75,7 +76,8 @@ function drawDays(){$("dp").innerHTML=DAYS.map((d,i)=>`<button class="wkb${d===D
 $("dp").addEventListener("click",e=>{const b=e.target.closest(".wkb");if(b){DAY=b.dataset.d;drawDays();showDay(DAY);}});
 async function showDay(d){$("past").innerHTML=`<div class="none">Loading ${esc(dlab(d))}…</div>`;
  try{let ev=null;if(IDX[d]){try{const r=await fetch("archive/nba/"+IDX[d]+"?t="+Date.now(),{cache:"no-store"});if(r.ok)ev=(await r.json()).events||[];}catch(e){}}if(!ev)ev=await sb(d);if(DAY!==d)return;
-  const G=ev.map(parse).sort((x,y)=>x.start-y.start);
+  const G=ev.map(e=>{const g=parse(e),c=(e.competitions||[])[0],ts=(c&&c.competitors)||[],hh=ts.find(x=>x.homeAway==="home")||ts[1],aa=ts.find(x=>x.homeAway==="away")||ts[0],done=!!(e.status&&e.status.type&&(e.status.type.completed||e.status.type.state==="post"));
+   if(!g.away.record&&aa)g.away.record=preRec(aa,done,hh&&hh.score);if(!g.home.record&&hh)g.home.record=preRec(hh,done,aa&&aa.score);return g;}).sort((x,y)=>x.start-y.start);
   $("past").innerHTML=G.length?section("pd_"+d,"✅ "+esc(dlab(d)),"#3fae7a",G.map(card).join(""),G.length):`<div class="none">No NBA games on ${esc(dlab(d))}.</div>`;}
  catch(e){if(DAY===d)$("past").innerHTML=`<div class="err">⚠️ Couldn't load ${esc(dlab(d))} (${esc(e.message)})</div>`;}}
 $("rf").addEventListener("click",()=>location.replace(location.pathname+"?v="+Date.now()));
