@@ -1,5 +1,5 @@
 {
- "version": "2026-10-22.2",
+ "version": "2026-10-22.3",
  "cfb_games": {
   "BG": [
    "Bowling Green",
@@ -1684,6 +1684,21 @@
      "side": "h",
      "line": -7.5,
      "lab": "OKC"
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 22.0,
+   "towin": 19.13,
+   "legs": [
+    {
+     "type": "tot",
+     "game": "OKC",
+     "needs": "236 or fewer total points, Nuggets + Thunder (Under 236½, bought ½)",
+     "odds": -115,
+     "ou": "u",
+     "line": 236.5
     }
    ]
   }
