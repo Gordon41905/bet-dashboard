@@ -45,7 +45,7 @@ const RC={DEAD:"#e5484d",CASHED:"#1fbf5f",PUSH:"#f0b429",ALIVE:"#f0b429","NOT ST
 const RL={DEAD:"LOST",CASHED:"WON",PUSH:"REFUNDED (PUSH / NO ACTION)",ALIVE:"IN PLAY","NOT STARTED":"NOT STARTED YET"};
 const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const m=x=>"$"+(Number.isInteger(x)?x:x.toFixed(2));
-let CFB={},NFL={},MLBD={},SOCD={},NBAD={};
+let CFB={},NFL={},MLBD={},SOCD={},NBAD={},MMAD={};
 const pday=d=>d.toLocaleDateString("en-US",{timeZone:"America/Los_Angeles"}),wday=d=>d.toLocaleDateString("en-US",{timeZone:"America/Los_Angeles",weekday:"short"});
 const fmt=(d,tz)=>d.toLocaleTimeString("en-US",{timeZone:tz,hour:"numeric",minute:"2-digit"});
 // leg graders (mirror server.py)
@@ -73,14 +73,14 @@ const prop=(game,aid,ou,line,lab)=>({game,f:g=>{const B=g.box||{},P=B[aid],post=
 const L=(o,needs,odds)=>Object.assign(o,{needs,odds});
 const dec=a=>a>0?1+a/100:1+100/(-a);
 let TICKETS=[],FUTS=[];
-function buildTickets(d){CFB=d.cfb_games||{};NFL=d.nfl_games||{};MLBD=d.mlb_games||{};SOCD=d.soc_games||{};NBAD=d.nba_games||{};TICKETS=d.tickets.map(t=>[t.sport,t.stake,t.towin,t.settled||null,t.legs.map(l=>{
+function buildTickets(d){CFB=d.cfb_games||{};NFL=d.nfl_games||{};MLBD=d.mlb_games||{};SOCD=d.soc_games||{};NBAD=d.nba_games||{};MMAD=d.mma_games||{};TICKETS=d.tickets.map(t=>[t.sport,t.stake,t.towin,t.settled||null,t.legs.map(l=>{
  const o=l.type==="ml"?ml(l.game,l.side,l.lab):l.type==="ml1h"?ml1h(l.game,l.side,l.lab):l.type==="sp"?sp(l.game,l.side,l.line,l.lab):l.type==="prop"?prop(l.game,l.aid,l.ou,l.line,l.lab):tot(l.game,l.ou,l.line);return Object.assign(L(o,l.needs,l.odds),{type:l.type,side:l.side,line:l.line,ou:l.ou,lab:l.lab,aid:l.aid,pace:!!l.pace})}),t.pitchers||null]);
  FUTS=d.futures||[];
  }
 function futHTML(){return FUTS.length?section("sb","🏈 Super Bowl bets","#9b59ff",FUTS.map(f=>`<div class="card" style="border-left-color:#9b59ff"><div class="top"><div><div class="bet">${m(f.stake)} bet</div><div class="roll" style="color:#b48cff">PENDING · SETTLES FEB 2027</div></div><div><div class="pay">Wins $${f.towin.toFixed(2)}</div><div class="ret">returns $${(f.stake+f.towin).toFixed(2)}</div></div></div><div class="leg"><div class="need">${esc(f.pick)}</div></div></div>`).join(""),FUTS.length):""}
 async function checkVersion(){try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
  if(v&&v!==APP_VERSION){const k="reloaded_"+v;if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,"1");location.replace(location.pathname+"?v="+encodeURIComponent(v));}}}catch(e){}}
-const APP_VERSION="2026-10-22.6";
+const APP_VERSION="2026-10-23.1";
 
 const chip=g=>!g?"score unavailable":g.state==="void"?`${g.aab} @ ${g.hab} · ${g.detail}`:g.state==="pre"?`${g.aab} @ ${g.hab} · ${g.detail}`:`${g.aab} ${g.a} – ${g.hab} ${g.h} · ${g.detail}`;
 async function getJSON(u,label){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error(`${label} HTTP ${r.status}`);return r.json();}
@@ -132,9 +132,25 @@ async function fetchGames(){const G={},errs=[];
     G[k].box=B;G[k].plays=(sm.plays||[]).filter(x=>x.scoringPlay).map(x=>[nbaMin(x.period?.number||1,x.clock?.displayValue),String(x.participants?.[0]?.athlete?.id||""),+x.scoreValue||0,+x.homeScore||0,+x.awayScore||0]).filter(x=>isFinite(x[0])).sort((a,b)=>a[0]-b[0]);}catch(e){errs.push("ESPN NBA box score failed: "+e.message)}}
   else errs.push(`ESPN NBA: event ${eid} not found`);
  }catch(e){errs.push("ESPN NBA failed: "+e.message)}}));
+
+ await (async()=>{const SBM={};for(const[,[,dt]]of Object.entries(MMAD||{})){const dk=dt.replace(/-/g,"");if(!SBM[dk])try{SBM[dk]=await getJSON(`https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=${dk}&t=${Date.now()}`,"ESPN MMA")}catch(e){errs.push("ESPN MMA failed: "+e.message);SBM[dk]=null}}
+  await Promise.all(Object.entries(MMAD||{}).map(async([k,[cid,dt]])=>{G[k]=null;const sb=SBM[dt.replace(/-/g,"")];if(!sb)return;
+   let comp=null;for(const e of sb.events||[]){const c=(e.competitions||[]).find(x=>String(x.id)===String(cid));if(c){comp=c;break}}
+   if(!comp){errs.push(`ESPN MMA: competition ${cid} not found`);return}
+   const comps=[...(comp.competitors||[])].sort((a,b)=>(a.order||0)-(b.order||0));
+   const aF=comps[0]||{},hF=comps[1]||{};
+   const aN=(aF.athlete||{}).displayName||"Fighter A",hN=(hF.athlete||{}).displayName||"Fighter B";
+   const short=n=>{const p=(n||"").trim().split(/\s+/);return p[p.length-1]||n};
+   const s=comp.status||{},nm=(s.type&&s.type.name)||"";let state=(s.type&&s.type.state)||"pre",detail=(s.type&&(s.type.shortDetail||s.type.detail))||"";
+   if(/POSTPONED|CANCEL|FORFEIT/.test(nm))state="void";
+   const gt=new Date(comp.date||comp.startDate);if(state==="pre"&&!isNaN(gt)){const nd=pday(gt)!==pday(new Date())?wday(gt)+" ":"";detail=`${nd}${fmt(gt,"America/New_York")} ET / ${nd}${fmt(gt,"America/Los_Angeles")} PT`;}
+   let a=0,h=0;if(state==="post"){a=aF.winner===true?1:0;h=hF.winner===true?1:0;}
+   G[k]={start:isNaN(gt)?Infinity:gt.getTime(),state,detail,h,a,hab:short(hN),aab:short(aN),eid:cid,lg:"mma/ufc",mma:true};
+  }));
+ })();
  return[G,errs];}
 function grade(G){return TICKETS.map(([sport,stake,towin,settled,legs,pitchers],idx)=>{const PS=pitchers?pitchStat(pitchers,G[pitchers.game]):null;const LL=legs.map(lg=>{const g=G[lg.game];let st,txt;if(PS&&PS.bad&&lg.game===pitchers.game)return{spec:lg,game:lg.game,needs:lg.needs,status:"VOID",text:`listed pitcher didn't start (${PS.bad}); BetOnline should grade this no action`,score:chip(g),gstate:g?g.state:null,start:g?g.start:Infinity};
-  if(!g){st="NA";txt="score unavailable"}else if(g.state==="pre"){st="NS";txt="not started"}else if(g.state==="void"){st="VOID";txt="game postponed/canceled — usually graded no action (refund or leg dropped); check BetOnline"}else[st,txt]=lg.f(g);
+  if(!g){st="NA";txt="score unavailable"}else if(g.state==="pre"||(g.mma&&g.state==="in")){st="NS";txt=g.state==="in"?"fight in progress":"not started"}else if(g.mma&&lg.type==="tot"){st="NA";txt="rounds not tracked — check BetOnline"}else if(g.state==="void"){st="VOID";txt="game postponed/canceled — usually graded no action (refund or leg dropped); check BetOnline"}else[st,txt]=lg.f(g);
   return{spec:lg,game:lg.game,needs:lg.needs,status:st,text:txt,score:chip(g),gstate:g?g.state:null,start:g?g.start:Infinity}});const ss=LL.map(x=>x.status);
   const done=s=>s==="WON"||s==="PUSH"||s==="VOID";let roll=ss.includes("LOST")?"DEAD":ss.every(done)?(ss.every(s=>s!=="WON")?"PUSH":"CASHED"):ss.every(s=>s==="NS"||s==="NA")?"NOT STARTED":"ALIVE";
   const red=ss.some(s=>s==="PUSH"||s==="VOID");let adj=towin;if(red){const rem=legs.filter((lg,i)=>ss[i]!=="PUSH"&&ss[i]!=="VOID");adj=!rem.length?0:rem.some(lg=>lg.odds==null)?towin:Math.round((stake*rem.reduce((p,lg)=>p*dec(lg.odds),1)-stake)*100)/100;}
@@ -216,7 +232,7 @@ function propMeter(l){const sp=l.spec,g=LASTG[l.game];if(!g)return"";const P=(g.
  let h=`<div class="mtr${skc}" title="${esc(sp.lab)} ${T} points (${ou==="o"?"over":"under"} ${bet} points)">`;if(T>0)h+=`<i class="mf" style="top:${pv}%;bottom:0;background:${col}"></i>`;
  h+=`<i class="mn" style="top:${pb}%"></i>`;let lb=pb,lv=pv;if(Math.abs(lv-lb)<22){const d=lv<=lb?-1:1,mid=(lb+lv)/2;lb=mid-11*d;lv=mid+11*d;}
  h+=`<span class="ml" style="top:${lb}%;color:#eef2f7">${f(bet)}</span><span class="ml" style="top:${lv}%;color:${col}">${T}</span>`;return h+`</div>`+sk;}
-function legMeter(l){try{const sp=l.spec;if(sp&&sp.type==="prop")return"";if(sp&&sp.type==="sp"&&l.gstate==="in")return spMeter(l);if(sp&&sp.type==="ml"&&l.gstate==="in")return spMeter(l,true);if(!sp||sp.type!=="tot"||l.gstate!=="in")return"";const g=LASTG[l.game];if(!g)return"";const bet=Number(sp.line),ou=sp.ou,T=g.h+g.a,f=x=>Number.isInteger(x)?x+"":x.toFixed(1);
+function legMeter(l){try{const sp=l.spec;if(LASTG[l.game]&&LASTG[l.game].mma)return"";if(sp&&sp.type==="prop")return"";if(sp&&sp.type==="sp"&&l.gstate==="in")return spMeter(l);if(sp&&sp.type==="ml"&&l.gstate==="in")return spMeter(l,true);if(!sp||sp.type!=="tot"||l.gstate!=="in")return"";const g=LASTG[l.game];if(!g)return"";const bet=Number(sp.line),ou=sp.ou,T=g.h+g.a,f=x=>Number.isInteger(x)?x+"":x.toFixed(1);
  const O=ODDS[l.game],v=O&&O.ou&&O.ou.v!=null&&isFinite(+O.ou.v)?+O.ou.v:null,sk=lgraph(l),skc=sk?" sk":"";
  if(T>bet){const won=ou==="o",sc=won?"#1fbf5f":"#e5484d",R=won?"WON":"LOST";return `<div class="mtr${skc}" title="Your ${ou==="o"?"over":"under"} ${bet}: ${R.toLowerCase()} (${T} points so far)" style="background:${sc}"><span class="ml" style="top:38%;color:${sc}">${R}</span><span class="ml" style="top:58%;color:#eef2f7">${T}</span></div>`+sk;}
  const rng=Math.max(8,(v!=null?Math.abs(v-bet):0)+3),pos=x=>Math.min(100,Math.max(0,(bet+rng-x)/(2*rng)*100));

@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-22.6",
+  "version": "2026-10-23.1",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -1701,6 +1701,232 @@
           "line": 236.5
         }
       ]
+    },
+    {
+      "sport": "MMA",
+      "stake": 11.0,
+      "towin": 41.25,
+      "legs": [
+        {
+          "type": "ml",
+          "game": "UFC1",
+          "needs": "Volkanovski beats Evloev",
+          "odds": null,
+          "side": "a",
+          "lab": "Volkanovski"
+        },
+        {
+          "type": "tot",
+          "game": "UFC1",
+          "needs": "Fight ends in under 4.5 rounds (Volkanovski vs Evloev)",
+          "odds": null,
+          "ou": "u",
+          "line": 4.5
+        }
+      ]
+    },
+    {
+      "sport": "MMA",
+      "stake": 22.0,
+      "towin": 111.76,
+      "legs": [
+        {
+          "type": "ml",
+          "game": "UFC1",
+          "needs": "Evloev beats Volkanovski",
+          "odds": -106,
+          "side": "h",
+          "lab": "Evloev"
+        },
+        {
+          "type": "ml",
+          "game": "UFC2",
+          "needs": "Kavanagh beats Temirov",
+          "odds": -116,
+          "side": "a",
+          "lab": "Kavanagh"
+        },
+        {
+          "type": "ml",
+          "game": "UFC3",
+          "needs": "Pico beats Keita",
+          "odds": -147,
+          "side": "a",
+          "lab": "Pico"
+        }
+      ]
+    },
+    {
+      "sport": "MMA",
+      "stake": 11.0,
+      "towin": 55.88,
+      "legs": [
+        {
+          "type": "ml",
+          "game": "UFC1",
+          "needs": "Evloev beats Volkanovski",
+          "odds": -106,
+          "side": "h",
+          "lab": "Evloev"
+        },
+        {
+          "type": "ml",
+          "game": "UFC2",
+          "needs": "Kavanagh beats Temirov",
+          "odds": -116,
+          "side": "a",
+          "lab": "Kavanagh"
+        },
+        {
+          "type": "ml",
+          "game": "UFC3",
+          "needs": "Pico beats Keita",
+          "odds": -147,
+          "side": "a",
+          "lab": "Pico"
+        }
+      ]
+    },
+    {
+      "sport": "MMA",
+      "stake": 22.0,
+      "towin": 57.64,
+      "legs": [
+        {
+          "type": "ml",
+          "game": "UFC1",
+          "needs": "Evloev beats Volkanovski",
+          "odds": -106,
+          "side": "h",
+          "lab": "Evloev"
+        },
+        {
+          "type": "ml",
+          "game": "UFC2",
+          "needs": "Kavanagh beats Temirov",
+          "odds": -116,
+          "side": "a",
+          "lab": "Kavanagh"
+        }
+      ]
+    },
+    {
+      "sport": "MMA",
+      "stake": 22.0,
+      "towin": 20.75,
+      "legs": [
+        {
+          "type": "ml",
+          "game": "UFC1",
+          "needs": "Evloev beats Volkanovski",
+          "odds": -106,
+          "side": "h",
+          "lab": "Evloev"
+        }
+      ]
+    },
+    {
+      "sport": "NBA",
+      "stake": 11.0,
+      "towin": 26.18,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "MIL",
+          "needs": "Bulls win, or lose by less than 1 (+1 at Bucks; lose by exactly 1 = push)",
+          "odds": -110,
+          "side": "a",
+          "line": 1.0,
+          "lab": "CHI"
+        },
+        {
+          "type": "ml",
+          "game": "BOS",
+          "needs": "Celtics beat the Knicks",
+          "odds": -130,
+          "side": "h",
+          "lab": "BOS"
+        }
+      ]
+    },
+    {
+      "sport": "NBA",
+      "stake": 1.0,
+      "towin": 2.48,
+      "legs": [
+        {
+          "type": "tot",
+          "game": "MIL",
+          "needs": "237 or fewer total points, Bulls + Bucks (exactly 238 = push)",
+          "odds": -110,
+          "ou": "u",
+          "line": 238.0
+        },
+        {
+          "type": "sp",
+          "game": "MIL",
+          "needs": "Bulls win, or lose by 1 or fewer (+1\u00bd at Bucks, bought \u00bd)",
+          "odds": -121,
+          "side": "a",
+          "line": 1.5,
+          "lab": "CHI"
+        }
+      ]
+    },
+    {
+      "sport": "MMA",
+      "stake": 11.0,
+      "towin": 55.88,
+      "legs": [
+        {
+          "type": "ml",
+          "game": "UFC1",
+          "needs": "Evloev beats Volkanovski",
+          "odds": -106,
+          "side": "h",
+          "lab": "Evloev"
+        },
+        {
+          "type": "ml",
+          "game": "UFC2",
+          "needs": "Kavanagh beats Temirov",
+          "odds": -116,
+          "side": "a",
+          "lab": "Kavanagh"
+        },
+        {
+          "type": "ml",
+          "game": "UFC3",
+          "needs": "Pico beats Keita",
+          "odds": -147,
+          "side": "a",
+          "lab": "Pico"
+        }
+      ]
+    },
+    {
+      "sport": "NBA",
+      "stake": 11.0,
+      "towin": 27.28,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "MIL",
+          "needs": "Bulls win, or lose by 1 or fewer (+1\u00bd at Bucks, bought \u00bd)",
+          "odds": -121,
+          "side": "a",
+          "line": 1.5,
+          "lab": "CHI"
+        },
+        {
+          "type": "tot",
+          "game": "MIL",
+          "needs": "237 or fewer total points, Bulls + Bucks (exactly 238 = push)",
+          "odds": -110,
+          "ou": "u",
+          "line": 238.0
+        }
+      ]
     }
   ],
   "futures": [
@@ -1786,6 +2012,28 @@
     "OKC": [
       "401909094",
       "2026-10-22"
+    ],
+    "MIL": [
+      "401909848",
+      "2026-10-23"
+    ],
+    "BOS": [
+      "401909095",
+      "2026-10-23"
+    ]
+  },
+  "mma_games": {
+    "UFC1": [
+      "401911632",
+      "2026-10-24"
+    ],
+    "UFC2": [
+      "401911634",
+      "2026-10-24"
+    ],
+    "UFC3": [
+      "401929495",
+      "2026-10-24"
     ]
   }
 }
