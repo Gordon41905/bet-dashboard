@@ -21,7 +21,7 @@ h1{font-size:22px;font-weight:800;padding-left:38px;padding-right:38px}.ts{font-
 .xb{position:absolute;top:12px;left:12px;width:32px;height:32px;border-radius:50%;border:1px solid #2c3646;background:#0d1118;color:#9aa6b8;font-size:18px;line-height:30px;text-align:center;cursor:pointer;-webkit-tap-highlight-color:transparent;padding:0;text-decoration:none;display:block}.xb:active{color:#eef2f7;border-color:#8b97a8}
 .bk{font-size:12px;color:#8b97a8;font-weight:700;text-decoration:none;border:1px solid #2c3646;border-radius:999px;padding:1px 8px}
 .wkp{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin:10px 0 0;padding-bottom:2px}.wkp::-webkit-scrollbar{display:none}.wkb{flex:none;font:inherit;font-size:12px;font-weight:700;color:#9aa6b8;background:#161c26;border:1px solid #2c3646;border-radius:999px;padding:4px 10px;cursor:pointer;white-space:nowrap;-webkit-tap-highlight-color:transparent}.wkb.on{color:#0d1015;background:#eef2f7;border-color:#eef2f7}
-.none{font-size:13px;color:#8b97a8;margin-top:8px}
+.none{font-size:13px;color:#8b97a8;margin-top:8px}.sb .gh{font-size:15px;margin:12px 0 2px;padding-bottom:4px;border-bottom-width:2px}.sb .gh .chev{font-size:13px}
 .ftr{margin-top:22px;font-size:12px;color:#7f8ba0;line-height:1.5;text-align:center}
 </style></head><body>
 <div class="hdr"><a class="xb" href="./" aria-label="Close" title="Close">✕</a><button class="rf" id="rf" aria-label="Refresh" title="Refresh">↻</button><h1 id="h1">NBA · Today</h1><div class="ts" id="ts"><span class="dot"></span>Loading games…</div>
@@ -34,7 +34,7 @@ h1{font-size:22px;font-weight:800;padding-left:38px;padding-right:38px}.ts{font-
 <div class="sb" data-k="past"><div class="wkp" id="dp"></div><div id="past"></div></div>
 <div class="ftr"><a class="bk" href="./">← Live Bets</a><br>Updates every 30 seconds · scores from ESPN · past days saved in archive/nba</div>
 <script>
-const APP_VERSION="2026-10-22.6",SEASON_START="2026-10-20",TZ="America/Los_Angeles";
+const APP_VERSION="2026-10-23.3",SEASON_START="2026-10-20",TZ="America/Los_Angeles";
 const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 let lastOk=null,DAY=null,DAYS=[],IDX={};
 async function checkVersion(){try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
@@ -49,9 +49,13 @@ function parse(e){const c=e.competitions[0],t=c.competitors||[],h=t.find(x=>x.ho
 function sec(g){if(g.state==="post"||g.completed)return 0;if(g.state==="in")return 1;return 2;}
 const SECN=["✅ Final","🔴 Live","🗓️ Upcoming"],SECC=["#3fae7a","#e5484d","#2b6cff"],SECK=["final","live","upcoming"];
 const COLL=(()=>{try{return JSON.parse(localStorage.getItem("nba_collapsed")||"{}")}catch(e){return{}}})();
-function section(k,title,color,body,n){const c=!!COLL[k];return `<div class="gh${c?" closed":""}" data-k="${k}" role="button" style="border-color:${color}"><span>${title} <span class="cnt">${n}</span></span><span class="chev">▾</span></div><div class="sb" data-k="${k}"${c?" hidden":""}>${body}</div>`}
-function toggleSec(k){COLL[k]=!COLL[k];if(!COLL[k])delete COLL[k];try{localStorage.setItem("nba_collapsed",JSON.stringify(COLL))}catch(e){}document.querySelectorAll(`[data-k="${k}"]`).forEach(e=>{if(e.classList.contains("gh"))e.classList.toggle("closed",!!COLL[k]);else e.hidden=!!COLL[k];});}
+const isC=k=>k in COLL?!!COLL[k]:/^up_/.test(k);
+function section(k,title,color,body,n){const c=isC(k);return `<div class="gh${c?" closed":""}" data-k="${k}" role="button" style="border-color:${color}"><span>${title} <span class="cnt">${n}</span></span><span class="chev">▾</span></div><div class="sb" data-k="${k}"${c?" hidden":""}>${body}</div>`}
+function toggleSec(k){const nc=!isC(k);if(nc===/^up_/.test(k))delete COLL[k];else COLL[k]=nc;try{localStorage.setItem("nba_collapsed",JSON.stringify(COLL))}catch(e){}document.querySelectorAll(`[data-k="${k}"]`).forEach(e=>{if(e.classList.contains("gh"))e.classList.toggle("closed",isC(k));else e.hidden=isC(k);});}
 document.addEventListener("click",e=>{const g=e.target.closest(".gh[data-k]");if(g)toggleSec(g.dataset.k);});
+function kickKey(g){return g.start.toLocaleString("en-CA",{timeZone:"America/New_York",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hour12:false});}
+function kickLab(g){const tm=tf(g.start,"America/New_York"),day=g.start.toLocaleDateString("en-US",{timeZone:"America/New_York",weekday:"short",month:"short",day:"numeric"});return `${tm} ET · ${day}`;}
+function upcomingBody(G){const M=new Map();for(const g of G){const k=kickKey(g);if(!M.has(k))M.set(k,{lab:kickLab(g),gs:[]});M.get(k).gs.push(g);}let h="";for(const[k,v]of M)h+=section("up_"+k,v.lab,SECC[2],v.gs.map(card).join(""),v.gs.length);return h;}
 function card(g){const s=sec(g),fin=s===0,live=s===1,pre=s===2,a=g.away,h=g.home,canceled=/POSTPONED|CANCEL|SUSPENDED/.test(g.name);
  let win=null,tie=false;if(fin&&!canceled&&a.score!=null&&h.score!=null){if(a.score>h.score)win=a;else if(h.score>a.score)win=h;else tie=true;}
  const cls=x=>win?(x===win?" w":" l"):"",color=canceled?"#8a63d2":fin?(tie?"#f0b429":"#1fbf5f"):live?"#e5484d":"#2b6cff",pill=canceled?"NO GAME":fin?"FINAL":live?"LIVE":"SCHEDULED";
@@ -63,7 +67,7 @@ function card(g){const s=sec(g),fin=s===0,live=s===1,pre=s===2,a=g.away,h=g.home
 async function sb(d){const r=await fetch(`https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?dates=${d.replace(/-/g,"")}&t=${Date.now()}`,{cache:"no-store"});if(!r.ok)throw new Error("HTTP "+r.status);return(await r.json()).events||[];}
 async function poll(){checkVersion();const today=ptDay(new Date());try{const G=(await sb(today)).map(parse).map(g=>{g.home.record=null;g.away.record=null;return g}).sort((x,y)=>x.start-y.start),S=[[],[],[]];for(const g of G)S[sec(g)].push(g);S[0].reverse();
  $("h1").textContent="NBA · Today "+dlab(today);$("n_f").textContent=S[0].length;$("n_l").textContent=S[1].length;$("n_u").textContent=S[2].length;
- let h="";for(const i of [1,2,0])if(S[i].length)h+=section(SECK[i],SECN[i],SECC[i],S[i].map(card).join(""),S[i].length);
+ let h="";for(const i of [1,2,0])if(S[i].length)h+=section(SECK[i],SECN[i],SECC[i],i===2?upcomingBody(S[i]):S[i].map(card).join(""),S[i].length);
  $("games").innerHTML=h||`<div class="none">No NBA games today (${esc(dlab(today))}).</div>`;lastOk=new Date();
  $("ts").innerHTML=`<span class="dot"></span>Updated ${lastOk.toLocaleTimeString("en-US",{timeZone:TZ,hour:"numeric",minute:"2-digit",second:"2-digit"})} PT<span style="color:#5b6575"> · v.${APP_VERSION.split(".").pop()}</span>`;$("err").innerHTML="";
  if(!DAYS.length||DAYS[0]!==prevDay(today))await loadDays(today);}
