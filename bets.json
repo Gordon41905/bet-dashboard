@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-23.1",
+  "version": "2026-10-23.8",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -1925,6 +1925,69 @@
           "odds": -110,
           "ou": "u",
           "line": 238.0
+        }
+      ]
+    },
+    {
+      "sport": "NBA",
+      "stake": 44.0,
+      "towin": 104.28,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "BOS",
+          "needs": "Knicks win, or lose by 3 or fewer (+3\u00bd at Celtics, bought \u00bd)",
+          "odds": -124,
+          "side": "a",
+          "line": 3.5,
+          "lab": "NYK"
+        },
+        {
+          "type": "tot",
+          "game": "BOS",
+          "needs": "220 or more total points, Knicks + Celtics (over 219\u00bd, bought \u00bd)",
+          "odds": -115,
+          "ou": "o",
+          "line": 219.5
+        }
+      ]
+    },
+    {
+      "sport": "NBA",
+      "stake": 11.0,
+      "towin": 8.15,
+      "legs": [
+        {
+          "type": "ml1h",
+          "game": "BOS",
+          "needs": "Celtics lead the Knicks at halftime (1st-half ML; tied at half = push)",
+          "odds": -135,
+          "side": "h",
+          "lab": "BOS"
+        }
+      ]
+    },
+    {
+      "sport": "NBA",
+      "stake": 5.0,
+      "towin": 12.8,
+      "legs": [
+        {
+          "type": "tot",
+          "game": "BOS",
+          "needs": "221 or more total points, Knicks + Celtics",
+          "odds": -110,
+          "ou": "o",
+          "line": 220.5
+        },
+        {
+          "type": "sp",
+          "game": "BOS",
+          "needs": "Celtics win by 3 or more (-2\u00bd vs Knicks)",
+          "odds": -115,
+          "side": "h",
+          "line": -2.5,
+          "lab": "BOS"
         }
       ]
     }
