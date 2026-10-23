@@ -1,5 +1,5 @@
 {
- "version": "2026-10-22.1",
+ "version": "2026-10-22.2",
  "cfb_games": {
   "BG": [
    "Bowling Green",
@@ -1646,6 +1646,46 @@
      "line": 52.0
     }
    ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 11.0,
+   "towin": 29.04,
+   "legs": [
+    {
+     "type": "tot",
+     "game": "OKC",
+     "needs": "235 or fewer total points, Nuggets + Thunder (exactly 236 = push)",
+     "odds": -110,
+     "ou": "u",
+     "line": 236.0
+    },
+    {
+     "type": "sp",
+     "game": "OKC",
+     "needs": "Thunder win by 9 or more (-8 vs Nuggets; win by exactly 8 = push)",
+     "odds": -110,
+     "side": "h",
+     "line": -8.0,
+     "lab": "OKC"
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 11.0,
+   "towin": 9.09,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "OKC",
+     "needs": "Thunder win by 8 or more (-7½ vs Nuggets, bought ½)",
+     "odds": -121,
+     "side": "h",
+     "line": -7.5,
+     "lab": "OKC"
+    }
+   ]
   }
  ],
  "futures": [
@@ -1727,6 +1767,10 @@
   "LAL": [
    "401909092",
    "2026-10-21"
+  ],
+  "OKC": [
+   "401909094",
+   "2026-10-22"
   ]
  }
 }
