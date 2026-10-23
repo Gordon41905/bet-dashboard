@@ -1,0 +1,21 @@
+{
+ "updated": "2026-10-22 05:33 PM PT",
+ "items": [
+  {
+   "file": "2026-10-20.json",
+   "week": null,
+   "label": "Tue Oct 20",
+   "detail": null,
+   "date": "2026-10-20",
+   "games": 3
+  },
+  {
+   "file": "2026-10-21.json",
+   "week": null,
+   "label": "Wed Oct 21",
+   "detail": null,
+   "date": "2026-10-21",
+   "games": 11
+  }
+ ]
+}

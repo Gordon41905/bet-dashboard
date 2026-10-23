@@ -1,0 +1,82 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="favicon.svg" type="image/svg+xml"><title>NBA Scores</title><style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0d1015;color:#eef2f7;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"DejaVu Sans",Arial,sans-serif;padding:14px;max-width:640px;margin:0 auto}
+.hdr{background:#161c26;border-radius:16px;padding:14px 14px 12px;position:relative}
+h1{font-size:22px;font-weight:800;padding-right:38px}.ts{font-size:13px;color:#9aa6b8;margin:3px 0 10px}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#1fbf5f;margin-right:6px;animation:p 2s infinite}@keyframes p{50%{opacity:.3}}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.st{background:#0d1118;border-radius:12px;padding:10px}
+.k{font-size:11px;color:#8b97a8;font-weight:700;letter-spacing:1px}.kv{font-size:22px;font-weight:800;margin-top:2px}
+.err{background:#3a1114;border:2px solid #e5484d;color:#ffd0d2;border-radius:12px;padding:12px;margin-top:10px;font-size:14px;font-weight:700}
+.gh{font-size:19px;font-weight:800;margin:24px 0 4px;padding-bottom:6px;border-bottom:3px solid;display:flex;justify-content:space-between;align-items:center;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent}.gh .cnt{font-size:13px;color:#8b97a8;font-weight:700;margin-left:4px}.chev{font-size:16px;color:#8b97a8;transition:transform .2s;padding:0 4px}.gh.closed .chev{transform:rotate(-90deg)}[hidden]{display:none!important}
+.card{background:#171d27;border-radius:14px;border-left:6px solid #5b6575;margin-top:10px;padding:12px 14px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.lg{font-size:11px;font-weight:800;color:#8b97a8;letter-spacing:1px}
+.pill{color:#fff;font-size:11px;font-weight:800;border-radius:6px;padding:4px 8px;letter-spacing:.5px;white-space:nowrap}
+.tm{display:flex;justify-content:space-between;align-items:baseline;font-size:17px;font-weight:700;margin-top:6px;gap:10px}.tm .n{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.tm .s{font-size:19px;font-weight:800;flex:none}
+.tm.w{color:#39e27d}.tm.l{color:#8b97a8}
+.tx{font-size:13px;color:#a3aec0;margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.win{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:14px;font-weight:800;color:#39e27d;margin-top:6px}.tie{color:#f0b429}
+.rf{position:absolute;top:12px;right:12px;width:32px;height:32px;border-radius:50%;border:1px solid #2c3646;background:#0d1118;color:#9aa6b8;font-size:18px;line-height:30px;text-align:center;cursor:pointer;-webkit-tap-highlight-color:transparent;padding:0}.rf:active{color:#eef2f7;border-color:#8b97a8}
+.bk{font-size:12px;color:#8b97a8;font-weight:700;text-decoration:none;border:1px solid #2c3646;border-radius:999px;padding:1px 8px}
+.wkp{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin:10px 0 0;padding-bottom:2px}.wkp::-webkit-scrollbar{display:none}.wkb{flex:none;font:inherit;font-size:12px;font-weight:700;color:#9aa6b8;background:#161c26;border:1px solid #2c3646;border-radius:999px;padding:4px 10px;cursor:pointer;white-space:nowrap;-webkit-tap-highlight-color:transparent}.wkb.on{color:#0d1015;background:#eef2f7;border-color:#eef2f7}
+.none{font-size:13px;color:#8b97a8;margin-top:8px}
+.ftr{margin-top:22px;font-size:12px;color:#7f8ba0;line-height:1.5;text-align:center}
+</style></head><body>
+<div class="hdr"><button class="rf" id="rf" aria-label="Refresh" title="Refresh">↻</button><h1 id="h1">NBA · Today</h1><div class="ts" id="ts"><span class="dot"></span>Loading games…</div>
+<div class="g3"><div class="st"><div class="k">FINAL</div><div class="kv" style="color:#39e27d" id="n_f">–</div></div>
+<div class="st"><div class="k">LIVE</div><div class="kv" style="color:#ff6b6b" id="n_l">–</div></div>
+<div class="st"><div class="k">UPCOMING</div><div class="kv" style="color:#7fa6ff" id="n_u">–</div></div></div>
+<div id="err"></div></div>
+<div id="games"></div>
+<div class="gh" data-k="past" role="button" style="border-color:#5b6575"><span>🗂️ Past days <span class="cnt" id="pc"></span></span><span class="chev">▾</span></div>
+<div class="sb" data-k="past"><div class="wkp" id="dp"></div><div id="past"></div></div>
+<div class="ftr"><a class="bk" href="./">← Live Bets</a><br>Updates every 30 seconds · scores from ESPN · past days saved in archive/nba</div>
+<script>
+const APP_VERSION="2026-10-22.4",SEASON_START="2026-10-20",TZ="America/Los_Angeles";
+const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let lastOk=null,DAY=null,DAYS=[],IDX={};
+async function checkVersion(){try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
+ if(v&&v!==APP_VERSION){const k="nreload_"+v;let st={n:0,t:0};try{st=JSON.parse(sessionStorage.getItem(k)||'{"n":0,"t":0}')}catch(e){}if(st.n<5&&Date.now()-st.t>45000){st.n++;st.t=Date.now();try{sessionStorage.setItem(k,JSON.stringify(st))}catch(e){}location.replace(location.pathname+"?v="+encodeURIComponent(v)+"&r="+Date.now());}}}catch(e){}}
+const tf=(d,z)=>d.toLocaleTimeString("en-US",{timeZone:z,hour:"numeric",minute:"2-digit"});
+const ptDay=d=>d.toLocaleDateString("en-CA",{timeZone:TZ});
+const dlab=s=>new Date(s+"T12:00:00Z").toLocaleDateString("en-US",{timeZone:"UTC",weekday:"short",month:"short",day:"numeric"});
+function parse(e){const c=e.competitions[0],t=c.competitors||[],h=t.find(x=>x.homeAway==="home")||t[1],a=t.find(x=>x.homeAway==="away")||t[0],st=e.status.type;
+ const tm=x=>({name:x.team.shortDisplayName||x.team.displayName,ab:x.team.abbreviation,score:x.score!=null&&x.score!==""?Number(x.score):null});
+ return{id:e.id,start:new Date(e.date),state:st.state,completed:!!st.completed,detail:st.shortDetail||st.detail||"",name:st.name||"",home:tm(h),away:tm(a),neutral:!!c.neutralSite,venue:c.venue?.fullName||""};}
+function sec(g){if(g.state==="post"||g.completed)return 0;if(g.state==="in")return 1;return 2;}
+const SECN=["✅ Final","🔴 Live","🗓️ Upcoming"],SECC=["#3fae7a","#e5484d","#2b6cff"],SECK=["final","live","upcoming"];
+const COLL=(()=>{try{return JSON.parse(localStorage.getItem("nba_collapsed")||"{}")}catch(e){return{}}})();
+function section(k,title,color,body,n){const c=!!COLL[k];return `<div class="gh${c?" closed":""}" data-k="${k}" role="button" style="border-color:${color}"><span>${title} <span class="cnt">${n}</span></span><span class="chev">▾</span></div><div class="sb" data-k="${k}"${c?" hidden":""}>${body}</div>`}
+function toggleSec(k){COLL[k]=!COLL[k];if(!COLL[k])delete COLL[k];try{localStorage.setItem("nba_collapsed",JSON.stringify(COLL))}catch(e){}document.querySelectorAll(`[data-k="${k}"]`).forEach(e=>{if(e.classList.contains("gh"))e.classList.toggle("closed",!!COLL[k]);else e.hidden=!!COLL[k];});}
+document.addEventListener("click",e=>{const g=e.target.closest(".gh[data-k]");if(g)toggleSec(g.dataset.k);});
+function card(g){const s=sec(g),fin=s===0,live=s===1,pre=s===2,a=g.away,h=g.home,canceled=/POSTPONED|CANCEL|SUSPENDED/.test(g.name);
+ let win=null,tie=false;if(fin&&!canceled&&a.score!=null&&h.score!=null){if(a.score>h.score)win=a;else if(h.score>a.score)win=h;else tie=true;}
+ const cls=x=>win?(x===win?" w":" l"):"",color=canceled?"#8a63d2":fin?(tie?"#f0b429":"#1fbf5f"):live?"#e5484d":"#2b6cff",pill=canceled?"NO GAME":fin?"FINAL":live?"LIVE":"SCHEDULED";
+ const tip=`${tf(g.start,TZ)} PT · ${tf(g.start,"America/New_York")} ET`,sc=x=>pre||x.score==null?"":`<span class="s">${x.score}</span>`,where=g.neutral&&g.venue?` · ${esc(g.venue)}`:"";
+ const info=live?`${esc(g.detail)} · tipped ${tf(g.start,TZ)} PT`:fin?`${canceled?esc(g.detail)+" · ":""}Tipped ${tip}${where}`:`Tip ${tip}${where}`;
+ const res=win?`<div class="win">Winner: ${esc(win.name)}</div>`:tie?`<div class="win tie">Tie ${a.score}–${h.score}</div>`:"";
+ return `<div class="card" style="border-left-color:${color}"><div class="top"><span class="lg">NBA</span><span class="pill" style="background:${color}">${pill}</span></div>
+ <div class="tm${cls(a)}"><span class="n">${esc(a.name)}</span>${sc(a)}</div><div class="tm${cls(h)}"><span class="n">${g.neutral?"vs ":"@ "}${esc(h.name)}</span>${sc(h)}</div><div class="tx">${info}</div>${res}</div>`;}
+async function sb(d){const r=await fetch(`https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?dates=${d.replace(/-/g,"")}&t=${Date.now()}`,{cache:"no-store"});if(!r.ok)throw new Error("HTTP "+r.status);return(await r.json()).events||[];}
+async function poll(){checkVersion();const today=ptDay(new Date());try{const G=(await sb(today)).map(parse).sort((x,y)=>x.start-y.start),S=[[],[],[]];for(const g of G)S[sec(g)].push(g);S[0].reverse();
+ $("h1").textContent="NBA · Today "+dlab(today);$("n_f").textContent=S[0].length;$("n_l").textContent=S[1].length;$("n_u").textContent=S[2].length;
+ let h="";for(const i of [1,2,0])if(S[i].length)h+=section(SECK[i],SECN[i],SECC[i],S[i].map(card).join(""),S[i].length);
+ $("games").innerHTML=h||`<div class="none">No NBA games today (${esc(dlab(today))}).</div>`;lastOk=new Date();
+ $("ts").innerHTML=`<span class="dot"></span>Updated ${lastOk.toLocaleTimeString("en-US",{timeZone:TZ,hour:"numeric",minute:"2-digit",second:"2-digit"})} PT<span style="color:#5b6575"> · v.${APP_VERSION.split(".").pop()}</span>`;$("err").innerHTML="";
+ if(!DAYS.length||DAYS[0]!==prevDay(today))await loadDays(today);}
+ catch(e){$("err").innerHTML=`<div class="err">⚠️ Couldn't update scores (${esc(e.message)})${lastOk?" — showing last good update":""}. Retrying in 30s.</div>`;}}
+function prevDay(s){const d=new Date(s+"T12:00:00Z");d.setUTCDate(d.getUTCDate()-1);return d.toISOString().slice(0,10);}
+// Archive: every season day before today; saved files in archive/nba/YYYY-MM-DD.json, else ESPN by date
+async function loadDays(today){try{const r=await fetch("archive/nba/index.json?t="+Date.now(),{cache:"no-store"});if(r.ok){IDX={};for(const it of (await r.json()).items||[])IDX[it.date]=it.file;}}catch(e){}
+ const L=[];for(let d=prevDay(today);d>=SEASON_START;d=prevDay(d))L.push(d);DAYS=L;$("pc").textContent=L.length;if(!DAY||!L.includes(DAY))DAY=L[0]||null;drawDays();if(DAY)showDay(DAY);}
+function drawDays(){$("dp").innerHTML=DAYS.map((d,i)=>`<button class="wkb${d===DAY?" on":""}" data-d="${d}">${i===0?"Yesterday":esc(dlab(d))}</button>`).join("")||`<span class="none">No past days yet.</span>`;}
+$("dp").addEventListener("click",e=>{const b=e.target.closest(".wkb");if(b){DAY=b.dataset.d;drawDays();showDay(DAY);}});
+async function showDay(d){$("past").innerHTML=`<div class="none">Loading ${esc(dlab(d))}…</div>`;
+ try{let ev=null;if(IDX[d]){try{const r=await fetch("archive/nba/"+IDX[d]+"?t="+Date.now(),{cache:"no-store"});if(r.ok)ev=(await r.json()).events||[];}catch(e){}}if(!ev)ev=await sb(d);if(DAY!==d)return;
+  const G=ev.map(parse).sort((x,y)=>x.start-y.start);
+  $("past").innerHTML=G.length?section("pd_"+d,"✅ "+esc(dlab(d)),"#3fae7a",G.map(card).join(""),G.length):`<div class="none">No NBA games on ${esc(dlab(d))}.</div>`;}
+ catch(e){if(DAY===d)$("past").innerHTML=`<div class="err">⚠️ Couldn't load ${esc(dlab(d))} (${esc(e.message)})</div>`;}}
+$("rf").addEventListener("click",()=>location.replace(location.pathname+"?v="+Date.now()));
+poll();setInterval(poll,30000);
+</script></body></html>
