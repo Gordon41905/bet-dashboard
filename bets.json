@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-24.2",
+  "version": "2026-10-24.3",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -69,6 +69,11 @@
     "BUF1024": [
       "Buffalo",
       "Bowling Green",
+      "20261024"
+    ],
+    "MICH1024": [
+      "Michigan",
+      "Indiana",
       "20261024"
     ]
   },
@@ -2133,6 +2138,22 @@
           "lab": "UNT"
         }
       ]
+    },
+    {
+      "sport": "CFB",
+      "stake": 44.0,
+      "towin": 30.14,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "MICH1024",
+          "needs": "Indiana wins by 7 or more (-6½ at Michigan, bought 1 point)",
+          "odds": -146,
+          "side": "a",
+          "line": -6.5,
+          "lab": "IND"
+        }
+      ]
     }
   ],
   "futures": [
@@ -2243,11 +2264,13 @@
   "mma_games": {
     "UFC1": [
       "401911632",
-      "2026-10-24"
+      "2026-10-24",
+      "2026-10-24T19:47:00Z"
     ],
     "UFC2": [
       "401911634",
-      "2026-10-24"
+      "2026-10-24",
+      "2026-10-24T18:49:00Z"
     ],
     "UFC3": [
       "401929495",
