@@ -80,7 +80,7 @@ function buildTickets(d){CFB=d.cfb_games||{};NFL=d.nfl_games||{};MLBD=d.mlb_game
 function futHTML(){return FUTS.length?section("sb","🏈 Super Bowl bets","#9b59ff",FUTS.map(f=>`<div class="card" style="border-left-color:#9b59ff"><div class="top"><div><div class="bet">${m(f.stake)} bet</div><div class="roll" style="color:#b48cff">PENDING · SETTLES FEB 2027</div></div><div><div class="pay">Wins $${f.towin.toFixed(2)}</div><div class="ret">returns $${(f.stake+f.towin).toFixed(2)}</div></div></div><div class="leg"><div class="need">${esc(f.pick)}</div></div></div>`).join(""),FUTS.length):""}
 async function checkVersion(){try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
  if(v&&v!==APP_VERSION){const k="reloaded_"+v;if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,"1");location.replace(location.pathname+"?v="+encodeURIComponent(v));}}}catch(e){}}
-const APP_VERSION="2026-10-23.10";
+const APP_VERSION="2026-10-23.11";
 
 const chip=g=>!g?"score unavailable":g.state==="void"?`${g.aab} @ ${g.hab} · ${g.detail}`:g.state==="pre"?`${g.aab} @ ${g.hab} · ${g.detail}`:`${g.aab} ${g.a} – ${g.hab} ${g.h} · ${g.detail}`;
 async function getJSON(u,label){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error(`${label} HTTP ${r.status}`);return r.json();}
@@ -134,7 +134,7 @@ async function fetchGames(){const G={},errs=[];
  }catch(e){errs.push("ESPN NBA failed: "+e.message)}}));
 
  await (async()=>{const SBM={};for(const[,[,dt]]of Object.entries(MMAD||{})){const dk=dt.replace(/-/g,"");if(!SBM[dk])try{SBM[dk]=await getJSON(`https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=${dk}&t=${Date.now()}`,"ESPN MMA")}catch(e){errs.push("ESPN MMA failed: "+e.message);SBM[dk]=null}}
-  await Promise.all(Object.entries(MMAD||{}).map(async([k,[cid,dt]])=>{G[k]=null;const sb=SBM[dt.replace(/-/g,"")];if(!sb)return;
+  await Promise.all(Object.entries(MMAD||{}).map(async([k,[cid,dt,ovs]])=>{G[k]=null;const sb=SBM[dt.replace(/-/g,"")];if(!sb)return;
    let comp=null;for(const e of sb.events||[]){const c=(e.competitions||[]).find(x=>String(x.id)===String(cid));if(c){comp=c;break}}
    if(!comp){errs.push(`ESPN MMA: competition ${cid} not found`);return}
    const comps=[...(comp.competitors||[])].sort((a,b)=>(a.order||0)-(b.order||0));
@@ -143,7 +143,7 @@ async function fetchGames(){const G={},errs=[];
    const short=n=>{const p=(n||"").trim().split(/\s+/);return p[p.length-1]||n};
    const s=comp.status||{},nm=(s.type&&s.type.name)||"";let state=(s.type&&s.type.state)||"pre",detail=(s.type&&(s.type.shortDetail||s.type.detail))||"";
    if(/POSTPONED|CANCEL|FORFEIT/.test(nm))state="void";
-   const gt=new Date(comp.date||comp.startDate);if(state==="pre"&&!isNaN(gt)){const nd=pday(gt)!==pday(new Date())?wday(gt)+" ":"";detail=`${nd}${fmt(gt,"America/Los_Angeles")} PT`;}
+   const gt=new Date(ovs||comp.date||comp.startDate);if(state==="pre"&&!isNaN(gt)){const nd=pday(gt)!==pday(new Date())?wday(gt)+" ":"";detail=`${nd}${fmt(gt,"America/Los_Angeles")} PT`;}
    let a=0,h=0;if(state==="post"){a=aF.winner===true?1:0;h=hF.winner===true?1:0;}
    G[k]={start:isNaN(gt)?Infinity:gt.getTime(),state,detail,h,a,hab:short(hN),aab:short(aN),eid:cid,lg:"mma/ufc",mma:true};
   }));
