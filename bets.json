@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-24.4",
+  "version": "2026-10-24.5",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -2184,6 +2184,52 @@
           "lab": "Volkanovski"
         }
       ]
+    },
+    {
+      "sport": "MMA",
+      "stake": 11.0,
+      "towin": 24.31,
+      "legs": [
+        {
+          "type": "ml",
+          "game": "UFC4",
+          "needs": "Yan beats Dvalishvili",
+          "odds": -147,
+          "side": "a",
+          "lab": "Yan"
+        },
+        {
+          "type": "ml",
+          "game": "UFC1",
+          "needs": "Evloev beats Volkanovski",
+          "odds": -110,
+          "side": "h",
+          "lab": "Evloev"
+        }
+      ]
+    },
+    {
+      "sport": "MMA",
+      "stake": 11.0,
+      "towin": 24.31,
+      "legs": [
+        {
+          "type": "ml",
+          "game": "UFC4",
+          "needs": "Yan beats Dvalishvili",
+          "odds": -147,
+          "side": "a",
+          "lab": "Yan"
+        },
+        {
+          "type": "ml",
+          "game": "UFC1",
+          "needs": "Evloev beats Volkanovski",
+          "odds": -110,
+          "side": "h",
+          "lab": "Evloev"
+        }
+      ]
     }
   ],
   "futures": [
@@ -2304,6 +2350,10 @@
     ],
     "UFC3": [
       "401929495",
+      "2026-10-24"
+    ],
+    "UFC4": [
+      "401911633",
       "2026-10-24"
     ]
   }
