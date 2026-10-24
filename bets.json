@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-24.7",
+  "version": "2026-10-24.8",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -74,6 +74,11 @@
     "MICH1024": [
       "Michigan",
       "Indiana",
+      "20261024"
+    ],
+    "BOISE1024": [
+      "Washington State",
+      "Boise State",
       "20261024"
     ]
   },
@@ -2245,6 +2250,69 @@
           "lab": "Volkanovski"
         }
       ]
+    },
+    {
+      "sport": "MLB",
+      "stake": 22.0,
+      "towin": 18.33,
+      "legs": [
+        {
+          "type": "tot",
+          "game": "BOISE1024",
+          "needs": "53 or more total points, Boise State + Washington State (exactly 52 = push)",
+          "odds": -120,
+          "ou": "o",
+          "line": 52.0
+        }
+      ]
+    },
+    {
+      "sport": "MLB",
+      "stake": 22.0,
+      "towin": 23.1,
+      "pitchers": {
+        "game": "WS2",
+        "a": "D. Rasmussen",
+        "h": "L. Henderson"
+      },
+      "legs": [
+        {
+          "type": "ml",
+          "game": "WS2",
+          "needs": "Rays beat the Brewers (World Series Game 2)",
+          "odds": 105,
+          "side": "a",
+          "lab": "TB"
+        }
+      ]
+    },
+    {
+      "sport": "MLB",
+      "stake": 22.0,
+      "towin": 66.88,
+      "pitchers": {
+        "game": "WS2",
+        "a": "D. Rasmussen",
+        "h": "L. Henderson"
+      },
+      "legs": [
+        {
+          "type": "ml",
+          "game": "WS2",
+          "needs": "Rays beat the Brewers (World Series Game 2)",
+          "odds": 105,
+          "side": "a",
+          "lab": "TB"
+        },
+        {
+          "type": "tot",
+          "game": "WS2",
+          "needs": "7 or more total runs, Rays + Brewers (over 6½)",
+          "odds": -103,
+          "ou": "o",
+          "line": 6.5
+        }
+      ]
     }
   ],
   "futures": [
@@ -2283,6 +2351,12 @@
       139,
       "2026-10-23",
       849805
+    ],
+    "WS2": [
+      158,
+      139,
+      "2026-10-24",
+      849802
     ]
   },
   "soc_games": {
