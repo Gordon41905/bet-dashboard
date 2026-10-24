@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-23.9",
+  "version": "2026-10-23.10",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -2018,6 +2018,61 @@
           "line": 6.5
         }
       ]
+    },
+    {
+      "sport": "NBA",
+      "stake": 11.0,
+      "towin": 29.04,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "GSW1023",
+          "needs": "Grizzlies win, or lose by 3 or fewer (+4 at Warriors; lose by exactly 4 = push)",
+          "odds": -110,
+          "side": "a",
+          "line": 4.0,
+          "lab": "MEM"
+        },
+        {
+          "type": "tot",
+          "game": "GSW1023",
+          "needs": "236 or fewer total points, Grizzlies + Warriors (exactly 237 = push)",
+          "odds": -110,
+          "ou": "u",
+          "line": 237.0
+        }
+      ]
+    },
+    {
+      "sport": "NBA",
+      "stake": 11.0,
+      "towin": 17.27,
+      "legs": [
+        {
+          "type": "ml",
+          "game": "LAL1023",
+          "needs": "Lakers beat the Clippers",
+          "odds": -350,
+          "side": "h",
+          "lab": "LAL"
+        },
+        {
+          "type": "ml",
+          "game": "GSW1023",
+          "needs": "Warriors beat the Grizzlies",
+          "odds": -162,
+          "side": "h",
+          "lab": "GSW"
+        },
+        {
+          "type": "ml",
+          "game": "SAC1023",
+          "needs": "Trail Blazers beat the Kings (at Sacramento)",
+          "odds": -425,
+          "side": "a",
+          "lab": "POR"
+        }
+      ]
     }
   ],
   "futures": [
@@ -2110,6 +2165,18 @@
     ],
     "BOS": [
       "401909095",
+      "2026-10-23"
+    ],
+    "GSW1023": [
+      "401909850",
+      "2026-10-23"
+    ],
+    "LAL1023": [
+      "401909851",
+      "2026-10-23"
+    ],
+    "SAC1023": [
+      "401909852",
       "2026-10-23"
     ]
   },
