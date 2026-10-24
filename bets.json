@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-24.13",
+  "version": "2026-10-24.14",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -89,6 +89,16 @@
     "CLEM1024": [
       "Clemson",
       "Virginia Tech",
+      "20261024"
+    ],
+    "KEN1024": [
+      "Kentucky",
+      "Vanderbilt",
+      "20261024"
+    ],
+    "OKST1024": [
+      "Oklahoma State",
+      "Colorado",
       "20261024"
     ]
   },
@@ -2363,6 +2373,160 @@
           "lab": "GAST"
         }
       ]
+    },
+    {
+      "sport": "CFB",
+      "stake": 11.0,
+      "towin": 23.1,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "KEN1024",
+          "needs": "Kentucky wins by 11 or more (-10.5 vs Vanderbilt)",
+          "odds": null,
+          "side": "h",
+          "line": -10.5,
+          "lab": "UK"
+        },
+        {
+          "type": "tot",
+          "game": "KEN1024",
+          "needs": "52 or more total points, Vanderbilt + Kentucky (over 51.5)",
+          "odds": null,
+          "ou": "o",
+          "line": 51.5
+        }
+      ]
+    },
+    {
+      "sport": "CFB",
+      "stake": 22.0,
+      "towin": 17.6,
+      "legs": [
+        {
+          "type": "tot",
+          "game": "KEN1024",
+          "needs": "51 or more total points, Vanderbilt + Kentucky (over 50½, bought ½)",
+          "odds": -125,
+          "ou": "o",
+          "line": 50.5
+        }
+      ]
+    },
+    {
+      "sport": "MLB",
+      "stake": 50.0,
+      "towin": 138.5,
+      "legs": [
+        {
+          "type": "nt",
+          "game": "WS2",
+          "needs": "Junior Caminero (TB) gets 1 or more hits (over 0.5)",
+          "odds": null,
+          "ntxt": "player hits not tracked — check BetOnline",
+          "lab": "Caminero"
+        },
+        {
+          "type": "sp",
+          "game": "WS2",
+          "needs": "Rays win, or lose by 1 (+1.5 at Brewers)",
+          "odds": null,
+          "side": "a",
+          "line": 1.5,
+          "lab": "TB"
+        },
+        {
+          "type": "tot",
+          "game": "WS2",
+          "needs": "7 or more total runs, Rays + Brewers (over 6½)",
+          "odds": null,
+          "ou": "o",
+          "line": 6.5
+        }
+      ]
+    },
+    {
+      "sport": "SOC",
+      "stake": 11.0,
+      "towin": 5.95,
+      "legs": [
+        {
+          "type": "ml",
+          "game": "PHI1024",
+          "needs": "Philadelphia Union beat New England (a draw loses)",
+          "odds": -185,
+          "side": "h",
+          "lab": "PHI"
+        }
+      ]
+    },
+    {
+      "sport": "CFB",
+      "stake": 22.0,
+      "towin": 133.76,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "OKST1024",
+          "needs": "Oklahoma State wins by 14 or more (-13 vs Colorado; by exactly 13 = push)",
+          "odds": -110,
+          "side": "h",
+          "line": -13.0,
+          "lab": "OKST"
+        },
+        {
+          "type": "sp",
+          "game": "CLEM1024",
+          "needs": "Virginia Tech wins, or loses by 2 or fewer (+2½ at Clemson)",
+          "odds": -103,
+          "side": "a",
+          "line": 2.5,
+          "lab": "VT"
+        },
+        {
+          "type": "sp",
+          "game": "ARST1024",
+          "needs": "Georgia State wins by 3 or more (-2½ at Arkansas State)",
+          "odds": -115,
+          "side": "a",
+          "line": -2.5,
+          "lab": "GAST"
+        }
+      ]
+    },
+    {
+      "sport": "CFB",
+      "stake": 11.0,
+      "towin": 66.88,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "OKST1024",
+          "needs": "Oklahoma State wins by 14 or more (-13 vs Colorado; by exactly 13 = push)",
+          "odds": -110,
+          "side": "h",
+          "line": -13.0,
+          "lab": "OKST"
+        },
+        {
+          "type": "sp",
+          "game": "CLEM1024",
+          "needs": "Virginia Tech wins, or loses by 2 or fewer (+2½ at Clemson)",
+          "odds": -103,
+          "side": "a",
+          "line": 2.5,
+          "lab": "VT"
+        },
+        {
+          "type": "sp",
+          "game": "ARST1024",
+          "needs": "Georgia State wins by 3 or more (-2½ at Arkansas State)",
+          "odds": -115,
+          "side": "a",
+          "line": -2.5,
+          "lab": "GAST"
+        }
+      ]
     }
   ],
   "futures": [
@@ -2424,6 +2588,11 @@
       "uefa.champions",
       "401915399",
       "2026-10-20"
+    ],
+    "PHI1024": [
+      "usa.1",
+      "761894",
+      "2026-10-24"
     ]
   },
   "nba_games": {
