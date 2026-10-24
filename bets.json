@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-24.12",
+  "version": "2026-10-24.13",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -79,6 +79,16 @@
     "BOISE1024": [
       "Washington State",
       "Boise State",
+      "20261024"
+    ],
+    "ARST1024": [
+      "Arkansas State",
+      "Georgia State",
+      "20261024"
+    ],
+    "CLEM1024": [
+      "Clemson",
+      "Virginia Tech",
       "20261024"
     ]
   },
@@ -2311,6 +2321,46 @@
           "odds": -103,
           "ou": "o",
           "line": 6.5
+        }
+      ]
+    },
+    {
+      "sport": "CFB",
+      "stake": 22.0,
+      "towin": 70.62,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "ARST1024",
+          "needs": "Georgia State wins by 3 or more (-2½ at Arkansas State)",
+          "odds": -115,
+          "side": "a",
+          "line": -2.5,
+          "lab": "GAST"
+        },
+        {
+          "type": "ml",
+          "game": "CLEM1024",
+          "needs": "Virginia Tech beats Clemson",
+          "odds": 125,
+          "side": "a",
+          "lab": "VT"
+        }
+      ]
+    },
+    {
+      "sport": "CFB",
+      "stake": 22.0,
+      "towin": 19.13,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "ARST1024",
+          "needs": "Georgia State wins by 3 or more (-2½ at Arkansas State)",
+          "odds": -115,
+          "side": "a",
+          "line": -2.5,
+          "lab": "GAST"
         }
       ]
     }
