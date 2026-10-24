@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-24.3",
+  "version": "2026-10-24.4",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -2152,6 +2152,36 @@
           "side": "a",
           "line": -6.5,
           "lab": "IND"
+        }
+      ]
+    },
+    {
+      "sport": "MMA",
+      "stake": 44.0,
+      "towin": 41.51,
+      "legs": [
+        {
+          "type": "ml",
+          "game": "UFC1",
+          "needs": "Volkanovski beats Evloev",
+          "odds": -106,
+          "side": "a",
+          "lab": "Volkanovski"
+        }
+      ]
+    },
+    {
+      "sport": "MMA",
+      "stake": 44.0,
+      "towin": 41.51,
+      "legs": [
+        {
+          "type": "ml",
+          "game": "UFC1",
+          "needs": "Volkanovski beats Evloev",
+          "odds": -106,
+          "side": "a",
+          "lab": "Volkanovski"
         }
       ]
     }
