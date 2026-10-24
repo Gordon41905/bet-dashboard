@@ -32,7 +32,7 @@ h1{font-size:22px;font-weight:800}.ts{font-size:13px;color:#9aa6b8;margin:3px 0 
 <div class="lvs"><a id="nav" class="lvh" href="https://gordon41905.github.io/tomorrow-winners/" onclick="this.href='https://gordon41905.github.io/tomorrow-winners/?v='+Date.now()"><span class="lgl">NFL</span><span class="nbs" id="nfl"><span class="nbe">Loading…</span></span></a><a id="navn" class="lvh" href="nba.html" onclick="this.href='nba.html?v='+Date.now()"><span class="lgl">NBA</span><span class="nbs" id="nba"><span class="nbe">Loading…</span></span></a></div>
 <div class="hdr"><div class="hrow"><h1 id="title">Live Bets</h1><span class="cw" id="s_maxwin"></span></div><div class="tsr"><div class="ts" id="ts"><span class="dot"></span>Loading live scores…</div></div>
 <div class="g3"><div class="st"><div class="k">STILL LIVE</div><div class="kv" id="s_live">–</div></div>
-<div class="st"><div class="k">WON</div><div class="kv" style="color:#39e27d" id="s_won">–</div></div>
+<div class="st"><div class="k">CASHED</div><div class="kv" style="color:#39e27d" id="s_won">–</div></div>
 <div class="st"><div class="k">LOST</div><div class="kv" style="color:#ff6b6b" id="s_lost">–</div></div><div class="st"><div class="k">REFUNDED</div><div class="kv" style="color:#f0b429" id="s_ref">–</div></div></div>
 <div id="err"></div></div>
 
@@ -42,7 +42,7 @@ h1{font-size:22px;font-weight:800}.ts{font-size:13px;color:#9aa6b8;margin:3px 0 
 const COL={WON:"#1fbf5f",WIN:"#1fbf5f",LOST:"#e5484d",LOSE:"#e5484d",PUSH:"#f0b429",PUSHING:"#f0b429",NS:"#5b6575",NA:"#5b6575",VOID:"#8a63d2",TIED:"#6b7686"};
 const LAB={WON:"WON",WIN:"WINNING",LOST:"LOST",LOSE:"LOSING",PUSH:"PUSH",PUSHING:"ON THE NUMBER",NS:"NOT STARTED",NA:"NO SCORE",VOID:"NO ACTION?",TIED:"TIED"};
 const RC={DEAD:"#e5484d",CASHED:"#1fbf5f",PUSH:"#f0b429",ALIVE:"#f0b429","NOT STARTED":"#5b6575"};
-const RL={DEAD:"LOST",CASHED:"WON",PUSH:"REFUNDED (PUSH / NO ACTION)",ALIVE:"IN PLAY","NOT STARTED":"NOT STARTED YET"};
+const RL={DEAD:"LOST",CASHED:"CASHED",PUSH:"REFUNDED (PUSH / NO ACTION)",ALIVE:"IN PLAY","NOT STARTED":"NOT STARTED YET"};
 const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const m=x=>"$"+(Number.isInteger(x)?x:x.toFixed(2));
 let CFB={},NFL={},MLBD={},SOCD={},NBAD={},MMAD={};
@@ -54,14 +54,14 @@ const ml=(game,side,lab)=>({game,f:g=>{const me=side==="h"?g.h:g.a,op=side==="h"
   if(g.state==="post")return mg>0?["WON",`${lab} won by ${mg}`]:["LOST",mg<0?`${lab} lost by ${-mg}`:g.soc?`${lab} drew (a draw loses this bet)`:`${lab} tied`];return[mg>0?"WIN":mg<0?"LOSE":"TIED",g.soc&&mg===0?`${lab} tied (a draw loses this bet)`:txt];}});
 const sp=(game,side,line,lab)=>({game,f:g=>{const me=side==="h"?g.h:g.a,op=side==="h"?g.a:g.h,mg=me-op,cov=mg+line;
   let txt=`${lab} `+(mg>0?"up "+mg:mg<0?"down "+(-mg):"tied")+", ",r;
-  if(cov>0){r="WIN";txt+=`covering by ${cov}`}else if(cov===0){r="PUSHING";txt+="exactly on the push number"}else{r="LOSE";{const n=Math.floor(-cov)+1;txt+=`needs ${n} more ${g.mlb?(n===1?"run":"runs"):g.nba?(n===1?"point":"points"):"pts"}`}}
+  if(cov>0){r="WIN";txt+=`winning by ${cov} against the spread`}else if(cov===0){r="PUSHING";txt+="exactly on the push number"}else{r="LOSE";{const n=Math.floor(-cov)+1;txt+=`needs ${n} more ${g.mlb?(n===1?"run":"runs"):g.nba?(n===1?"point":"points"):"pts"}`}}
   if(g.state==="post"){const res=mg>0?`won by ${mg}`:mg<0?`lost by ${-mg}`:"tied";r={WIN:"WON",LOSE:"LOST",PUSHING:"PUSH"}[r];txt=r==="WON"?`Covered by ${cov} (${lab} ${res})`:r==="PUSH"?`${lab} ${res.replace(" by "," by exactly ")}`:`${lab} ${mg>0?"won by only "+mg:res}`;}return[r,txt];}});
 const ml1h=(game,side,lab)=>({game,f:g=>{const s12=a=>a.filter(x=>x.period<=2).reduce((p,x)=>p+(+x.value||0),0);const done=g.state==="post"||g.per>2||/HALFTIME/.test(g.nm||"");
   if(done&&!(g.hl&&g.al))return["NA","1st-half score unavailable"];const H=g.hl?s12(g.hl):g.h,A=g.al?s12(g.al):g.a,me=side==="h"?H:A,op=side==="h"?A:H,mg=me-op;
   if(done)return mg>0?["WON",`${lab} led ${me}–${op} at halftime`]:mg<0?["LOST",`${lab} trailed ${me}–${op} at halftime`]:["PUSH",`Tied ${me}–${op} at halftime`];
   return mg>0?["WIN",`1st half: ${lab} up ${mg} (${me}–${op})`]:mg<0?["LOSE",`1st half: ${lab} down ${-mg} (${me}–${op})`]:["PUSHING",`1st half: tied ${me}–${op} (tie at half = push)`];}});
 const tot=(game,ou,line)=>({game,f:g=>{const T=g.h+g.a;
-  if(ou==="o"){const tgt=Math.floor(line)+1;if(T>line)return g.state==="post"?["WON",`Total ended ${T}`]:["WIN",`${T} ${g.mlb?"runs":"points"}, over already hit`];
+  if(ou==="o"){const tgt=Math.floor(line)+1;if(T>line)return g.state==="post"?["WON",`Total ended ${T}`]:["WIN",`${T} ${g.mlb?"runs":"points"}, over already hit. You've won that bet and it will cash when the game ends`];
     if(g.state==="post")return[T===line?"PUSH":"LOST",`Total ended ${T}`];return["LOSE",`${T} so far, needs ${tgt-T} more`];}
   const lim=Number.isInteger(line)?line-1:Math.floor(line);if(T>line)return["LOST",g.state==="post"?`Total ended ${T}`:`${T} points, went over`];
   if(g.state==="post")return[T===line?"PUSH":"WON",`Total ended ${T}`];if(T===line)return["PUSHING",`${T} so far, exactly on the push number`];return["WIN",`${T} so far, ${lim-T} points of room left`];}});
@@ -69,7 +69,7 @@ const prop=(game,aid,ou,line,lab)=>({game,f:g=>{const B=g.box||{},P=B[aid],post=
   if(post&&(!P||P.dnp))return["VOID",`${lab} didn't play — leg voids (no action), parlay pays on the other legs`];
   if(!P||P.dnp)return[ou==="u"?"WIN":"LOSE",`${lab} 0 points (not in the box score yet)`];const T=P.pts,tgt=Math.floor(line)+1;
   if(ou==="u"){if(T>line)return["LOST",`${lab} ${T} points, went over ${line}`];return post?["WON",`${lab} finished with ${T} points`]:["WIN",`${lab} ${T} points, ${tgt-1-T} points of room left`];}
-  if(T>line)return[post?"WON":"WIN",`${lab} ${T} points, over hit`];return post?["LOST",`${lab} finished with ${T} points`]:["LOSE",`${lab} ${T} points, needs ${tgt-T} more`];}});
+  if(T>line)return[post?"WON":"WIN",post?`${lab} ${T} points, over hit`:`${lab} ${T} points, over hit. You've won that bet and it will cash when the game ends`];return post?["LOST",`${lab} finished with ${T} points`]:["LOSE",`${lab} ${T} points, needs ${tgt-T} more`];}});
 const L=(o,needs,odds)=>Object.assign(o,{needs,odds});
 const dec=a=>a>0?1+a/100:1+100/(-a);
 let TICKETS=[],FUTS=[];
@@ -80,7 +80,7 @@ function buildTickets(d){CFB=d.cfb_games||{};NFL=d.nfl_games||{};MLBD=d.mlb_game
 function futHTML(){return FUTS.length?section("sb","🏈 Super Bowl bets","#9b59ff",FUTS.map(f=>`<div class="card" style="border-left-color:#9b59ff"><div class="top"><div><div class="bet">${m(f.stake)} bet</div><div class="roll" style="color:#b48cff">PENDING · SETTLES FEB 2027</div></div><div><div class="pay">Wins $${f.towin.toFixed(2)}</div><div class="ret">returns $${(f.stake+f.towin).toFixed(2)}</div></div></div><div class="leg"><div class="need">${esc(f.pick)}</div></div></div>`).join(""),FUTS.length):""}
 async function checkVersion(){try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
  if(v&&v!==APP_VERSION){const k="reloaded_"+v;if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,"1");location.replace(location.pathname+"?v="+encodeURIComponent(v));}}}catch(e){}}
-const APP_VERSION="2026-10-24.9";
+const APP_VERSION="2026-10-24.10";
 
 const chip=g=>!g?"score unavailable":g.state==="void"?`${g.aab} @ ${g.hab} · ${g.detail}`:g.state==="pre"?`${g.aab} @ ${g.hab} · ${g.detail}`:`${g.aab} ${g.a} – ${g.hab} ${g.h} · ${g.detail}`;
 async function getJSON(u,label){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error(`${label} HTTP ${r.status}`);return r.json();}
@@ -152,7 +152,7 @@ async function fetchGames(){const G={},errs=[];
 function grade(G){return TICKETS.map(([sport,stake,towin,settled,legs,pitchers],idx)=>{const PS=pitchers?pitchStat(pitchers,G[pitchers.game]):null;const LL=legs.map(lg=>{const g=G[lg.game];let st,txt;if(PS&&PS.bad&&lg.game===pitchers.game)return{spec:lg,game:lg.game,needs:lg.needs,status:"VOID",text:`listed pitcher didn't start (${PS.bad}); BetOnline should grade this no action`,score:chip(g),gstate:g?g.state:null,start:g?g.start:Infinity};
   if(!g){st="NA";txt="score unavailable"}else if(g.state==="pre"||(g.mma&&g.state==="in")){st="NS";txt=g.state==="in"?"fight in progress":"not started"}else if(g.mma&&lg.type==="tot"&&g.state==="post"&&g.per>0){const el=(g.per-1)+Math.min(g.clk||0,300)/300,un=el<lg.line;st=(lg.ou==="u"?un:!un)?"WON":"LOST";txt=`fight ended in round ${g.per} (${lg.ou==="u"?"under":"over"} ${lg.line} rounds)`}else if(g.mma&&lg.type==="tot"){st="NA";txt="rounds not tracked — check BetOnline"}else if(g.state==="void"){st="VOID";txt="game postponed/canceled — usually graded no action (refund or leg dropped); check BetOnline"}else[st,txt]=lg.f(g);
   return{spec:lg,game:lg.game,needs:lg.needs,status:st,text:txt,score:chip(g),gstate:g?g.state:null,start:g?g.start:Infinity}});const ss=LL.map(x=>x.status);
-  const done=s=>s==="WON"||s==="PUSH"||s==="VOID";let roll=ss.includes("LOST")?"DEAD":ss.every(done)?(ss.every(s=>s!=="WON")?"PUSH":"CASHED"):ss.every(s=>s==="NS"||s==="NA")?"NOT STARTED":"ALIVE";
+  const done=s=>s==="WON"||s==="PUSH"||s==="VOID";let roll=ss.includes("LOST")?"DEAD":ss.every(done)?(ss.every(s=>s!=="WON")?"PUSH":"CASHED"):ss.every(s=>s==="NS"||s==="NA")?"NOT STARTED":"ALIVE";if(roll==="CASHED"&&LL.some(x=>x.gstate==="in"||x.gstate==="pre"))roll="ALIVE";
   const red=ss.some(s=>s==="PUSH"||s==="VOID");let adj=towin;if(red){const rem=legs.filter((lg,i)=>ss[i]!=="PUSH"&&ss[i]!=="VOID");adj=!rem.length?0:rem.some(lg=>lg.odds==null)?towin:Math.round((stake*rem.reduce((p,lg)=>p*dec(lg.odds),1)-stake)*100)/100;}
   return{idx,sport,stake,settled,PS,towin:adj,orig:towin,legs:LL,roll,reduced:red&&roll!=="PUSH",unk:red&&legs.some((lg,i)=>ss[i]!=="PUSH"&&ss[i]!=="VOID"&&lg.odds==null),left:ss.filter(s=>!["WON","PUSH","LOST","VOID"].includes(s)).length}});}
 let SCP={};
@@ -174,7 +174,7 @@ function sparkM(g,side,lab,line,cur){const P=g&&SCP[g.skey||g.eid],now=g?tNow(g)
  return `<div class="spk" title="${esc(lab)} ${line===0?"":"cover "}margin ${dl>=0?"+":""}${dl} over the last ${wl(g,win)} (now ${cur>0?"+":""}${cur})"><svg viewBox="0 0 38 16"><line x1="1" x2="37" y1="${Y(0)}" y2="${Y(0)}" stroke="#4a5568" stroke-width=".6"/><polyline points="${S.map(p=>X(p[0])+","+Y(p[1])).join(" ")}" fill="none" stroke="#7fa6ff" stroke-width="1.5" stroke-linejoin="round"/></svg><span>${esc(lab)} ${dl>=0?"+":""}${dl}/${wl(g,win)}</span></div>`;}
 function spMeter(l,isML){const sp=l.spec,g=LASTG[l.game];if(!g)return"";const line=isML?0:Number(sp.line),me=sp.side==="h"?g.h:g.a,op=sp.side==="h"?g.a:g.h,c=me-op+line,lab=sp.lab||"";
  const rng=Math.max(7,Math.abs(c)+3),pos=x=>Math.min(100,Math.max(0,(rng-x)/(2*rng)*100)),col=c>0?"#39e27d":c<0?"#ff6b6b":"#8b97a8",pv=pos(c),n=x=>(x>0?"+":"")+(Number.isInteger(x)?x:x.toFixed(1));
- const sk=sp.pace?"":lgraph(l);let h=`<div class="mtr${sk?" sk":""}" title="${isML?`${esc(lab)} ${c>0?"leading by "+c:c<0?"trailing by "+(-c):"tied"}`:`${esc(lab)} ${line===0?"PK":n(line)}: ${c>0?"covering by "+n(c).slice(1):c<0?"short by "+n(-c).slice(1):"exactly on the push number"}`}">`;
+ const sk=sp.pace?"":lgraph(l);let h=`<div class="mtr${sk?" sk":""}" title="${isML?`${esc(lab)} ${c>0?"leading by "+c:c<0?"trailing by "+(-c):"tied"}`:`${esc(lab)} ${line===0?"PK":n(line)}: ${c>0?"winning by "+n(c).slice(1):c<0?"short by "+n(-c).slice(1):"exactly on the push number"}`}">`;
  if(c!==0)h+=`<i class="mf" style="top:${Math.min(50,pv)}%;bottom:${100-Math.max(50,pv)}%;background:${col}"></i>`;
  h+=`<i class="mn" style="top:50%"></i><i class="md" style="top:${pv}%;background:${col}"></i>`;
  let lb=50,lv=pv;if(!(isML&&c===0)&&Math.abs(lv-lb)<22){const d=lv<=lb?-1:1,mid=(lb+lv)/2;lb=mid-11*d;lv=mid+11*d;}
@@ -251,11 +251,11 @@ async function fetchStarters(G){await Promise.all(Object.entries(G).filter(([k,g
 function pitchStat(P,g){const last=n=>String(n||"").trim().split(/\s+/).pop().toLowerCase(),names=[P.a,P.h].filter(Boolean).map(n=>String(n).split(/\s+/).pop()).join(" or ");
  const S=g&&g.pk?STARTERS[g.pk]:null;if(!S||!S.a||!S.h)return{ok:false,names};const bad=[];if(P.a&&last(P.a)!==last(S.a))bad.push(`${S.a} started for ${g.aab}, not ${P.a}`);if(P.h&&last(P.h)!==last(S.h))bad.push(`${S.h} started for ${g.hab}, not ${P.h}`);
  return bad.length?{ok:false,names,bad:bad.join("; ")}:{ok:true,names};}
-function card(t){const c=RC[t.roll]||"#5b6575",n=t.legs.length,kind=n>1?`${n}-leg parlay`:"single",rl=RL[t.roll]+(t.roll==="ALIVE"?` · ${t.left} of ${n} left`:"");
+function card(t){const c=RC[t.roll]||"#5b6575",n=t.legs.length,kind=n>1?`${n}-leg parlay`:"single",rl=t.roll==="ALIVE"&&t.left===0?"WON · WILL CASH WHEN THE GAME ENDS":RL[t.roll]+(t.roll==="ALIVE"?` · ${t.left} of ${n} left`:"");
  const mlb=t.PS&&!t.PS.ok?`<div class="note">${t.PS.bad?"⚠️ Listed pitcher didn't start: "+esc(t.PS.bad)+". Should be no action, check BetOnline":"Voids if "+esc(t.PS.names)+" doesn't start"}</div>`:"";
  return `<div class="card" style="border-left-color:${c}"><div class="top"><div><div class="bet">${m(t.stake)} bet <span style="font-size:13px;color:#8b97a8;font-weight:600">· ${kind}</span></div>
- <div class="roll" style="color:${c}">${rl}</div></div><div>${t.roll==="DEAD"?`<div class="pay" style="color:#ff6b6b">Lost ${m(t.stake)}</div>${t.towin!=null?`<div class="ret">would have won $${t.towin.toFixed(2)}</div>`:""}`:t.roll==="PUSH"?`<div class="pay" style="color:#f0b429">Refunded ${m(t.stake)}</div>`:`<div class="pay">${t.roll==="CASHED"?"Won":t.reduced?"Now wins":"Wins"} ${t.reduced?"~":""}$${t.towin.toFixed(2)}${t.reduced?(t.unk?" (void leg; BetOnline sets the payout)":" (push)"):""}</div><div class="ret">${t.reduced?`was $${t.orig.toFixed(2)} · `:""}returns $${(t.stake+t.towin).toFixed(2)}</div>`}</div></div>`+
- t.legs.map(l=>{const mt=legMeter(l);return `<div class="leg${mt?" lgm":""}">${mt}<div class="need">${esc(l.needs)}</div><div class="live"><span class="pill" style="background:${COL[l.status]}">${LAB[l.status]}</span><span class="score">${esc(l.score)}</span></div>${l.status!=="NS"&&l.status!=="NA"?`<div class="tx"><span class="tt">${esc(l.text)}</span>${oddsTag(l)}</div>`:""}${preTag(l)}${propRef(l)}${paceBlock(l)}</div>`}).join("")+mlb+`</div>`}
+ <div class="roll" style="color:${c}">${rl}</div></div><div>${t.roll==="DEAD"?`<div class="pay" style="color:#ff6b6b">Lost ${m(t.stake)}</div>${t.towin!=null?`<div class="ret">would have won $${t.towin.toFixed(2)}</div>`:""}`:t.roll==="PUSH"?`<div class="pay" style="color:#f0b429">Refunded ${m(t.stake)}</div>`:`<div class="pay">${t.roll==="CASHED"?"Cashed":t.reduced?"Now wins":"Wins"} ${t.reduced?"~":""}$${t.towin.toFixed(2)}${t.reduced?(t.unk?" (void leg; BetOnline sets the payout)":" (push)"):""}</div><div class="ret">${t.reduced?`was $${t.orig.toFixed(2)} · `:""}returns $${(t.stake+t.towin).toFixed(2)}</div>`}</div></div>`+
+ t.legs.map(l=>{const mt=legMeter(l);return `<div class="leg${mt?" lgm":""}">${mt}<div class="need">${esc(l.needs)}</div><div class="live"><span class="pill" style="background:${COL[l.status]}">${l.status==="WON"&&l.spec&&l.spec.type==="sp"?"COVERED":LAB[l.status]}</span><span class="score">${esc(l.score)}</span></div>${l.status!=="NS"&&l.status!=="NA"?`<div class="tx"><span class="tt">${esc(l.text)}</span>${oddsTag(l)}</div>`:""}${preTag(l)}${propRef(l)}${paceBlock(l)}</div>`}).join("")+mlb+`</div>`}
 let PRE=(()=>{try{return JSON.parse(localStorage.getItem("pre_lines")||"{}")}catch(e){return{}}})(),LASTG={};
 function preTag(l){if(SETTLED.has(l.status)||l.status==="NA")return"";const g=LASTG[l.game],sp=l.spec;if(!g||!g.eid||!sp)return"";const P=PRE[g.eid];if(!P)return"";
  const started=g.state!=="pre",nw=started?(P.close||P.now):P.now,n=v=>(v>0?"+":"")+v;
