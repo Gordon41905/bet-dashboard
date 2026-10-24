@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-24.8",
+  "version": "2026-10-24.9",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -2252,7 +2252,7 @@
       ]
     },
     {
-      "sport": "MLB",
+      "sport": "CFB",
       "stake": 22.0,
       "towin": 18.33,
       "legs": [
