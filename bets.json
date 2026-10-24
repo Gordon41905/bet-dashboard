@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-24.1",
+  "version": "2026-10-24.2",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -60,6 +60,16 @@
       "Florida International",
       "Middle Tennessee",
       "20261020"
+    ],
+    "NAVY1024": [
+      "Navy",
+      "North Texas",
+      "20261024"
+    ],
+    "BUF1024": [
+      "Buffalo",
+      "Bowling Green",
+      "20261024"
     ]
   },
   "nfl_games": {
@@ -2071,6 +2081,56 @@
           "odds": -425,
           "side": "a",
           "lab": "POR"
+        }
+      ]
+    },
+    {
+      "sport": "CFB",
+      "stake": 22.0,
+      "towin": 55.88,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "NAVY1024",
+          "needs": "North Texas wins by 4 or more (-3 at Navy; exactly 3 = push)",
+          "odds": -110,
+          "side": "a",
+          "line": -3.0,
+          "lab": "UNT"
+        },
+        {
+          "type": "sp",
+          "game": "BUF1024",
+          "needs": "Buffalo wins by 4 or more (-3 vs Bowling Green; exactly 3 = push)",
+          "odds": -110,
+          "side": "h",
+          "line": -3.0,
+          "lab": "BUF"
+        }
+      ]
+    },
+    {
+      "sport": "CFB",
+      "stake": 22.0,
+      "towin": 55.88,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "BUF1024",
+          "needs": "Buffalo wins by 4 or more (-3 vs Bowling Green; exactly 3 = push)",
+          "odds": -110,
+          "side": "h",
+          "line": -3.0,
+          "lab": "BUF"
+        },
+        {
+          "type": "sp",
+          "game": "NAVY1024",
+          "needs": "North Texas wins by 4 or more (-3 at Navy; exactly 3 = push)",
+          "odds": -117,
+          "side": "a",
+          "line": -3.0,
+          "lab": "UNT"
         }
       ]
     }
