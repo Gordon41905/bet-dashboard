@@ -1,2102 +1,2130 @@
 {
-  "version": "2026-10-23.8",
-  "cfb_games": {
-    "BG": [
-      "Bowling Green",
-      "Ball State",
-      "20261017"
-    ],
-    "OSU": [
-      "Indiana",
-      "Ohio State",
-      "20261017"
-    ],
-    "WMU": [
-      "Central Michigan",
-      "Western Michigan",
-      "20261017"
-    ],
-    "TOL": [
-      "Eastern Michigan",
-      "Toledo",
-      "20261017"
-    ],
-    "VT": [
-      "Virginia Tech",
-      "Georgia Tech",
-      "20261017"
-    ],
-    "BAMA": [
-      "Tennessee",
-      "Alabama",
-      "20261017"
-    ],
-    "WIS": [
-      "UCLA",
-      "Wisconsin",
-      "20261017"
-    ],
-    "SYR": [
-      "Syracuse",
-      "Louisville",
-      "20261017"
-    ],
-    "BYU": [
-      "BYU",
-      "Notre Dame",
-      "20261017"
-    ],
-    "HOU": [
-      "Houston",
-      "Oklahoma State",
-      "20261017"
-    ],
-    "NEB": [
-      "Oregon Ducks",
-      "Nebraska",
-      "20261017"
-    ],
-    "FIU": [
-      "Florida International",
-      "Middle Tennessee",
-      "20261020"
-    ]
-  },
-  "nfl_games": {
-    "JAX": [
-      "Jacksonville Jaguars",
-      "Houston Texans",
-      "20261018"
-    ],
-    "CLE": [
-      "Cleveland Browns",
-      "Baltimore Ravens",
-      "20261018"
-    ],
-    "TB": [
-      "Tampa Bay Buccaneers",
-      "Pittsburgh Steelers",
-      "20261018"
-    ],
-    "PHI": [
-      "Philadelphia Eagles",
-      "Carolina Panthers",
-      "20261018"
-    ],
-    "KC": [
-      "Kansas City Chiefs",
-      "Los Angeles Chargers",
-      "20261018"
-    ],
-    "IND": [
-      "Indianapolis Colts",
-      "Tennessee Titans",
-      "20261018"
-    ],
-    "GB": [
-      "Green Bay Packers",
-      "Dallas Cowboys",
-      "20261018"
-    ],
-    "LAR": [
-      "Los Angeles Rams",
-      "Arizona Cardinals",
-      "20261018"
-    ],
-    "SF": [
-      "San Francisco 49ers",
-      "Washington Commanders",
-      "20261019"
-    ],
-    "CHI": [
-      "Chicago Bears",
-      "New England Patriots",
-      "20261022"
-    ]
-  },
-  "tickets": [
-    {
-      "sport": "MLB",
-      "stake": 11.0,
-      "towin": 30.14,
-      "legs": [
-        {
-          "type": "ml",
-          "game": "MLB",
-          "needs": "Guardians beat the Rays",
-          "odds": -101,
-          "side": "h",
-          "lab": "CLE"
-        },
-        {
-          "type": "tot",
-          "game": "MLB",
-          "needs": "7 or more total runs (Rays + Guardians)",
-          "odds": -114,
-          "ou": "o",
-          "line": 6.5
-        }
-      ],
-      "settled": "2026-10-17"
-    },
-    {
-      "sport": "MLB",
-      "stake": 11.0,
-      "towin": 10.89,
-      "legs": [
-        {
-          "type": "ml",
-          "game": "MLB",
-          "needs": "Guardians beat the Rays",
-          "odds": -101,
-          "side": "h",
-          "lab": "CLE"
-        }
-      ],
-      "settled": "2026-10-17"
-    },
-    {
-      "sport": "MLB",
-      "stake": 11.0,
-      "towin": 15.4,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "MLB",
-          "needs": "Guardians win, or lose by 3 or fewer (vs Rays)",
-          "odds": 140,
-          "side": "h",
-          "line": 3.5,
-          "lab": "CLE"
-        }
-      ],
-      "settled": "2026-10-17"
-    },
-    {
-      "sport": "MLB",
-      "stake": 11.0,
-      "towin": 29.92,
-      "legs": [
-        {
-          "type": "ml",
-          "game": "MLB",
-          "needs": "Guardians beat the Rays",
-          "odds": -102,
-          "side": "h",
-          "lab": "CLE"
-        },
-        {
-          "type": "tot",
-          "game": "MLB",
-          "needs": "7 or more total runs (Rays + Guardians)",
-          "odds": -114,
-          "ou": "o",
-          "line": 6.5
-        }
-      ],
-      "settled": "2026-10-17"
-    },
-    {
-      "sport": "MLB",
-      "stake": 22.0,
-      "towin": 19.3,
-      "legs": [
-        {
-          "type": "tot",
-          "game": "MLB",
-          "needs": "7 or more total runs (Rays + Guardians)",
-          "odds": -114,
-          "ou": "o",
-          "line": 6.5
-        }
-      ],
-      "settled": "2026-10-17"
-    },
-    {
-      "sport": "CFB",
-      "stake": 11.0,
-      "towin": 10.0,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "SYR",
-          "needs": "Syracuse wins, or loses by 14 or fewer (vs Louisville)",
-          "odds": -110,
-          "side": "h",
-          "line": 14.5,
-          "lab": "SYR"
-        }
-      ],
-      "settled": "2026-10-17"
-    },
-    {
-      "sport": "CFB",
-      "stake": 11.0,
-      "towin": 22.0,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "SYR",
-          "needs": "Syracuse wins, or loses by 14 or fewer (vs Louisville)",
-          "odds": -110,
-          "side": "h",
-          "line": 14.5,
-          "lab": "SYR"
-        },
-        {
-          "type": "ml",
-          "game": "HOU",
-          "needs": "Houston beats Oklahoma State",
-          "odds": -175,
-          "side": "h",
-          "lab": "HOU"
-        }
-      ],
-      "settled": "2026-10-17"
-    },
-    {
-      "sport": "CFB",
-      "stake": 5.0,
-      "towin": 13.0,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "BYU",
-          "needs": "BYU wins, or loses by 10 or fewer (vs Notre Dame)",
-          "odds": -108,
-          "side": "h",
-          "line": 10.5,
-          "lab": "BYU"
-        },
-        {
-          "type": "tot",
-          "game": "BYU",
-          "needs": "48 or more total points, Notre Dame + BYU (exactly 47 = push)",
-          "odds": -115,
-          "ou": "o",
-          "line": 47.0
-        }
-      ],
-      "settled": "2026-10-17"
-    },
-    {
-      "sport": "CFB",
-      "stake": 11.0,
-      "towin": 10.19,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "BYU",
-          "needs": "BYU wins, or loses by 10 or fewer (vs Notre Dame)",
-          "odds": -108,
-          "side": "h",
-          "line": 10.5,
-          "lab": "BYU"
-        }
-      ],
-      "settled": "2026-10-17"
-    },
-    {
-      "sport": "CFB",
-      "stake": 22.0,
-      "towin": 20.0,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "WIS",
-          "needs": "Wisconsin beats UCLA (a loss by exactly 1 = push)",
-          "odds": -110,
-          "side": "a",
-          "line": 1.0,
-          "lab": "WIS"
-        }
-      ],
-      "settled": "2026-10-17"
-    },
-    {
-      "sport": "CFB",
-      "stake": 11.0,
-      "towin": 28.6,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "TOL",
-          "needs": "Toledo wins by 8 or more (exactly 7 = push)",
-          "odds": -105,
-          "side": "a",
-          "line": -7.0,
-          "lab": "TOL"
-        },
-        {
-          "type": "sp",
-          "game": "WMU",
-          "needs": "Western Michigan wins by 8 or more (exactly 7 = push)",
-          "odds": -118,
-          "side": "a",
-          "line": -7.0,
-          "lab": "WMU"
-        }
-      ],
-      "settled": "2026-10-17"
-    },
-    {
-      "sport": "CFB",
-      "stake": 22.0,
-      "towin": 31.02,
-      "legs": [
-        {
-          "type": "ml",
-          "game": "WMU",
-          "needs": "Western Michigan wins",
-          "odds": -285,
-          "side": "a",
-          "lab": "WMU"
-        },
-        {
-          "type": "ml",
-          "game": "VT",
-          "needs": "Virginia Tech beats Georgia Tech",
-          "odds": -345,
-          "side": "h",
-          "lab": "VT"
-        },
-        {
-          "type": "ml",
-          "game": "TOL",
-          "needs": "Toledo wins",
-          "odds": -260,
-          "side": "a",
-          "lab": "TOL"
-        }
-      ],
-      "settled": "2026-10-17"
-    },
-    {
-      "sport": "CFB",
-      "stake": 11.0,
-      "towin": 27.72,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "WMU",
-          "needs": "Western Michigan wins by 8 or more (exactly 7 = push)",
-          "odds": -118,
-          "side": "a",
-          "line": -7.0,
-          "lab": "WMU"
-        },
-        {
-          "type": "tot",
-          "game": "WMU",
-          "needs": "44 or more total points (WMU + CMU)",
-          "odds": -110,
-          "ou": "o",
-          "line": 43.5
-        }
-      ],
-      "settled": "2026-10-17"
-    },
-    {
-      "sport": "CFB",
-      "stake": 22.0,
-      "towin": 18.64,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "WMU",
-          "needs": "Western Michigan wins by 8 or more (exactly 7 = push)",
-          "odds": -118,
-          "side": "a",
-          "line": -7.0,
-          "lab": "WMU"
-        }
-      ],
-      "settled": "2026-10-17"
-    },
-    {
-      "sport": "CFB",
-      "stake": 11.0,
-      "towin": 22.88,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "BAMA",
-          "needs": "Alabama wins by 8 or more (exactly 7 = push)",
-          "odds": -135,
-          "side": "a",
-          "line": -7.0,
-          "lab": "BAMA"
-        },
-        {
-          "type": "tot",
-          "game": "BAMA",
-          "needs": "51 or more total points, Alabama + Tennessee (exactly 50 = push)",
-          "odds": -130,
-          "ou": "o",
-          "line": 50.0
-        }
-      ],
-      "settled": "2026-10-17"
-    },
-    {
-      "sport": "CFB",
-      "stake": 11.0,
-      "towin": 8.15,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "BAMA",
-          "needs": "Alabama wins by 8 or more (exactly 7 = push)",
-          "odds": -135,
-          "side": "a",
-          "line": -7.0,
-          "lab": "BAMA"
-        }
-      ],
-      "settled": "2026-10-17"
-    },
-    {
-      "sport": "CFB",
-      "stake": 11.0,
-      "towin": 29.04,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "BG",
-          "needs": "Bowling Green wins by 7 or more (exactly 6 = push)",
-          "odds": -110,
-          "side": "h",
-          "line": -6.0,
-          "lab": "BG"
-        },
-        {
-          "type": "tot",
-          "game": "BG",
-          "needs": "46 or fewer total points, Bowling Green + Ball State (exactly 47 = push)",
-          "odds": -110,
-          "ou": "u",
-          "line": 47.0
-        }
-      ],
-      "settled": "2026-10-17"
-    },
-    {
-      "sport": "CFB",
-      "stake": 11.0,
-      "towin": 38.94,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "BG",
-          "needs": "Bowling Green wins by 7 or more (exactly 6 = push)",
-          "odds": -110,
-          "side": "h",
-          "line": -6.0,
-          "lab": "BG"
-        },
-        {
-          "type": "ml",
-          "game": "OSU",
-          "needs": "Indiana beats Ohio State",
-          "odds": 138,
-          "side": "h",
-          "lab": "IND"
-        }
-      ],
-      "settled": "2026-10-17"
-    },
-    {
-      "sport": "CFB",
-      "stake": 11.0,
-      "towin": 40.15,
-      "legs": [
-        {
-          "type": "tot",
-          "game": "OSU",
-          "needs": "51 or more total points (Ohio State + Indiana)",
-          "odds": -105,
-          "ou": "o",
-          "line": 50.5
-        },
-        {
-          "type": "ml",
-          "game": "OSU",
-          "needs": "Indiana beats Ohio State",
-          "odds": 138,
-          "side": "h",
-          "lab": "IND"
-        }
-      ],
-      "settled": "2026-10-17"
-    },
-    {
-      "sport": "CFB",
-      "stake": 11.0,
-      "towin": 11.55,
-      "legs": [
-        {
-          "type": "ml1h",
-          "game": "NEB",
-          "needs": "Nebraska leads Oregon at halftime (tied at half = push)",
-          "odds": 105,
-          "side": "a",
-          "lab": "NEB"
-        }
-      ],
-      "settled": "2026-10-17"
-    },
-    {
-      "sport": "CFB",
-      "stake": 11.0,
-      "towin": 10.0,
-      "legs": [
-        {
-          "type": "ml1h",
-          "game": "NEB",
-          "needs": "Nebraska leads Oregon at halftime (tied at half = push)",
-          "odds": -110,
-          "side": "a",
-          "lab": "NEB"
-        }
-      ],
-      "settled": "2026-10-17"
-    },
-    {
-      "sport": "CFB",
-      "stake": 33.0,
-      "towin": 22.72,
-      "legs": [
-        {
-          "type": "ml",
-          "game": "NEB",
-          "needs": "Oregon beats Nebraska",
-          "odds": -145,
-          "side": "h",
-          "lab": "ORE"
-        }
-      ],
-      "settled": "2026-10-17"
-    },
-    {
-      "sport": "NFL",
-      "stake": 33.0,
-      "towin": 30.0,
-      "legs": [
-        {
-          "type": "tot",
-          "game": "JAX",
-          "needs": "43 or more total points, Texans + Jaguars (exactly 42 = push)",
-          "odds": -110,
-          "ou": "o",
-          "line": 42.0
-        }
-      ]
-    },
-    {
-      "sport": "NFL",
-      "stake": 33.0,
-      "towin": 84.48,
-      "legs": [
-        {
-          "type": "tot",
-          "game": "JAX",
-          "needs": "43 or more total points, Texans + Jaguars (exactly 42 = push)",
-          "odds": -110,
-          "ou": "o",
-          "line": 42.0
-        },
-        {
-          "type": "sp",
-          "game": "JAX",
-          "needs": "Jaguars win by 3 or more (vs Texans)",
-          "odds": -115,
-          "side": "h",
-          "line": -2.5,
-          "lab": "JAX"
-        }
-      ]
-    },
-    {
-      "sport": "NFL",
-      "stake": 11.0,
-      "towin": 7.33,
-      "settled": "2026-10-18",
-      "legs": [
-        {
-          "type": "sp",
-          "game": "JAX",
-          "needs": "Texans beat the Jaguars (a tie = push)",
-          "odds": -150,
-          "side": "a",
-          "line": 0.0,
-          "lab": "HOU"
-        }
-      ]
-    },
-    {
-      "sport": "NFL",
-      "stake": 22.0,
-      "towin": 20.0,
-      "legs": [
-        {
-          "type": "tot",
-          "game": "CLE",
-          "needs": "40 or more total points, Ravens + Browns",
-          "odds": -110,
-          "ou": "o",
-          "line": 39.5
-        }
-      ]
-    },
-    {
-      "sport": "NFL",
-      "stake": 11.0,
-      "towin": 28.27,
-      "legs": [
-        {
-          "type": "tot",
-          "game": "TB",
-          "needs": "39 or more total points, Steelers + Buccaneers",
-          "odds": -105,
-          "ou": "o",
-          "line": 38.5
-        },
-        {
-          "type": "tot",
-          "game": "CLE",
-          "needs": "40 or more total points, Ravens + Browns (exactly 39 = push)",
-          "odds": -120,
-          "ou": "o",
-          "line": 39.0
-        }
-      ]
-    },
-    {
-      "sport": "NFL",
-      "stake": 11.0,
-      "towin": 24.97,
-      "legs": [
-        {
-          "type": "tot",
-          "game": "CLE",
-          "needs": "40 or more total points, Ravens + Browns",
-          "odds": -110,
-          "ou": "o",
-          "line": 39.5
-        },
-        {
-          "type": "sp",
-          "game": "TB",
-          "needs": "Buccaneers win, or lose by 2 or fewer vs Steelers (lose by exactly 3 = push)",
-          "odds": -140,
-          "side": "h",
-          "line": 3.0,
-          "lab": "TB"
-        }
-      ]
-    },
-    {
-      "sport": "NFL",
-      "stake": 22.0,
-      "towin": 38.06,
-      "legs": [
-        {
-          "type": "ml",
-          "game": "PHI",
-          "needs": "Panthers beat the Eagles",
-          "odds": -150,
-          "side": "a",
-          "lab": "CAR"
-        },
-        {
-          "type": "ml",
-          "game": "KC",
-          "needs": "Chiefs beat the Chargers",
-          "odds": -440,
-          "side": "h",
-          "lab": "KC"
-        },
-        {
-          "type": "ml",
-          "game": "IND",
-          "needs": "Colts beat the Titans",
-          "odds": -300,
-          "side": "h",
-          "lab": "IND"
-        }
-      ]
-    },
-    {
-      "sport": "NFL",
-      "stake": 11.0,
-      "towin": 25.52,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "KC",
-          "needs": "Chiefs win by 7 or more (vs Chargers)",
-          "odds": -135,
-          "side": "h",
-          "line": -6.5,
-          "lab": "KC"
-        },
-        {
-          "type": "sp",
-          "game": "GB",
-          "needs": "Packers beat the Cowboys (a tie = push)",
-          "odds": -110,
-          "side": "h",
-          "line": 0.0,
-          "lab": "GB"
-        }
-      ]
-    },
-    {
-      "sport": "NFL",
-      "stake": 11.0,
-      "towin": 29.92,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "KC",
-          "needs": "Chiefs win by 8 or more (vs Chargers)",
-          "odds": -105,
-          "side": "h",
-          "line": -7.5,
-          "lab": "KC"
-        },
-        {
-          "type": "sp",
-          "game": "GB",
-          "needs": "Packers beat the Cowboys (a tie = push)",
-          "odds": -110,
-          "side": "h",
-          "line": 0.0,
-          "lab": "GB"
-        }
-      ]
-    },
-    {
-      "sport": "NFL",
-      "stake": 33.0,
-      "towin": 88.11,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "GB",
-          "needs": "Packers beat the Cowboys (a tie = push)",
-          "odds": -110,
-          "side": "h",
-          "line": 0.0,
-          "lab": "GB"
-        },
-        {
-          "type": "tot",
-          "game": "GB",
-          "needs": "53 or fewer total points, Cowboys + Packers",
-          "odds": -108,
-          "ou": "u",
-          "line": 53.5
-        }
-      ]
-    },
-    {
-      "sport": "NFL",
-      "stake": 33.0,
-      "towin": 22.92,
-      "legs": [
-        {
-          "type": "ml",
-          "game": "SF",
-          "needs": "49ers beat the Commanders (Mon night)",
-          "odds": -410,
-          "side": "h",
-          "lab": "SF"
-        },
-        {
-          "type": "ml",
-          "game": "LAR",
-          "needs": "Rams beat the Cardinals",
-          "odds": -900,
-          "side": "h",
-          "lab": "LAR"
-        },
-        {
-          "type": "ml",
-          "game": "KC",
-          "needs": "Chiefs beat the Chargers",
-          "odds": -440,
-          "side": "h",
-          "lab": "KC"
-        }
-      ]
-    },
-    {
-      "sport": "MLB",
-      "stake": 22.0,
-      "towin": 17.6,
-      "pitchers": {
-        "game": "MLB5",
-        "a": "D. Rasmussen",
-        "h": "P. Messick"
-      },
-      "legs": [
-        {
-          "type": "ml",
-          "game": "MLB5",
-          "needs": "Rays beat the Guardians (ALCS Game 5)",
-          "odds": -125,
-          "side": "a",
-          "lab": "TB"
-        }
-      ]
-    },
-    {
-      "sport": "MLB",
-      "stake": 22.0,
-      "towin": 55.22,
-      "pitchers": {
-        "game": "MLB5",
-        "a": "D. Rasmussen",
-        "h": "P. Messick"
-      },
-      "legs": [
-        {
-          "type": "ml",
-          "game": "MLB5",
-          "needs": "Rays beat the Guardians (ALCS Game 5)",
-          "odds": -125,
-          "side": "a",
-          "lab": "TB"
-        },
-        {
-          "type": "tot",
-          "game": "MLB5",
-          "needs": "7 or more total runs (Rays + Guardians)",
-          "odds": -105,
-          "ou": "o",
-          "line": 6.5
-        }
-      ]
-    },
-    {
-      "sport": "NFL",
-      "stake": 22.0,
-      "towin": 18.97,
-      "legs": [
-        {
-          "type": "ml",
-          "game": "GB",
-          "needs": "Cowboys beat the Packers",
-          "odds": -116,
-          "side": "a",
-          "lab": "DAL"
-        }
-      ]
-    },
-    {
-      "sport": "NFL",
-      "stake": 11.0,
-      "towin": 25.19,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "GB",
-          "needs": "Packers beat the Cowboys (a tie = push)",
-          "odds": -110,
-          "side": "h",
-          "line": 0.0,
-          "lab": "GB"
-        },
-        {
-          "type": "sp",
-          "game": "SF",
-          "needs": "49ers win by 7 or more (vs Commanders, Mon night)",
-          "odds": -138,
-          "side": "h",
-          "line": -6.5,
-          "lab": "SF"
-        }
-      ]
-    },
-    {
-      "sport": "MLB",
-      "stake": 11.0,
-      "towin": null,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "MLB5",
-          "needs": "Guardians win, or lose by 1 run (run line +1.5 vs Rays)",
-          "odds": null,
-          "side": "h",
-          "line": 1.5,
-          "lab": "CLE"
-        }
-      ]
-    },
-    {
-      "sport": "NFL",
-      "stake": 22.0,
-      "towin": 22.0,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "GB",
-          "needs": "Cowboys win, or lose by 9 or fewer (live +9.5 vs Packers)",
-          "odds": 100,
-          "side": "a",
-          "line": 9.5,
-          "lab": "DAL"
-        }
-      ]
-    },
-    {
-      "sport": "NFL",
-      "stake": 11.0,
-      "towin": 10.48,
-      "legs": [
-        {
-          "type": "tot",
-          "game": "GB",
-          "needs": "48 or more total points (Cowboys + Packers, live)",
-          "odds": -105,
-          "ou": "o",
-          "line": 47.5
-        }
-      ]
-    },
-    {
-      "sport": "NFL",
-      "stake": 22.0,
-      "towin": 48.84,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "SF",
-          "needs": "49ers win by 7 or more (vs Commanders, Mon night)",
-          "odds": -138,
-          "side": "h",
-          "line": -6.5,
-          "lab": "SF"
-        },
-        {
-          "type": "tot",
-          "game": "SF",
-          "needs": "52 or fewer total points, Commanders + 49ers (Mon night)",
-          "odds": -115,
-          "ou": "u",
-          "line": 52.5
-        }
-      ]
-    },
-    {
-      "sport": "SOC",
-      "stake": 17.2,
-      "towin": 10.0,
-      "legs": [
-        {
-          "type": "ml",
-          "game": "TOT",
-          "needs": "Tottenham beat Coventry (a draw loses)",
-          "odds": -172,
-          "side": "h",
-          "lab": "TOT"
-        }
-      ]
-    },
-    {
-      "sport": "MLB",
-      "stake": 11.0,
-      "towin": 22.0,
-      "pitchers": {
-        "game": "MLB6",
-        "a": "S. Armstrong",
-        "h": "F. Peralta"
-      },
-      "legs": [
-        {
-          "type": "ml",
-          "game": "MLB6",
-          "needs": "Rays beat the Guardians (ALCS Game 6)",
-          "odds": -150,
-          "side": "h",
-          "lab": "TB"
-        },
-        {
-          "type": "tot",
-          "game": "MLB6",
-          "needs": "7 or more total runs (Guardians + Rays)",
-          "odds": -125,
-          "ou": "o",
-          "line": 6.5
-        }
-      ]
-    },
-    {
-      "sport": "MLB",
-      "stake": 22.0,
-      "towin": 44.66,
-      "pitchers": {
-        "game": "MLB6",
-        "a": "S. Armstrong",
-        "h": "F. Peralta"
-      },
-      "legs": [
-        {
-          "type": "ml",
-          "game": "SF",
-          "needs": "49ers beat the Commanders (Mon night)",
-          "odds": -420,
-          "side": "h",
-          "lab": "SF"
-        },
-        {
-          "type": "sp",
-          "game": "MLB6",
-          "needs": "Rays win by 2 or more runs (ALCS Game 6, run line -1.5)",
-          "odds": 145,
-          "side": "h",
-          "line": -1.5,
-          "lab": "TB"
-        }
-      ]
-    },
-    {
-      "sport": "NFL",
-      "stake": 11.0,
-      "towin": 26.95,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "SF",
-          "needs": "Commanders win, or lose by 7 or fewer (vs 49ers, Mon night)",
-          "odds": -116,
-          "side": "a",
-          "line": 7.5,
-          "lab": "WSH"
-        },
-        {
-          "type": "tot",
-          "game": "SF",
-          "needs": "52 or more total points (Commanders + 49ers)",
-          "odds": -117,
-          "ou": "o",
-          "line": 51.5
-        }
-      ]
-    },
-    {
-      "sport": "NFL",
-      "stake": 5.0,
-      "towin": 48.35,
-      "pitchers": {
-        "game": "MLB6",
-        "a": "S. Armstrong",
-        "h": "F. Peralta"
-      },
-      "legs": [
-        {
-          "type": "sp",
-          "game": "SF",
-          "needs": "49ers win by 8 or more (by exactly 7 = push)",
-          "odds": -119,
-          "side": "h",
-          "line": -7.0,
-          "lab": "SF"
-        },
-        {
-          "type": "tot",
-          "game": "MLB6",
-          "needs": "7 or more total runs (Guardians + Rays)",
-          "odds": -125,
-          "ou": "o",
-          "line": 6.5
-        },
-        {
-          "type": "tot",
-          "game": "SF",
-          "needs": "53 or more total points (exactly 52 = push)",
-          "odds": -107,
-          "ou": "o",
-          "line": 52.0
-        },
-        {
-          "type": "ml",
-          "game": "MLB6",
-          "needs": "Rays beat the Guardians (ALCS Game 6)",
-          "odds": -150,
-          "side": "h",
-          "lab": "TB"
-        }
-      ]
-    },
-    {
-      "sport": "NFL",
-      "stake": 22.0,
-      "towin": 57.2,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "SF",
-          "needs": "Commanders win, or lose by 7 or fewer (vs 49ers, Mon night)",
-          "odds": null,
-          "side": "a",
-          "line": 7.5,
-          "lab": "WSH"
-        },
-        {
-          "type": "tot",
-          "game": "SF",
-          "needs": "52 or more total points (Commanders + 49ers)",
-          "odds": null,
-          "ou": "o",
-          "line": 51.5
-        }
-      ]
-    },
-    {
-      "sport": "SOC",
-      "stake": 11.0,
-      "towin": 30.47,
-      "legs": [
-        {
-          "type": "ml",
-          "game": "POR",
-          "needs": "FC Porto beat PSV Eindhoven (a draw loses)",
-          "odds": -183,
-          "side": "h",
-          "lab": "POR"
-        },
-        {
-          "type": "ml",
-          "game": "PSG",
-          "needs": "Barcelona beat PSG (a draw loses)",
-          "odds": 144,
-          "side": "a",
-          "lab": "BAR"
-        }
-      ]
-    },
-    {
-      "sport": "SOC",
-      "stake": 18.3,
-      "towin": 10.0,
-      "legs": [
-        {
-          "type": "ml",
-          "game": "POR",
-          "needs": "FC Porto beat PSV Eindhoven (a draw loses)",
-          "odds": -183,
-          "side": "h",
-          "lab": "POR"
-        }
-      ]
-    },
-    {
-      "sport": "NBA",
-      "stake": 11.0,
-      "towin": 10.0,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "DET",
-          "needs": "Pistons win, or lose by 1 (+1.5 vs Celtics)",
-          "odds": -110,
-          "side": "h",
-          "line": 1.5,
-          "lab": "DET"
-        }
-      ]
-    },
-    {
-      "sport": "NBA",
-      "stake": 20.0,
-      "towin": 124.4,
-      "legs": [
-        {
-          "type": "ml",
-          "game": "DET",
-          "needs": "Pistons beat the Celtics",
-          "odds": -102,
-          "side": "h",
-          "lab": "DET"
-        },
-        {
-          "type": "sp",
-          "game": "NYK",
-          "needs": "76ers win, or lose by 4 or fewer (+4.5 at Knicks)",
-          "odds": -110,
-          "side": "a",
-          "line": 4.5,
-          "lab": "PHI"
-        },
-        {
-          "type": "ml",
-          "game": "SAS",
-          "needs": "Thunder beat the Spurs",
-          "odds": -110,
-          "side": "a",
-          "lab": "OKC"
-        }
-      ]
-    },
-    {
-      "sport": "NBA",
-      "stake": 20.0,
-      "towin": 72.4,
-      "legs": [
-        {
-          "type": "prop",
-          "game": "NYK",
-          "needs": "Embiid (PHI) under 22.5 points (22 or fewer)",
-          "odds": null,
-          "aid": "3059318",
-          "ou": "u",
-          "line": 22.5,
-          "lab": "Embiid"
-        },
-        {
-          "type": "prop",
-          "game": "NYK",
-          "needs": "Brunson (NY) under 26.5 points (26 or fewer)",
-          "odds": null,
-          "aid": "3934672",
-          "ou": "u",
-          "line": 26.5,
-          "lab": "Brunson"
-        },
-        {
-          "type": "ml",
-          "game": "NYK",
-          "needs": "Knicks beat the 76ers",
-          "odds": null,
-          "side": "h",
-          "lab": "NY",
-          "pace": true
-        }
-      ]
-    },
-    {
-      "sport": "NBA",
-      "stake": 22.0,
-      "towin": 50.16,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "NYK",
-          "needs": "76ers win, or lose by 5 or fewer (+5.5 at Knicks)",
-          "odds": -132,
-          "side": "a",
-          "line": 5.5,
-          "lab": "PHI"
-        },
-        {
-          "type": "sp",
-          "game": "FIU",
-          "needs": "Middle Tennessee win, or lose by 10 or fewer (+10.5 at FIU)",
-          "odds": -115,
-          "side": "a",
-          "line": 10.5,
-          "lab": "MTSU"
-        }
-      ]
-    },
-    {
-      "sport": "NBA",
-      "stake": 11.0,
-      "towin": 24.75,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "NYK",
-          "needs": "76ers win, or lose by 5 or fewer (+5.5 at Knicks)",
-          "odds": -132,
-          "side": "a",
-          "line": 5.5,
-          "lab": "PHI"
-        },
-        {
-          "type": "ml",
-          "game": "SAS",
-          "needs": "Thunder beat the Spurs",
-          "odds": -118,
-          "side": "a",
-          "lab": "OKC"
-        }
-      ]
-    },
-    {
-      "sport": "NBA",
-      "stake": 11.0,
-      "towin": 21.45,
-      "legs": [
-        {
-          "type": "ml",
-          "game": "SAS",
-          "needs": "Thunder beat the Spurs",
-          "odds": -118,
-          "side": "a",
-          "lab": "OKC"
-        },
-        {
-          "type": "ml",
-          "game": "NYK",
-          "needs": "Knicks beat the 76ers",
-          "odds": -167,
-          "side": "h",
-          "lab": "NY"
-        }
-      ]
-    },
-    {
-      "sport": "NBA",
-      "stake": 22.0,
-      "towin": 42.46,
-      "legs": [
-        {
-          "type": "ml",
-          "game": "NYK",
-          "needs": "Knicks beat the 76ers",
-          "odds": -167,
-          "side": "h",
-          "lab": "NY"
-        },
-        {
-          "type": "tot",
-          "game": "NYK",
-          "needs": "232 or fewer total points, 76ers + Knicks",
-          "odds": -120,
-          "ou": "u",
-          "line": 232.5
-        }
-      ]
-    },
-    {
-      "sport": "NBA",
-      "stake": 11.0,
-      "towin": 9.57,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "SAS",
-          "needs": "Spurs win, or lose by 7 or fewer (live +8 vs Thunder; lose by exactly 8 = push)",
-          "odds": -115,
-          "side": "h",
-          "line": 8.0,
-          "lab": "SA"
-        }
-      ]
-    },
-    {
-      "sport": "NBA",
-      "stake": 22.0,
-      "towin": 19.13,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "SAS",
-          "needs": "Spurs win, or lose by 3 or fewer (live +4 vs Thunder; lose by exactly 4 = push)",
-          "odds": -115,
-          "side": "h",
-          "line": 4.0,
-          "lab": "SA"
-        }
-      ]
-    },
-    {
-      "sport": "NBA",
-      "stake": 11.0,
-      "towin": 12.1,
-      "legs": [
-        {
-          "type": "ml",
-          "game": "SAS",
-          "needs": "Spurs beat the Thunder (live)",
-          "odds": 110,
-          "side": "h",
-          "lab": "SA"
-        }
-      ]
-    },
-    {
-      "sport": "NBA",
-      "stake": 11.0,
-      "towin": 9.57,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "SAS",
-          "needs": "Spurs win (live +1 vs Thunder; lose by exactly 1 = push)",
-          "odds": -115,
-          "side": "h",
-          "line": 1.0,
-          "lab": "SA"
-        }
-      ]
-    },
-    {
-      "sport": "NBA",
-      "stake": 11.0,
-      "towin": 63.8,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "LAL",
-          "needs": "Lakers win by 7 or more (-6 vs Warriors; win by exactly 6 = push)",
-          "odds": -115,
-          "side": "h",
-          "line": -6.0,
-          "lab": "LAL"
-        },
-        {
-          "type": "sp",
-          "game": "BKN",
-          "needs": "Nets win by 3 or more (-2.5 vs Hornets)",
-          "odds": -112,
-          "side": "h",
-          "line": -2.5,
-          "lab": "BKN"
-        },
-        {
-          "type": "sp",
-          "game": "WSH",
-          "needs": "Wizards win by 5 or more (-4.5 vs Bucks)",
-          "odds": -110,
-          "side": "h",
-          "line": -4.5,
-          "lab": "WSH"
-        }
-      ]
-    },
-    {
-      "sport": "NBA",
-      "stake": 22.0,
-      "towin": 64.02,
-      "legs": [
-        {
-          "type": "ml",
-          "game": "BKN",
-          "needs": "Nets beat the Hornets",
-          "odds": -142,
-          "side": "h",
-          "lab": "BKN"
-        },
-        {
-          "type": "ml",
-          "game": "WSH",
-          "needs": "Wizards beat the Bucks",
-          "odds": -180,
-          "side": "h",
-          "lab": "WSH"
-        },
-        {
-          "type": "ml",
-          "game": "LAL",
-          "needs": "Lakers beat the Warriors",
-          "odds": -210,
-          "side": "h",
-          "lab": "LAL"
-        }
-      ]
-    },
-    {
-      "sport": "NBA",
-      "stake": 11.0,
-      "towin": 63.8,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "WSH",
-          "needs": "Wizards win by 5 or more (-4.5 vs Bucks)",
-          "odds": -110,
-          "side": "h",
-          "line": -4.5,
-          "lab": "WSH"
-        },
-        {
-          "type": "sp",
-          "game": "BKN",
-          "needs": "Nets win by 3 or more (-2.5 vs Hornets)",
-          "odds": -112,
-          "side": "h",
-          "line": -2.5,
-          "lab": "BKN"
-        },
-        {
-          "type": "sp",
-          "game": "LAL",
-          "needs": "Lakers win by 7 or more (-6 vs Warriors; win by exactly 6 = push)",
-          "odds": -115,
-          "side": "h",
-          "line": -6.0,
-          "lab": "LAL"
-        }
-      ]
-    },
-    {
-      "sport": "NBA",
-      "stake": 22.0,
-      "towin": 16.67,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "WSH",
-          "needs": "Bucks win, or lose by 5 or fewer (+5.5 at Wizards)",
-          "odds": -132,
-          "side": "a",
-          "line": 5.5,
-          "lab": "MIL"
-        }
-      ]
-    },
-    {
-      "sport": "NBA",
-      "stake": 11.0,
-      "towin": 10.0,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "WSH",
-          "needs": "Wizards win by 5 or more (-4.5 vs Bucks)",
-          "odds": -110,
-          "side": "h",
-          "line": -4.5,
-          "lab": "WSH"
-        }
-      ]
-    },
-    {
-      "sport": "MLB",
-      "stake": 11.0,
-      "towin": 20.79,
-      "pitchers": {
-        "game": "WS1",
-        "a": "D. Rasmussen",
-        "h": "J. Misiorowski"
-      },
-      "legs": [
-        {
-          "type": "ml",
-          "game": "WS1",
-          "needs": "Brewers beat the Rays (World Series Game 1)",
-          "odds": -151,
-          "side": "h",
-          "lab": "MIL"
-        },
-        {
-          "type": "sp",
-          "game": "CHI",
-          "needs": "Patriots win, or lose by 3 or fewer (+3.5 at Bears, Thu night)",
-          "odds": -135,
-          "side": "a",
-          "line": 3.5,
-          "lab": "NE"
-        }
-      ]
-    },
-    {
-      "sport": "MLB",
-      "stake": 11.0,
-      "towin": 23.65,
-      "pitchers": {
-        "game": "WS1",
-        "a": "D. Rasmussen",
-        "h": "J. Misiorowski"
-      },
-      "legs": [
-        {
-          "type": "ml",
-          "game": "WS1",
-          "needs": "Brewers beat the Rays (World Series Game 1)",
-          "odds": -151,
-          "side": "h",
-          "lab": "MIL"
-        },
-        {
-          "type": "tot",
-          "game": "WS1",
-          "needs": "5 or fewer total runs, Rays + Brewers (exactly 6 = push)",
-          "odds": -112,
-          "ou": "u",
-          "line": 6.0
-        }
-      ]
-    },
-    {
-      "sport": "NFL",
-      "stake": 22.0,
-      "towin": 53.02,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "CHI",
-          "needs": "Patriots win, or lose by 2 or fewer (+3 at Bears; lose by exactly 3 = push)",
-          "odds": -110,
-          "side": "a",
-          "line": 3.0,
-          "lab": "NE"
-        },
-        {
-          "type": "tot",
-          "game": "CHI",
-          "needs": "51 or fewer total points, Patriots + Bears (exactly 52 = push)",
-          "odds": -127,
-          "ou": "u",
-          "line": 52.0
-        }
-      ]
-    },
-    {
-      "sport": "NBA",
-      "stake": 11.0,
-      "towin": 29.04,
-      "legs": [
-        {
-          "type": "tot",
-          "game": "OKC",
-          "needs": "235 or fewer total points, Nuggets + Thunder (exactly 236 = push)",
-          "odds": -110,
-          "ou": "u",
-          "line": 236.0
-        },
-        {
-          "type": "sp",
-          "game": "OKC",
-          "needs": "Thunder win by 9 or more (-8 vs Nuggets; win by exactly 8 = push)",
-          "odds": -110,
-          "side": "h",
-          "line": -8.0,
-          "lab": "OKC"
-        }
-      ]
-    },
-    {
-      "sport": "NBA",
-      "stake": 11.0,
-      "towin": 9.09,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "OKC",
-          "needs": "Thunder win by 8 or more (-7\u00bd vs Nuggets, bought \u00bd)",
-          "odds": -121,
-          "side": "h",
-          "line": -7.5,
-          "lab": "OKC"
-        }
-      ]
-    },
-    {
-      "sport": "NBA",
-      "stake": 22.0,
-      "towin": 19.13,
-      "legs": [
-        {
-          "type": "tot",
-          "game": "OKC",
-          "needs": "236 or fewer total points, Nuggets + Thunder (Under 236\u00bd, bought \u00bd)",
-          "odds": -115,
-          "ou": "u",
-          "line": 236.5
-        }
-      ]
-    },
-    {
-      "sport": "MMA",
-      "stake": 11.0,
-      "towin": 41.25,
-      "legs": [
-        {
-          "type": "ml",
-          "game": "UFC1",
-          "needs": "Volkanovski beats Evloev",
-          "odds": null,
-          "side": "a",
-          "lab": "Volkanovski"
-        },
-        {
-          "type": "tot",
-          "game": "UFC1",
-          "needs": "Fight ends in under 4.5 rounds (Volkanovski vs Evloev)",
-          "odds": null,
-          "ou": "u",
-          "line": 4.5
-        }
-      ]
-    },
-    {
-      "sport": "MMA",
-      "stake": 22.0,
-      "towin": 111.76,
-      "legs": [
-        {
-          "type": "ml",
-          "game": "UFC1",
-          "needs": "Evloev beats Volkanovski",
-          "odds": -106,
-          "side": "h",
-          "lab": "Evloev"
-        },
-        {
-          "type": "ml",
-          "game": "UFC2",
-          "needs": "Kavanagh beats Temirov",
-          "odds": -116,
-          "side": "a",
-          "lab": "Kavanagh"
-        },
-        {
-          "type": "ml",
-          "game": "UFC3",
-          "needs": "Pico beats Keita",
-          "odds": -147,
-          "side": "a",
-          "lab": "Pico"
-        }
-      ]
-    },
-    {
-      "sport": "MMA",
-      "stake": 11.0,
-      "towin": 55.88,
-      "legs": [
-        {
-          "type": "ml",
-          "game": "UFC1",
-          "needs": "Evloev beats Volkanovski",
-          "odds": -106,
-          "side": "h",
-          "lab": "Evloev"
-        },
-        {
-          "type": "ml",
-          "game": "UFC2",
-          "needs": "Kavanagh beats Temirov",
-          "odds": -116,
-          "side": "a",
-          "lab": "Kavanagh"
-        },
-        {
-          "type": "ml",
-          "game": "UFC3",
-          "needs": "Pico beats Keita",
-          "odds": -147,
-          "side": "a",
-          "lab": "Pico"
-        }
-      ]
-    },
-    {
-      "sport": "MMA",
-      "stake": 22.0,
-      "towin": 57.64,
-      "legs": [
-        {
-          "type": "ml",
-          "game": "UFC1",
-          "needs": "Evloev beats Volkanovski",
-          "odds": -106,
-          "side": "h",
-          "lab": "Evloev"
-        },
-        {
-          "type": "ml",
-          "game": "UFC2",
-          "needs": "Kavanagh beats Temirov",
-          "odds": -116,
-          "side": "a",
-          "lab": "Kavanagh"
-        }
-      ]
-    },
-    {
-      "sport": "MMA",
-      "stake": 22.0,
-      "towin": 20.75,
-      "legs": [
-        {
-          "type": "ml",
-          "game": "UFC1",
-          "needs": "Evloev beats Volkanovski",
-          "odds": -106,
-          "side": "h",
-          "lab": "Evloev"
-        }
-      ]
-    },
-    {
-      "sport": "NBA",
-      "stake": 11.0,
-      "towin": 26.18,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "MIL",
-          "needs": "Bulls win, or lose by less than 1 (+1 at Bucks; lose by exactly 1 = push)",
-          "odds": -110,
-          "side": "a",
-          "line": 1.0,
-          "lab": "CHI"
-        },
-        {
-          "type": "ml",
-          "game": "BOS",
-          "needs": "Celtics beat the Knicks",
-          "odds": -130,
-          "side": "h",
-          "lab": "BOS"
-        }
-      ]
-    },
-    {
-      "sport": "NBA",
-      "stake": 1.0,
-      "towin": 2.48,
-      "legs": [
-        {
-          "type": "tot",
-          "game": "MIL",
-          "needs": "237 or fewer total points, Bulls + Bucks (exactly 238 = push)",
-          "odds": -110,
-          "ou": "u",
-          "line": 238.0
-        },
-        {
-          "type": "sp",
-          "game": "MIL",
-          "needs": "Bulls win, or lose by 1 or fewer (+1\u00bd at Bucks, bought \u00bd)",
-          "odds": -121,
-          "side": "a",
-          "line": 1.5,
-          "lab": "CHI"
-        }
-      ]
-    },
-    {
-      "sport": "MMA",
-      "stake": 11.0,
-      "towin": 55.88,
-      "legs": [
-        {
-          "type": "ml",
-          "game": "UFC1",
-          "needs": "Evloev beats Volkanovski",
-          "odds": -106,
-          "side": "h",
-          "lab": "Evloev"
-        },
-        {
-          "type": "ml",
-          "game": "UFC2",
-          "needs": "Kavanagh beats Temirov",
-          "odds": -116,
-          "side": "a",
-          "lab": "Kavanagh"
-        },
-        {
-          "type": "ml",
-          "game": "UFC3",
-          "needs": "Pico beats Keita",
-          "odds": -147,
-          "side": "a",
-          "lab": "Pico"
-        }
-      ]
-    },
-    {
-      "sport": "NBA",
-      "stake": 11.0,
-      "towin": 27.28,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "MIL",
-          "needs": "Bulls win, or lose by 1 or fewer (+1\u00bd at Bucks, bought \u00bd)",
-          "odds": -121,
-          "side": "a",
-          "line": 1.5,
-          "lab": "CHI"
-        },
-        {
-          "type": "tot",
-          "game": "MIL",
-          "needs": "237 or fewer total points, Bulls + Bucks (exactly 238 = push)",
-          "odds": -110,
-          "ou": "u",
-          "line": 238.0
-        }
-      ]
-    },
-    {
-      "sport": "NBA",
-      "stake": 44.0,
-      "towin": 104.28,
-      "legs": [
-        {
-          "type": "sp",
-          "game": "BOS",
-          "needs": "Knicks win, or lose by 3 or fewer (+3\u00bd at Celtics, bought \u00bd)",
-          "odds": -124,
-          "side": "a",
-          "line": 3.5,
-          "lab": "NYK"
-        },
-        {
-          "type": "tot",
-          "game": "BOS",
-          "needs": "220 or more total points, Knicks + Celtics (over 219\u00bd, bought \u00bd)",
-          "odds": -115,
-          "ou": "o",
-          "line": 219.5
-        }
-      ]
-    },
-    {
-      "sport": "NBA",
-      "stake": 11.0,
-      "towin": 8.15,
-      "legs": [
-        {
-          "type": "ml1h",
-          "game": "BOS",
-          "needs": "Celtics lead the Knicks at halftime (1st-half ML; tied at half = push)",
-          "odds": -135,
-          "side": "h",
-          "lab": "BOS"
-        }
-      ]
-    },
-    {
-      "sport": "NBA",
-      "stake": 5.0,
-      "towin": 12.8,
-      "legs": [
-        {
-          "type": "tot",
-          "game": "BOS",
-          "needs": "221 or more total points, Knicks + Celtics",
-          "odds": -110,
-          "ou": "o",
-          "line": 220.5
-        },
-        {
-          "type": "sp",
-          "game": "BOS",
-          "needs": "Celtics win by 3 or more (-2\u00bd vs Knicks)",
-          "odds": -115,
-          "side": "h",
-          "line": -2.5,
-          "lab": "BOS"
-        }
-      ]
-    }
+ "version": "2026-10-23.9",
+ "cfb_games": {
+  "BG": [
+   "Bowling Green",
+   "Ball State",
+   "20261017"
   ],
-  "futures": [
+  "OSU": [
+   "Indiana",
+   "Ohio State",
+   "20261017"
+  ],
+  "WMU": [
+   "Central Michigan",
+   "Western Michigan",
+   "20261017"
+  ],
+  "TOL": [
+   "Eastern Michigan",
+   "Toledo",
+   "20261017"
+  ],
+  "VT": [
+   "Virginia Tech",
+   "Georgia Tech",
+   "20261017"
+  ],
+  "BAMA": [
+   "Tennessee",
+   "Alabama",
+   "20261017"
+  ],
+  "WIS": [
+   "UCLA",
+   "Wisconsin",
+   "20261017"
+  ],
+  "SYR": [
+   "Syracuse",
+   "Louisville",
+   "20261017"
+  ],
+  "BYU": [
+   "BYU",
+   "Notre Dame",
+   "20261017"
+  ],
+  "HOU": [
+   "Houston",
+   "Oklahoma State",
+   "20261017"
+  ],
+  "NEB": [
+   "Oregon Ducks",
+   "Nebraska",
+   "20261017"
+  ],
+  "FIU": [
+   "Florida International",
+   "Middle Tennessee",
+   "20261020"
+  ]
+ },
+ "nfl_games": {
+  "JAX": [
+   "Jacksonville Jaguars",
+   "Houston Texans",
+   "20261018"
+  ],
+  "CLE": [
+   "Cleveland Browns",
+   "Baltimore Ravens",
+   "20261018"
+  ],
+  "TB": [
+   "Tampa Bay Buccaneers",
+   "Pittsburgh Steelers",
+   "20261018"
+  ],
+  "PHI": [
+   "Philadelphia Eagles",
+   "Carolina Panthers",
+   "20261018"
+  ],
+  "KC": [
+   "Kansas City Chiefs",
+   "Los Angeles Chargers",
+   "20261018"
+  ],
+  "IND": [
+   "Indianapolis Colts",
+   "Tennessee Titans",
+   "20261018"
+  ],
+  "GB": [
+   "Green Bay Packers",
+   "Dallas Cowboys",
+   "20261018"
+  ],
+  "LAR": [
+   "Los Angeles Rams",
+   "Arizona Cardinals",
+   "20261018"
+  ],
+  "SF": [
+   "San Francisco 49ers",
+   "Washington Commanders",
+   "20261019"
+  ],
+  "CHI": [
+   "Chicago Bears",
+   "New England Patriots",
+   "20261022"
+  ]
+ },
+ "tickets": [
+  {
+   "sport": "MLB",
+   "stake": 11.0,
+   "towin": 30.14,
+   "legs": [
     {
-      "stake": 11,
-      "towin": 79.75,
-      "pick": "Los Angeles Rams win Super Bowl LXI"
+     "type": "ml",
+     "game": "MLB",
+     "needs": "Guardians beat the Rays",
+     "odds": -101,
+     "side": "h",
+     "lab": "CLE"
     },
     {
-      "stake": 10,
-      "towin": 100.0,
-      "pick": "San Francisco 49ers win Super Bowl LXI"
+     "type": "tot",
+     "game": "MLB",
+     "needs": "7 or more total runs (Rays + Guardians)",
+     "odds": -114,
+     "ou": "o",
+     "line": 6.5
     }
-  ],
-  "mlb_games": {
-    "MLB": [
-      114,
-      139,
-      "2026-10-17",
-      849816
-    ],
-    "MLB5": [
-      114,
-      139,
-      "2026-10-18",
-      849817
-    ],
-    "MLB6": [
-      139,
-      114,
-      "2026-10-19",
-      849815
-    ],
-    "WS1": [
-      158,
-      139,
-      "2026-10-23",
-      849805
-    ]
+   ],
+   "settled": "2026-10-17"
   },
-  "soc_games": {
-    "TOT": [
-      "eng.1",
-      "401879257",
-      "2026-10-19"
-    ],
-    "POR": [
-      "uefa.champions",
-      "401915398",
-      "2026-10-20"
-    ],
-    "PSG": [
-      "uefa.champions",
-      "401915399",
-      "2026-10-20"
-    ]
+  {
+   "sport": "MLB",
+   "stake": 11.0,
+   "towin": 10.89,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "MLB",
+     "needs": "Guardians beat the Rays",
+     "odds": -101,
+     "side": "h",
+     "lab": "CLE"
+    }
+   ],
+   "settled": "2026-10-17"
   },
-  "nba_games": {
-    "DET": [
-      "401909088",
-      "2026-10-20"
-    ],
-    "NYK": [
-      "401909089",
-      "2026-10-20"
-    ],
-    "SAS": [
-      "401909090",
-      "2026-10-20"
-    ],
-    "WSH": [
-      "401909835",
-      "2026-10-21"
-    ],
-    "BKN": [
-      "401909836",
-      "2026-10-21"
-    ],
-    "LAL": [
-      "401909092",
-      "2026-10-21"
-    ],
-    "OKC": [
-      "401909094",
-      "2026-10-22"
-    ],
-    "MIL": [
-      "401909848",
-      "2026-10-23"
-    ],
-    "BOS": [
-      "401909095",
-      "2026-10-23"
-    ]
+  {
+   "sport": "MLB",
+   "stake": 11.0,
+   "towin": 15.4,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "MLB",
+     "needs": "Guardians win, or lose by 3 or fewer (vs Rays)",
+     "odds": 140,
+     "side": "h",
+     "line": 3.5,
+     "lab": "CLE"
+    }
+   ],
+   "settled": "2026-10-17"
   },
-  "mma_games": {
-    "UFC1": [
-      "401911632",
-      "2026-10-24"
-    ],
-    "UFC2": [
-      "401911634",
-      "2026-10-24"
-    ],
-    "UFC3": [
-      "401929495",
-      "2026-10-24"
-    ]
+  {
+   "sport": "MLB",
+   "stake": 11.0,
+   "towin": 29.92,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "MLB",
+     "needs": "Guardians beat the Rays",
+     "odds": -102,
+     "side": "h",
+     "lab": "CLE"
+    },
+    {
+     "type": "tot",
+     "game": "MLB",
+     "needs": "7 or more total runs (Rays + Guardians)",
+     "odds": -114,
+     "ou": "o",
+     "line": 6.5
+    }
+   ],
+   "settled": "2026-10-17"
+  },
+  {
+   "sport": "MLB",
+   "stake": 22.0,
+   "towin": 19.3,
+   "legs": [
+    {
+     "type": "tot",
+     "game": "MLB",
+     "needs": "7 or more total runs (Rays + Guardians)",
+     "odds": -114,
+     "ou": "o",
+     "line": 6.5
+    }
+   ],
+   "settled": "2026-10-17"
+  },
+  {
+   "sport": "CFB",
+   "stake": 11.0,
+   "towin": 10.0,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "SYR",
+     "needs": "Syracuse wins, or loses by 14 or fewer (vs Louisville)",
+     "odds": -110,
+     "side": "h",
+     "line": 14.5,
+     "lab": "SYR"
+    }
+   ],
+   "settled": "2026-10-17"
+  },
+  {
+   "sport": "CFB",
+   "stake": 11.0,
+   "towin": 22.0,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "SYR",
+     "needs": "Syracuse wins, or loses by 14 or fewer (vs Louisville)",
+     "odds": -110,
+     "side": "h",
+     "line": 14.5,
+     "lab": "SYR"
+    },
+    {
+     "type": "ml",
+     "game": "HOU",
+     "needs": "Houston beats Oklahoma State",
+     "odds": -175,
+     "side": "h",
+     "lab": "HOU"
+    }
+   ],
+   "settled": "2026-10-17"
+  },
+  {
+   "sport": "CFB",
+   "stake": 5.0,
+   "towin": 13.0,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "BYU",
+     "needs": "BYU wins, or loses by 10 or fewer (vs Notre Dame)",
+     "odds": -108,
+     "side": "h",
+     "line": 10.5,
+     "lab": "BYU"
+    },
+    {
+     "type": "tot",
+     "game": "BYU",
+     "needs": "48 or more total points, Notre Dame + BYU (exactly 47 = push)",
+     "odds": -115,
+     "ou": "o",
+     "line": 47.0
+    }
+   ],
+   "settled": "2026-10-17"
+  },
+  {
+   "sport": "CFB",
+   "stake": 11.0,
+   "towin": 10.19,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "BYU",
+     "needs": "BYU wins, or loses by 10 or fewer (vs Notre Dame)",
+     "odds": -108,
+     "side": "h",
+     "line": 10.5,
+     "lab": "BYU"
+    }
+   ],
+   "settled": "2026-10-17"
+  },
+  {
+   "sport": "CFB",
+   "stake": 22.0,
+   "towin": 20.0,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "WIS",
+     "needs": "Wisconsin beats UCLA (a loss by exactly 1 = push)",
+     "odds": -110,
+     "side": "a",
+     "line": 1.0,
+     "lab": "WIS"
+    }
+   ],
+   "settled": "2026-10-17"
+  },
+  {
+   "sport": "CFB",
+   "stake": 11.0,
+   "towin": 28.6,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "TOL",
+     "needs": "Toledo wins by 8 or more (exactly 7 = push)",
+     "odds": -105,
+     "side": "a",
+     "line": -7.0,
+     "lab": "TOL"
+    },
+    {
+     "type": "sp",
+     "game": "WMU",
+     "needs": "Western Michigan wins by 8 or more (exactly 7 = push)",
+     "odds": -118,
+     "side": "a",
+     "line": -7.0,
+     "lab": "WMU"
+    }
+   ],
+   "settled": "2026-10-17"
+  },
+  {
+   "sport": "CFB",
+   "stake": 22.0,
+   "towin": 31.02,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "WMU",
+     "needs": "Western Michigan wins",
+     "odds": -285,
+     "side": "a",
+     "lab": "WMU"
+    },
+    {
+     "type": "ml",
+     "game": "VT",
+     "needs": "Virginia Tech beats Georgia Tech",
+     "odds": -345,
+     "side": "h",
+     "lab": "VT"
+    },
+    {
+     "type": "ml",
+     "game": "TOL",
+     "needs": "Toledo wins",
+     "odds": -260,
+     "side": "a",
+     "lab": "TOL"
+    }
+   ],
+   "settled": "2026-10-17"
+  },
+  {
+   "sport": "CFB",
+   "stake": 11.0,
+   "towin": 27.72,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "WMU",
+     "needs": "Western Michigan wins by 8 or more (exactly 7 = push)",
+     "odds": -118,
+     "side": "a",
+     "line": -7.0,
+     "lab": "WMU"
+    },
+    {
+     "type": "tot",
+     "game": "WMU",
+     "needs": "44 or more total points (WMU + CMU)",
+     "odds": -110,
+     "ou": "o",
+     "line": 43.5
+    }
+   ],
+   "settled": "2026-10-17"
+  },
+  {
+   "sport": "CFB",
+   "stake": 22.0,
+   "towin": 18.64,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "WMU",
+     "needs": "Western Michigan wins by 8 or more (exactly 7 = push)",
+     "odds": -118,
+     "side": "a",
+     "line": -7.0,
+     "lab": "WMU"
+    }
+   ],
+   "settled": "2026-10-17"
+  },
+  {
+   "sport": "CFB",
+   "stake": 11.0,
+   "towin": 22.88,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "BAMA",
+     "needs": "Alabama wins by 8 or more (exactly 7 = push)",
+     "odds": -135,
+     "side": "a",
+     "line": -7.0,
+     "lab": "BAMA"
+    },
+    {
+     "type": "tot",
+     "game": "BAMA",
+     "needs": "51 or more total points, Alabama + Tennessee (exactly 50 = push)",
+     "odds": -130,
+     "ou": "o",
+     "line": 50.0
+    }
+   ],
+   "settled": "2026-10-17"
+  },
+  {
+   "sport": "CFB",
+   "stake": 11.0,
+   "towin": 8.15,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "BAMA",
+     "needs": "Alabama wins by 8 or more (exactly 7 = push)",
+     "odds": -135,
+     "side": "a",
+     "line": -7.0,
+     "lab": "BAMA"
+    }
+   ],
+   "settled": "2026-10-17"
+  },
+  {
+   "sport": "CFB",
+   "stake": 11.0,
+   "towin": 29.04,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "BG",
+     "needs": "Bowling Green wins by 7 or more (exactly 6 = push)",
+     "odds": -110,
+     "side": "h",
+     "line": -6.0,
+     "lab": "BG"
+    },
+    {
+     "type": "tot",
+     "game": "BG",
+     "needs": "46 or fewer total points, Bowling Green + Ball State (exactly 47 = push)",
+     "odds": -110,
+     "ou": "u",
+     "line": 47.0
+    }
+   ],
+   "settled": "2026-10-17"
+  },
+  {
+   "sport": "CFB",
+   "stake": 11.0,
+   "towin": 38.94,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "BG",
+     "needs": "Bowling Green wins by 7 or more (exactly 6 = push)",
+     "odds": -110,
+     "side": "h",
+     "line": -6.0,
+     "lab": "BG"
+    },
+    {
+     "type": "ml",
+     "game": "OSU",
+     "needs": "Indiana beats Ohio State",
+     "odds": 138,
+     "side": "h",
+     "lab": "IND"
+    }
+   ],
+   "settled": "2026-10-17"
+  },
+  {
+   "sport": "CFB",
+   "stake": 11.0,
+   "towin": 40.15,
+   "legs": [
+    {
+     "type": "tot",
+     "game": "OSU",
+     "needs": "51 or more total points (Ohio State + Indiana)",
+     "odds": -105,
+     "ou": "o",
+     "line": 50.5
+    },
+    {
+     "type": "ml",
+     "game": "OSU",
+     "needs": "Indiana beats Ohio State",
+     "odds": 138,
+     "side": "h",
+     "lab": "IND"
+    }
+   ],
+   "settled": "2026-10-17"
+  },
+  {
+   "sport": "CFB",
+   "stake": 11.0,
+   "towin": 11.55,
+   "legs": [
+    {
+     "type": "ml1h",
+     "game": "NEB",
+     "needs": "Nebraska leads Oregon at halftime (tied at half = push)",
+     "odds": 105,
+     "side": "a",
+     "lab": "NEB"
+    }
+   ],
+   "settled": "2026-10-17"
+  },
+  {
+   "sport": "CFB",
+   "stake": 11.0,
+   "towin": 10.0,
+   "legs": [
+    {
+     "type": "ml1h",
+     "game": "NEB",
+     "needs": "Nebraska leads Oregon at halftime (tied at half = push)",
+     "odds": -110,
+     "side": "a",
+     "lab": "NEB"
+    }
+   ],
+   "settled": "2026-10-17"
+  },
+  {
+   "sport": "CFB",
+   "stake": 33.0,
+   "towin": 22.72,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "NEB",
+     "needs": "Oregon beats Nebraska",
+     "odds": -145,
+     "side": "h",
+     "lab": "ORE"
+    }
+   ],
+   "settled": "2026-10-17"
+  },
+  {
+   "sport": "NFL",
+   "stake": 33.0,
+   "towin": 30.0,
+   "legs": [
+    {
+     "type": "tot",
+     "game": "JAX",
+     "needs": "43 or more total points, Texans + Jaguars (exactly 42 = push)",
+     "odds": -110,
+     "ou": "o",
+     "line": 42.0
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 33.0,
+   "towin": 84.48,
+   "legs": [
+    {
+     "type": "tot",
+     "game": "JAX",
+     "needs": "43 or more total points, Texans + Jaguars (exactly 42 = push)",
+     "odds": -110,
+     "ou": "o",
+     "line": 42.0
+    },
+    {
+     "type": "sp",
+     "game": "JAX",
+     "needs": "Jaguars win by 3 or more (vs Texans)",
+     "odds": -115,
+     "side": "h",
+     "line": -2.5,
+     "lab": "JAX"
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 11.0,
+   "towin": 7.33,
+   "settled": "2026-10-18",
+   "legs": [
+    {
+     "type": "sp",
+     "game": "JAX",
+     "needs": "Texans beat the Jaguars (a tie = push)",
+     "odds": -150,
+     "side": "a",
+     "line": 0.0,
+     "lab": "HOU"
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 22.0,
+   "towin": 20.0,
+   "legs": [
+    {
+     "type": "tot",
+     "game": "CLE",
+     "needs": "40 or more total points, Ravens + Browns",
+     "odds": -110,
+     "ou": "o",
+     "line": 39.5
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 11.0,
+   "towin": 28.27,
+   "legs": [
+    {
+     "type": "tot",
+     "game": "TB",
+     "needs": "39 or more total points, Steelers + Buccaneers",
+     "odds": -105,
+     "ou": "o",
+     "line": 38.5
+    },
+    {
+     "type": "tot",
+     "game": "CLE",
+     "needs": "40 or more total points, Ravens + Browns (exactly 39 = push)",
+     "odds": -120,
+     "ou": "o",
+     "line": 39.0
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 11.0,
+   "towin": 24.97,
+   "legs": [
+    {
+     "type": "tot",
+     "game": "CLE",
+     "needs": "40 or more total points, Ravens + Browns",
+     "odds": -110,
+     "ou": "o",
+     "line": 39.5
+    },
+    {
+     "type": "sp",
+     "game": "TB",
+     "needs": "Buccaneers win, or lose by 2 or fewer vs Steelers (lose by exactly 3 = push)",
+     "odds": -140,
+     "side": "h",
+     "line": 3.0,
+     "lab": "TB"
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 22.0,
+   "towin": 38.06,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "PHI",
+     "needs": "Panthers beat the Eagles",
+     "odds": -150,
+     "side": "a",
+     "lab": "CAR"
+    },
+    {
+     "type": "ml",
+     "game": "KC",
+     "needs": "Chiefs beat the Chargers",
+     "odds": -440,
+     "side": "h",
+     "lab": "KC"
+    },
+    {
+     "type": "ml",
+     "game": "IND",
+     "needs": "Colts beat the Titans",
+     "odds": -300,
+     "side": "h",
+     "lab": "IND"
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 11.0,
+   "towin": 25.52,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "KC",
+     "needs": "Chiefs win by 7 or more (vs Chargers)",
+     "odds": -135,
+     "side": "h",
+     "line": -6.5,
+     "lab": "KC"
+    },
+    {
+     "type": "sp",
+     "game": "GB",
+     "needs": "Packers beat the Cowboys (a tie = push)",
+     "odds": -110,
+     "side": "h",
+     "line": 0.0,
+     "lab": "GB"
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 11.0,
+   "towin": 29.92,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "KC",
+     "needs": "Chiefs win by 8 or more (vs Chargers)",
+     "odds": -105,
+     "side": "h",
+     "line": -7.5,
+     "lab": "KC"
+    },
+    {
+     "type": "sp",
+     "game": "GB",
+     "needs": "Packers beat the Cowboys (a tie = push)",
+     "odds": -110,
+     "side": "h",
+     "line": 0.0,
+     "lab": "GB"
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 33.0,
+   "towin": 88.11,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "GB",
+     "needs": "Packers beat the Cowboys (a tie = push)",
+     "odds": -110,
+     "side": "h",
+     "line": 0.0,
+     "lab": "GB"
+    },
+    {
+     "type": "tot",
+     "game": "GB",
+     "needs": "53 or fewer total points, Cowboys + Packers",
+     "odds": -108,
+     "ou": "u",
+     "line": 53.5
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 33.0,
+   "towin": 22.92,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "SF",
+     "needs": "49ers beat the Commanders (Mon night)",
+     "odds": -410,
+     "side": "h",
+     "lab": "SF"
+    },
+    {
+     "type": "ml",
+     "game": "LAR",
+     "needs": "Rams beat the Cardinals",
+     "odds": -900,
+     "side": "h",
+     "lab": "LAR"
+    },
+    {
+     "type": "ml",
+     "game": "KC",
+     "needs": "Chiefs beat the Chargers",
+     "odds": -440,
+     "side": "h",
+     "lab": "KC"
+    }
+   ]
+  },
+  {
+   "sport": "MLB",
+   "stake": 22.0,
+   "towin": 17.6,
+   "pitchers": {
+    "game": "MLB5",
+    "a": "D. Rasmussen",
+    "h": "P. Messick"
+   },
+   "legs": [
+    {
+     "type": "ml",
+     "game": "MLB5",
+     "needs": "Rays beat the Guardians (ALCS Game 5)",
+     "odds": -125,
+     "side": "a",
+     "lab": "TB"
+    }
+   ]
+  },
+  {
+   "sport": "MLB",
+   "stake": 22.0,
+   "towin": 55.22,
+   "pitchers": {
+    "game": "MLB5",
+    "a": "D. Rasmussen",
+    "h": "P. Messick"
+   },
+   "legs": [
+    {
+     "type": "ml",
+     "game": "MLB5",
+     "needs": "Rays beat the Guardians (ALCS Game 5)",
+     "odds": -125,
+     "side": "a",
+     "lab": "TB"
+    },
+    {
+     "type": "tot",
+     "game": "MLB5",
+     "needs": "7 or more total runs (Rays + Guardians)",
+     "odds": -105,
+     "ou": "o",
+     "line": 6.5
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 22.0,
+   "towin": 18.97,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "GB",
+     "needs": "Cowboys beat the Packers",
+     "odds": -116,
+     "side": "a",
+     "lab": "DAL"
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 11.0,
+   "towin": 25.19,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "GB",
+     "needs": "Packers beat the Cowboys (a tie = push)",
+     "odds": -110,
+     "side": "h",
+     "line": 0.0,
+     "lab": "GB"
+    },
+    {
+     "type": "sp",
+     "game": "SF",
+     "needs": "49ers win by 7 or more (vs Commanders, Mon night)",
+     "odds": -138,
+     "side": "h",
+     "line": -6.5,
+     "lab": "SF"
+    }
+   ]
+  },
+  {
+   "sport": "MLB",
+   "stake": 11.0,
+   "towin": null,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "MLB5",
+     "needs": "Guardians win, or lose by 1 run (run line +1.5 vs Rays)",
+     "odds": null,
+     "side": "h",
+     "line": 1.5,
+     "lab": "CLE"
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 22.0,
+   "towin": 22.0,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "GB",
+     "needs": "Cowboys win, or lose by 9 or fewer (live +9.5 vs Packers)",
+     "odds": 100,
+     "side": "a",
+     "line": 9.5,
+     "lab": "DAL"
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 11.0,
+   "towin": 10.48,
+   "legs": [
+    {
+     "type": "tot",
+     "game": "GB",
+     "needs": "48 or more total points (Cowboys + Packers, live)",
+     "odds": -105,
+     "ou": "o",
+     "line": 47.5
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 22.0,
+   "towin": 48.84,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "SF",
+     "needs": "49ers win by 7 or more (vs Commanders, Mon night)",
+     "odds": -138,
+     "side": "h",
+     "line": -6.5,
+     "lab": "SF"
+    },
+    {
+     "type": "tot",
+     "game": "SF",
+     "needs": "52 or fewer total points, Commanders + 49ers (Mon night)",
+     "odds": -115,
+     "ou": "u",
+     "line": 52.5
+    }
+   ]
+  },
+  {
+   "sport": "SOC",
+   "stake": 17.2,
+   "towin": 10.0,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "TOT",
+     "needs": "Tottenham beat Coventry (a draw loses)",
+     "odds": -172,
+     "side": "h",
+     "lab": "TOT"
+    }
+   ]
+  },
+  {
+   "sport": "MLB",
+   "stake": 11.0,
+   "towin": 22.0,
+   "pitchers": {
+    "game": "MLB6",
+    "a": "S. Armstrong",
+    "h": "F. Peralta"
+   },
+   "legs": [
+    {
+     "type": "ml",
+     "game": "MLB6",
+     "needs": "Rays beat the Guardians (ALCS Game 6)",
+     "odds": -150,
+     "side": "h",
+     "lab": "TB"
+    },
+    {
+     "type": "tot",
+     "game": "MLB6",
+     "needs": "7 or more total runs (Guardians + Rays)",
+     "odds": -125,
+     "ou": "o",
+     "line": 6.5
+    }
+   ]
+  },
+  {
+   "sport": "MLB",
+   "stake": 22.0,
+   "towin": 44.66,
+   "pitchers": {
+    "game": "MLB6",
+    "a": "S. Armstrong",
+    "h": "F. Peralta"
+   },
+   "legs": [
+    {
+     "type": "ml",
+     "game": "SF",
+     "needs": "49ers beat the Commanders (Mon night)",
+     "odds": -420,
+     "side": "h",
+     "lab": "SF"
+    },
+    {
+     "type": "sp",
+     "game": "MLB6",
+     "needs": "Rays win by 2 or more runs (ALCS Game 6, run line -1.5)",
+     "odds": 145,
+     "side": "h",
+     "line": -1.5,
+     "lab": "TB"
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 11.0,
+   "towin": 26.95,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "SF",
+     "needs": "Commanders win, or lose by 7 or fewer (vs 49ers, Mon night)",
+     "odds": -116,
+     "side": "a",
+     "line": 7.5,
+     "lab": "WSH"
+    },
+    {
+     "type": "tot",
+     "game": "SF",
+     "needs": "52 or more total points (Commanders + 49ers)",
+     "odds": -117,
+     "ou": "o",
+     "line": 51.5
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 5.0,
+   "towin": 48.35,
+   "pitchers": {
+    "game": "MLB6",
+    "a": "S. Armstrong",
+    "h": "F. Peralta"
+   },
+   "legs": [
+    {
+     "type": "sp",
+     "game": "SF",
+     "needs": "49ers win by 8 or more (by exactly 7 = push)",
+     "odds": -119,
+     "side": "h",
+     "line": -7.0,
+     "lab": "SF"
+    },
+    {
+     "type": "tot",
+     "game": "MLB6",
+     "needs": "7 or more total runs (Guardians + Rays)",
+     "odds": -125,
+     "ou": "o",
+     "line": 6.5
+    },
+    {
+     "type": "tot",
+     "game": "SF",
+     "needs": "53 or more total points (exactly 52 = push)",
+     "odds": -107,
+     "ou": "o",
+     "line": 52.0
+    },
+    {
+     "type": "ml",
+     "game": "MLB6",
+     "needs": "Rays beat the Guardians (ALCS Game 6)",
+     "odds": -150,
+     "side": "h",
+     "lab": "TB"
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 22.0,
+   "towin": 57.2,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "SF",
+     "needs": "Commanders win, or lose by 7 or fewer (vs 49ers, Mon night)",
+     "odds": null,
+     "side": "a",
+     "line": 7.5,
+     "lab": "WSH"
+    },
+    {
+     "type": "tot",
+     "game": "SF",
+     "needs": "52 or more total points (Commanders + 49ers)",
+     "odds": null,
+     "ou": "o",
+     "line": 51.5
+    }
+   ]
+  },
+  {
+   "sport": "SOC",
+   "stake": 11.0,
+   "towin": 30.47,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "POR",
+     "needs": "FC Porto beat PSV Eindhoven (a draw loses)",
+     "odds": -183,
+     "side": "h",
+     "lab": "POR"
+    },
+    {
+     "type": "ml",
+     "game": "PSG",
+     "needs": "Barcelona beat PSG (a draw loses)",
+     "odds": 144,
+     "side": "a",
+     "lab": "BAR"
+    }
+   ]
+  },
+  {
+   "sport": "SOC",
+   "stake": 18.3,
+   "towin": 10.0,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "POR",
+     "needs": "FC Porto beat PSV Eindhoven (a draw loses)",
+     "odds": -183,
+     "side": "h",
+     "lab": "POR"
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 11.0,
+   "towin": 10.0,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "DET",
+     "needs": "Pistons win, or lose by 1 (+1.5 vs Celtics)",
+     "odds": -110,
+     "side": "h",
+     "line": 1.5,
+     "lab": "DET"
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 20.0,
+   "towin": 124.4,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "DET",
+     "needs": "Pistons beat the Celtics",
+     "odds": -102,
+     "side": "h",
+     "lab": "DET"
+    },
+    {
+     "type": "sp",
+     "game": "NYK",
+     "needs": "76ers win, or lose by 4 or fewer (+4.5 at Knicks)",
+     "odds": -110,
+     "side": "a",
+     "line": 4.5,
+     "lab": "PHI"
+    },
+    {
+     "type": "ml",
+     "game": "SAS",
+     "needs": "Thunder beat the Spurs",
+     "odds": -110,
+     "side": "a",
+     "lab": "OKC"
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 20.0,
+   "towin": 72.4,
+   "legs": [
+    {
+     "type": "prop",
+     "game": "NYK",
+     "needs": "Embiid (PHI) under 22.5 points (22 or fewer)",
+     "odds": null,
+     "aid": "3059318",
+     "ou": "u",
+     "line": 22.5,
+     "lab": "Embiid"
+    },
+    {
+     "type": "prop",
+     "game": "NYK",
+     "needs": "Brunson (NY) under 26.5 points (26 or fewer)",
+     "odds": null,
+     "aid": "3934672",
+     "ou": "u",
+     "line": 26.5,
+     "lab": "Brunson"
+    },
+    {
+     "type": "ml",
+     "game": "NYK",
+     "needs": "Knicks beat the 76ers",
+     "odds": null,
+     "side": "h",
+     "lab": "NY",
+     "pace": true
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 22.0,
+   "towin": 50.16,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "NYK",
+     "needs": "76ers win, or lose by 5 or fewer (+5.5 at Knicks)",
+     "odds": -132,
+     "side": "a",
+     "line": 5.5,
+     "lab": "PHI"
+    },
+    {
+     "type": "sp",
+     "game": "FIU",
+     "needs": "Middle Tennessee win, or lose by 10 or fewer (+10.5 at FIU)",
+     "odds": -115,
+     "side": "a",
+     "line": 10.5,
+     "lab": "MTSU"
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 11.0,
+   "towin": 24.75,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "NYK",
+     "needs": "76ers win, or lose by 5 or fewer (+5.5 at Knicks)",
+     "odds": -132,
+     "side": "a",
+     "line": 5.5,
+     "lab": "PHI"
+    },
+    {
+     "type": "ml",
+     "game": "SAS",
+     "needs": "Thunder beat the Spurs",
+     "odds": -118,
+     "side": "a",
+     "lab": "OKC"
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 11.0,
+   "towin": 21.45,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "SAS",
+     "needs": "Thunder beat the Spurs",
+     "odds": -118,
+     "side": "a",
+     "lab": "OKC"
+    },
+    {
+     "type": "ml",
+     "game": "NYK",
+     "needs": "Knicks beat the 76ers",
+     "odds": -167,
+     "side": "h",
+     "lab": "NY"
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 22.0,
+   "towin": 42.46,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "NYK",
+     "needs": "Knicks beat the 76ers",
+     "odds": -167,
+     "side": "h",
+     "lab": "NY"
+    },
+    {
+     "type": "tot",
+     "game": "NYK",
+     "needs": "232 or fewer total points, 76ers + Knicks",
+     "odds": -120,
+     "ou": "u",
+     "line": 232.5
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 11.0,
+   "towin": 9.57,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "SAS",
+     "needs": "Spurs win, or lose by 7 or fewer (live +8 vs Thunder; lose by exactly 8 = push)",
+     "odds": -115,
+     "side": "h",
+     "line": 8.0,
+     "lab": "SA"
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 22.0,
+   "towin": 19.13,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "SAS",
+     "needs": "Spurs win, or lose by 3 or fewer (live +4 vs Thunder; lose by exactly 4 = push)",
+     "odds": -115,
+     "side": "h",
+     "line": 4.0,
+     "lab": "SA"
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 11.0,
+   "towin": 12.1,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "SAS",
+     "needs": "Spurs beat the Thunder (live)",
+     "odds": 110,
+     "side": "h",
+     "lab": "SA"
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 11.0,
+   "towin": 9.57,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "SAS",
+     "needs": "Spurs win (live +1 vs Thunder; lose by exactly 1 = push)",
+     "odds": -115,
+     "side": "h",
+     "line": 1.0,
+     "lab": "SA"
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 11.0,
+   "towin": 63.8,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "LAL",
+     "needs": "Lakers win by 7 or more (-6 vs Warriors; win by exactly 6 = push)",
+     "odds": -115,
+     "side": "h",
+     "line": -6.0,
+     "lab": "LAL"
+    },
+    {
+     "type": "sp",
+     "game": "BKN",
+     "needs": "Nets win by 3 or more (-2.5 vs Hornets)",
+     "odds": -112,
+     "side": "h",
+     "line": -2.5,
+     "lab": "BKN"
+    },
+    {
+     "type": "sp",
+     "game": "WSH",
+     "needs": "Wizards win by 5 or more (-4.5 vs Bucks)",
+     "odds": -110,
+     "side": "h",
+     "line": -4.5,
+     "lab": "WSH"
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 22.0,
+   "towin": 64.02,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "BKN",
+     "needs": "Nets beat the Hornets",
+     "odds": -142,
+     "side": "h",
+     "lab": "BKN"
+    },
+    {
+     "type": "ml",
+     "game": "WSH",
+     "needs": "Wizards beat the Bucks",
+     "odds": -180,
+     "side": "h",
+     "lab": "WSH"
+    },
+    {
+     "type": "ml",
+     "game": "LAL",
+     "needs": "Lakers beat the Warriors",
+     "odds": -210,
+     "side": "h",
+     "lab": "LAL"
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 11.0,
+   "towin": 63.8,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "WSH",
+     "needs": "Wizards win by 5 or more (-4.5 vs Bucks)",
+     "odds": -110,
+     "side": "h",
+     "line": -4.5,
+     "lab": "WSH"
+    },
+    {
+     "type": "sp",
+     "game": "BKN",
+     "needs": "Nets win by 3 or more (-2.5 vs Hornets)",
+     "odds": -112,
+     "side": "h",
+     "line": -2.5,
+     "lab": "BKN"
+    },
+    {
+     "type": "sp",
+     "game": "LAL",
+     "needs": "Lakers win by 7 or more (-6 vs Warriors; win by exactly 6 = push)",
+     "odds": -115,
+     "side": "h",
+     "line": -6.0,
+     "lab": "LAL"
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 22.0,
+   "towin": 16.67,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "WSH",
+     "needs": "Bucks win, or lose by 5 or fewer (+5.5 at Wizards)",
+     "odds": -132,
+     "side": "a",
+     "line": 5.5,
+     "lab": "MIL"
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 11.0,
+   "towin": 10.0,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "WSH",
+     "needs": "Wizards win by 5 or more (-4.5 vs Bucks)",
+     "odds": -110,
+     "side": "h",
+     "line": -4.5,
+     "lab": "WSH"
+    }
+   ]
+  },
+  {
+   "sport": "MLB",
+   "stake": 11.0,
+   "towin": 20.79,
+   "pitchers": {
+    "game": "WS1",
+    "a": "D. Rasmussen",
+    "h": "J. Misiorowski"
+   },
+   "legs": [
+    {
+     "type": "ml",
+     "game": "WS1",
+     "needs": "Brewers beat the Rays (World Series Game 1)",
+     "odds": -151,
+     "side": "h",
+     "lab": "MIL"
+    },
+    {
+     "type": "sp",
+     "game": "CHI",
+     "needs": "Patriots win, or lose by 3 or fewer (+3.5 at Bears, Thu night)",
+     "odds": -135,
+     "side": "a",
+     "line": 3.5,
+     "lab": "NE"
+    }
+   ]
+  },
+  {
+   "sport": "MLB",
+   "stake": 11.0,
+   "towin": 23.65,
+   "pitchers": {
+    "game": "WS1",
+    "a": "D. Rasmussen",
+    "h": "J. Misiorowski"
+   },
+   "legs": [
+    {
+     "type": "ml",
+     "game": "WS1",
+     "needs": "Brewers beat the Rays (World Series Game 1)",
+     "odds": -151,
+     "side": "h",
+     "lab": "MIL"
+    },
+    {
+     "type": "tot",
+     "game": "WS1",
+     "needs": "5 or fewer total runs, Rays + Brewers (exactly 6 = push)",
+     "odds": -112,
+     "ou": "u",
+     "line": 6.0
+    }
+   ]
+  },
+  {
+   "sport": "NFL",
+   "stake": 22.0,
+   "towin": 53.02,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "CHI",
+     "needs": "Patriots win, or lose by 2 or fewer (+3 at Bears; lose by exactly 3 = push)",
+     "odds": -110,
+     "side": "a",
+     "line": 3.0,
+     "lab": "NE"
+    },
+    {
+     "type": "tot",
+     "game": "CHI",
+     "needs": "51 or fewer total points, Patriots + Bears (exactly 52 = push)",
+     "odds": -127,
+     "ou": "u",
+     "line": 52.0
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 11.0,
+   "towin": 29.04,
+   "legs": [
+    {
+     "type": "tot",
+     "game": "OKC",
+     "needs": "235 or fewer total points, Nuggets + Thunder (exactly 236 = push)",
+     "odds": -110,
+     "ou": "u",
+     "line": 236.0
+    },
+    {
+     "type": "sp",
+     "game": "OKC",
+     "needs": "Thunder win by 9 or more (-8 vs Nuggets; win by exactly 8 = push)",
+     "odds": -110,
+     "side": "h",
+     "line": -8.0,
+     "lab": "OKC"
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 11.0,
+   "towin": 9.09,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "OKC",
+     "needs": "Thunder win by 8 or more (-7½ vs Nuggets, bought ½)",
+     "odds": -121,
+     "side": "h",
+     "line": -7.5,
+     "lab": "OKC"
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 22.0,
+   "towin": 19.13,
+   "legs": [
+    {
+     "type": "tot",
+     "game": "OKC",
+     "needs": "236 or fewer total points, Nuggets + Thunder (Under 236½, bought ½)",
+     "odds": -115,
+     "ou": "u",
+     "line": 236.5
+    }
+   ]
+  },
+  {
+   "sport": "MMA",
+   "stake": 11.0,
+   "towin": 41.25,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "UFC1",
+     "needs": "Volkanovski beats Evloev",
+     "odds": null,
+     "side": "a",
+     "lab": "Volkanovski"
+    },
+    {
+     "type": "tot",
+     "game": "UFC1",
+     "needs": "Fight ends in under 4.5 rounds (Volkanovski vs Evloev)",
+     "odds": null,
+     "ou": "u",
+     "line": 4.5
+    }
+   ]
+  },
+  {
+   "sport": "MMA",
+   "stake": 22.0,
+   "towin": 111.76,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "UFC1",
+     "needs": "Evloev beats Volkanovski",
+     "odds": -106,
+     "side": "h",
+     "lab": "Evloev"
+    },
+    {
+     "type": "ml",
+     "game": "UFC2",
+     "needs": "Kavanagh beats Temirov",
+     "odds": -116,
+     "side": "a",
+     "lab": "Kavanagh"
+    },
+    {
+     "type": "ml",
+     "game": "UFC3",
+     "needs": "Pico beats Keita",
+     "odds": -147,
+     "side": "a",
+     "lab": "Pico"
+    }
+   ]
+  },
+  {
+   "sport": "MMA",
+   "stake": 11.0,
+   "towin": 55.88,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "UFC1",
+     "needs": "Evloev beats Volkanovski",
+     "odds": -106,
+     "side": "h",
+     "lab": "Evloev"
+    },
+    {
+     "type": "ml",
+     "game": "UFC2",
+     "needs": "Kavanagh beats Temirov",
+     "odds": -116,
+     "side": "a",
+     "lab": "Kavanagh"
+    },
+    {
+     "type": "ml",
+     "game": "UFC3",
+     "needs": "Pico beats Keita",
+     "odds": -147,
+     "side": "a",
+     "lab": "Pico"
+    }
+   ]
+  },
+  {
+   "sport": "MMA",
+   "stake": 22.0,
+   "towin": 57.64,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "UFC1",
+     "needs": "Evloev beats Volkanovski",
+     "odds": -106,
+     "side": "h",
+     "lab": "Evloev"
+    },
+    {
+     "type": "ml",
+     "game": "UFC2",
+     "needs": "Kavanagh beats Temirov",
+     "odds": -116,
+     "side": "a",
+     "lab": "Kavanagh"
+    }
+   ]
+  },
+  {
+   "sport": "MMA",
+   "stake": 22.0,
+   "towin": 20.75,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "UFC1",
+     "needs": "Evloev beats Volkanovski",
+     "odds": -106,
+     "side": "h",
+     "lab": "Evloev"
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 11.0,
+   "towin": 26.18,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "MIL",
+     "needs": "Bulls win, or lose by less than 1 (+1 at Bucks; lose by exactly 1 = push)",
+     "odds": -110,
+     "side": "a",
+     "line": 1.0,
+     "lab": "CHI"
+    },
+    {
+     "type": "ml",
+     "game": "BOS",
+     "needs": "Celtics beat the Knicks",
+     "odds": -130,
+     "side": "h",
+     "lab": "BOS"
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 1.0,
+   "towin": 2.48,
+   "legs": [
+    {
+     "type": "tot",
+     "game": "MIL",
+     "needs": "237 or fewer total points, Bulls + Bucks (exactly 238 = push)",
+     "odds": -110,
+     "ou": "u",
+     "line": 238.0
+    },
+    {
+     "type": "sp",
+     "game": "MIL",
+     "needs": "Bulls win, or lose by 1 or fewer (+1½ at Bucks, bought ½)",
+     "odds": -121,
+     "side": "a",
+     "line": 1.5,
+     "lab": "CHI"
+    }
+   ]
+  },
+  {
+   "sport": "MMA",
+   "stake": 11.0,
+   "towin": 55.88,
+   "legs": [
+    {
+     "type": "ml",
+     "game": "UFC1",
+     "needs": "Evloev beats Volkanovski",
+     "odds": -106,
+     "side": "h",
+     "lab": "Evloev"
+    },
+    {
+     "type": "ml",
+     "game": "UFC2",
+     "needs": "Kavanagh beats Temirov",
+     "odds": -116,
+     "side": "a",
+     "lab": "Kavanagh"
+    },
+    {
+     "type": "ml",
+     "game": "UFC3",
+     "needs": "Pico beats Keita",
+     "odds": -147,
+     "side": "a",
+     "lab": "Pico"
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 11.0,
+   "towin": 27.28,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "MIL",
+     "needs": "Bulls win, or lose by 1 or fewer (+1½ at Bucks, bought ½)",
+     "odds": -121,
+     "side": "a",
+     "line": 1.5,
+     "lab": "CHI"
+    },
+    {
+     "type": "tot",
+     "game": "MIL",
+     "needs": "237 or fewer total points, Bulls + Bucks (exactly 238 = push)",
+     "odds": -110,
+     "ou": "u",
+     "line": 238.0
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 44.0,
+   "towin": 104.28,
+   "legs": [
+    {
+     "type": "sp",
+     "game": "BOS",
+     "needs": "Knicks win, or lose by 3 or fewer (+3½ at Celtics, bought ½)",
+     "odds": -124,
+     "side": "a",
+     "line": 3.5,
+     "lab": "NYK"
+    },
+    {
+     "type": "tot",
+     "game": "BOS",
+     "needs": "220 or more total points, Knicks + Celtics (over 219½, bought ½)",
+     "odds": -115,
+     "ou": "o",
+     "line": 219.5
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 11.0,
+   "towin": 8.15,
+   "legs": [
+    {
+     "type": "ml1h",
+     "game": "BOS",
+     "needs": "Celtics lead the Knicks at halftime (1st-half ML; tied at half = push)",
+     "odds": -135,
+     "side": "h",
+     "lab": "BOS"
+    }
+   ]
+  },
+  {
+   "sport": "NBA",
+   "stake": 5.0,
+   "towin": 12.8,
+   "legs": [
+    {
+     "type": "tot",
+     "game": "BOS",
+     "needs": "221 or more total points, Knicks + Celtics",
+     "odds": -110,
+     "ou": "o",
+     "line": 220.5
+    },
+    {
+     "type": "sp",
+     "game": "BOS",
+     "needs": "Celtics win by 3 or more (-2½ vs Knicks)",
+     "odds": -115,
+     "side": "h",
+     "line": -2.5,
+     "lab": "BOS"
+    }
+   ]
+  },
+  {
+   "sport": "MLB",
+   "stake": 33.0,
+   "towin": 62.37,
+   "pitchers": {
+    "game": "WS1",
+    "a": "N. Martinez",
+    "h": "J. Misiorowski"
+   },
+   "legs": [
+    {
+     "type": "ml",
+     "game": "WS1",
+     "needs": "Brewers beat the Rays (World Series Game 1)",
+     "odds": -183,
+     "side": "h",
+     "lab": "MIL"
+    },
+    {
+     "type": "tot",
+     "game": "WS1",
+     "needs": "7 or more total runs, Rays + Brewers (over 6½)",
+     "odds": -115,
+     "ou": "o",
+     "line": 6.5
+    }
+   ]
   }
+ ],
+ "futures": [
+  {
+   "stake": 11,
+   "towin": 79.75,
+   "pick": "Los Angeles Rams win Super Bowl LXI"
+  },
+  {
+   "stake": 10,
+   "towin": 100.0,
+   "pick": "San Francisco 49ers win Super Bowl LXI"
+  }
+ ],
+ "mlb_games": {
+  "MLB": [
+   114,
+   139,
+   "2026-10-17",
+   849816
+  ],
+  "MLB5": [
+   114,
+   139,
+   "2026-10-18",
+   849817
+  ],
+  "MLB6": [
+   139,
+   114,
+   "2026-10-19",
+   849815
+  ],
+  "WS1": [
+   158,
+   139,
+   "2026-10-23",
+   849805
+  ]
+ },
+ "soc_games": {
+  "TOT": [
+   "eng.1",
+   "401879257",
+   "2026-10-19"
+  ],
+  "POR": [
+   "uefa.champions",
+   "401915398",
+   "2026-10-20"
+  ],
+  "PSG": [
+   "uefa.champions",
+   "401915399",
+   "2026-10-20"
+  ]
+ },
+ "nba_games": {
+  "DET": [
+   "401909088",
+   "2026-10-20"
+  ],
+  "NYK": [
+   "401909089",
+   "2026-10-20"
+  ],
+  "SAS": [
+   "401909090",
+   "2026-10-20"
+  ],
+  "WSH": [
+   "401909835",
+   "2026-10-21"
+  ],
+  "BKN": [
+   "401909836",
+   "2026-10-21"
+  ],
+  "LAL": [
+   "401909092",
+   "2026-10-21"
+  ],
+  "OKC": [
+   "401909094",
+   "2026-10-22"
+  ],
+  "MIL": [
+   "401909848",
+   "2026-10-23"
+  ],
+  "BOS": [
+   "401909095",
+   "2026-10-23"
+  ]
+ },
+ "mma_games": {
+  "UFC1": [
+   "401911632",
+   "2026-10-24"
+  ],
+  "UFC2": [
+   "401911634",
+   "2026-10-24"
+  ],
+  "UFC3": [
+   "401929495",
+   "2026-10-24"
+  ]
+ }
 }
