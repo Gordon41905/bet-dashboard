@@ -28,6 +28,7 @@ h1{font-size:22px;font-weight:800}.ts{font-size:13px;color:#9aa6b8;margin:3px 0 
 .ftr{margin-top:22px;font-size:12px;color:#7f8ba0;line-height:1.5;text-align:center}
 .lgr{display:flex;align-items:center;gap:6px;margin:-4px 0 8px}.lgp{font-size:11px;padding:1px 7px;line-height:18px}.nbp{flex:1;min-width:0;display:flex;align-items:center;gap:6px;padding-right:3px}.lgl{flex:none}.nbs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;min-width:0}.nbs::-webkit-scrollbar{display:none}.nbc{flex:none;display:flex;align-items:center;gap:4px;border-left:3px solid #5b6575;background:#0d1118;border-radius:5px;padding:0 5px;font-size:10.5px;line-height:16px;white-space:nowrap;color:#a3aec0;font-weight:700}.nbc .w{color:#39e27d}.nbc .l{color:#8b97a8}.nbc .t{color:#dbe2ec}.nbc i{font-style:normal;font-weight:800;font-size:9.5px;letter-spacing:.3px}.nbe{font-size:10.5px;color:#7f8ba0;font-weight:600}
 .lvs{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:-6px 0 8px}.lvh{display:flex;align-items:center;gap:5px;min-width:0;background:#161c26;border:1px solid #2c3646;border-radius:999px;padding:2px 4px 2px 8px;text-decoration:none;color:#8b97a8;font-size:11px;font-weight:800;line-height:16px;-webkit-tap-highlight-color:transparent}.lvh:active{border-color:#8b97a8;color:#eef2f7}.lvh .nbs{flex:1}
+.fp{margin-left:auto;display:inline-flex;align-items:center;gap:3px;flex:none}.fp svg{display:block;width:96px;height:18px}.fp b{font-size:9.5px;font-weight:800;color:#7f8ba0;letter-spacing:-.3px;white-space:nowrap}.fp b.fpo{color:#eef2f7}
 </style></head><body>
 <div class="lvs"><a id="nav" class="lvh" href="https://gordon41905.github.io/tomorrow-winners/" onclick="this.href='https://gordon41905.github.io/tomorrow-winners/?v='+Date.now()"><span class="lgl">NFL</span><span class="nbs" id="nfl"><span class="nbe">Loading…</span></span></a><a id="navn" class="lvh" href="nba.html" onclick="this.href='nba.html?v='+Date.now()"><span class="lgl">NBA</span><span class="nbs" id="nba"><span class="nbe">Loading…</span></span></a></div>
 <div class="hdr"><div class="hrow"><h1 id="title">Live Bets</h1><span class="cw" id="s_maxwin"></span></div><div class="tsr"><div class="ts" id="ts"><span class="dot"></span>Loading live scores…</div></div>
@@ -80,10 +81,29 @@ function buildTickets(d){CFB=d.cfb_games||{};NFL=d.nfl_games||{};MLBD=d.mlb_game
 function futHTML(){return FUTS.length?section("sb","🏈 Super Bowl bets","#9b59ff",FUTS.map(f=>`<div class="card" style="border-left-color:#9b59ff"><div class="top"><div><div class="bet">${m(f.stake)} bet</div><div class="roll" style="color:#b48cff">PENDING · SETTLES FEB 2027</div></div><div><div class="pay">Wins $${f.towin.toFixed(2)}</div><div class="ret">returns $${(f.stake+f.towin).toFixed(2)}</div></div></div><div class="leg"><div class="need">${esc(f.pick)}</div></div></div>`).join(""),FUTS.length):""}
 async function checkVersion(){try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
  if(v&&v!==APP_VERSION){const k="reloaded_"+v;if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,"1");location.replace(location.pathname+"?v="+encodeURIComponent(v));}}}catch(e){}}
-const APP_VERSION="2026-10-24.10";
+const APP_VERSION="2026-10-24.11";
 
 const chip=g=>!g?"score unavailable":g.state==="void"?`${g.aab} @ ${g.hab} · ${g.detail}`:g.state==="pre"?`${g.aab} @ ${g.hab} · ${g.detail}`:`${g.aab} ${g.a} – ${g.hab} ${g.h} · ${g.detail}`;
 async function getJSON(u,label){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error(`${label} HTTP ${r.status}`);return r.json();}
+// Field position (football): snapshot ESPN scoreboard situation. yardLine counts from the HOME goal line; possessionText ("IOWA 23") is preferred.
+function fbSit(c,t){try{const S=c.situation;if(!S)return null;const H=t.home.team,A=t.away.team;return{pid:S.possession!=null?String(S.possession):null,yl:S.yardLine,pt:S.possessionText||null,dd:S.downDistanceText||"",rz:!!S.isRedZone,hid:String(H.id),aid:String(A.id),hc:H.color||"",ac:A.color||"",hac:H.alternateColor||"",aac:A.alternateColor||""}}catch(e){return null}}
+function fbCol(c,alt){const ok=x=>/^[0-9a-f]{6}$/i.test(x||"")&&(()=>{const n=parseInt(x,16),r=n>>16,g=n>>8&255,b=n&255;return .299*r+.587*g+.114*b>45})();return ok(c)?"#"+c:ok(alt)?"#"+alt:"#5b6575"}
+function fieldPos(g){try{if(!g||g.state!=="in"||!g.fb||/football/.test(g.lg||"")!==true)return"";const F=g.fb,hab=g.hab,aab=g.aab;
+ let y=null;const m=/^\s*([A-Za-z&.'\- ]*?)\s*(\d{1,2})\s*$/.exec(F.pt||"");
+ if(m){const ab=m[1].trim(),n=+m[2];if(n===50)y=50;else if(ab&&ab===hab)y=n;else if(ab&&ab===aab)y=100-n;}
+ if(y==null&&typeof F.yl==="number"&&F.yl>0&&F.yl<100)y=F.yl;
+ if(/half/i.test(g.detail||""))y=null;
+ const pos=F.pid===F.hid?"h":F.pid===F.aid?"a":null,x=y==null?null:10+(100-y);
+ const ac=fbCol(F.ac,F.aac),hc=fbCol(F.hc,F.hac);
+ let v=`<svg viewBox="0 0 120 22" aria-hidden="true"><rect x="0" y="2" width="120" height="18" rx="3" fill="#1f5133"/><rect x="0" y="2" width="10" height="18" rx="2" fill="${ac}"/><rect x="110" y="2" width="10" height="18" rx="2" fill="${hc}"/>`;
+ for(let i=20;i<=100;i+=10)v+=`<line x1="${i}" y1="${i===60?2:5}" x2="${i}" y2="${i===60?20:17}" stroke="${i===60?"#eef2f7":"#6fa585"}" stroke-width="${i===60?1.4:.6}"/>`;
+ v+=`<line x1="10" y1="2" x2="10" y2="20" stroke="#eef2f7" stroke-width=".8"/><line x1="110" y1="2" x2="110" y2="20" stroke="#eef2f7" stroke-width=".8"/>`;
+ if(x!=null){const bc=pos==="h"?hc:pos==="a"?ac:"#eef2f7";
+  if(pos){const d=pos==="h"?-1:1,tx=x+d*6.5;v+=`<path d="M${tx} 11 L${tx-d*4} 7.5 L${tx-d*4} 14.5Z" fill="#ffcf7a"/>`;}
+  v+=`<ellipse cx="${x}" cy="11" rx="4.2" ry="3" fill="#8b5a2b" stroke="${F.rz?"#ff6b6b":"#ffcf7a"}" stroke-width="1.2"/>`;}
+ v+=`</svg>`;const lb=(ab,me)=>`<b class="${me?"fpo":""}">${me?"🏈":""}${esc(ab)}</b>`;
+ const ttl=x==null?"Ball position not available right now":`${pos?(pos==="h"?hab:aab)+" ball · ":""}${F.dd||F.pt||""}`;
+ return `<span class="fp" title="${esc(ttl)}">${lb(aab,pos==="a")}${v}${lb(hab,pos==="h")}</span>`}catch(e){return""}}
 async function fetchGames(){const G={},errs=[];
  try{const SBC={};for(const v of Object.values(CFB)){const dt=v[2]||"20261017";if(!SBC[dt])SBC[dt]=getJSON(`https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?dates=${dt}&limit=300&groups=80`,"ESPN");}
   for(const[k,[home,away,dt]]of Object.entries(CFB)){G[k]=null;const sb=await SBC[dt||"20261017"];
@@ -91,7 +111,7 @@ async function fetchGames(){const G={},errs=[];
     if(t.home.team.displayName.startsWith(home)&&t.away.team.displayName.startsWith(away)){const s=c.status;
      const nm=s.type.name||"";let state=s.type.state,detail=s.type.shortDetail;if(/POSTPONED|CANCEL|FORFEIT/.test(nm))state="void";
      if(state==="pre"){const gt=new Date(c.date||e.date);if(!isNaN(gt))detail=`${fmt(gt,"America/Los_Angeles")} PT`;}
-     G[k]={start:new Date(c.date||e.date).getTime(),state,detail,h:+(t.home.score||0),a:+(t.away.score||0),hab:t.home.team.abbreviation,aab:t.away.team.abbreviation,eid:e.id,lg:"football/leagues/college-football",per:s.period,clk:s.displayClock||"",nm,hl:t.home.linescores&&t.home.linescores.length?t.home.linescores:null,al:t.away.linescores&&t.away.linescores.length?t.away.linescores:null};break;}}
+     G[k]={start:new Date(c.date||e.date).getTime(),state,detail,h:+(t.home.score||0),a:+(t.away.score||0),hab:t.home.team.abbreviation,aab:t.away.team.abbreviation,eid:e.id,lg:"football/leagues/college-football",fb:fbSit(c,t),per:s.period,clk:s.displayClock||"",nm,hl:t.home.linescores&&t.home.linescores.length?t.home.linescores:null,al:t.away.linescores&&t.away.linescores.length?t.away.linescores:null};break;}}
    if(!G[k])errs.push(`ESPN: ${away} @ ${home} not found`);}
  }catch(e){errs.push("ESPN scores failed: "+e.message)}
  if(Object.keys(NFL).length)try{const SBN={};for(const v of Object.values(NFL)){const dt=v[2]||"20261018";if(!SBN[dt])SBN[dt]=getJSON(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=${dt}`,"ESPN NFL");}
@@ -99,7 +119,7 @@ async function fetchGames(){const G={},errs=[];
    for(const e of sb.events||[]){const c=e.competitions[0],t={};c.competitors.forEach(x=>t[x.homeAway]=x);
     if(t.home.team.displayName===home&&t.away.team.displayName===away){const s=c.status,nm=s.type.name||"";let state=s.type.state,detail=s.type.shortDetail;if(/POSTPONED|CANCEL|FORFEIT/.test(nm))state="void";
      const gt=new Date(c.date||e.date);if(state==="pre"&&!isNaN(gt)){const nd=pday(gt)!==pday(new Date())?wday(gt)+" ":"";detail=`${nd}${fmt(gt,"America/Los_Angeles")} PT`;}
-     G[k]={start:gt.getTime(),state,detail,h:+(t.home.score||0),a:+(t.away.score||0),hab:t.home.team.abbreviation,aab:t.away.team.abbreviation,eid:e.id,lg:"football/leagues/nfl",per:s.period,clk:s.displayClock||""};break;}}
+     G[k]={start:gt.getTime(),state,detail,h:+(t.home.score||0),a:+(t.away.score||0),hab:t.home.team.abbreviation,aab:t.away.team.abbreviation,eid:e.id,lg:"football/leagues/nfl",fb:fbSit(c,t),per:s.period,clk:s.displayClock||""};break;}}
    if(!G[k])errs.push(`ESPN: ${away} @ ${home} not found`);}
  }catch(e){errs.push("ESPN NFL scores failed: "+e.message)}
  const MLBG=Object.keys(MLBD).length?MLBD:{MLB:[114,139,"2026-10-17",849816]};
@@ -255,7 +275,7 @@ function card(t){const c=RC[t.roll]||"#5b6575",n=t.legs.length,kind=n>1?`${n}-le
  const mlb=t.PS&&!t.PS.ok?`<div class="note">${t.PS.bad?"⚠️ Listed pitcher didn't start: "+esc(t.PS.bad)+". Should be no action, check BetOnline":"Voids if "+esc(t.PS.names)+" doesn't start"}</div>`:"";
  return `<div class="card" style="border-left-color:${c}"><div class="top"><div><div class="bet">${m(t.stake)} bet <span style="font-size:13px;color:#8b97a8;font-weight:600">· ${kind}</span></div>
  <div class="roll" style="color:${c}">${rl}</div></div><div>${t.roll==="DEAD"?`<div class="pay" style="color:#ff6b6b">Lost ${m(t.stake)}</div>${t.towin!=null?`<div class="ret">would have won $${t.towin.toFixed(2)}</div>`:""}`:t.roll==="PUSH"?`<div class="pay" style="color:#f0b429">Refunded ${m(t.stake)}</div>`:`<div class="pay">${t.roll==="CASHED"?"Cashed":t.reduced?"Now wins":"Wins"} ${t.reduced?"~":""}$${t.towin.toFixed(2)}${t.reduced?(t.unk?" (void leg; BetOnline sets the payout)":" (push)"):""}</div><div class="ret">${t.reduced?`was $${t.orig.toFixed(2)} · `:""}returns $${(t.stake+t.towin).toFixed(2)}</div>`}</div></div>`+
- t.legs.map(l=>{const mt=legMeter(l);return `<div class="leg${mt?" lgm":""}">${mt}<div class="need">${esc(l.needs)}</div><div class="live"><span class="pill" style="background:${COL[l.status]}">${l.status==="WON"&&l.spec&&l.spec.type==="sp"?"COVERED":LAB[l.status]}</span><span class="score">${esc(l.score)}</span></div>${l.status!=="NS"&&l.status!=="NA"?`<div class="tx"><span class="tt">${esc(l.text)}</span>${oddsTag(l)}</div>`:""}${preTag(l)}${propRef(l)}${paceBlock(l)}</div>`}).join("")+mlb+`</div>`}
+ (()=>{const seen=new Set();return t.legs.map(l=>{const mt=legMeter(l),fp=seen.has(l.game)?"":fieldPos(LASTG[l.game]);if(fp)seen.add(l.game);return `<div class="leg${mt?" lgm":""}">${mt}<div class="need">${esc(l.needs)}</div><div class="live"><span class="pill" style="background:${COL[l.status]}">${l.status==="WON"&&l.spec&&l.spec.type==="sp"?"COVERED":LAB[l.status]}</span><span class="score">${esc(l.score)}</span>${fp}</div>${l.status!=="NS"&&l.status!=="NA"?`<div class="tx"><span class="tt">${esc(l.text)}</span>${oddsTag(l)}</div>`:""}${preTag(l)}${propRef(l)}${paceBlock(l)}</div>`}).join("")})()+mlb+`</div>`}
 let PRE=(()=>{try{return JSON.parse(localStorage.getItem("pre_lines")||"{}")}catch(e){return{}}})(),LASTG={};
 function preTag(l){if(SETTLED.has(l.status)||l.status==="NA")return"";const g=LASTG[l.game],sp=l.spec;if(!g||!g.eid||!sp)return"";const P=PRE[g.eid];if(!P)return"";
  const started=g.state!=="pre",nw=started?(P.close||P.now):P.now,n=v=>(v>0?"+":"")+v;
