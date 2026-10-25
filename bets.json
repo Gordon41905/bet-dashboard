@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-24.17",
+  "version": "2026-10-25.1",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -176,6 +176,16 @@
     "ATL1025": [
       "Atlanta Falcons",
       "San Francisco 49ers",
+      "20261025"
+    ],
+    "BAL1025": [
+      "Baltimore Ravens",
+      "Cincinnati Bengals",
+      "20261025"
+    ],
+    "SEA1025": [
+      "Seattle Seahawks",
+      "Kansas City Chiefs",
       "20261025"
     ]
   },
@@ -2695,6 +2705,89 @@
           "odds": null,
           "ou": "u",
           "line": 50.5
+        }
+      ]
+    },
+    {
+      "sport": "NFL",
+      "stake": 22.0,
+      "towin": 133.32,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "DET1025",
+          "needs": "Packers win, or lose by 3 or fewer (+3½ at Lions)",
+          "odds": -105,
+          "side": "a",
+          "line": 3.5,
+          "lab": "GB"
+        },
+        {
+          "type": "sp",
+          "game": "BAL1025",
+          "needs": "Bengals win by 4 or more (at Ravens; by exactly 3 = push)",
+          "odds": -105,
+          "side": "a",
+          "line": -3.0,
+          "lab": "CIN"
+        },
+        {
+          "type": "sp",
+          "game": "SEA1025",
+          "needs": "Chiefs win, or lose by 2 or fewer (+3 at Seahawks; lose by exactly 3 = push)",
+          "odds": -119,
+          "side": "a",
+          "line": 3.0,
+          "lab": "KC"
+        }
+      ]
+    },
+    {
+      "sport": "NFL",
+      "stake": 22.0,
+      "towin": 56.98,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "BAL1025",
+          "needs": "Bengals win by 4 or more (at Ravens; by exactly 3 = push)",
+          "odds": -105,
+          "side": "a",
+          "line": -3.0,
+          "lab": "CIN"
+        },
+        {
+          "type": "sp",
+          "game": "SEA1025",
+          "needs": "Chiefs win, or lose by 2 or fewer (+3 at Seahawks; lose by exactly 3 = push)",
+          "odds": -119,
+          "side": "a",
+          "line": 3.0,
+          "lab": "KC"
+        }
+      ]
+    },
+    {
+      "sport": "NFL",
+      "stake": 22.0,
+      "towin": 57.2,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "ATL1025",
+          "needs": "49ers win by 3 or more (at Falcons)",
+          "odds": null,
+          "side": "a",
+          "line": -2.5,
+          "lab": "SF"
+        },
+        {
+          "type": "tot",
+          "game": "ATL1025",
+          "needs": "49 or fewer total points, 49ers + Falcons",
+          "odds": null,
+          "ou": "u",
+          "line": 49.5
         }
       ]
     }
