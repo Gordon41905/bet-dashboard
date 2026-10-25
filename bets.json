@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-25.1",
+  "version": "2026-10-25.2",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -2790,6 +2790,70 @@
           "line": 49.5
         }
       ]
+    },
+    {
+      "sport": "NFL",
+      "stake": 22.0,
+      "towin": 55.0,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "SEA1025",
+          "needs": "Chiefs win, or lose by 3 or fewer (+3½ at Seahawks)",
+          "odds": null,
+          "side": "a",
+          "line": 3.5,
+          "lab": "KC"
+        },
+        {
+          "type": "tot",
+          "game": "SEA1025",
+          "needs": "44 or more total points, Chiefs + Seahawks",
+          "odds": null,
+          "ou": "o",
+          "line": 43.5
+        }
+      ]
+    },
+    {
+      "sport": "NFL",
+      "stake": 33.0,
+      "towin": 26.19,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "SEA1025",
+          "needs": "Seahawks win by 3 or more (vs Chiefs)",
+          "odds": -126,
+          "side": "h",
+          "line": -2.5,
+          "lab": "SEA"
+        }
+      ]
+    },
+    {
+      "sport": "NBA",
+      "stake": 33.0,
+      "towin": 75.57,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "BKN1025",
+          "needs": "Pacers win by 6 or more (at Nets)",
+          "odds": -121,
+          "side": "a",
+          "line": -5.5,
+          "lab": "IND"
+        },
+        {
+          "type": "ml",
+          "game": "PHI1025",
+          "needs": "Pistons beat the 76ers (at Philadelphia)",
+          "odds": -125,
+          "side": "a",
+          "lab": "DET"
+        }
+      ]
     }
   ],
   "futures": [
@@ -2906,6 +2970,14 @@
     "SAC1023": [
       "401909852",
       "2026-10-23"
+    ],
+    "BKN1025": [
+      "401909862",
+      "2026-10-25"
+    ],
+    "PHI1025": [
+      "401909866",
+      "2026-10-25"
     ]
   },
   "mma_games": {
