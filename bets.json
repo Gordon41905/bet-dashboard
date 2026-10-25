@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-25.2",
+  "version": "2026-10-25.3",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -187,6 +187,11 @@
       "Seattle Seahawks",
       "Kansas City Chiefs",
       "20261025"
+    ],
+    "PHI1026": [
+      "Philadelphia Eagles",
+      "Dallas Cowboys",
+      "20261026"
     ]
   },
   "tickets": [
@@ -2852,6 +2857,31 @@
           "odds": -125,
           "side": "a",
           "lab": "DET"
+        }
+      ]
+    },
+    {
+      "sport": "NFL",
+      "stake": 33.0,
+      "towin": 84.48,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "SEA1025",
+          "needs": "Chiefs win, or lose by 2 or fewer (+3 at Seahawks; lose by exactly 3 = push)",
+          "odds": -115,
+          "side": "a",
+          "line": 3.0,
+          "lab": "KC"
+        },
+        {
+          "type": "sp",
+          "game": "PHI1026",
+          "needs": "Cowboys win by 5 or more (at Eagles, Mon night)",
+          "odds": -110,
+          "side": "a",
+          "line": -4.5,
+          "lab": "DAL"
         }
       ]
     }
