@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-24.15",
+  "version": "2026-10-24.16",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -152,6 +152,21 @@
       "Chicago Bears",
       "New England Patriots",
       "20261022"
+    ],
+    "MIN1025": [
+      "Minnesota Vikings",
+      "Indianapolis Colts",
+      "20261025"
+    ],
+    "TEN1025": [
+      "Tennessee Titans",
+      "Cleveland Browns",
+      "20261025"
+    ],
+    "NO1025": [
+      "New Orleans Saints",
+      "Pittsburgh Steelers",
+      "20261025"
     ]
   },
   "tickets": [
@@ -2526,6 +2541,101 @@
           "side": "a",
           "line": -2.5,
           "lab": "GAST"
+        }
+      ]
+    },
+    {
+      "sport": "NFL",
+      "stake": 22.0,
+      "towin": 19.47,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "MIN1025",
+          "needs": "Vikings win by 7 or more (vs Colts)",
+          "odds": -113,
+          "side": "h",
+          "line": -6.5,
+          "lab": "MIN"
+        }
+      ]
+    },
+    {
+      "sport": "NFL",
+      "stake": 22.0,
+      "towin": 16.3,
+      "legs": [
+        {
+          "type": "ml",
+          "game": "TEN1025",
+          "needs": "Browns beat the Titans",
+          "odds": -135,
+          "side": "a",
+          "lab": "CLE"
+        }
+      ]
+    },
+    {
+      "sport": "NFL",
+      "stake": 22.0,
+      "towin": 47.52,
+      "legs": [
+        {
+          "type": "ml",
+          "game": "TEN1025",
+          "needs": "Browns beat the Titans",
+          "odds": -135,
+          "side": "a",
+          "lab": "CLE"
+        },
+        {
+          "type": "sp",
+          "game": "MIN1025",
+          "needs": "Vikings win by 7 or more (vs Colts; by exactly 6 = push)",
+          "odds": -123,
+          "side": "h",
+          "line": -6.0,
+          "lab": "MIN"
+        }
+      ]
+    },
+    {
+      "sport": "NFL",
+      "stake": 11.0,
+      "towin": 25.74,
+      "legs": [
+        {
+          "type": "tot",
+          "game": "NO1025",
+          "needs": "44 or more total points, Steelers + Saints (Paris)",
+          "odds": -110,
+          "ou": "o",
+          "line": 43.5
+        },
+        {
+          "type": "sp",
+          "game": "NO1025",
+          "needs": "Saints win, or lose by 3 or fewer (+3½ vs Steelers, Paris)",
+          "odds": -133,
+          "side": "h",
+          "line": 3.5,
+          "lab": "NO"
+        }
+      ]
+    },
+    {
+      "sport": "NFL",
+      "stake": 88.0,
+      "towin": 66.17,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "NO1025",
+          "needs": "Saints win, or lose by 3 or fewer (+3½ vs Steelers, Paris)",
+          "odds": -133,
+          "side": "h",
+          "line": 3.5,
+          "lab": "NO"
         }
       ]
     }
