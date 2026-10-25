@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-24.14",
+  "version": "2026-10-24.15",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -2423,8 +2423,9 @@
           "game": "WS2",
           "needs": "Junior Caminero (TB) gets 1 or more hits (over 0.5)",
           "odds": null,
-          "ntxt": "player hits not tracked — check BetOnline",
-          "lab": "Caminero"
+          "ntxt": "Caminero singled in the 1st inning (1-for-4), hit over 0.5 won",
+          "lab": "Caminero",
+          "nres": "WON"
         },
         {
           "type": "sp",
