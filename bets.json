@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-25.4",
+  "version": "2026-10-25.5",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -2956,6 +2956,120 @@
           "lab": "PHI"
         }
       ]
+    },
+    {
+      "sport": "MLB",
+      "stake": 22.0,
+      "towin": 55.22,
+      "pitchers": {
+        "game": "WS3",
+        "a": "R. Gasser",
+        "h": "F. Peralta"
+      },
+      "legs": [
+        {
+          "type": "tot",
+          "game": "WS3",
+          "needs": "8 or more total runs, Brewers + Rays (exactly 7 = push)",
+          "odds": -116,
+          "ou": "o",
+          "line": 7.0
+        },
+        {
+          "type": "ml",
+          "game": "WS3",
+          "needs": "Rays beat the Brewers (World Series Game 3, at Tampa Bay)",
+          "odds": -113,
+          "side": "h",
+          "lab": "TB"
+        }
+      ]
+    },
+    {
+      "sport": "MLB",
+      "stake": 22.0,
+      "towin": 55.22,
+      "pitchers": {
+        "game": "WS3",
+        "a": "R. Gasser",
+        "h": "F. Peralta"
+      },
+      "legs": [
+        {
+          "type": "tot",
+          "game": "WS3",
+          "needs": "8 or more total runs, Brewers + Rays (exactly 7 = push)",
+          "odds": -116,
+          "ou": "o",
+          "line": 7.0
+        },
+        {
+          "type": "ml",
+          "game": "WS3",
+          "needs": "Rays beat the Brewers (World Series Game 3, at Tampa Bay)",
+          "odds": -113,
+          "side": "h",
+          "lab": "TB"
+        }
+      ]
+    },
+    {
+      "sport": "MLB",
+      "stake": 22.0,
+      "towin": 55.44,
+      "pitchers": {
+        "game": "WS3",
+        "a": "R. Gasser",
+        "h": "F. Peralta"
+      },
+      "legs": [
+        {
+          "type": "ml",
+          "game": "WS3",
+          "needs": "Rays beat the Brewers (World Series Game 3, at Tampa Bay)",
+          "odds": -113,
+          "side": "h",
+          "lab": "TB"
+        },
+        {
+          "type": "sp",
+          "game": "PHI1026",
+          "needs": "Cowboys win by 5 or more (at Eagles, Mon night)",
+          "odds": -115,
+          "side": "a",
+          "line": -4.5,
+          "lab": "DAL"
+        }
+      ]
+    },
+    {
+      "sport": "MLB",
+      "stake": 22.0,
+      "towin": 55.44,
+      "pitchers": {
+        "game": "WS3",
+        "a": "R. Gasser",
+        "h": "F. Peralta"
+      },
+      "legs": [
+        {
+          "type": "ml",
+          "game": "WS3",
+          "needs": "Rays beat the Brewers (World Series Game 3, at Tampa Bay)",
+          "odds": -113,
+          "side": "h",
+          "lab": "TB"
+        },
+        {
+          "type": "sp",
+          "game": "PHI1026",
+          "needs": "Cowboys win by 5 or more (at Eagles, Mon night)",
+          "odds": -115,
+          "side": "a",
+          "line": -4.5,
+          "lab": "DAL"
+        }
+      ]
     }
   ],
   "futures": [
@@ -3000,6 +3114,12 @@
       139,
       "2026-10-24",
       849802
+    ],
+    "WS3": [
+      139,
+      158,
+      "2026-10-26",
+      849804
     ]
   },
   "soc_games": {
