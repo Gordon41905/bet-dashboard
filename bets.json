@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-25.3",
+  "version": "2026-10-25.4",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -2882,6 +2882,78 @@
           "side": "a",
           "line": -4.5,
           "lab": "DAL"
+        }
+      ]
+    },
+    {
+      "sport": "NFL",
+      "stake": 22.0,
+      "towin": 20.0,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "SEA1025",
+          "needs": "Seahawks win by 4 or more (live -3; by exactly 3 = push)",
+          "odds": -110,
+          "side": "h",
+          "line": -3.0,
+          "lab": "SEA"
+        }
+      ]
+    },
+    {
+      "sport": "NFL",
+      "stake": 22.0,
+      "towin": 19.13,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "SEA1025",
+          "needs": "Seahawks win by 4 or more (live -3½)",
+          "odds": -115,
+          "side": "h",
+          "line": -3.5,
+          "lab": "SEA"
+        }
+      ]
+    },
+    {
+      "sport": "NFL",
+      "stake": 11.0,
+      "towin": 25.52,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "SEA1025",
+          "needs": "Seahawks win by 3 or more (vs Chiefs)",
+          "odds": -135,
+          "side": "h",
+          "line": -2.5,
+          "lab": "SEA"
+        },
+        {
+          "type": "tot",
+          "game": "SEA1025",
+          "needs": "44 or more total points, Chiefs + Seahawks",
+          "odds": -110,
+          "ou": "o",
+          "line": 43.5
+        }
+      ]
+    },
+    {
+      "sport": "NBA",
+      "stake": 11.0,
+      "towin": 9.57,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "PHI1025",
+          "needs": "76ers win, or lose by 10 or fewer (live +10½ vs Pistons)",
+          "odds": -115,
+          "side": "h",
+          "line": 10.5,
+          "lab": "PHI"
         }
       ]
     }
