@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-25.5",
+  "version": "2026-10-26.1",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -3070,6 +3070,82 @@
           "lab": "DAL"
         }
       ]
+    },
+    {
+      "sport": "NBA",
+      "stake": 33.0,
+      "towin": 109.89,
+      "legs": [
+        {
+          "type": "tot",
+          "game": "DEN1026",
+          "needs": "Warriors-Nuggets total under 236.5 (236 or fewer)",
+          "odds": null,
+          "ou": "u",
+          "line": 236.5,
+          "lab": "U236.5"
+        },
+        {
+          "type": "prop",
+          "game": "DEN1026",
+          "needs": "Jokic (DEN) under 26.5 points (26 or fewer)",
+          "odds": null,
+          "aid": "3112335",
+          "ou": "u",
+          "line": 26.5,
+          "lab": "Jokic"
+        },
+        {
+          "type": "sp",
+          "game": "DEN1026",
+          "needs": "Nuggets win by 7 or more (vs Warriors, at Denver)",
+          "odds": null,
+          "side": "h",
+          "line": -6.5,
+          "lab": "DEN"
+        }
+      ]
+    },
+    {
+      "sport": "NBA",
+      "stake": 44.0,
+      "towin": 107.36,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "DEN1026",
+          "needs": "Nuggets win by 7 or more (bought from -6, at Denver)",
+          "odds": -124,
+          "side": "h",
+          "line": -6.5,
+          "lab": "DEN"
+        },
+        {
+          "type": "tot",
+          "game": "DEN1026",
+          "needs": "Warriors-Nuggets total under 236 (exactly 236 pushes)",
+          "odds": -110,
+          "ou": "u",
+          "line": 236.0,
+          "lab": "U236"
+        }
+      ]
+    },
+    {
+      "sport": "NFL",
+      "stake": 25.0,
+      "towin": 21.55,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "PHI1026",
+          "needs": "Cowboys win by 5 or more (at Eagles, Mon night)",
+          "odds": -116,
+          "side": "a",
+          "line": -4.5,
+          "lab": "DAL"
+        }
+      ]
     }
   ],
   "futures": [
@@ -3200,6 +3276,10 @@
     "PHI1025": [
       "401909866",
       "2026-10-25"
+    ],
+    "DEN1026": [
+      "401909876",
+      "2026-10-26"
     ]
   },
   "mma_games": {
