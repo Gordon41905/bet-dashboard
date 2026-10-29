@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-29.1",
+  "version": "2026-10-29.2",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -100,6 +100,11 @@
       "Oklahoma State",
       "Colorado",
       "20261024"
+    ],
+    "UNT1029": [
+      "North Texas",
+      "Florida Atlantic",
+      "20261029"
     ]
   },
   "nfl_games": {
@@ -192,6 +197,11 @@
       "Philadelphia Eagles",
       "Dallas Cowboys",
       "20261026"
+    ],
+    "GB1029": [
+      "Green Bay Packers",
+      "Carolina Panthers",
+      "20261029"
     ]
   },
   "tickets": [
@@ -3354,6 +3364,72 @@
           "side": "a",
           "line": -1.5,
           "lab": "MIL -1.5"
+        }
+      ]
+    },
+    {
+      "sport": "CFB",
+      "stake": 11.0,
+      "towin": 30.25,
+      "legs": [
+        {
+          "type": "tot",
+          "game": "UNT1029",
+          "needs": "Florida Atlantic-North Texas total under 78.5 (78 or fewer)",
+          "odds": null,
+          "ou": "u",
+          "line": 78.5,
+          "lab": "U78.5"
+        },
+        {
+          "type": "sp",
+          "game": "UNT1029",
+          "needs": "Florida Atlantic wins, or loses by 13 or fewer (at North Texas)",
+          "odds": null,
+          "side": "a",
+          "line": 13.5,
+          "lab": "FAU"
+        }
+      ]
+    },
+    {
+      "sport": "NFL",
+      "stake": 77.0,
+      "towin": 187.11,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "GB1029",
+          "needs": "Packers win by 4 or more (bought from -3½; win by exactly 3 = push)",
+          "odds": -130,
+          "side": "h",
+          "line": -3.0,
+          "lab": "GB"
+        },
+        {
+          "type": "tot",
+          "game": "GB1029",
+          "needs": "Panthers-Packers total over 47 (exactly 47 pushes)",
+          "odds": -106,
+          "ou": "o",
+          "line": 47.0,
+          "lab": "O47"
+        }
+      ]
+    },
+    {
+      "sport": "NFL",
+      "stake": 20.0,
+      "towin": 19.05,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "GB1029",
+          "needs": "Packers win by 4 or more (vs Panthers, Thu night)",
+          "odds": -105,
+          "side": "h",
+          "line": -3.5,
+          "lab": "GB"
         }
       ]
     }
