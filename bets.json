@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-26.1",
+  "version": "2026-10-29.1",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -3146,6 +3146,216 @@
           "lab": "DAL"
         }
       ]
+    },
+    {
+      "sport": "NBA",
+      "stake": 11.0,
+      "towin": 28.38,
+      "settled": "2026-10-28",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "DET1028",
+          "needs": "Hornets win, or lose by 7 or fewer (at Pistons)",
+          "odds": -113,
+          "side": "a",
+          "line": 7.5,
+          "lab": "CHA"
+        },
+        {
+          "type": "tot",
+          "game": "DET1028",
+          "needs": "Hornets-Pistons total under 213.5 (213 or fewer)",
+          "odds": -111,
+          "ou": "u",
+          "line": 213.5,
+          "lab": "U213.5"
+        }
+      ]
+    },
+    {
+      "sport": "NBA",
+      "stake": 11.0,
+      "towin": 24.42,
+      "settled": "2026-10-28",
+      "legs": [
+        {
+          "type": "ml",
+          "game": "IND1028",
+          "needs": "Pacers beat the 76ers (at Indiana)",
+          "odds": 222,
+          "side": "h",
+          "lab": "IND"
+        }
+      ]
+    },
+    {
+      "sport": "MLB",
+      "stake": 55.0,
+      "towin": 39.29,
+      "settled": "2026-10-28",
+      "pitchers": {
+        "game": "WS5",
+        "a": "J. Misiorowski",
+        "h": "D. Rasmussen"
+      },
+      "legs": [
+        {
+          "type": "ml",
+          "game": "WS5",
+          "needs": "Brewers beat the Rays (World Series Game 5, at Tampa Bay)",
+          "odds": -140,
+          "side": "a",
+          "lab": "MIL"
+        }
+      ]
+    },
+    {
+      "sport": "MLB",
+      "stake": 44.0,
+      "towin": 106.92,
+      "settled": "2026-10-28",
+      "pitchers": {
+        "game": "WS5",
+        "a": "J. Misiorowski",
+        "h": "D. Rasmussen"
+      },
+      "legs": [
+        {
+          "type": "ml",
+          "game": "WS5",
+          "needs": "Brewers beat the Rays (World Series Game 5, at Tampa Bay)",
+          "odds": -140,
+          "side": "a",
+          "lab": "MIL"
+        },
+        {
+          "type": "tot",
+          "game": "WS5",
+          "needs": "Brewers-Rays over 6.5 runs",
+          "odds": 100,
+          "ou": "o",
+          "line": 6.5,
+          "lab": "O6.5"
+        }
+      ]
+    },
+    {
+      "sport": "MLB",
+      "stake": 22.0,
+      "towin": 16.3,
+      "settled": "2026-10-27",
+      "legs": [
+        {
+          "type": "nt",
+          "game": "WS4",
+          "needs": "Live: first 5 innings over 3.5 runs",
+          "odds": null,
+          "ntxt": "Live: first 5 innings over 3.5 runs won",
+          "nres": "WON",
+          "lab": "F5 O3.5"
+        }
+      ]
+    },
+    {
+      "sport": "MLB",
+      "stake": 22.0,
+      "towin": 20.0,
+      "settled": "2026-10-27",
+      "legs": [
+        {
+          "type": "nt",
+          "game": "WS4",
+          "needs": "Live: first 7 innings over 5.5 runs",
+          "odds": null,
+          "ntxt": "Live: first 7 innings over 5.5 runs lost",
+          "nres": "LOST",
+          "lab": "F7 O5.5"
+        }
+      ]
+    },
+    {
+      "sport": "MLB",
+      "stake": 33.0,
+      "towin": 99.0,
+      "settled": "2026-10-27",
+      "pitchers": {
+        "game": "WS4",
+        "a": "D. May",
+        "h": "G. Jax"
+      },
+      "legs": [
+        {
+          "type": "sp",
+          "game": "WS4",
+          "needs": "Brewers win by 2 or more (at Tampa Bay)",
+          "odds": null,
+          "side": "a",
+          "line": -1.5,
+          "lab": "MIL -1.5"
+        },
+        {
+          "type": "tot",
+          "game": "WS4",
+          "needs": "Brewers-Rays over 7.5 runs",
+          "odds": null,
+          "ou": "o",
+          "line": 7.5,
+          "lab": "O7.5"
+        }
+      ]
+    },
+    {
+      "sport": "MLB",
+      "stake": 22.0,
+      "towin": 60.94,
+      "settled": "2026-10-27",
+      "pitchers": {
+        "game": "WS4",
+        "a": "D. May",
+        "h": "G. Jax"
+      },
+      "legs": [
+        {
+          "type": "ml",
+          "game": "WS4",
+          "needs": "Brewers beat the Rays (World Series Game 4, at Tampa Bay)",
+          "odds": -113,
+          "side": "a",
+          "lab": "MIL"
+        },
+        {
+          "type": "tot",
+          "game": "WS4",
+          "needs": "Brewers-Rays over 7.5 runs",
+          "odds": 100,
+          "ou": "o",
+          "line": 7.5,
+          "lab": "O7.5"
+        }
+      ]
+    },
+    {
+      "sport": "MLB",
+      "stake": 22.0,
+      "towin": 32.56,
+      "settled": "2026-10-27",
+      "pitchers": {
+        "game": "WS4",
+        "a": "D. May",
+        "h": "G. Jax"
+      },
+      "legs": [
+        {
+          "type": "sp",
+          "game": "WS4",
+          "needs": "Brewers win by 2 or more (at Tampa Bay)",
+          "odds": 148,
+          "side": "a",
+          "line": -1.5,
+          "lab": "MIL -1.5"
+        }
+      ]
     }
   ],
   "futures": [
@@ -3196,6 +3406,18 @@
       158,
       "2026-10-26",
       849804
+    ],
+    "WS4": [
+      139,
+      158,
+      "2026-10-27",
+      849803
+    ],
+    "WS5": [
+      139,
+      158,
+      "2026-10-28",
+      849799
     ]
   },
   "soc_games": {
@@ -3280,6 +3502,14 @@
     "DEN1026": [
       "401909876",
       "2026-10-26"
+    ],
+    "DET1028": [
+      "401909883",
+      "2026-10-28"
+    ],
+    "IND1028": [
+      "401909884",
+      "2026-10-28"
     ]
   },
   "mma_games": {
