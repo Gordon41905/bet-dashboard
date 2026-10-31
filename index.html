@@ -67,6 +67,10 @@ const sp1h=(game,side,line,lab)=>({game,f:g=>{const s12=a=>a.filter(x=>x.period<
   if(done)return cov>0?["WON",`${lab} covered the 1st half (${sc} at halftime)`]:cov===0?["PUSH",`Exactly on the number at halftime (${sc})`]:["LOST",`${lab} ${sc} at halftime, short of the 1st-half line`];
   const lead=mg>0?"up "+mg:mg<0?"down "+(-mg):"tied";
   return cov>0?["WIN",`1st half: ${lab} ${lead} (${sc}), winning by ${cov} against the spread`]:cov===0?["PUSHING",`1st half: ${lab} ${lead} (${sc}), exactly on the push number`]:["LOSE",`1st half: ${lab} ${lead} (${sc}), needs ${Math.floor(-cov)+1} more pts`];}});
+const ttot=(game,side,ou,line,lab)=>({game,f:g=>{const T=side==="h"?g.h:g.a,fin=g.state==="post";
+  if(ou==="o"){if(T>line)return fin?["WON",`${lab} scored ${T}`]:["WIN",`${lab} has ${T}, team total over already hit. You've won that bet and it will cash when the game ends`];
+    if(fin)return[T===line?"PUSH":"LOST",`${lab} scored ${T}`];return["LOSE",`${lab} has ${T} so far, needs ${Math.floor(line)+1-T} more`];}
+  if(T>line)return["LOST",`${lab} has ${T}, went over ${line}`];if(fin)return[T===line?"PUSH":"WON",`${lab} scored ${T}`];return["WIN",`${lab} has ${T} so far, ${(Number.isInteger(line)?line-1:Math.floor(line))-T} points of room left`];}});
 const tot=(game,ou,line)=>({game,f:g=>{const T=g.h+g.a;
   if(ou==="o"){const tgt=Math.floor(line)+1;if(T>line)return g.state==="post"?["WON",`Total ended ${T}`]:["WIN",`${T} ${g.mlb?"runs":"points"}, over already hit. You've won that bet and it will cash when the game ends`];
     if(g.state==="post")return[T===line?"PUSH":"LOST",`Total ended ${T}`];return["LOSE",`${T} so far, needs ${tgt-T} more`];}
@@ -81,13 +85,13 @@ const L=(o,needs,odds)=>Object.assign(o,{needs,odds});
 const dec=a=>a>0?1+a/100:1+100/(-a);
 let TICKETS=[],FUTS=[];
 function buildTickets(d){CFB=d.cfb_games||{};NFL=d.nfl_games||{};MLBD=d.mlb_games||{};SOCD=d.soc_games||{};NBAD=d.nba_games||{};MMAD=d.mma_games||{};TICKETS=d.tickets.map(t=>[t.sport,t.stake,t.towin,t.settled||null,t.legs.map(l=>{
- const o=l.type==="ml"?ml(l.game,l.side,l.lab):l.type==="ml1h"?ml1h(l.game,l.side,l.lab):l.type==="sp1h"?sp1h(l.game,l.side,l.line,l.lab):l.type==="sp"?sp(l.game,l.side,l.line,l.lab):l.type==="prop"?prop(l.game,l.aid,l.ou,l.line,l.lab):tot(l.game,l.ou,l.line);return Object.assign(L(o,l.needs,l.odds),{type:l.type,side:l.side,line:l.line,ou:l.ou,lab:l.lab,aid:l.aid,ntxt:l.ntxt,nres:l.nres,pace:!!l.pace})}),t.pitchers||null]);
+ const o=l.type==="ml"?ml(l.game,l.side,l.lab):l.type==="ml1h"?ml1h(l.game,l.side,l.lab):l.type==="sp1h"?sp1h(l.game,l.side,l.line,l.lab):l.type==="ttot"?ttot(l.game,l.side,l.ou,l.line,l.lab):l.type==="sp"?sp(l.game,l.side,l.line,l.lab):l.type==="prop"?prop(l.game,l.aid,l.ou,l.line,l.lab):tot(l.game,l.ou,l.line);return Object.assign(L(o,l.needs,l.odds),{type:l.type,side:l.side,line:l.line,ou:l.ou,lab:l.lab,aid:l.aid,ntxt:l.ntxt,nres:l.nres,pace:!!l.pace})}),t.pitchers||null]);
  FUTS=d.futures||[];
  }
 function futHTML(){return FUTS.length?section("sb","🏈 Super Bowl bets","#9b59ff",FUTS.map(f=>`<div class="card" style="border-left-color:#9b59ff"><div class="top"><div><div class="bet">${m(f.stake)} bet</div><div class="roll" style="color:#b48cff">PENDING · SETTLES FEB 2027</div></div><div><div class="pay">Wins $${f.towin.toFixed(2)}</div><div class="ret">returns $${(f.stake+f.towin).toFixed(2)}</div></div></div><div class="leg"><div class="need">${esc(f.pick)}</div></div></div>`).join(""),FUTS.length):""}
 async function checkVersion(){try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
  if(v&&v!==APP_VERSION){const k="reloaded_"+v;if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,"1");location.replace(location.pathname+"?v="+encodeURIComponent(v));}}}catch(e){}}
-const APP_VERSION="2026-10-31.3";
+const APP_VERSION="2026-10-31.4";
 
 const chip=g=>!g?"score unavailable":g.state==="void"?`${g.aab} @ ${g.hab} · ${g.detail}`:g.state==="pre"?`${g.aab} @ ${g.hab} · ${g.detail}`:`${g.aab} ${g.a} – ${g.hab} ${g.h} · ${g.detail}`;
 async function getJSON(u,label){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error(`${label} HTTP ${r.status}`);return r.json();}
@@ -325,7 +329,7 @@ async function fetchOdds(G){const out={};
  try{localStorage.setItem("pre_lines",JSON.stringify(PRE));localStorage.setItem("line_hist",JSON.stringify(LH))}catch(e){}
  return out;}
 const prob=a=>a<0?(-a)/((-a)+100):100/(a+100);
-function oddsTag(l){const sp=l.spec,O=ODDS[l.game];if(!O||!sp||sp.type==="ml1h"||sp.type==="sp1h"||SETTLED.has(l.status))return"";let txt="",good=null;
+function oddsTag(l){const sp=l.spec,O=ODDS[l.game];if(!O||!sp||sp.type==="ml1h"||sp.type==="sp1h"||sp.type==="ttot"||SETTLED.has(l.status))return"";let txt="",good=null;
  const mk=sp.type==="ml"?O.ml:sp.type==="sp"?O.sp:sp.type==="tot"?O.ou:null;if(!mk)return"";const o={mlh:O.ml?.h,mla:O.ml?.a,hs:O.sp?.hs,ou:O.ou?.v};
  const asof=mk.fresh?"":(()=>{const age=mk.at?Date.now()-mk.at:Infinity;return `<span class="hm">${mk.at?"as of "+new Date(mk.at).toLocaleTimeString("en-US",{timeZone:"America/Los_Angeles",hour:"numeric",minute:"2-digit"}).replace(/\s?[AP]M$/,""):"stale"}<span class="he">${age<=300000?"👻":"💀"}</span></span>`})();
  const team=sp.lab||"";const fmtn=x=>(x>0?"+":"")+x;
