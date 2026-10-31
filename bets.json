@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-31.4",
+  "version": "2026-10-31.5",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -184,6 +184,21 @@
     "UGA1031": [
       "Georgia",
       "Florida",
+      "20261031"
+    ],
+    "ISU1031": [
+      "Iowa State",
+      "Oklahoma State",
+      "20261031"
+    ],
+    "FSU1031": [
+      "Florida State",
+      "Clemson",
+      "20261031"
+    ],
+    "TEX1031": [
+      "Texas",
+      "Mississippi State",
       "20261031"
     ]
   },
@@ -3864,6 +3879,113 @@
           "ou": "o",
           "line": 33.5,
           "lab": "UGA"
+        }
+      ]
+    },
+    {
+      "sport": "CFB",
+      "stake": 11.0,
+      "towin": 29.59,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "FSU1031",
+          "needs": "Florida State wins by 6 or more (-5 vs Clemson; win by exactly 5 = push)",
+          "odds": -107,
+          "side": "h",
+          "line": -5.0,
+          "lab": "FSU"
+        },
+        {
+          "type": "tot",
+          "game": "TEX1031",
+          "needs": "Mississippi State-Texas total under 49½ (49 or fewer)",
+          "odds": -110,
+          "ou": "u",
+          "line": 49.5,
+          "lab": "U49.5"
+        }
+      ]
+    },
+    {
+      "sport": "CFB",
+      "stake": 11.0,
+      "towin": 10.0,
+      "legs": [
+        {
+          "type": "tot",
+          "game": "TEX1031",
+          "needs": "Mississippi State-Texas total under 49½ (49 or fewer)",
+          "odds": -110,
+          "ou": "u",
+          "line": 49.5,
+          "lab": "U49.5"
+        }
+      ]
+    },
+    {
+      "sport": "CFB",
+      "stake": 22.0,
+      "towin": 52.36,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "ISU1031",
+          "needs": "Oklahoma State wins by 10 or more (-9½ at Iowa State)",
+          "odds": -121,
+          "side": "a",
+          "line": -9.5,
+          "lab": "OKST"
+        },
+        {
+          "type": "sp",
+          "game": "FSU1031",
+          "needs": "Florida State wins by 5 or more (-4½ vs Clemson, bought ½)",
+          "odds": -117,
+          "side": "h",
+          "line": -4.5,
+          "lab": "FSU"
+        }
+      ]
+    },
+    {
+      "sport": "CFB",
+      "stake": 33.0,
+      "towin": 79.2,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "FSU1031",
+          "needs": "Florida State wins by 5 or more (-4½ vs Clemson, bought ½)",
+          "odds": -117,
+          "side": "h",
+          "line": -4.5,
+          "lab": "FSU"
+        },
+        {
+          "type": "tot",
+          "game": "FSU1031",
+          "needs": "Clemson-Florida State total under 52 (exactly 52 pushes; bought ½)",
+          "odds": -120,
+          "ou": "u",
+          "line": 52.0,
+          "lab": "U52"
+        }
+      ]
+    },
+    {
+      "sport": "CFB",
+      "stake": 22.0,
+      "towin": 18.8,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "FSU1031",
+          "needs": "Florida State wins by 5 or more (-4½ vs Clemson, bought ½)",
+          "odds": -117,
+          "side": "h",
+          "line": -4.5,
+          "lab": "FSU"
         }
       ]
     }
