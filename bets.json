@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-31.1",
+  "version": "2026-10-31.2",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -3714,6 +3714,31 @@
           "side": "a",
           "line": 3.5,
           "lab": "ARIZ"
+        }
+      ]
+    },
+    {
+      "sport": "CFB",
+      "stake": 11.0,
+      "towin": 27.39,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "SYR1031",
+          "needs": "Syracuse wins, or loses by 9 or fewer (+9 vs SMU; lose by exactly 9 = push)",
+          "odds": -115,
+          "side": "h",
+          "line": 9.0,
+          "lab": "SYR"
+        },
+        {
+          "type": "sp",
+          "game": "NCST1031",
+          "needs": "NC State wins by 10 or more (-9½ vs California)",
+          "odds": -115,
+          "side": "h",
+          "line": -9.5,
+          "lab": "NCSU"
         }
       ]
     }
