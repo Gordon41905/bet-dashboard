@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-31.2",
+  "version": "2026-10-31.3",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -3592,12 +3592,13 @@
       "towin": 20.0,
       "legs": [
         {
-          "type": "nt",
+          "type": "sp1h",
           "game": "NCST1031",
           "needs": "NC State leads California by 6 or more at halftime (1st half -5; exactly 5 pushes)",
           "odds": -110,
-          "ntxt": "1st half spread, NC State -5 (graded at halftime)",
-          "lab": "NCSU 1H"
+          "side": "h",
+          "line": -5.0,
+          "lab": "NCSU"
         }
       ]
     },
