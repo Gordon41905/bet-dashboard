@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-31.3",
+  "version": "2026-10-31.4",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -159,6 +159,31 @@
     "TTU1031": [
       "Texas Tech",
       "Arizona",
+      "20261031"
+    ],
+    "TCU1031": [
+      "TCU",
+      "Kansas",
+      "20261031"
+    ],
+    "LIB1031": [
+      "Liberty",
+      "Florida International",
+      "20261031"
+    ],
+    "ORE1031": [
+      "Oregon",
+      "Northwestern",
+      "20261031"
+    ],
+    "BYU1031": [
+      "BYU",
+      "Arizona State",
+      "20261031"
+    ],
+    "UGA1031": [
+      "Georgia",
+      "Florida",
       "20261031"
     ]
   },
@@ -3740,6 +3765,105 @@
           "side": "h",
           "line": -9.5,
           "lab": "NCSU"
+        }
+      ]
+    },
+    {
+      "sport": "CFB",
+      "stake": 22.0,
+      "towin": 54.12,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "TCU1031",
+          "needs": "TCU wins by 7 or more (-6½ vs Kansas)",
+          "odds": -115,
+          "side": "h",
+          "line": -6.5,
+          "lab": "TCU"
+        },
+        {
+          "type": "sp",
+          "game": "LIB1031",
+          "needs": "Liberty wins by 14 or more (-13½ vs FIU, bought ½)",
+          "odds": -117,
+          "side": "h",
+          "line": -13.5,
+          "lab": "LIB"
+        }
+      ]
+    },
+    {
+      "sport": "CFB",
+      "stake": 11.0,
+      "towin": 28.27,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "ORE1031",
+          "needs": "Oregon wins by 4 or more (-3½ vs Northwestern)",
+          "odds": -120,
+          "side": "h",
+          "line": -3.5,
+          "lab": "ORE"
+        },
+        {
+          "type": "sp",
+          "game": "BYU1031",
+          "needs": "Arizona State wins, or loses by 16 or fewer (+17 at BYU; lose by exactly 17 = push)",
+          "odds": -105,
+          "side": "a",
+          "line": 17.0,
+          "lab": "ASU"
+        }
+      ]
+    },
+    {
+      "sport": "CFB",
+      "stake": 11.0,
+      "towin": 9.57,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "BYU1031",
+          "needs": "Arizona State wins, or loses by 17 or fewer (+17½ at BYU, bought ½)",
+          "odds": -115,
+          "side": "a",
+          "line": 17.5,
+          "lab": "ASU"
+        }
+      ]
+    },
+    {
+      "sport": "CFB",
+      "stake": 9.0,
+      "towin": 7.69,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "LIB1031",
+          "needs": "Liberty wins by 14 or more (-13½ vs FIU, bought ½)",
+          "odds": -117,
+          "side": "h",
+          "line": -13.5,
+          "lab": "LIB"
+        }
+      ]
+    },
+    {
+      "sport": "CFB",
+      "stake": 11.0,
+      "towin": 7.33,
+      "legs": [
+        {
+          "type": "ttot",
+          "game": "UGA1031",
+          "needs": "Georgia scores 34 or more vs Florida (team total over 33½)",
+          "odds": -150,
+          "side": "h",
+          "ou": "o",
+          "line": 33.5,
+          "lab": "UGA"
         }
       ]
     }
