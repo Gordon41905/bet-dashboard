@@ -91,12 +91,12 @@ function buildTickets(d){CFB=d.cfb_games||{};NFL=d.nfl_games||{};MLBD=d.mlb_game
 function futHTML(){return FUTS.length?section("sb","🏈 Super Bowl bets","#9b59ff",FUTS.map(f=>`<div class="card" style="border-left-color:#9b59ff"><div class="top"><div><div class="bet">${m(f.stake)} bet</div><div class="roll" style="color:#b48cff">PENDING · SETTLES FEB 2027</div></div><div><div class="pay">Wins $${f.towin.toFixed(2)}</div><div class="ret">returns $${(f.stake+f.towin).toFixed(2)}</div></div></div><div class="leg"><div class="need">${esc(f.pick)}</div></div></div>`).join(""),FUTS.length):""}
 async function checkVersion(){try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
  if(v&&v!==APP_VERSION){const k="reloaded_"+v;if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,"1");location.replace(location.pathname+"?v="+encodeURIComponent(v));}}}catch(e){}}
-const APP_VERSION="2026-10-31.5";
+const APP_VERSION="2026-10-31.6";
 
 const chip=g=>!g?"score unavailable":g.state==="void"?`${g.aab} @ ${g.hab} · ${g.detail}`:g.state==="pre"?`${g.aab} @ ${g.hab} · ${g.detail}`:`${g.aab} ${g.a} – ${g.hab} ${g.h} · ${g.detail}`;
 async function getJSON(u,label){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error(`${label} HTTP ${r.status}`);return r.json();}
 // Field position (football): snapshot ESPN scoreboard situation. yardLine counts from the HOME goal line; possessionText ("IOWA 23") is preferred.
-function fbSit(c,t){try{const S=c.situation;if(!S)return null;const H=t.home.team,A=t.away.team;return{pid:S.possession!=null?String(S.possession):null,yl:S.yardLine,pt:S.possessionText||null,dd:S.downDistanceText||"",rz:!!S.isRedZone,hid:String(H.id),aid:String(A.id),hc:H.color||"",ac:A.color||"",hac:H.alternateColor||"",aac:A.alternateColor||""}}catch(e){return null}}
+function fbSit(c,t){try{const S=c.situation;if(!S)return null;const H=t.home.team,A=t.away.team;return{pid:S.possession!=null?String(S.possession):(S.lastPlay&&S.lastPlay.end&&S.lastPlay.end.team&&S.lastPlay.end.team.id!=null?String(S.lastPlay.end.team.id):null),yl:S.yardLine,pt:S.possessionText||null,dd:S.downDistanceText||"",rz:!!S.isRedZone,hid:String(H.id),aid:String(A.id),hc:H.color||"",ac:A.color||"",hac:H.alternateColor||"",aac:A.alternateColor||""}}catch(e){return null}}
 function fbCol(c,alt){const ok=x=>/^[0-9a-f]{6}$/i.test(x||"")&&(()=>{const n=parseInt(x,16),r=n>>16,g=n>>8&255,b=n&255;return .299*r+.587*g+.114*b>45})();return ok(c)?"#"+c:ok(alt)?"#"+alt:"#5b6575"}
 function fieldPos(g){try{if(!g||g.state!=="in"||!g.fb||/football/.test(g.lg||"")!==true)return"";const F=g.fb,hab=g.hab,aab=g.aab;
  let y=null;const m=/^\s*([A-Za-z&.'\- ]*?)\s*(\d{1,2})\s*$/.exec(F.pt||"");
