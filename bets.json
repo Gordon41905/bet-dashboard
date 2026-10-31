@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-29.2",
+  "version": "2026-10-30.1",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -105,6 +105,26 @@
       "North Texas",
       "Florida Atlantic",
       "20261029"
+    ],
+    "CLT1030": [
+      "Charlotte",
+      "Tulane",
+      "20261030"
+    ],
+    "UCF1030": [
+      "UCF",
+      "Baylor",
+      "20261030"
+    ],
+    "SAC1030": [
+      "Sacramento State",
+      "Kent State",
+      "20261030"
+    ],
+    "NCST1031": [
+      "NC State",
+      "California",
+      "20261031"
     ]
   },
   "nfl_games": {
@@ -3432,6 +3452,104 @@
           "lab": "GB"
         }
       ]
+    },
+    {
+      "sport": "NBA",
+      "stake": 11.0,
+      "towin": 35.31,
+      "legs": [
+        {
+          "type": "ml",
+          "game": "GSW1030",
+          "needs": "Lakers beat the Warriors (at Golden State)",
+          "odds": -147,
+          "side": "a",
+          "lab": "LAL"
+        },
+        {
+          "type": "sp",
+          "game": "UCF1030",
+          "needs": "Baylor wins by 3 or more (at UCF; win by exactly 2 = push)",
+          "odds": -114,
+          "side": "a",
+          "line": -2.0,
+          "lab": "BAY"
+        },
+        {
+          "type": "ml",
+          "game": "NCST1031",
+          "needs": "NC State beats California (Sat 9:00 AM PT)",
+          "odds": -300,
+          "side": "h",
+          "lab": "NCSU"
+        }
+      ]
+    },
+    {
+      "sport": "NBA",
+      "stake": 11.0,
+      "towin": 9.09,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "MIN1030",
+          "needs": "Clippers win, or lose by 7 or fewer (+7½ at Timberwolves, bought ½)",
+          "odds": -121,
+          "side": "a",
+          "line": 7.5,
+          "lab": "LAC"
+        }
+      ]
+    },
+    {
+      "sport": "CFB",
+      "stake": 11.0,
+      "towin": 9.65,
+      "legs": [
+        {
+          "type": "tot",
+          "game": "CLT1030",
+          "needs": "Tulane-Charlotte total over 47 (exactly 47 pushes)",
+          "odds": -114,
+          "ou": "o",
+          "line": 47.0,
+          "lab": "O47"
+        }
+      ]
+    },
+    {
+      "sport": "CFB",
+      "stake": 11.0,
+      "towin": 62.7,
+      "legs": [
+        {
+          "type": "tot",
+          "game": "CLT1030",
+          "needs": "Tulane-Charlotte total over 47 (exactly 47 pushes)",
+          "odds": -114,
+          "ou": "o",
+          "line": 47.0,
+          "lab": "O47"
+        },
+        {
+          "type": "tot",
+          "game": "UCF1030",
+          "needs": "Baylor-UCF total over 49.5 (50 or more)",
+          "odds": -106,
+          "ou": "o",
+          "line": 49.5,
+          "lab": "O49.5"
+        },
+        {
+          "type": "sp",
+          "game": "SAC1030",
+          "needs": "Sacramento State wins, or loses by 7 or fewer (+7½ vs Kent State, bought ½)",
+          "odds": -121,
+          "side": "h",
+          "line": 7.5,
+          "lab": "SAC"
+        }
+      ]
     }
   ],
   "futures": [
@@ -3586,6 +3704,14 @@
     "IND1028": [
       "401909884",
       "2026-10-28"
+    ],
+    "MIN1030": [
+      "401909284",
+      "2026-10-30"
+    ],
+    "GSW1030": [
+      "401909285",
+      "2026-10-30"
     ]
   },
   "mma_games": {
