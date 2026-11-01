@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-01.1",
+  "version": "2026-11-01.2",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -316,6 +316,11 @@
     "PIT1101": [
       "Pittsburgh Steelers",
       "Cleveland Browns",
+      "20261101"
+    ],
+    "BUF1101": [
+      "Buffalo Bills",
+      "Baltimore Ravens",
       "20261101"
     ]
   },
@@ -4097,6 +4102,31 @@
           "side": "a",
           "line": 12.5,
           "lab": "TEN"
+        }
+      ]
+    },
+    {
+      "sport": "NFL",
+      "stake": 11.0,
+      "towin": 27.28,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "BUF1101",
+          "needs": "Bills win by 4 or more (-3 vs Ravens; win by exactly 3 = push)",
+          "odds": -116,
+          "side": "h",
+          "line": -3.0,
+          "lab": "BUF"
+        },
+        {
+          "type": "tot",
+          "game": "BUF1101",
+          "needs": "Ravens-Bills total over 55 (exactly 55 pushes)",
+          "odds": -115,
+          "ou": "o",
+          "line": 55.0,
+          "lab": "O55"
         }
       ]
     }
