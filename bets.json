@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-31.8",
+  "version": "2026-11-01.1",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -297,6 +297,26 @@
       "Green Bay Packers",
       "Carolina Panthers",
       "20261029"
+    ],
+    "DET1101": [
+      "Detroit Lions",
+      "Minnesota Vikings",
+      "20261101"
+    ],
+    "CIN1101": [
+      "Cincinnati Bengals",
+      "Tennessee Titans",
+      "20261101"
+    ],
+    "NYJ1101": [
+      "New York Jets",
+      "Las Vegas Raiders",
+      "20261101"
+    ],
+    "PIT1101": [
+      "Pittsburgh Steelers",
+      "Cleveland Browns",
+      "20261101"
     ]
   },
   "tickets": [
@@ -3986,6 +4006,97 @@
           "side": "h",
           "line": -4.5,
           "lab": "FSU"
+        }
+      ]
+    },
+    {
+      "sport": "NFL",
+      "stake": 11.0,
+      "towin": 27.5,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "DET1101",
+          "needs": "Vikings lose by 3 or fewer, or win (+3½ at Lions)",
+          "odds": null,
+          "side": "a",
+          "line": 3.5,
+          "lab": "MIN"
+        },
+        {
+          "type": "tot",
+          "game": "DET1101",
+          "needs": "Vikings-Lions total over 45½",
+          "odds": null,
+          "ou": "o",
+          "line": 45.5,
+          "lab": "O45.5"
+        }
+      ]
+    },
+    {
+      "sport": "NFL",
+      "stake": 11.0,
+      "towin": 29.04,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "CIN1101",
+          "needs": "Titans lose by 12 or fewer, or win (+12½ vs Bengals)",
+          "odds": -110,
+          "side": "a",
+          "line": 12.5,
+          "lab": "TEN"
+        },
+        {
+          "type": "tot",
+          "game": "CIN1101",
+          "needs": "Titans-Bengals total under 46½",
+          "odds": -110,
+          "ou": "u",
+          "line": 46.5,
+          "lab": "U46.5"
+        }
+      ]
+    },
+    {
+      "sport": "NFL",
+      "stake": 33.0,
+      "towin": 33.0,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "NYJ1101",
+          "needs": "Raiders win (pick'em at Jets; a tie pushes)",
+          "odds": 100,
+          "side": "a",
+          "line": 0.0,
+          "lab": "LV"
+        }
+      ]
+    },
+    {
+      "sport": "NFL",
+      "stake": 22.0,
+      "towin": 55.0,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "PIT1101",
+          "needs": "Browns lose by 3 or fewer, or win (+3½ at Steelers, bought ½)",
+          "odds": -120,
+          "side": "a",
+          "line": 3.5,
+          "lab": "CLE"
+        },
+        {
+          "type": "sp",
+          "game": "CIN1101",
+          "needs": "Titans lose by 12 or fewer, or win (+12½ vs Bengals)",
+          "odds": -110,
+          "side": "a",
+          "line": 12.5,
+          "lab": "TEN"
         }
       ]
     }
