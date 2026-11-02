@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-01.2",
+  "version": "2026-11-01.3",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -321,6 +321,16 @@
     "BUF1101": [
       "Buffalo Bills",
       "Baltimore Ravens",
+      "20261101"
+    ],
+    "WSH1101": [
+      "Washington Commanders",
+      "Philadelphia Eagles",
+      "20261101"
+    ],
+    "DEN1101": [
+      "Denver Broncos",
+      "Kansas City Chiefs",
       "20261101"
     ]
   },
@@ -4129,6 +4139,129 @@
           "lab": "O55"
         }
       ]
+    },
+    {
+      "sport": "NBA",
+      "stake": 11.0,
+      "towin": 30.25,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "GSW1101",
+          "needs": "Clippers win, or lose by 1 (+1½ at Warriors)",
+          "odds": -106,
+          "side": "a",
+          "line": 1.5,
+          "lab": "LAC"
+        },
+        {
+          "type": "tot",
+          "game": "GSW1101",
+          "needs": "Clippers-Warriors total over 220½",
+          "odds": -107,
+          "ou": "o",
+          "line": 220.5,
+          "lab": "O220.5"
+        }
+      ]
+    },
+    {
+      "sport": "NBA",
+      "stake": 22.0,
+      "towin": 20.75,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "GSW1101",
+          "needs": "Clippers win, or lose by 1 (+1½ at Warriors)",
+          "odds": -106,
+          "side": "a",
+          "line": 1.5,
+          "lab": "LAC"
+        }
+      ]
+    },
+    {
+      "sport": "NFL",
+      "stake": 11.0,
+      "towin": 29.92,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "WSH1101",
+          "needs": "Commanders win by 6 or more (-5½ vs Eagles)",
+          "odds": -110,
+          "side": "h",
+          "line": -5.5,
+          "lab": "WSH"
+        },
+        {
+          "type": "tot",
+          "game": "WSH1101",
+          "needs": "Eagles-Commanders total over 40½",
+          "odds": -105,
+          "ou": "o",
+          "line": 40.5,
+          "lab": "O40.5"
+        }
+      ]
+    },
+    {
+      "sport": "NFL",
+      "stake": 22.0,
+      "towin": 20.95,
+      "legs": [
+        {
+          "type": "tot",
+          "game": "WSH1101",
+          "needs": "Eagles-Commanders total over 40½",
+          "odds": -105,
+          "ou": "o",
+          "line": 40.5,
+          "lab": "O40.5"
+        }
+      ]
+    },
+    {
+      "sport": "NFL",
+      "stake": 11.0,
+      "towin": 30.91,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "WSH1101",
+          "needs": "Commanders win by 7 or more (-6 vs Eagles; win by exactly 6 = push)",
+          "odds": -105,
+          "side": "h",
+          "line": -6.0,
+          "lab": "WSH"
+        },
+        {
+          "type": "tot",
+          "game": "WSH1101",
+          "needs": "Eagles-Commanders total over 40½",
+          "odds": -105,
+          "ou": "o",
+          "line": 40.5,
+          "lab": "O40.5"
+        }
+      ]
+    },
+    {
+      "sport": "NFL",
+      "stake": 11.0,
+      "towin": 10.48,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "DEN1101",
+          "needs": "Chiefs win, or lose by 2 or fewer (live +2½ at Broncos)",
+          "odds": null,
+          "side": "a",
+          "line": 2.5,
+          "lab": "KC"
+        }
+      ]
     }
   ],
   "futures": [
@@ -4291,6 +4424,10 @@
     "GSW1030": [
       "401909285",
       "2026-10-30"
+    ],
+    "GSW1101": [
+      "401909905",
+      "2026-11-01"
     ]
   },
   "mma_games": {
