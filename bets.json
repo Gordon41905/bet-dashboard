@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-01.3",
+  "version": "2026-11-01.4",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -332,6 +332,11 @@
       "Denver Broncos",
       "Kansas City Chiefs",
       "20261101"
+    ],
+    "SEA1102": [
+      "Seattle Seahawks",
+      "Chicago Bears",
+      "20261102"
     ]
   },
   "tickets": [
@@ -4260,6 +4265,31 @@
           "side": "a",
           "line": 2.5,
           "lab": "KC"
+        }
+      ]
+    },
+    {
+      "sport": "NFL",
+      "stake": 19.06,
+      "towin": 50.51,
+      "legs": [
+        {
+          "type": "tot",
+          "game": "WSH1101",
+          "needs": "Eagles-Commanders total over 40½",
+          "odds": -105,
+          "ou": "o",
+          "line": 40.5,
+          "lab": "O40.5"
+        },
+        {
+          "type": "sp",
+          "game": "SEA1102",
+          "needs": "Seahawks win by 4 or more (-3 vs Bears, Mon night; win by exactly 3 = push)",
+          "odds": -115,
+          "side": "h",
+          "line": -3.0,
+          "lab": "SEA"
         }
       ]
     }
