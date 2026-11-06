@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-22 05:33 PM PT",
+ "updated": "2026-11-05 05:05 PM PT",
  "items": [
   {
    "file": "2026-10-20.json",
@@ -16,6 +16,110 @@
    "detail": null,
    "date": "2026-10-21",
    "games": 11
+  },
+  {
+   "file": "2026-10-22.json",
+   "week": null,
+   "label": "Thu Oct 22",
+   "detail": null,
+   "date": "2026-10-22",
+   "games": 2
+  },
+  {
+   "file": "2026-10-23.json",
+   "week": null,
+   "label": "Fri Oct 23",
+   "detail": null,
+   "date": "2026-10-23",
+   "games": 12
+  },
+  {
+   "file": "2026-10-24.json",
+   "week": null,
+   "label": "Sat Oct 24",
+   "detail": null,
+   "date": "2026-10-24",
+   "games": 8
+  },
+  {
+   "file": "2026-10-25.json",
+   "week": null,
+   "label": "Sun Oct 25",
+   "detail": null,
+   "date": "2026-10-25",
+   "games": 7
+  },
+  {
+   "file": "2026-10-26.json",
+   "week": null,
+   "label": "Mon Oct 26",
+   "detail": null,
+   "date": "2026-10-26",
+   "games": 9
+  },
+  {
+   "file": "2026-10-27.json",
+   "week": null,
+   "label": "Tue Oct 27",
+   "detail": null,
+   "date": "2026-10-27",
+   "games": 4
+  },
+  {
+   "file": "2026-10-28.json",
+   "week": null,
+   "label": "Wed Oct 28",
+   "detail": null,
+   "date": "2026-10-28",
+   "games": 12
+  },
+  {
+   "file": "2026-10-29.json",
+   "week": null,
+   "label": "Thu Oct 29",
+   "detail": null,
+   "date": "2026-10-29",
+   "games": 3
+  },
+  {
+   "file": "2026-10-30.json",
+   "week": null,
+   "label": "Fri Oct 30",
+   "detail": null,
+   "date": "2026-10-30",
+   "games": 10
+  },
+  {
+   "file": "2026-10-31.json",
+   "week": null,
+   "label": "Sat Oct 31",
+   "detail": null,
+   "date": "2026-10-31",
+   "games": 7
+  },
+  {
+   "file": "2026-11-01.json",
+   "week": null,
+   "label": "Sun Nov 1",
+   "detail": null,
+   "date": "2026-11-01",
+   "games": 4
+  },
+  {
+   "file": "2026-11-02.json",
+   "week": null,
+   "label": "Mon Nov 2",
+   "detail": null,
+   "date": "2026-11-02",
+   "games": 15
+  },
+  {
+   "file": "2026-11-04.json",
+   "week": null,
+   "label": "Wed Nov 4",
+   "detail": null,
+   "date": "2026-11-04",
+   "games": 14
   }
  ]
 }
