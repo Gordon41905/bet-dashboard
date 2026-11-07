@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-01.4",
+  "version": "2026-11-07.1",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -200,6 +200,31 @@
       "Texas",
       "Mississippi State",
       "20261031"
+    ],
+    "UTAH1107": [
+      "Utah",
+      "BYU",
+      "20261107"
+    ],
+    "MINN1107": [
+      "Minnesota",
+      "UCLA",
+      "20261107"
+    ],
+    "MIZ1107": [
+      "Missouri",
+      "Texas",
+      "20261107"
+    ],
+    "CONN1107": [
+      "UConn",
+      "North Carolina",
+      "20261107"
+    ],
+    "BC1107": [
+      "Boston College",
+      "Florida State",
+      "20261107"
     ]
   },
   "nfl_games": {
@@ -4290,6 +4315,106 @@
           "side": "h",
           "line": -3.0,
           "lab": "SEA"
+        }
+      ]
+    },
+    {
+      "sport": "CFB",
+      "stake": 11.0,
+      "towin": 25.3,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "UTAH1107",
+          "needs": "BYU wins, or loses by 4 or fewer (+4½ at Utah)",
+          "odds": null,
+          "side": "a",
+          "line": 4.5,
+          "lab": "BYU"
+        },
+        {
+          "type": "tot",
+          "game": "UTAH1107",
+          "needs": "BYU-Utah total over 49½",
+          "odds": null,
+          "ou": "o",
+          "line": 49.5,
+          "lab": "O49.5"
+        }
+      ]
+    },
+    {
+      "sport": "CFB",
+      "stake": 15.24,
+      "towin": 38.4,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "MINN1107",
+          "needs": "Minnesota wins, or loses by 3 or fewer (+4 vs UCLA)",
+          "odds": -118,
+          "side": "h",
+          "line": 4.0,
+          "lab": "MINN"
+        },
+        {
+          "type": "tot",
+          "game": "UTAH1107",
+          "needs": "BYU-Utah total over 49½",
+          "odds": -110,
+          "ou": "o",
+          "line": 49.5,
+          "lab": "O49.5"
+        }
+      ]
+    },
+    {
+      "sport": "CFB",
+      "stake": 11.0,
+      "towin": 29.81,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "MIZ1107",
+          "needs": "Texas wins by 3 or more (-2½ at Missouri)",
+          "odds": -111,
+          "side": "a",
+          "line": -2.5,
+          "lab": "TEX"
+        },
+        {
+          "type": "sp",
+          "game": "UTAH1107",
+          "needs": "BYU wins, or loses by 3 or fewer (+3½ at Utah)",
+          "odds": -105,
+          "side": "a",
+          "line": 3.5,
+          "lab": "BYU"
+        }
+      ]
+    },
+    {
+      "sport": "CFB",
+      "stake": 22.0,
+      "towin": 56.32,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "CONN1107",
+          "needs": "UConn wins, or loses by 7 or fewer (+8 vs North Carolina)",
+          "odds": -110,
+          "side": "h",
+          "line": 8.0,
+          "lab": "CONN"
+        },
+        {
+          "type": "sp",
+          "game": "BC1107",
+          "needs": "Florida State wins by 7 or more (-6 at Boston College)",
+          "odds": -115,
+          "side": "a",
+          "line": -6.0,
+          "lab": "FSU"
         }
       ]
     }
