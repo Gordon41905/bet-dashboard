@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-07.1",
+  "version": "2026-11-07.2",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -4417,6 +4417,380 @@
           "lab": "FSU"
         }
       ]
+    },
+    {
+      "ticket_id": "1012779830-1",
+      "sport": "CFB",
+      "stake": 22,
+      "towin": null,
+      "accepted_at": "2026-11-06T14:10:00-08:00",
+      "settled": "2026-11-06",
+      "bookmaker_status": "LOST",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "HIST_NEB_ILL_20261106",
+          "side": null,
+          "line": -4.5,
+          "odds": -110,
+          "lab": "Nebraska",
+          "needs": "Nebraska -4.5 vs Illinois",
+          "matchup_label": "Nebraska vs Illinois",
+          "event_date_pt": "2026-11-06",
+          "bookmaker_status": "LOST"
+        },
+        {
+          "type": "sp",
+          "game": "HIST_UCONN_UNC_20261107",
+          "side": null,
+          "line": 8,
+          "odds": -110,
+          "lab": "UConn",
+          "needs": "UConn +8 vs North Carolina",
+          "matchup_label": "UConn vs North Carolina",
+          "event_date_pt": "2026-11-07",
+          "bookmaker_status": "PENDING"
+        }
+      ],
+      "bookmaker_settlement": {
+        "result": "LOST",
+        "actual_return": 0,
+        "graded_at": "2026-11-06T20:37:00-08:00",
+        "source": "BetOnline screenshot Nov 7"
+      }
+    },
+    {
+      "ticket_id": "1012779729-1",
+      "sport": "CFB",
+      "stake": 22,
+      "towin": null,
+      "accepted_at": "2026-11-06T14:10:00-08:00",
+      "settled": "2026-11-06",
+      "bookmaker_status": "LOST",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "HIST_NEB_ILL_20261106",
+          "side": null,
+          "line": -4.5,
+          "odds": -110,
+          "lab": "Nebraska",
+          "needs": "Nebraska -4.5 vs Illinois",
+          "matchup_label": "Nebraska vs Illinois",
+          "event_date_pt": "2026-11-06",
+          "bookmaker_status": "LOST"
+        },
+        {
+          "type": "sp",
+          "game": "HIST_FSU_BC_20261107",
+          "side": null,
+          "line": -6,
+          "odds": -115,
+          "lab": "Florida State",
+          "needs": "Florida State -6 vs Boston College",
+          "matchup_label": "Florida State vs Boston College",
+          "event_date_pt": "2026-11-07",
+          "bookmaker_status": "PENDING"
+        }
+      ],
+      "bookmaker_settlement": {
+        "result": "LOST",
+        "actual_return": 0,
+        "graded_at": "2026-11-06T20:37:00-08:00",
+        "source": "BetOnline screenshot Nov 7"
+      }
+    },
+    {
+      "ticket_id": "1012779664-1",
+      "sport": "CFB",
+      "stake": 22,
+      "towin": null,
+      "accepted_at": "2026-11-06T14:09:00-08:00",
+      "settled": "2026-11-06",
+      "bookmaker_status": "LOST",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "HIST_NEB_ILL_20261106",
+          "side": null,
+          "line": -4.5,
+          "odds": -110,
+          "lab": "Nebraska",
+          "needs": "Nebraska -4.5 vs Illinois",
+          "matchup_label": "Nebraska vs Illinois",
+          "event_date_pt": "2026-11-06",
+          "bookmaker_status": "LOST"
+        },
+        {
+          "type": "sp",
+          "game": "HIST_UCONN_UNC_20261107",
+          "side": null,
+          "line": 8,
+          "odds": -110,
+          "lab": "UConn",
+          "needs": "UConn +8 vs North Carolina",
+          "matchup_label": "UConn vs North Carolina",
+          "event_date_pt": "2026-11-07",
+          "bookmaker_status": "PENDING"
+        },
+        {
+          "type": "sp",
+          "game": "HIST_FSU_BC_20261107",
+          "side": null,
+          "line": -6,
+          "odds": -115,
+          "lab": "Florida State",
+          "needs": "Florida State -6 vs Boston College",
+          "matchup_label": "Florida State vs Boston College",
+          "event_date_pt": "2026-11-07",
+          "bookmaker_status": "PENDING"
+        }
+      ],
+      "bookmaker_settlement": {
+        "result": "LOST",
+        "actual_return": 0,
+        "graded_at": "2026-11-06T20:37:00-08:00",
+        "source": "BetOnline screenshot Nov 7"
+      }
+    },
+    {
+      "ticket_id": "1012233531-1",
+      "sport": "NBA",
+      "stake": 13,
+      "towin": null,
+      "accepted_at": "2026-11-04T14:50:00-08:00",
+      "settled": "2026-11-04",
+      "bookmaker_status": "LOST",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "HIST_CHA_BKN_20261104",
+          "side": null,
+          "line": -3.5,
+          "odds": -115,
+          "lab": "Charlotte",
+          "needs": "Charlotte -3.5 vs Brooklyn",
+          "matchup_label": "Charlotte vs Brooklyn",
+          "event_date_pt": "2026-11-04",
+          "bookmaker_status": "LOST"
+        }
+      ],
+      "bookmaker_settlement": {
+        "result": "LOST",
+        "actual_return": 0,
+        "graded_at": "2026-11-04T19:20:00-08:00",
+        "source": "BetOnline screenshot Nov 7"
+      }
+    },
+    {
+      "ticket_id": "1012780088-1",
+      "sport": "CFB",
+      "stake": 12,
+      "towin": null,
+      "accepted_at": "2026-11-06T14:11:00-08:00",
+      "settled": "2026-11-06",
+      "bookmaker_status": "LOST",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "HIST_NEB_ILL_20261106",
+          "side": null,
+          "lab": "Nebraska",
+          "needs": "Nebraska -4.5 vs Illinois",
+          "event_date_pt": "2026-11-06",
+          "odds": -110,
+          "bookmaker_status": "LOST",
+          "line": -4.5
+        },
+        {
+          "type": "tot",
+          "game": "HIST_NEB_ILL_20261106",
+          "side": null,
+          "lab": "O51",
+          "needs": "Nebraska/Illinois over 51",
+          "event_date_pt": "2026-11-06",
+          "odds": -110,
+          "bookmaker_status": "LOST",
+          "line": 51,
+          "ou": "o"
+        }
+      ],
+      "bookmaker_settlement": {
+        "result": "LOST",
+        "actual_return": 0,
+        "graded_at": "2026-11-06T20:37:00-08:00",
+        "source": "/workspace/videos/nov7-followup.mp4"
+      }
+    },
+    {
+      "ticket_id": "1011964009-1",
+      "sport": "NHL",
+      "stake": 3,
+      "towin": null,
+      "accepted_at": "2026-11-03T17:05:00-08:00",
+      "settled": "2026-11-03",
+      "bookmaker_status": "LOST",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "HIST_CAR_NSH_20261103",
+          "side": null,
+          "lab": "Carolina Hurricanes",
+          "needs": "Carolina Hurricanes -1.5 vs Nashville",
+          "event_date_pt": "2026-11-03",
+          "odds": 138,
+          "bookmaker_status": "LOST",
+          "line": -1.5
+        }
+      ],
+      "bookmaker_settlement": {
+        "result": "LOST",
+        "actual_return": 0,
+        "graded_at": "2026-11-03T19:41:00-08:00",
+        "source": "/workspace/videos/nov7-followup.mp4"
+      }
+    },
+    {
+      "ticket_id": "1011943728-1",
+      "sport": "CFB",
+      "stake": 13,
+      "towin": null,
+      "accepted_at": "2026-11-03T15:41:00-08:00",
+      "settled": "2026-11-04",
+      "bookmaker_status": "LOST",
+      "legs": [
+        {
+          "type": "ml",
+          "game": "HIST_EMU_CMU_20261104",
+          "side": null,
+          "lab": "Eastern Michigan",
+          "needs": "Eastern Michigan moneyline vs Central Michigan",
+          "event_date_pt": "2026-11-04",
+          "odds": -115,
+          "bookmaker_status": "LOST"
+        }
+      ],
+      "bookmaker_settlement": {
+        "result": "LOST",
+        "actual_return": 0,
+        "graded_at": "2026-11-04T19:52:00-08:00",
+        "source": "/workspace/videos/nov7-followup.mp4"
+      }
+    },
+    {
+      "ticket_id": "1011933884-1",
+      "sport": "NCAAB",
+      "stake": 12,
+      "towin": null,
+      "accepted_at": "2026-11-03T14:53:00-08:00",
+      "settled": "2026-11-03",
+      "bookmaker_status": "LOST",
+      "legs": [
+        {
+          "type": "tot",
+          "game": "HIST_UNLV_NAU_20261103",
+          "side": null,
+          "lab": "O153.5",
+          "needs": "UNLV/Northern Arizona over 153.5",
+          "event_date_pt": "2026-11-03",
+          "odds": null,
+          "bookmaker_status": null,
+          "line": 153.5,
+          "ou": "o"
+        },
+        {
+          "type": "sp",
+          "game": "HIST_UNLV_NAU_20261103",
+          "side": null,
+          "lab": "UNLV",
+          "needs": "UNLV -21.5 vs Northern Arizona",
+          "event_date_pt": "2026-11-03",
+          "odds": null,
+          "bookmaker_status": null,
+          "line": -21.5
+        }
+      ],
+      "bookmaker_settlement": {
+        "result": "LOST",
+        "actual_return": 0,
+        "graded_at": "2026-11-03T21:25:00-08:00",
+        "source": "/workspace/videos/nov7-followup.mp4"
+      },
+      "event_date_inferred": true,
+      "event_date_note": "Nov 3 inferred from corresponding same matchup; not independently captured for this SGP."
+    },
+    {
+      "ticket_id": "1011933286-1",
+      "sport": "NCAAB",
+      "stake": 22,
+      "towin": null,
+      "accepted_at": "2026-11-03T14:52:00-08:00",
+      "settled": "2026-11-03",
+      "bookmaker_status": "LOST",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "HIST_UNLV_NAU_20261103",
+          "side": null,
+          "lab": "UNLV",
+          "needs": "UNLV -20.5 vs Northern Arizona",
+          "event_date_pt": "2026-11-03",
+          "odds": -110,
+          "bookmaker_status": "LOST",
+          "line": -20.5
+        }
+      ],
+      "bookmaker_settlement": {
+        "result": "LOST",
+        "actual_return": 0,
+        "graded_at": "2026-11-03T21:17:00-08:00",
+        "source": "/workspace/videos/nov7-followup.mp4"
+      }
+    },
+    {
+      "ticket_id": "1011484694-1",
+      "sport": "NFL",
+      "stake": 66,
+      "towin": null,
+      "accepted_at": "2026-11-02T15:22:00-08:00",
+      "settled": "2026-11-02",
+      "bookmaker_status": "LOST",
+      "legs": [
+        {
+          "type": "tot",
+          "game": "HIST_CHI_SEA_20261102",
+          "side": null,
+          "lab": "O46.5",
+          "needs": "Chicago/Seattle over 46.5",
+          "event_date_pt": "2026-11-02",
+          "odds": -112,
+          "bookmaker_status": "WON",
+          "line": 46.5,
+          "ou": "o"
+        },
+        {
+          "type": "tot",
+          "game": "HIST_PHI_WSH_20261101",
+          "side": null,
+          "lab": "O40.5",
+          "needs": "Philadelphia/Washington over 40.5",
+          "event_date_pt": "2026-11-01",
+          "odds": -105,
+          "bookmaker_status": "LOST",
+          "line": 40.5,
+          "ou": "o"
+        }
+      ],
+      "bookmaker_settlement": {
+        "result": "LOST",
+        "actual_return": 0,
+        "graded_at": "2026-11-02T20:26:00-08:00",
+        "source": "/workspace/videos/nov7-followup.mp4",
+        "review_note": "Event date precedes acceptance date in supplied history; selections need confirmation."
+      },
+      "review_needed": true,
+      "review_note": "Selection/date conflict: Philadelphia/Washington event Nov 1 precedes accepted Nov 2. Preserved exactly as targeted expansion transcription; do not silently correct.",
+      "source_original": "1011484694-1; $66; accepted Nov 2 15:22 PT; graded Nov 2 20:26 PT LOST; CHI/SEA O46.5 -112 Nov 2 WON; PHI/WSH O40.5 -105 Nov 1 LOST."
     }
   ],
   "futures": [
