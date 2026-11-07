@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-07.2",
+  "version": "2026-11-07.3",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -4690,13 +4690,13 @@
           "type": "tot",
           "game": "HIST_UNLV_NAU_20261103",
           "side": null,
-          "lab": "O153.5",
-          "needs": "UNLV/Northern Arizona over 153.5",
+          "lab": "U153.5",
+          "needs": "UNLV/Northern Arizona under 153.5",
           "event_date_pt": "2026-11-03",
           "odds": null,
           "bookmaker_status": null,
           "line": 153.5,
-          "ou": "o"
+          "ou": "u"
         },
         {
           "type": "sp",
@@ -4714,7 +4714,7 @@
         "result": "LOST",
         "actual_return": 0,
         "graded_at": "2026-11-03T21:25:00-08:00",
-        "source": "/workspace/videos/nov7-followup.mp4"
+        "source": "BetOnline video and confirming screenshot Nov 7"
       },
       "event_date_inferred": true,
       "event_date_note": "Nov 3 inferred from corresponding same matchup; not independently captured for this SGP."
@@ -4769,28 +4769,42 @@
           "ou": "o"
         },
         {
-          "type": "tot",
-          "game": "HIST_PHI_WSH_20261101",
-          "side": null,
-          "lab": "O40.5",
-          "needs": "Philadelphia/Washington over 40.5",
-          "event_date_pt": "2026-11-01",
-          "odds": -105,
-          "bookmaker_status": "LOST",
-          "line": 40.5,
-          "ou": "o"
+          "type": "nt",
+          "game": "HIST_UNKNOWN_1011484694",
+          "needs": "Second parlay leg not visible in supplied history — awaiting ticket details",
+          "odds": null,
+          "lab": "Unknown leg",
+          "ntxt": "Selection not visible in supplied history",
+          "nres": "NA",
+          "bookmaker_status": null
         }
       ],
       "bookmaker_settlement": {
         "result": "LOST",
         "actual_return": 0,
         "graded_at": "2026-11-02T20:26:00-08:00",
-        "source": "/workspace/videos/nov7-followup.mp4",
-        "review_note": "Event date precedes acceptance date in supplied history; selections need confirmation."
+        "source": "BetOnline Nov 7 archive video, expanded ticket 1011484694-1",
+        "review_note": "Second leg not visible in supplied history; ticket loss and $66 risk verified."
       },
       "review_needed": true,
-      "review_note": "Selection/date conflict: Philadelphia/Washington event Nov 1 precedes accepted Nov 2. Preserved exactly as targeted expansion transcription; do not silently correct.",
-      "source_original": "1011484694-1; $66; accepted Nov 2 15:22 PT; graded Nov 2 20:26 PT LOST; CHI/SEA O46.5 -112 Nov 2 WON; PHI/WSH O40.5 -105 Nov 1 LOST."
+      "review_note": "Second leg not visible in supplied history; ticket loss and $66 risk verified.",
+      "superseded_unverified_transcription": {
+        "legs": [
+          {
+            "type": "tot",
+            "game": "HIST_PHI_WSH_20261101",
+            "side": null,
+            "lab": "O40.5",
+            "needs": "Philadelphia/Washington over 40.5",
+            "event_date_pt": "2026-11-01",
+            "odds": -105,
+            "bookmaker_status": "LOST",
+            "line": 40.5,
+            "ou": "o"
+          }
+        ],
+        "reason": "Prior video reading associated an adjacent ticket leg with this ticket; new video shows only one identifiable leg. Retained here for audit, not treated as confirmed selection."
+      }
     }
   ],
   "futures": [
