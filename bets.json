@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-07.3",
+  "version": "2026-11-08.1",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -362,6 +362,36 @@
       "Seattle Seahawks",
       "Chicago Bears",
       "20261102"
+    ],
+    "ATL1108": [
+      "Atlanta Falcons",
+      "Cincinnati Bengals",
+      "20261108"
+    ],
+    "MIA1108": [
+      "Miami Dolphins",
+      "Detroit Lions",
+      "20261108"
+    ],
+    "NO1108": [
+      "New Orleans Saints",
+      "Cleveland Browns",
+      "20261108"
+    ],
+    "WSH1108": [
+      "Washington Commanders",
+      "Los Angeles Rams",
+      "20261108"
+    ],
+    "CAR1108": [
+      "Carolina Panthers",
+      "Denver Broncos",
+      "20261108"
+    ],
+    "LAC1108": [
+      "Los Angeles Chargers",
+      "Houston Texans",
+      "20261108"
     ]
   },
   "tickets": [
@@ -4805,6 +4835,168 @@
         ],
         "reason": "Prior video reading associated an adjacent ticket leg with this ticket; new video shows only one identifiable leg. Retained here for audit, not treated as confirmed selection."
       }
+    },
+    {
+      "ticket_id": "1013470818",
+      "sport": "NFL",
+      "stake": 22,
+      "towin": 61.82,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "LAC1108",
+          "side": "a",
+          "line": -5.5,
+          "odds": -105,
+          "lab": "HOU",
+          "needs": "HOU -5.5"
+        },
+        {
+          "type": "sp",
+          "game": "MIA1108",
+          "side": "a",
+          "line": -6.5,
+          "odds": -105,
+          "lab": "DET",
+          "needs": "DET -6.5"
+        }
+      ],
+      "accepted_date_pt": "2026-11-08"
+    },
+    {
+      "ticket_id": "1013470485",
+      "sport": "NFL",
+      "stake": 22,
+      "towin": 59.84,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "MIA1108",
+          "side": "a",
+          "line": -6.5,
+          "odds": -105,
+          "lab": "DET",
+          "needs": "DET -6.5"
+        },
+        {
+          "type": "sp",
+          "game": "CAR1108",
+          "side": "a",
+          "line": -3,
+          "odds": -110,
+          "lab": "DEN",
+          "needs": "DEN -3"
+        }
+      ],
+      "accepted_date_pt": "2026-11-08"
+    },
+    {
+      "ticket_id": "1013470394",
+      "sport": "NFL",
+      "stake": 22,
+      "towin": 135.52,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "MIA1108",
+          "side": "a",
+          "line": -6.5,
+          "odds": -105,
+          "lab": "DET",
+          "needs": "DET -6.5"
+        },
+        {
+          "type": "tot",
+          "game": "WSH1108",
+          "ou": "o",
+          "line": 48,
+          "odds": -110,
+          "lab": "O48",
+          "needs": "Los Angeles Rams/Washington Commanders total over 48 (48 pushes)"
+        },
+        {
+          "type": "sp",
+          "game": "CAR1108",
+          "side": "a",
+          "line": -3,
+          "odds": -110,
+          "lab": "DEN",
+          "needs": "DEN -3"
+        }
+      ],
+      "accepted_date_pt": "2026-11-08"
+    },
+    {
+      "ticket_id": "1013470018",
+      "sport": "NFL",
+      "stake": 11,
+      "towin": 29.04,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "NO1108",
+          "side": "h",
+          "line": -4.5,
+          "odds": -110,
+          "lab": "NO",
+          "needs": "NO -4.5"
+        },
+        {
+          "type": "tot",
+          "game": "WSH1108",
+          "ou": "o",
+          "line": 48,
+          "odds": -110,
+          "lab": "O48",
+          "needs": "Los Angeles Rams/Washington Commanders total over 48 (48 pushes)"
+        }
+      ],
+      "accepted_date_pt": "2026-11-08"
+    },
+    {
+      "ticket_id": "1013469740",
+      "sport": "NFL",
+      "stake": 12,
+      "towin": 31.68,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "CAR1108",
+          "side": "a",
+          "line": -3,
+          "odds": -110,
+          "lab": "DEN",
+          "needs": "DEN -3"
+        },
+        {
+          "type": "tot",
+          "game": "WSH1108",
+          "ou": "o",
+          "line": 48,
+          "odds": -110,
+          "lab": "O48",
+          "needs": "Los Angeles Rams/Washington Commanders total over 48 (48 pushes)"
+        }
+      ],
+      "accepted_date_pt": "2026-11-08"
+    },
+    {
+      "ticket_id": "1013418889",
+      "sport": "NFL",
+      "stake": 11,
+      "towin": 8.46,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "ATL1108",
+          "side": "a",
+          "line": -2.5,
+          "odds": null,
+          "lab": "CIN",
+          "needs": "CIN -2.5 (placed live)"
+        }
+      ],
+      "accepted_date_pt": "2026-11-08"
     }
   ],
   "futures": [
