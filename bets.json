@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-08.1",
+  "version": "2026-11-08.2",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -392,6 +392,16 @@
       "Los Angeles Chargers",
       "Houston Texans",
       "20261108"
+    ],
+    "CHI1108": [
+      "Chicago Bears",
+      "Tampa Bay Buccaneers",
+      "20261108"
+    ],
+    "MIN1109": [
+      "Minnesota Vikings",
+      "Buffalo Bills",
+      "20261109"
     ]
   },
   "tickets": [
@@ -4997,6 +5007,114 @@
         }
       ],
       "accepted_date_pt": "2026-11-08"
+    },
+    {
+      "ticket_id": "1013586318",
+      "sport": "NFL",
+      "stake": 11,
+      "towin": 28.15,
+      "accepted_date_pt": "2026-11-08",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "CHI1108",
+          "side": "h",
+          "line": -6,
+          "odds": -115,
+          "lab": "CHI",
+          "needs": "Chicago Bears win by 7 or more (-6 vs Tampa Bay; exactly 6 pushes)"
+        },
+        {
+          "type": "sp",
+          "game": "MIN1109",
+          "side": "a",
+          "line": -3,
+          "odds": -110,
+          "lab": "BUF",
+          "needs": "Buffalo Bills win by 4 or more (-3 at Minnesota; exactly 3 pushes)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1013586271",
+      "sport": "NFL",
+      "stake": 11,
+      "towin": 64.35,
+      "accepted_date_pt": "2026-11-08",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "CHI1108",
+          "side": "h",
+          "line": -6,
+          "odds": -115,
+          "lab": "CHI",
+          "needs": "Chicago Bears win by 7 or more (-6 vs Tampa Bay; exactly 6 pushes)"
+        },
+        {
+          "type": "sp",
+          "game": "MIN1109",
+          "side": "a",
+          "line": -3,
+          "odds": -110,
+          "lab": "BUF",
+          "needs": "Buffalo Bills win by 4 or more (-3 at Minnesota; exactly 3 pushes)"
+        },
+        {
+          "type": "tot",
+          "game": "CHI1108",
+          "ou": "u",
+          "line": 47.5,
+          "odds": -110,
+          "lab": "U47.5",
+          "needs": "Tampa Bay/Chicago total under 47.5"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1013586144",
+      "sport": "NFL",
+      "stake": 22,
+      "towin": 56.32,
+      "accepted_date_pt": "2026-11-08",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "CHI1108",
+          "side": "h",
+          "line": -6,
+          "odds": -115,
+          "lab": "CHI",
+          "needs": "Chicago Bears win by 7 or more (-6 vs Tampa Bay; exactly 6 pushes)"
+        },
+        {
+          "type": "sp",
+          "game": "MIN1109",
+          "side": "a",
+          "line": -3,
+          "odds": -110,
+          "lab": "BUF",
+          "needs": "Buffalo Bills win by 4 or more (-3 at Minnesota; exactly 3 pushes)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1013585958",
+      "sport": "NFL",
+      "stake": 22,
+      "towin": 19.13,
+      "accepted_date_pt": "2026-11-08",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "CHI1108",
+          "side": "h",
+          "line": -6,
+          "odds": -115,
+          "lab": "CHI",
+          "needs": "Chicago Bears win by 7 or more (-6 vs Tampa Bay; exactly 6 pushes)"
+        }
+      ]
     }
   ],
   "futures": [
