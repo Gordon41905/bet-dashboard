@@ -30,9 +30,13 @@ h1{font-size:22px;font-weight:800}.ts{font-size:13px;color:#9aa6b8;margin:3px 0 
 .lvs{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:-6px 0 8px}.lvh{display:flex;align-items:center;gap:5px;min-width:0;background:#161c26;border:1px solid #2c3646;border-radius:999px;padding:2px 4px 2px 8px;text-decoration:none;color:#8b97a8;font-size:11px;font-weight:800;line-height:16px;-webkit-tap-highlight-color:transparent}.lvh:active{border-color:#8b97a8;color:#eef2f7}.lvh .nbs{flex:1}
 .fp{margin-left:auto;display:inline-flex;align-items:center;gap:3px;flex:none}.fp svg{display:block;width:96px;height:18px}.fp b{font-size:9.5px;font-weight:800;color:#7f8ba0;letter-spacing:-.3px;white-space:nowrap}.fp b.fpo{color:#eef2f7}
 .bp{margin-left:auto;display:inline-flex;align-items:center;gap:4px;flex:none}.bp svg{display:block;width:30px;height:21px}.bo{display:inline-flex;gap:2.5px}.bo i{display:block;width:6px;height:6px;border-radius:50%}
+
+.max-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:10px 0}.max-card{min-width:0}.max-card .k{letter-spacing:.4px}.max-card .kv{font-size:clamp(18px,5vw,24px);color:#39e27d;overflow-wrap:anywhere}.max-sub{font-size:11px;color:#8b97a8;line-height:1.35;margin-top:3px}.max-breakdown{font-size:11px;line-height:1.4;color:#8b97a8;overflow-wrap:anywhere;margin:0 0 10px}
 </style></head><body>
 <div class="lvs"><a id="nav" class="lvh" href="https://gordon41905.github.io/tomorrow-winners/" onclick="this.href='https://gordon41905.github.io/tomorrow-winners/?v='+Date.now()"><span class="lgl">NFL</span><span class="nbs" id="nfl"><span class="nbe">Loading…</span></span></a><a id="navn" class="lvh" href="nba.html" onclick="this.href='nba.html?v='+Date.now()"><span class="lgl">NBA</span><span class="nbs" id="nba"><span class="nbe">Loading…</span></span></a></div>
-<div class="hdr"><div class="hrow"><h1 id="title">Live Bets</h1><span class="cw" id="s_maxwin"></span></div><div class="tsr"><div class="ts" id="ts"><span class="dot"></span>Loading live scores…</div></div>
+<div class="hdr"><div class="hrow"><h1 id="title">Live Bets</h1></div><div class="tsr"><div class="ts" id="ts"><span class="dot"></span>Loading live scores…</div></div>
+<div class="max-grid" aria-label="Potential net winnings"><div class="st max-card"><div class="k">Max win all</div><div class="kv" id="s_maxwin">–</div><div class="max-sub">All live tickets, including future legs</div></div><div class="st max-card"><div class="k">Max win today</div><div class="kv" id="s_maxwin_today">–</div><div class="max-sub" id="max_today_sub">Remaining uncompleted tickets · PT</div></div></div>
+<div id="max_breakdown" class="max-breakdown"></div>
 <div class="g3"><div class="st"><div class="k">STILL LIVE</div><div class="kv" id="s_live">–</div></div>
 <div class="st"><div class="k">CASHED</div><div class="kv" style="color:#39e27d" id="s_won">–</div></div>
 <div class="st"><div class="k">LOST</div><div class="kv" style="color:#ff6b6b" id="s_lost">–</div></div><div class="st"><div class="k">REFUNDED</div><div class="kv" style="color:#f0b429" id="s_ref">–</div></div></div>
@@ -91,7 +95,7 @@ function buildTickets(d){CFB=d.cfb_games||{};NFL=d.nfl_games||{};MLBD=d.mlb_game
 function futHTML(){return FUTS.length?section("sb","🏈 Super Bowl bets","#9b59ff",FUTS.map(f=>`<div class="card" style="border-left-color:#9b59ff"><div class="top"><div><div class="bet">${m(f.stake)} bet</div><div class="roll" style="color:#b48cff">PENDING · SETTLES FEB 2027</div></div><div><div class="pay">Wins $${f.towin.toFixed(2)}</div><div class="ret">returns $${(f.stake+f.towin).toFixed(2)}</div></div></div><div class="leg"><div class="need">${esc(f.pick)}</div></div></div>`).join(""),FUTS.length):""}
 async function checkVersion(){try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
  if(v&&v!==APP_VERSION){const k="reloaded_"+v;if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,"1");location.replace(location.pathname+"?v="+encodeURIComponent(v));}}}catch(e){}}
-const APP_VERSION="2026-11-08.3";
+const APP_VERSION="2026-11-08.4";
 
 const chip=g=>!g?"score unavailable":g.state==="void"?`${g.aab} @ ${g.hab} · ${g.detail}`:g.state==="pre"?`${g.aab} @ ${g.hab} · ${g.detail}`:`${g.aab} ${g.a} – ${g.hab} ${g.h} · ${g.detail}`;
 async function getJSON(u,label){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error(`${label} HTTP ${r.status}`);return r.json();}
@@ -383,10 +387,203 @@ const pkey=d=>d.toLocaleDateString("en-CA",{timeZone:"America/Los_Angeles"});
 const dlab=k=>new Date(k+"T12:00:00Z").toLocaleDateString("en-US",{timeZone:"UTC",weekday:"short",month:"short",day:"numeric"}).replace(",","");
 function setDay(t){if(!["DEAD","CASHED","PUSH"].includes(t.roll))return null;if(t.settled)return t.settled;
  const ok=x=>isFinite(x.start),lo=t.legs.filter(l=>l.status==="LOST"&&ok(l)),al=t.legs.filter(ok);const st=t.roll==="DEAD"?(lo.length?Math.min(...lo.map(l=>l.start)):0):(al.length?Math.max(...al.map(l=>l.start)):0);return st?pkey(new Date(st)):null;}
+/* Exact score-cell optimizer for the dashboard's graded ticket model.
+ * No ticket/score mutation, arbitrary score cap, date assumptions, or ticket IDs.
+ * Current scope: integer final-score spreads, full-game totals, moneylines.
+ * Unsupported unresolved markets and excessive searches fail closed.
+ */
+const MaxWin = (() => {
+  const cents = n => Math.round((n + Number.EPSILON) * 100);
+  const money = c => c / 100;
+  const done = s => ['WON','PUSH','VOID'].includes(s);
+  const dayPT = d => new Intl.DateTimeFormat('en-CA', {
+    timeZone:'America/Los_Angeles',year:'numeric',month:'2-digit',day:'2-digit'
+  }).format(d);
+  const decimal = a => a > 0 ? 1 + a / 100 : 1 + 100 / -a;
+  // A live status is provisional even if a legacy grader calls it WON/PUSH/LOST.
+  // Only the game's actual post/void state freezes a leg. Half-game/prop markets
+  // whose event is still live remain unsupported and therefore fail closed.
+  function finalStatus(l, games) {
+    const state=games[l.game]?.state;
+    if(state==='void') return 'VOID';
+    if(state==='post' && ['WON','LOST','PUSH','VOID'].includes(l.status)) return l.status;
+    return null;
+  }
+  const id = t => String(t.ticket_id ?? `ticket ${t.idx + 1}`);
+  function payout(t, statuses) {
+    if (statuses.includes('LOST')) return {profitCents:-cents(t.stake), returnCents:0};
+    if (!statuses.every(done)) throw Error('Unresolved result');
+    let returned;
+    if (statuses.some(s => s === 'PUSH' || s === 'VOID')) {
+      const active = t.legs.filter((l,i) => statuses[i] === 'WON');
+      if (active.some(l => !Number.isFinite(l.spec.odds) || l.spec.odds === 0)) {
+        throw Error(`Missing odds for reduced payout on ${id(t)}`);
+      }
+      returned = cents(t.stake * active.reduce((v,l) => v * decimal(l.spec.odds), 1));
+    } else returned = cents(t.stake) + cents(t.orig ?? t.towin);
+    return {profitCents:returned-cents(t.stake), returnCents:returned};
+  }
+  // Split integer axes exactly where any grading predicate can change.
+  function intervals(thresholds, nonnegative = false) {
+    const cuts = new Set();
+    for (const x of thresholds) {
+      cuts.add(Math.floor(x)); cuts.add(Math.floor(x)+1);
+    }
+    const points = [...cuts].filter(x => !nonnegative || x >= 0).sort((a,b) => a-b);
+    let lo = nonnegative ? 0 : -Infinity;
+    const out = [];
+    for (const point of points) {
+      if (point > lo) out.push([lo,point-1]);
+      lo = point;
+    }
+    out.push([lo,Infinity]);
+    return out;
+  }
+  function scoreCells(g, legs) {
+    const h0 = g.state === 'pre' ? 0 : g.h, a0 = g.state === 'pre' ? 0 : g.a;
+    if (![h0,a0].every(x => Number.isSafeInteger(x) && x >= 0)) throw Error('Invalid live score');
+    const margins = [0], totals = [0];
+    for (const l of legs) {
+      const s = l.spec;
+      if (s.type === 'sp') margins.push(s.side === 'h' ? -s.line : s.line);
+      if (s.type === 'tot') totals.push(s.line);
+    }
+    const seen = new Set(), out = [];
+    for (const [dl,dh] of intervals(margins)) for (const [sl,sh] of intervals(totals,true)) {
+      // Feasibility: s >= 2h0-d, s >= 2a0+d, and s,d same parity.
+      const low = Math.max(dl,Number.isFinite(sh) ? 2*h0-sh : -Infinity);
+      const high = Math.min(dh,Number.isFinite(sh) ? sh-2*a0 : Infinity);
+      if (low > high) continue;
+      const d0 = Math.max(low,Math.min(high,h0-a0));
+      for (const d of [d0,d0-1,d0+1]) {
+        if (d < low || d > high || ((g.nba || g.mlb) && d === 0)) continue;
+        let s = Math.max(sl,2*h0-d,2*a0+d);
+        if ((s-d)%2) s++;
+        if (s > sh) continue;
+        const h = (s+d)/2, a = (s-d)/2;
+        const final = {...g,h,a,state:'post'};
+        const statuses = legs.map(l => l.spec.f(final)[0]);
+        if (!statuses.every(x => ['WON','LOST','PUSH'].includes(x))) throw Error('Unsupported final grading');
+        const signature = statuses.join('|');
+        if (!seen.has(signature)) {seen.add(signature);out.push({h,a,statuses});}
+      }
+    }
+    if (!out.length) throw Error('No feasible final scores');
+    return out;
+  }
+  function compute(tickets, games, now = new Date(), options = {}) {
+    const today = dayPT(now), live = tickets.filter(t => ['ALIVE','NOT STARTED'].includes(t.roll));
+    const allCents = live.reduce((sum,t) => sum + cents(t.towin),0);
+    const result = {available:false,all:money(allCents),today:null,returned:null,excluded:[],breakdown:[],scenarios:[],reason:null};
+    const selected = [], finalStatuses=new Map();
+    try {
+      for (const t of tickets) {
+        // The dashboard's validated bookmaker settlement is authoritative.
+        if(t.bookmaker && t.settled && ['CASHED','DEAD','PUSH'].includes(t.roll)) continue;
+        const statuses=t.legs.map(l=>finalStatus(l,games));
+        if(statuses.includes('LOST')) continue; // truly dead, not merely losing live
+        const pending=t.legs.filter((l,i)=>statuses[i]===null);
+        if(!pending.length) continue; // already completed wins/refunds are not remaining risk
+        t.legs.forEach((l,i)=>{if(statuses[i]!==null)finalStatuses.set(l,statuses[i]);});
+        const future = pending.filter(l => Number.isFinite(games[l.game]?.start) && dayPT(new Date(games[l.game].start)) > today);
+        if (future.length) {
+          result.excluded.push({id:id(t),profit:t.towin,games:[...new Set(future.map(l => l.game))],reason:'future leg'});
+          continue;
+        }
+        for (const l of pending) {
+          const g = games[l.game], s = l.spec;
+          if (!g || !Number.isFinite(g.start)) throw Error(`Score/date unavailable for ${id(t)} (${l.game})`);
+          if (dayPT(new Date(g.start)) !== today) throw Error(`Unresolved prior-day game on ${id(t)} (${l.game})`);
+          if (!['pre','in'].includes(g.state)) throw Error(`Final result unavailable for ${id(t)} (${l.game})`);
+          if (l.status === 'NA' || g.mma || !['sp','tot','ml'].includes(s.type) || typeof s.f !== 'function') {
+            throw Error(`Unsupported unresolved market on ${id(t)}: ${s.type}`);
+          }
+          if ((s.type === 'sp' && !['h','a'].includes(s.side)) ||
+              (s.type === 'ml' && !['h','a'].includes(s.side)) ||
+              (s.type === 'tot' && !['o','u'].includes(s.ou)) ||
+              (s.type !== 'ml' && !Number.isFinite(s.line))) throw Error(`Invalid market on ${id(t)}`);
+        }
+        if (!Number.isFinite(t.stake) || !Number.isFinite(t.orig ?? t.towin)) throw Error(`Unknown payout on ${id(t)}`);
+        selected.push(t);
+      }
+      // Separate disconnected game/ticket components: unrelated games do not multiply search space.
+      const components = [];
+      for (const t of selected) {
+        const keys = new Set(t.legs.filter(l => !finalStatuses.has(l)).map(l => l.game));
+        const touching = components.filter(c => [...keys].some(k => c.keys.has(k)));
+        const c = {tickets:[t],keys};
+        for (const old of touching) {
+          c.tickets.push(...old.tickets); for (const k of old.keys) c.keys.add(k);
+          components.splice(components.indexOf(old),1);
+        }
+        components.push(c);
+      }
+      let profitCents = 0, returnCents = 0, evaluations = 0;
+      for (const component of components) {
+        const entries = [...component.keys].map(key => {
+          const legs = component.tickets.flatMap(t => t.legs.filter(l => l.game === key && !finalStatuses.has(l)));
+          return {key,legs,cells:scoreCells(games[key],legs)};
+        });
+        const product = entries.reduce((v,e) => v*e.cells.length,1);
+        if (product > (options.maxScenarios ?? 100000)) throw Error('Too many correlated outcome combinations');
+        let best = null;
+        const assigned = new Map(), scores = [];
+        function visit(i) {
+          if (i < entries.length) {
+            const e = entries[i];
+            for (const cell of e.cells) {
+              e.legs.forEach((l,j) => assigned.set(l,cell.statuses[j]));
+              scores.push({game:e.key,h:cell.h,a:cell.a});visit(i+1);scores.pop();
+            }
+            return;
+          }
+          evaluations++;
+          const breakdown = component.tickets.map(t => {
+            const statuses = t.legs.map(l => finalStatuses.has(l) ? finalStatuses.get(l) : assigned.get(l));
+            const p = payout(t,statuses);
+            return {id:id(t),stake:t.stake,statuses,profit:money(p.profitCents),returned:money(p.returnCents),...p};
+          });
+          const p = breakdown.reduce((v,b) => v+b.profitCents,0), r = breakdown.reduce((v,b) => v+b.returnCents,0);
+          if (!best || p > best.p) best = {p,r,breakdown,scores:scores.map(s => ({...s}))};
+        }
+        visit(0);profitCents += best.p;returnCents += best.r;
+        result.breakdown.push(...best.breakdown);result.scenarios.push(...best.scores);
+      }
+      result.available=true;result.today=money(profitCents);result.returned=money(returnCents);result.evaluations=evaluations;
+    } catch (error) {
+      result.reason=error.message;result.breakdown=[];result.scenarios=[];
+    }
+    return result;
+  }
+  return {compute,payout,scoreCells,dayPT,finalStatus};
+})();
+if (typeof module !== 'undefined' && module.exports) module.exports = MaxWin;
+
+function renderMaxWin(remaining, games, now = new Date()) {
+  const result = MaxWin.compute(remaining.map(t => ({...t,ticket_id:t.ticket_id ?? TICKETS[t.idx]?.[7]})),games,now);
+  const dollar = v => (v < 0 ? '-$' : '$') + Math.abs(v).toFixed(2);
+  $('s_maxwin').textContent = dollar(result.all);
+  $('s_maxwin_today').textContent = result.available ? dollar(result.today) : 'Unavailable';
+  $('s_maxwin_today').style.color = result.available && result.today < 0 ? '#ff6b6b' : '#39e27d';
+  $('max_today_sub').textContent = result.available ? dollar(result.returned)+' returned incl. stakes' : result.reason;
+  const exclusions = result.excluded.length ? 'Excluded today: '+result.excluded.map(t => t.id+' ('+dollar(t.profit)+' potential profit)').join('; ')+'. ' : 'No future-leg tickets excluded. ';
+  const notes = ['Today includes only remaining uncompleted tickets (not already settled wins/losses). Conflicting legs use the same final score; a winning margin does not determine the total. A push drops only that parlay leg; the remaining legs pay at reduced odds.'];
+  const excludedIds=new Set(result.excluded.map(t => t.id));
+  const pushLines=[...new Set(remaining.filter(t => !excludedIds.has(String(t.ticket_id ?? TICKETS[t.idx]?.[7]))).flatMap(t => t.legs.filter(l => l.spec.type==='tot' && l.spec.ou==='o' && Number.isInteger(l.spec.line)).map(l => l.spec.line)))];
+  if(pushLines.length) notes.push(pushLines.map(n => 'A total of '+n+' pushes Over '+n+' only').join('; ')+'.');
+  if (result.available && result.scenarios.length) {
+    notes.push('Best example: '+result.scenarios.map(s => {
+      const g=games[s.game];return (g.hab || s.game)+' '+s.h+'–'+(g.aab || 'away')+' '+s.a+' (margin '+Math.abs(s.h-s.a)+', total '+(s.h+s.a)+')';
+    }).join('; ')+'.');
+  }
+  $('max_breakdown').textContent = exclusions+notes.join(' ');
+  return result;
+}
+
 function render(TA){const today=pkey(new Date());$("title").textContent="Live Bets · "+dlab(today);
  const ARC={},T=[];for(const t of TA){const d=setDay(t);if(d&&d<today)(ARC[d]=ARC[d]||[]).push(t);else T.push(t);}
  const [plc,plf]=renderPL(T,[],"TODAY");const live=T.filter(t=>t.roll==="ALIVE"||t.roll==="NOT STARTED");
- $("s_live").textContent=m(live.reduce((a,t)=>a+t.stake,0));$("s_maxwin").innerHTML="can win <b>$"+live.reduce((a,t)=>a+t.towin,0).toFixed(2)+"</b>";
+ $("s_live").textContent=m(live.reduce((a,t)=>a+t.stake,0));renderMaxWin(T,LASTG);
  $("s_won").textContent="$"+T.filter(t=>t.roll==="CASHED").reduce((a,t)=>a+t.towin,0).toFixed(2);$("s_lost").textContent=m(T.filter(t=>t.roll==="DEAD").reduce((a,t)=>a+t.stake,0));$("s_ref").textContent=m(T.filter(t=>t.roll==="PUSH").reduce((a,t)=>a+t.stake,0));
  const G=[[],[],[],[],[]];for(const t of order(T))G[t.sec].push(card(t));
  let h="";for(const i of [0,1,2,3]){if(G[i].length)h+=section(SECK[i],SECN[i],SECC[i],G[i].join(""),G[i].length);}
