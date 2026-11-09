@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-08.2",
+  "version": "2026-11-08.3",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -402,6 +402,11 @@
       "Minnesota Vikings",
       "Buffalo Bills",
       "20261109"
+    ],
+    "SF1108": [
+      "San Francisco 49ers",
+      "Las Vegas Raiders",
+      "20261108"
     ]
   },
   "tickets": [
@@ -5012,7 +5017,7 @@
       "ticket_id": "1013586318",
       "sport": "NFL",
       "stake": 11,
-      "towin": 28.15,
+      "towin": 28.16,
       "accepted_date_pt": "2026-11-08",
       "legs": [
         {
@@ -5032,6 +5037,15 @@
           "odds": -110,
           "lab": "BUF",
           "needs": "Buffalo Bills win by 4 or more (-3 at Minnesota; exactly 3 pushes)"
+        }
+      ],
+      "source_corrections": [
+        {
+          "field": "towin",
+          "previous_value": 28.15,
+          "corrected_value": 28.16,
+          "reason": "Targeted video recheck confirms 28.16; retain prior 28.15 in audit metadata",
+          "source": "BetOnline Nov 8 evening video"
         }
       ]
     },
@@ -5115,6 +5129,87 @@
           "needs": "Chicago Bears win by 7 or more (-6 vs Tampa Bay; exactly 6 pushes)"
         }
       ]
+    },
+    {
+      "ticket_id": "1013616710",
+      "sport": "NFL",
+      "stake": 33,
+      "towin": 70.62,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "CHI1108",
+          "side": "a",
+          "line": 7.5,
+          "odds": -145,
+          "lab": "TB",
+          "needs": "Tampa Bay Buccaneers win, or lose by 7 or fewer (+7.5 at Chicago)"
+        },
+        {
+          "type": "tot",
+          "game": "CHI1108",
+          "ou": "o",
+          "line": 47,
+          "odds": -116,
+          "lab": "O47",
+          "needs": "Tampa Bay/Chicago total over 47 (exactly 47 pushes)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1013608077",
+      "sport": "NFL",
+      "stake": 11,
+      "towin": 28.71,
+      "accepted_date_pt": "2026-11-08",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "CHI1108",
+          "side": "h",
+          "line": -6,
+          "odds": -112,
+          "lab": "CHI",
+          "needs": "Chicago Bears win by 7 or more (-6 vs Tampa Bay; exactly 6 pushes)"
+        },
+        {
+          "type": "tot",
+          "game": "CHI1108",
+          "ou": "u",
+          "line": 47.5,
+          "odds": -110,
+          "lab": "U47.5",
+          "needs": "Tampa Bay/Chicago total under 47.5"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1013586827",
+      "sport": "NFL",
+      "stake": 5,
+      "towin": 4.35,
+      "accepted_date_pt": "2026-11-08",
+      "settled": "2026-11-08",
+      "bookmaker_status": "WON",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "SF1108",
+          "side": "h",
+          "line": -12.5,
+          "odds": null,
+          "lab": "SF",
+          "needs": "San Francisco 49ers win by 13 or more (-12.5 vs Las Vegas Raiders; placed live)",
+          "bookmaker_status": "WON"
+        }
+      ],
+      "bookmaker_settlement": {
+        "result": "WON",
+        "actual_return": 9.35,
+        "graded_at": null,
+        "source": "/workspace/videos/nov8-evening-bets.mp4",
+        "note": "Accepted and graded Nov 8 PT; exact times not shown. Original potential profit $4.35 known from ticket."
+      }
     }
   ],
   "futures": [
