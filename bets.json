@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-08.4",
+  "version": "2026-11-09.1",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -5210,6 +5210,99 @@
         "source": "/workspace/videos/nov8-evening-bets.mp4",
         "note": "Accepted and graded Nov 8 PT; exact times not shown. Original potential profit $4.35 known from ticket."
       }
+    },
+    {
+      "ticket_id": "1013834084",
+      "sport": "NHL",
+      "stake": 33,
+      "towin": 49.56,
+      "legs": [
+        {
+          "type": "ml",
+          "game": "EDM1109",
+          "side": "h",
+          "odds": -155,
+          "lab": "EDM",
+          "needs": "Edmonton Oilers beat the New York Rangers"
+        },
+        {
+          "type": "ml",
+          "game": "MIN1109",
+          "side": "a",
+          "odds": -192,
+          "lab": "BUF",
+          "needs": "Buffalo Bills beat the Minnesota Vikings"
+        }
+      ]
+    },
+    {
+      "ticket_id": null,
+      "sport": "NHL",
+      "stake": 22,
+      "towin": 14.19,
+      "legs": [
+        {
+          "type": "ml",
+          "game": "EDM1109",
+          "side": "h",
+          "odds": -155,
+          "lab": "EDM",
+          "needs": "Edmonton Oilers beat the New York Rangers"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1013788399",
+      "sport": "NFL",
+      "stake": 22,
+      "towin": 47.08,
+      "accepted_date_pt": "2026-11-09",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "MIN1109",
+          "side": "a",
+          "line": -3,
+          "odds": -129,
+          "lab": "BUF",
+          "needs": "Buffalo Bills win by 4 or more (-3 at Minnesota; bought half point; exactly 3 pushes)"
+        },
+        {
+          "type": "tot",
+          "game": "MIN1109",
+          "ou": "o",
+          "line": 44,
+          "odds": -130,
+          "lab": "O44",
+          "needs": "Buffalo/Minnesota total over 44 (bought 1 point; exactly 44 pushes)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1013698057",
+      "sport": "NFL",
+      "stake": 33,
+      "towin": 88.11,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "MIN1109",
+          "side": "a",
+          "line": -3,
+          "odds": -110,
+          "lab": "BUF",
+          "needs": "Buffalo Bills win by 4 or more (-3 at Minnesota; exactly 3 pushes)"
+        },
+        {
+          "type": "tot",
+          "game": "MIN1109",
+          "ou": "o",
+          "line": 44,
+          "odds": -108,
+          "lab": "O44",
+          "needs": "Buffalo/Minnesota total over 44 (exactly 44 pushes)"
+        }
+      ]
     }
   ],
   "futures": [
@@ -5396,6 +5489,13 @@
     "UFC4": [
       "401911633",
       "2026-10-24"
+    ]
+  },
+  "nhl_games": {
+    "EDM1109": [
+      "Edmonton Oilers",
+      "New York Rangers",
+      "20261109"
     ]
   }
 }
