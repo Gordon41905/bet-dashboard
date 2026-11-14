@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-14.6",
+  "version": "2026-11-14.7",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -6042,6 +6042,7 @@
       ]
     },
     {
+      "ticket_id": "1015274442",
       "sport": "CFB",
       "stake": 11,
       "towin": 29.92,
@@ -6064,7 +6065,8 @@
           "lab": "UGA",
           "needs": "Georgia wins by 17 or more (-16½ vs Missouri)"
         }
-      ]
+      ],
+      "accepted_date_pt": "2026-11-14"
     },
     {
       "ticket_id": "1015345166",
@@ -6081,6 +6083,59 @@
           "odds": null,
           "lab": "USC",
           "needs": "USC loses by 7 or fewer or wins (+7.5 at Indiana; placed live)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015285415",
+      "sport": "CFB",
+      "stake": 5,
+      "towin": 13.6,
+      "accepted_date_pt": "2026-11-14",
+      "legs": [
+        {
+          "type": "tot",
+          "game": "IND1114",
+          "ou": "u",
+          "line": 51.5,
+          "odds": -105,
+          "needs": "51 or fewer total points, USC + Indiana"
+        },
+        {
+          "type": "sp",
+          "game": "IND1114",
+          "side": "h",
+          "line": -9,
+          "odds": -110,
+          "lab": "IND",
+          "needs": "Indiana wins by 10 or more (-9 vs USC; win by exactly 9 = push)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015226487",
+      "sport": "CFB",
+      "stake": 11,
+      "towin": 31.68,
+      "accepted_date_pt": "2026-11-14",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "IND1114",
+          "side": "h",
+          "line": -10,
+          "odds": 105,
+          "lab": "IND",
+          "needs": "Indiana wins by 11 or more (-10 vs USC; win by exactly 10 = push)"
+        },
+        {
+          "type": "sp",
+          "game": "UGA1114",
+          "side": "h",
+          "line": -16,
+          "odds": -112,
+          "lab": "UGA",
+          "needs": "Georgia wins by 17 or more (-16 vs Missouri; win by exactly 16 = push)"
         }
       ]
     }
