@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-14.2",
+  "version": "2026-11-14.3",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -5930,6 +5930,36 @@
           "needs": "Iowa State wins by 4 or more (-3 vs Cincinnati; win by exactly 3 = push)"
         }
       ]
+    },
+    {
+      "ticket_id": "1015254900",
+      "sport": "CFB",
+      "stake": 11,
+      "towin": 8.15,
+      "accepted_date_pt": "2026-11-14",
+      "settled": "2026-11-14",
+      "bookmaker_status": "WON",
+      "legs": [
+        {
+          "type": "ttot",
+          "game": "OSU1114",
+          "side": "h",
+          "ou": "o",
+          "line": 27.5,
+          "odds": null,
+          "lab": "OSU",
+          "needs": "Ohio State scores 28 or more vs Northwestern (team total over 27.5; placed live)",
+          "event_date_pt": "2026-11-14",
+          "bookmaker_status": "WON"
+        }
+      ],
+      "bookmaker_settlement": {
+        "result": "WON",
+        "actual_return": 19.15,
+        "graded_at": "2026-11-14",
+        "source": "BetOnline Graded screenshot Nov 14 12:28 PM PT",
+        "note": "Live bet. $11 + $8.15 = $19.15 returned. Odds not shown on ticket."
+      }
     }
   ],
   "futures": [
