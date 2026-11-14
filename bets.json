@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-14.5",
+  "version": "2026-11-14.6",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -6063,6 +6063,24 @@
           "odds": -110,
           "lab": "UGA",
           "needs": "Georgia wins by 17 or more (-16½ vs Missouri)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015345166",
+      "sport": "CFB",
+      "stake": 26,
+      "towin": 16.77,
+      "accepted_date_pt": "2026-11-14",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "IND1114",
+          "side": "a",
+          "line": 7.5,
+          "odds": null,
+          "lab": "USC",
+          "needs": "USC loses by 7 or fewer or wins (+7.5 at Indiana; placed live)"
         }
       ]
     }
