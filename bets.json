@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-11.1",
+  "version": "2026-11-14.1",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -225,6 +225,51 @@
       "Boston College",
       "Florida State",
       "20261107"
+    ],
+    "TAM1114": [
+      "Texas A&M",
+      "Tennessee",
+      "20261114"
+    ],
+    "KEN1114": [
+      "Kentucky",
+      "Florida",
+      "20261114"
+    ],
+    "OKST1114": [
+      "Oklahoma State",
+      "Texas Tech",
+      "20261114"
+    ],
+    "OSU1114": [
+      "Ohio State",
+      "Northwestern",
+      "20261114"
+    ],
+    "BOISE1114": [
+      "Boise State",
+      "Oregon State",
+      "20261114"
+    ],
+    "SMU1114": [
+      "SMU",
+      "Wake Forest",
+      "20261114"
+    ],
+    "IND1114": [
+      "Indiana",
+      "USC",
+      "20261114"
+    ],
+    "UGA1114": [
+      "Georgia",
+      "Missouri",
+      "20261114"
+    ],
+    "ISU1114": [
+      "Iowa State",
+      "Cincinnati",
+      "20261114"
     ]
   },
   "nfl_games": {
@@ -5678,6 +5723,211 @@
           "odds": -125,
           "lab": "CAL",
           "needs": "California Golden Bears lose by 8 or fewer, or win (+8.5 vs USC; bought half point)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015184193",
+      "sport": "CFB",
+      "stake": 11,
+      "towin": 50.82,
+      "accepted_date_pt": "2026-11-14",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "TAM1114",
+          "side": "a",
+          "line": 0,
+          "odds": -110,
+          "lab": "TENN",
+          "needs": "Tennessee beats Texas A&M (pick'em at Texas A&M; a tie pushes)"
+        },
+        {
+          "type": "ml",
+          "game": "KEN1114",
+          "side": "h",
+          "odds": -160,
+          "lab": "UK",
+          "needs": "Kentucky beats Florida"
+        },
+        {
+          "type": "sp",
+          "game": "OKST1114",
+          "side": "h",
+          "line": -3,
+          "odds": -123,
+          "lab": "OKST",
+          "needs": "Oklahoma State wins by 4 or more (-3 vs Texas Tech, bought ½; win by exactly 3 = push)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015183186",
+      "sport": "CFB",
+      "stake": 11,
+      "towin": 29.48,
+      "accepted_date_pt": "2026-11-14",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "KEN1114",
+          "side": "h",
+          "line": -3,
+          "odds": -113,
+          "lab": "UK",
+          "needs": "Kentucky wins by 4 or more (-3 vs Florida; win by exactly 3 = push)"
+        },
+        {
+          "type": "sp",
+          "game": "OKST1114",
+          "side": "h",
+          "line": -3.5,
+          "odds": -105,
+          "lab": "OKST",
+          "needs": "Oklahoma State wins by 4 or more (-3½ vs Texas Tech)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015182947",
+      "sport": "CFB",
+      "stake": 11,
+      "towin": 9.73,
+      "accepted_date_pt": "2026-11-14",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "KEN1114",
+          "side": "h",
+          "line": -3,
+          "odds": -113,
+          "lab": "UK",
+          "needs": "Kentucky wins by 4 or more (-3 vs Florida; win by exactly 3 = push)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015182337",
+      "sport": "CFB",
+      "stake": 11,
+      "towin": 27.39,
+      "accepted_date_pt": "2026-11-14",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "OSU1114",
+          "side": "h",
+          "line": -14,
+          "odds": -115,
+          "lab": "OSU",
+          "needs": "Ohio State wins by 15 or more (-14 vs Northwestern, bought ½; win by exactly 14 = push)"
+        },
+        {
+          "type": "tot",
+          "game": "BOISE1114",
+          "ou": "o",
+          "line": 63,
+          "odds": -115,
+          "lab": "O63",
+          "needs": "Oregon State-Boise State total over 63 (exactly 63 pushes)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015181771",
+      "sport": "CFB",
+      "stake": 11,
+      "towin": 75.9,
+      "accepted_date_pt": "2026-11-14",
+      "legs": [
+        {
+          "type": "ml",
+          "game": "SMU1114",
+          "side": "a",
+          "odds": 110,
+          "lab": "WAKE",
+          "needs": "Wake Forest beats SMU"
+        },
+        {
+          "type": "sp",
+          "game": "IND1114",
+          "side": "h",
+          "line": -10,
+          "odds": -101,
+          "lab": "IND",
+          "needs": "Indiana wins by 11 or more (-10 vs USC; win by exactly 10 = push)"
+        },
+        {
+          "type": "sp",
+          "game": "UGA1114",
+          "side": "h",
+          "line": -16,
+          "odds": -112,
+          "lab": "UGA",
+          "needs": "Georgia wins by 17 or more (-16 vs Missouri; win by exactly 16 = push)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015180029",
+      "sport": "CFB",
+      "stake": 11,
+      "towin": 30.14,
+      "accepted_date_pt": "2026-11-14",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "ISU1114",
+          "side": "h",
+          "line": -2.5,
+          "odds": -110,
+          "lab": "ISU",
+          "needs": "Iowa State wins by 3 or more (-2½ vs Cincinnati)"
+        },
+        {
+          "type": "sp",
+          "game": "IND1114",
+          "side": "h",
+          "line": -10,
+          "odds": -104,
+          "lab": "IND",
+          "needs": "Indiana wins by 11 or more (-10 vs USC; win by exactly 10 = push)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015179677",
+      "sport": "CFB",
+      "stake": 11,
+      "towin": 10.48,
+      "accepted_date_pt": "2026-11-14",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "SMU1114",
+          "side": "a",
+          "line": 1.5,
+          "odds": -105,
+          "lab": "WAKE",
+          "needs": "Wake Forest wins, or loses by 1 or fewer (+1½ at SMU)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1014999978",
+      "sport": "CFB",
+      "stake": 11,
+      "towin": 10.48,
+      "accepted_date_pt": "2026-11-14",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "ISU1114",
+          "side": "h",
+          "line": -3,
+          "odds": -105,
+          "lab": "ISU",
+          "needs": "Iowa State wins by 4 or more (-3 vs Cincinnati; win by exactly 3 = push)"
         }
       ]
     }
