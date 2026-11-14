@@ -35,7 +35,7 @@ h1{font-size:22px;font-weight:800}.ts{font-size:13px;color:#9aa6b8;margin:3px 0 
 </style></head><body>
 <div class="lvs"><a id="nav" class="lvh" href="https://gordon41905.github.io/tomorrow-winners/" onclick="this.href='https://gordon41905.github.io/tomorrow-winners/?v='+Date.now()"><span class="lgl">NFL</span><span class="nbs" id="nfl"><span class="nbe">Loading…</span></span></a><a id="navn" class="lvh" href="nba.html" onclick="this.href='nba.html?v='+Date.now()"><span class="lgl">NBA</span><span class="nbs" id="nba"><span class="nbe">Loading…</span></span></a></div>
 <div class="hdr"><div class="hrow"><h1 id="title">Live Bets</h1></div><div class="tsr"><div class="ts" id="ts"><span class="dot"></span>Loading live scores…</div></div>
-<div class="max-grid" aria-label="Potential net winnings"><div class="st max-card"><div class="k">Max win all</div><div class="kv" id="s_maxwin">–</div><div class="max-sub">All live tickets, including future legs</div></div><div class="st max-card"><div class="k">Max win today</div><div class="kv" id="s_maxwin_today">–</div><div class="max-sub" id="max_today_sub">Remaining uncompleted tickets · PT</div></div></div>
+<div class="max-grid" aria-label="Potential net winnings"><div class="st max-card"><div class="k">Max win all</div><div class="kv" id="s_maxwin">–</div><div class="max-sub">All live tickets + best Super Bowl future (only one can win)</div></div><div class="st max-card"><div class="k">Max win today</div><div class="kv" id="s_maxwin_today">–</div><div class="max-sub" id="max_today_sub">Remaining uncompleted tickets · PT</div></div></div>
 <div id="max_breakdown" class="max-breakdown"></div>
 <div class="g3"><div class="st"><div class="k">STILL LIVE</div><div class="kv" id="s_live">–</div></div>
 <div class="st"><div class="k">CASHED</div><div class="kv" style="color:#39e27d" id="s_won">–</div></div>
@@ -95,7 +95,7 @@ function buildTickets(d){CFB=d.cfb_games||{};NFL=d.nfl_games||{};MLBD=d.mlb_game
 function futHTML(){return FUTS.length?section("sb","🏈 Super Bowl bets","#9b59ff",FUTS.map(f=>`<div class="card" style="border-left-color:#9b59ff"><div class="top"><div><div class="bet">${m(f.stake)} bet</div><div class="roll" style="color:#b48cff">PENDING · SETTLES FEB 2027</div></div><div><div class="pay">Wins $${f.towin.toFixed(2)}</div><div class="ret">returns $${(f.stake+f.towin).toFixed(2)}</div></div></div><div class="leg"><div class="need">${esc(f.pick)}</div></div></div>`).join(""),FUTS.length):""}
 async function checkVersion(){try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
  if(v&&v!==APP_VERSION){const k="reloaded_"+v;if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,"1");location.replace(location.pathname+"?v="+encodeURIComponent(v));}}}catch(e){}}
-const APP_VERSION="2026-11-14.1";
+const APP_VERSION="2026-11-14.2";
 
 const chip=g=>!g?"score unavailable":g.state==="void"?`${g.aab} @ ${g.hab} · ${g.detail}`:g.state==="pre"?`${g.aab} @ ${g.hab} · ${g.detail}`:`${g.aab} ${g.a} – ${g.hab} ${g.h} · ${g.detail}`;
 async function getJSON(u,label){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error(`${label} HTTP ${r.status}`);return r.json();}
@@ -578,7 +578,11 @@ if (typeof module !== 'undefined' && module.exports) module.exports = MaxWin;
 function renderMaxWin(remaining, games, now = new Date()) {
   const result = MaxWin.compute(remaining.map(t => ({...t,ticket_id:t.ticket_id ?? TICKETS[t.idx]?.[7]})),games,now);
   const dollar = v => (v < 0 ? '-$' : '$') + Math.abs(v).toFixed(2);
-  $('s_maxwin').textContent = dollar(result.all);
+  // Futures live in FUTS, not TICKETS. Picks on the same event (e.g. 'win Super Bowl LXI') are mutually exclusive,
+  // so only the largest to-win per event can pay; sum that best case across distinct events.
+  const futBest={};(FUTS||[]).forEach(f=>{const ev=(String(f.pick||'').match(/win (.+)$/i)||[,String(f.pick||'')])[1].trim().toLowerCase();const c=Math.round((+f.towin||0)*100);if(!(ev in futBest)||c>futBest[ev])futBest[ev]=c;});
+  const futCents=Object.values(futBest).reduce((a,c)=>a+c,0);
+  $('s_maxwin').textContent = dollar((Math.round(result.all*100)+futCents)/100);
   $('s_maxwin_today').textContent = result.available ? dollar(result.today) : 'Unavailable';
   $('s_maxwin_today').style.color = result.available && result.today < 0 ? '#ff6b6b' : '#39e27d';
   $('max_today_sub').textContent = result.available ? dollar(result.returned)+' returned incl. stakes' : result.reason;
