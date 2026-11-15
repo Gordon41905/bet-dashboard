@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-14.12",
+  "version": "2026-11-15.1",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -482,6 +482,36 @@
       "San Francisco 49ers",
       "Las Vegas Raiders",
       "20261108"
+    ],
+    "DET1115": [
+      "Detroit Lions",
+      "New England Patriots",
+      "20261115"
+    ],
+    "NYJ1115": [
+      "New York Jets",
+      "Buffalo Bills",
+      "20261115"
+    ],
+    "NO1115": [
+      "New Orleans Saints",
+      "Carolina Panthers",
+      "20261115"
+    ],
+    "DAL1115": [
+      "Dallas Cowboys",
+      "San Francisco 49ers",
+      "20261115"
+    ],
+    "CIN1115": [
+      "Cincinnati Bengals",
+      "Pittsburgh Steelers",
+      "20261115"
+    ],
+    "BAL1116": [
+      "Baltimore Ravens",
+      "Los Angeles Chargers",
+      "20261116"
     ]
   },
   "tickets": [
@@ -6407,6 +6437,231 @@
           "odds": null,
           "lab": "TTU",
           "needs": "Texas Tech wins by 8 or more (-7.5 at Oklahoma State; placed live)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015528537",
+      "sport": "NFL",
+      "stake": 11,
+      "towin": 71.39,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "BAL1116",
+          "side": "h",
+          "line": -4.5,
+          "odds": -108,
+          "lab": "BAL",
+          "needs": "Baltimore Ravens win by 5 or more (-4½ vs LA Chargers, Mon)"
+        },
+        {
+          "type": "sp",
+          "game": "NYJ1115",
+          "side": "a",
+          "line": -9,
+          "odds": 105,
+          "lab": "BUF",
+          "needs": "Buffalo Bills win by 10 or more (-9 at NY Jets; exactly 9 pushes)"
+        },
+        {
+          "type": "sp",
+          "game": "CIN1115",
+          "side": "a",
+          "line": 3.5,
+          "odds": -113,
+          "lab": "PIT",
+          "needs": "Pittsburgh Steelers win or lose by 3 or fewer (+3½ at Cincinnati)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015528047",
+      "sport": "NFL",
+      "stake": 11,
+      "towin": 47.41,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "DAL1115",
+          "side": "a",
+          "line": -4,
+          "odds": -110,
+          "lab": "SF",
+          "needs": "San Francisco 49ers win by 5 or more (-4 at Dallas; exactly 4 pushes)"
+        },
+        {
+          "type": "sp",
+          "game": "CIN1115",
+          "side": "a",
+          "line": 3.5,
+          "odds": -113,
+          "lab": "PIT",
+          "needs": "Pittsburgh Steelers win or lose by 3 or fewer (+3½ at Cincinnati)"
+        },
+        {
+          "type": "ml",
+          "game": "BAL1116",
+          "side": "h",
+          "odds": -210,
+          "lab": "BAL",
+          "needs": "Baltimore Ravens beat the LA Chargers (moneyline, Mon)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015527958",
+      "sport": "NFL",
+      "stake": 11,
+      "towin": 28.49,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "DAL1115",
+          "side": "a",
+          "line": -4,
+          "odds": -110,
+          "lab": "SF",
+          "needs": "San Francisco 49ers win by 5 or more (-4 at Dallas; exactly 4 pushes)"
+        },
+        {
+          "type": "sp",
+          "game": "CIN1115",
+          "side": "a",
+          "line": 3.5,
+          "odds": -113,
+          "lab": "PIT",
+          "needs": "Pittsburgh Steelers win or lose by 3 or fewer (+3½ at Cincinnati)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015527859",
+      "sport": "NFL",
+      "stake": 22,
+      "towin": 66.0,
+      "legs": [
+        {
+          "type": "tot",
+          "game": "DET1115",
+          "ou": "u",
+          "line": 49.5,
+          "odds": -105,
+          "lab": "U49.5",
+          "needs": "49 or fewer total points, New England + Detroit (Munich)"
+        },
+        {
+          "type": "sp",
+          "game": "NO1115",
+          "side": "a",
+          "line": 1,
+          "odds": 105,
+          "lab": "CAR",
+          "needs": "Carolina Panthers win or lose by 0 (+1 at New Orleans; lose by 1 pushes)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015527828",
+      "sport": "NFL",
+      "stake": 11,
+      "towin": 79.86,
+      "legs": [
+        {
+          "type": "tot",
+          "game": "DET1115",
+          "ou": "u",
+          "line": 49.5,
+          "odds": -105,
+          "lab": "U49.5",
+          "needs": "49 or fewer total points, New England + Detroit (Munich)"
+        },
+        {
+          "type": "sp",
+          "game": "NYJ1115",
+          "side": "a",
+          "line": -9,
+          "odds": 105,
+          "lab": "BUF",
+          "needs": "Buffalo Bills win by 10 or more (-9 at NY Jets; exactly 9 pushes)"
+        },
+        {
+          "type": "sp",
+          "game": "NO1115",
+          "side": "a",
+          "line": 1,
+          "odds": 105,
+          "lab": "CAR",
+          "needs": "Carolina Panthers win or lose by 0 (+1 at New Orleans; lose by 1 pushes)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015527748",
+      "sport": "NFL",
+      "stake": 11,
+      "towin": 33.0,
+      "legs": [
+        {
+          "type": "tot",
+          "game": "DET1115",
+          "ou": "u",
+          "line": 49.5,
+          "odds": -105,
+          "lab": "U49.5",
+          "needs": "49 or fewer total points, New England + Detroit (Munich)"
+        },
+        {
+          "type": "sp",
+          "game": "NYJ1115",
+          "side": "a",
+          "line": -9,
+          "odds": 105,
+          "lab": "BUF",
+          "needs": "Buffalo Bills win by 10 or more (-9 at NY Jets; exactly 9 pushes)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015527667",
+      "sport": "NFL",
+      "stake": 11,
+      "towin": 29.15,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "DET1115",
+          "side": "h",
+          "line": -2.5,
+          "odds": -115,
+          "lab": "DET",
+          "needs": "Detroit Lions win by 3 or more (-2½ vs New England, Munich)"
+        },
+        {
+          "type": "tot",
+          "game": "DET1115",
+          "ou": "u",
+          "line": 49.5,
+          "odds": -105,
+          "lab": "U49.5",
+          "needs": "49 or fewer total points, New England + Detroit (Munich)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015527574",
+      "sport": "NFL",
+      "stake": 11,
+      "towin": 10.48,
+      "legs": [
+        {
+          "type": "tot",
+          "game": "DET1115",
+          "ou": "u",
+          "line": 49.5,
+          "odds": -105,
+          "lab": "U49.5",
+          "needs": "49 or fewer total points, New England + Detroit (Munich)"
         }
       ]
     }
