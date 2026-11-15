@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-14.8",
+  "version": "2026-11-14.9",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -6348,6 +6348,32 @@
           "odds": -110,
           "lab": "NDSU",
           "needs": "North Dakota State wins by 8 or more (-7 at Hawai'i; win by exactly 7 = push)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015373097",
+      "sport": "CFB",
+      "stake": 22,
+      "towin": 59.84,
+      "accepted_date_pt": "2026-11-14",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "OKST1114",
+          "side": "a",
+          "line": 3.5,
+          "odds": -105,
+          "lab": "TTU",
+          "needs": "Texas Tech wins or loses by 3 or fewer (+3½ at Oklahoma State)"
+        },
+        {
+          "type": "tot",
+          "game": "OKST1114",
+          "ou": "u",
+          "line": 73.5,
+          "odds": -110,
+          "needs": "73 or fewer total points, Texas Tech + Oklahoma State"
         }
       ]
     }
