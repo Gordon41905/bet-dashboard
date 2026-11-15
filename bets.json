@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-14.9",
+  "version": "2026-11-14.10",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -6374,6 +6374,39 @@
           "line": 73.5,
           "odds": -110,
           "needs": "73 or fewer total points, Texas Tech + Oklahoma State"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015431620",
+      "sport": "CFB",
+      "stake": 55,
+      "towin": 47.83,
+      "legs": [
+        {
+          "type": "tot",
+          "game": "OKST1114",
+          "ou": "o",
+          "line": 83.5,
+          "odds": null,
+          "needs": "84 or more total points, Texas Tech + Oklahoma State (placed live)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015431280",
+      "sport": "CFB",
+      "stake": 55,
+      "towin": 47.83,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "OKST1114",
+          "side": "a",
+          "line": -7.5,
+          "odds": null,
+          "lab": "TTU",
+          "needs": "Texas Tech wins by 8 or more (-7.5 at Oklahoma State; placed live)"
         }
       ]
     }
