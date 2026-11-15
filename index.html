@@ -87,15 +87,15 @@ const prop=(game,aid,ou,line,lab)=>({game,f:g=>{const B=g.box||{},P=B[aid],post=
   if(T>line)return[post?"WON":"WIN",post?`${lab} ${T} points, over hit`:`${lab} ${T} points, over hit. You've won that bet and it will cash when the game ends`];return post?["LOST",`${lab} finished with ${T} points`]:["LOSE",`${lab} ${T} points, needs ${tgt-T} more`];}});
 const L=(o,needs,odds)=>Object.assign(o,{needs,odds});
 const dec=a=>a>0?1+a/100:1+100/(-a);
-let TICKETS=[],FUTS=[];
+let TICKETS=[],FUTS=[],FEAT=[];
 function buildTickets(d){CFB=d.cfb_games||{};NFL=d.nfl_games||{};MLBD=d.mlb_games||{};SOCD=d.soc_games||{};NBAD=d.nba_games||{};MMAD=d.mma_games||{};NHLD=d.nhl_games||{};NCAABD=d.ncaab_games||{};TICKETS=d.tickets.map(t=>[t.sport,t.stake,t.towin,t.settled||null,t.legs.map(l=>{
  const o=l.type==="ml"?ml(l.game,l.side,l.lab):l.type==="ml1h"?ml1h(l.game,l.side,l.lab):l.type==="sp1h"?sp1h(l.game,l.side,l.line,l.lab):l.type==="ttot"?ttot(l.game,l.side,l.ou,l.line,l.lab):l.type==="sp"?sp(l.game,l.side,l.line,l.lab):l.type==="prop"?prop(l.game,l.aid,l.ou,l.line,l.lab):tot(l.game,l.ou,l.line);return Object.assign(L(o,l.needs,l.odds),{type:l.type,side:l.side,line:l.line,ou:l.ou,lab:l.lab,aid:l.aid,ntxt:l.ntxt,nres:l.nres,bookmaker_status:l.bookmaker_status,pace:!!l.pace})}),t.pitchers||null,t.bookmaker_settlement||null,t.ticket_id||null]);
- FUTS=d.futures||[];
+ FUTS=d.futures||[];FEAT=(d.featured_ticket_ids||[]).map(String);
  }
 function futHTML(){return FUTS.length?section("sb","🏈 Super Bowl bets","#9b59ff",FUTS.map(f=>`<div class="card" style="border-left-color:#9b59ff"><div class="top"><div><div class="bet">${m(f.stake)} bet</div><div class="roll" style="color:#b48cff">PENDING · SETTLES FEB 2027</div></div><div><div class="pay">Wins $${f.towin.toFixed(2)}</div><div class="ret">returns $${(f.stake+f.towin).toFixed(2)}</div></div></div><div class="leg"><div class="need">${esc(f.pick)}</div></div></div>`).join(""),FUTS.length):""}
 async function checkVersion(){try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
  if(v&&v!==APP_VERSION){const k="reloaded_"+v;if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,"1");location.replace(location.pathname+"?v="+encodeURIComponent(v));}}}catch(e){}}
-const APP_VERSION="2026-11-14.10";
+const APP_VERSION="2026-11-14.11";
 
 const chip=g=>!g?"score unavailable":g.state==="void"?`${g.aab} @ ${g.hab} · ${g.detail}`:g.state==="pre"?`${g.aab} @ ${g.hab} · ${g.detail}`:`${g.aab} ${g.a} – ${g.hab} ${g.h} · ${g.detail}`;
 async function getJSON(u,label){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error(`${label} HTTP ${r.status}`);return r.json();}
@@ -374,6 +374,8 @@ function order(T){const now=Date.now();
   if(["DEAD","CASHED","PUSH"].includes(t.roll)){t.sec=4;const ok=x=>isFinite(x.start),lo=t.legs.filter(l=>l.status==="LOST"&&ok(l)),al=t.legs.filter(ok);const st=t.roll==="DEAD"?(lo.length?Math.min(...lo.map(l=>l.start)):0):(al.length?Math.max(...al.map(l=>l.start)):0);t.key=-st-t.idx}
   else if(live.length){t.sec=0;t.key=Math.min(...live.map(l=>l.start))}
   else{const nx=pre.length?Math.min(...pre.map(l=>l.start)):Infinity;t.key=nx;const dk=isFinite(nx)?pkey(new Date(nx)):null,tk=pkey(new Date(now));t.sec=(dk&&dk>tk)?3:(nx-now)<=1*3600e3?1:2}});
+ // Featured (head) tickets: pinned to the very top of Live now while unsettled, in featured_ticket_ids order.
+ T.forEach(t=>{const fi=FEAT.indexOf(String(t.ticket_id??TICKETS[t.idx]?.[7]??""));if(fi>=0&&t.sec<4){t.sec=0;t.key=-1e15+fi;}});
  return T.sort((a,b)=>a.sec-b.sec||a.key-b.key||(a.sport<b.sport?-1:1));}
 const SECN=["🔴 Live now","⏱️ Starting soon","🌙 Today","📅 Future","✅ Settled"],SECC=["#e5484d","#f0b429","#2b6cff","#7c5cff","#3fae7a"];
 const SECK=["live","soon","later","future","settled"];
