@@ -35,7 +35,7 @@ h1{font-size:22px;font-weight:800}.ts{font-size:13px;color:#9aa6b8;margin:3px 0 
 </style></head><body>
 <div class="lvs"><a id="nav" class="lvh" href="https://gordon41905.github.io/tomorrow-winners/" onclick="this.href='https://gordon41905.github.io/tomorrow-winners/?v='+Date.now()"><span class="lgl">NFL</span><span class="nbs" id="nfl"><span class="nbe">Loading…</span></span></a><a id="navn" class="lvh" href="nba.html" onclick="this.href='nba.html?v='+Date.now()"><span class="lgl">NBA</span><span class="nbs" id="nba"><span class="nbe">Loading…</span></span></a></div>
 <div class="hdr"><div class="hrow"><h1 id="title">Live Bets</h1></div><div class="tsr"><div class="ts" id="ts"><span class="dot"></span>Loading live scores…</div></div>
-<div class="max-grid" aria-label="Potential net winnings"><div class="st max-card"><div class="k">Max win all</div><div class="kv" id="s_maxwin">–</div><div class="max-sub">All live tickets + best Super Bowl future (only one can win)</div></div><div class="st max-card"><div class="k">Max win today</div><div class="kv" id="s_maxwin_today">–</div><div class="max-sub" id="max_today_sub">Remaining uncompleted tickets · PT</div></div></div>
+<div class="max-grid" aria-label="Potential net winnings"><div class="st max-card"><div class="k">Max win all</div><div class="kv" id="s_maxwin">–</div><div class="max-sub">Hedges netted · losing stakes subtracted · incl. best Super Bowl future (only one can win)</div></div><div class="st max-card"><div class="k">Max win today</div><div class="kv" id="s_maxwin_today">–</div><div class="max-sub" id="max_today_sub">Remaining uncompleted tickets · PT</div></div></div>
 <div id="max_breakdown" class="max-breakdown"></div>
 <div class="g3"><div class="st"><div class="k">STILL LIVE</div><div class="kv" id="s_live">–</div></div>
 <div class="st"><div class="k">CASHED</div><div class="kv" style="color:#39e27d" id="s_won">–</div></div>
@@ -95,7 +95,7 @@ function buildTickets(d){CFB=d.cfb_games||{};NFL=d.nfl_games||{};MLBD=d.mlb_game
 function futHTML(){return FUTS.length?section("sb","🏈 Super Bowl bets","#9b59ff",FUTS.map(f=>`<div class="card" style="border-left-color:#9b59ff"><div class="top"><div><div class="bet">${m(f.stake)} bet</div><div class="roll" style="color:#b48cff">PENDING · SETTLES FEB 2027</div></div><div><div class="pay">Wins $${f.towin.toFixed(2)}</div><div class="ret">returns $${(f.stake+f.towin).toFixed(2)}</div></div></div><div class="leg"><div class="need">${esc(f.pick)}</div></div></div>`).join(""),FUTS.length):""}
 async function checkVersion(){try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
  if(v&&v!==APP_VERSION){const k="reloaded_"+v;if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,"1");location.replace(location.pathname+"?v="+encodeURIComponent(v));}}}catch(e){}}
-const APP_VERSION="2026-11-14.11";
+const APP_VERSION="2026-11-14.12";
 
 const chip=g=>!g?"score unavailable":g.state==="void"?`${g.aab} @ ${g.hab} · ${g.detail}`:g.state==="pre"?`${g.aab} @ ${g.hab} · ${g.detail}`:`${g.aab} ${g.a} – ${g.hab} ${g.h} · ${g.detail}`;
 async function getJSON(u,label){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error(`${label} HTTP ${r.status}`);return r.json();}
@@ -398,8 +398,9 @@ function renderPL(T,FU,lbl){FU=FU||[];const settled=T.filter(t=>["CASHED","DEAD"
  <div class="plr" style="margin-top:8px"><span>Total bet (all ${T.length+FU.length} bets)</span><b>${money(wagAll)}</b></div>
  <div class="plr"><span>Total paid back so far</span><b>${money(ret)}</b></div>
  <div class="plr"><span>Still riding (${live.length} game bets${FU.length?` + ${FU.length} futures`:""})</span><b>${money(pend)}</b></div>
- <div class="plr"><span>If every live game bet wins</span><b style="color:#39e27d">${sg(Math.round((net+liveWin)*100)/100)}</b></div>
- <div class="plr"><span>If every live game bet loses</span><b style="color:#ff6b6b">${sg(Math.round(allLose*100)/100)}</b></div>
+ ${lbl==="TODAY"&&window.HEDGE?`<div class="plr"><span>Best realistic outcome (hedges netted)</span><b style="color:#39e27d">${sg(Math.round((net+HEDGE.best)*100)/100)}</b></div><div class="plr"><span>Worst realistic outcome (hedges netted)</span><b style="color:#ff6b6b">${sg(Math.round((net+HEDGE.worst)*100)/100)}</b></div>`:""}
+ <div class="plr"><span>If every live game bet wins${lbl==="TODAY"?" (gross, ignores hedges)":""}</span><b style="color:#39e27d">${sg(Math.round((net+liveWin)*100)/100)}</b></div>
+ <div class="plr"><span>If every live game bet loses${lbl==="TODAY"?" (gross, ignores hedges)":""}</span><b style="color:#ff6b6b">${sg(Math.round(allLose*100)/100)}</b></div>
  ${FU.length?`<div class="pls">Win/lose lines leave out the Super Bowl bets (${money(sum(FU,f=>f.stake))} bet, could win ${money(futWin)}, settle Feb 2027).</div>`:""}</div>`];}
 const pkey=d=>d.toLocaleDateString("en-CA",{timeZone:"America/Los_Angeles"});
 const dlab=k=>new Date(k+"T12:00:00Z").toLocaleDateString("en-US",{timeZone:"UTC",weekday:"short",month:"short",day:"numeric"}).replace(",","");
@@ -504,14 +505,14 @@ const MaxWin = (() => {
         if(!pending.length) continue; // already completed wins/refunds are not remaining risk
         t.legs.forEach((l,i)=>{if(statuses[i]!==null)finalStatuses.set(l,statuses[i]);});
         const future = pending.filter(l => Number.isFinite(games[l.game]?.start) && dayPT(new Date(games[l.game].start)) > today);
-        if (future.length) {
+        if (future.length && !options.allDays) {
           result.excluded.push({id:id(t),profit:t.towin,games:[...new Set(future.map(l => l.game))],reason:'future leg'});
           continue;
         }
         for (const l of pending) {
           const g = games[l.game], s = l.spec;
           if (!g || !Number.isFinite(g.start)) throw Error(`Score/date unavailable for ${id(t)} (${l.game})`);
-          if (dayPT(new Date(g.start)) !== today) throw Error(`Unresolved prior-day game on ${id(t)} (${l.game})`);
+          if (!options.allDays && dayPT(new Date(g.start)) !== today) throw Error(`Unresolved prior-day game on ${id(t)} (${l.game})`);
           if (!['pre','in'].includes(g.state)) throw Error(`Final result unavailable for ${id(t)} (${l.game})`);
           if (l.status === 'NA' || g.mma || !['sp','tot','ml'].includes(s.type) || typeof s.f !== 'function') {
             throw Error(`Unsupported unresolved market on ${id(t)}: ${s.type}`);
@@ -536,7 +537,7 @@ const MaxWin = (() => {
         }
         components.push(c);
       }
-      let profitCents = 0, returnCents = 0, evaluations = 0;
+      let profitCents = 0, returnCents = 0, evaluations = 0, worstCents = 0;
       for (const component of components) {
         const entries = [...component.keys].map(key => {
           const legs = component.tickets.flatMap(t => t.legs.filter(l => l.game === key && !finalStatuses.has(l)));
@@ -544,7 +545,7 @@ const MaxWin = (() => {
         });
         const product = entries.reduce((v,e) => v*e.cells.length,1);
         if (product > (options.maxScenarios ?? 100000)) throw Error('Too many correlated outcome combinations');
-        let best = null;
+        let best = null, worst = null;
         const assigned = new Map(), scores = [];
         function visit(i) {
           if (i < entries.length) {
@@ -563,11 +564,12 @@ const MaxWin = (() => {
           });
           const p = breakdown.reduce((v,b) => v+b.profitCents,0), r = breakdown.reduce((v,b) => v+b.returnCents,0);
           if (!best || p > best.p) best = {p,r,breakdown,scores:scores.map(s => ({...s}))};
+          if (!worst || p < worst) worst = p;
         }
-        visit(0);profitCents += best.p;returnCents += best.r;
+        visit(0);profitCents += best.p;returnCents += best.r;worstCents += worst;
         result.breakdown.push(...best.breakdown);result.scenarios.push(...best.scores);
       }
-      result.available=true;result.today=money(profitCents);result.returned=money(returnCents);result.evaluations=evaluations;
+      result.available=true;result.worst=money(worstCents);result.today=money(profitCents);result.returned=money(returnCents);result.evaluations=evaluations;
     } catch (error) {
       result.reason=error.message;result.breakdown=[];result.scenarios=[];
     }
@@ -584,7 +586,20 @@ function renderMaxWin(remaining, games, now = new Date()) {
   // so only the largest to-win per event can pay; sum that best case across distinct events.
   const futBest={};(FUTS||[]).forEach(f=>{const ev=(String(f.pick||'').match(/win (.+)$/i)||[,String(f.pick||'')])[1].trim().toLowerCase();const c=Math.round((+f.towin||0)*100);if(!(ev in futBest)||c>futBest[ev])futBest[ev]=c;});
   const futCents=Object.values(futBest).reduce((a,c)=>a+c,0);
-  $('s_maxwin').textContent = dollar((Math.round(result.all*100)+futCents)/100);
+  // Hedge-aware futures: best pick per event pays, the other picks on that event lose their stakes.
+  const futEv={};(FUTS||[]).forEach(f=>{const ev=(String(f.pick||'').match(/win (.+)$/i)||[,String(f.pick||'')])[1].trim().toLowerCase();(futEv[ev]=futEv[ev]||[]).push(f);});
+  const futNetCents=Object.values(futEv).reduce((a,L)=>{const tot=L.reduce((x,f)=>x+Math.round((+f.stake||0)*100),0);return a+Math.max(...L.map(f=>Math.round((+f.towin||0)*100)+Math.round((+f.stake||0)*100)-tot));},0);
+  const futStakeCents=(FUTS||[]).reduce((a,f)=>a+Math.round((+f.stake||0)*100),0);
+  // Hedge-aware Max win all: one consistent final score per game across ALL remaining tickets (today + future days), losing stakes subtracted.
+  const sel=remaining.map(t => ({...t,ticket_id:t.ticket_id ?? TICKETS[t.idx]?.[7]}));
+  const resAll=MaxWin.compute(sel,games,now,{allDays:true});
+  const exSum=k=>result.excluded.reduce((a,x)=>a+Math.round((k==='p'?x.profit:(sel.find(t=>String(t.ticket_id)===String(x.id))?.stake||0))*100),0);
+  let hedgeMode,bestC,worstC;
+  if(resAll.available){hedgeMode='full';bestC=Math.round(resAll.today*100);worstC=Math.round(resAll.worst*100);}
+  else if(result.available){hedgeMode='today';bestC=Math.round(result.today*100)+exSum('p');worstC=Math.round(result.worst*100)-exSum('s');}
+  else{hedgeMode='gross';bestC=Math.round(result.all*100);const liveT=sel.filter(t=>['ALIVE','NOT STARTED'].includes(t.roll));worstC=-liveT.reduce((a,t)=>a+Math.round(t.stake*100),0);}
+  window.HEDGE={mode:hedgeMode,best:bestC/100,worst:worstC/100,gross:result.all,futNet:futNetCents/100,futGross:futCents/100,futStake:futStakeCents/100};
+  $('s_maxwin').textContent = dollar((bestC+futNetCents)/100);
   $('s_maxwin_today').textContent = result.available ? dollar(result.today) : 'Unavailable';
   $('s_maxwin_today').style.color = result.available && result.today < 0 ? '#ff6b6b' : '#39e27d';
   $('max_today_sub').textContent = result.available ? dollar(result.returned)+' returned incl. stakes' : result.reason;
@@ -598,16 +613,27 @@ function renderMaxWin(remaining, games, now = new Date()) {
       const g=games[s.game];return (g.hab || s.game)+' '+s.h+'–'+(g.aab || 'away')+' '+s.a+' (margin '+Math.abs(s.h-s.a)+', total '+(s.h+s.a)+')';
     }).join('; ')+'.');
   }
+  notes.push(hedgeMode==='full'?'Max win all is hedge-aware: offsetting tickets on the same game share one final score, and stakes on tickets that lose in that best case are subtracted.':hedgeMode==='today'?'Max win all nets hedges on today\'s games; future-day tickets are added at full to-win.':'Max win all could not net hedges right now ('+(resAll.reason||result.reason||'scores unavailable')+'), so it shows the gross sum.');
+  notes.push('Gross sum of every open to-win plus best Super Bowl future (ignores hedges): '+dollar((Math.round(result.all*100)+futCents)/100)+'. Worst realistic outcome with hedges netted: '+dollar(worstC/100)+' on game bets.');
   $('max_breakdown').textContent = exclusions+notes.join(' ');
   return result;
 }
 
+// Head (featured) ticket banner: exposure on the featured tickets' games with hedges netted.
+function headBox(T){try{const tid=t=>String(t.ticket_id??TICKETS[t.idx]?.[7]??"");const live=T.filter(t=>["ALIVE","NOT STARTED"].includes(t.roll));
+ const F=live.filter(t=>FEAT.includes(tid(t)));if(!F.length)return"";const keys=new Set(F.flatMap(t=>t.legs.map(l=>l.game)));
+ const on=live.filter(t=>t.legs.some(l=>keys.has(l.game)&&!["WON","LOST","PUSH","VOID"].includes(l.status)));
+ const r=MaxWin.compute(on.map(t=>({...t,ticket_id:tid(t)})),LASTG,new Date(),{allDays:true});
+ const g=LASTG[[...keys][0]]||{};const nm=(g.aab&&g.hab)?`${g.aab} @ ${g.hab}`:[...keys].join(", ");
+ const gross=on.reduce((a,t)=>a+t.towin,0),stake=on.reduce((a,t)=>a+t.stake,0),sg=x=>(x>0?"+":"")+money(x);
+ const body=r.available?`best <b style="color:#39e27d">${sg(r.today)}</b> · worst <b style="color:#ff6b6b">${sg(r.worst)}</b>`:`hedge math unavailable (${esc(r.reason||"")})`;
+ return `<div class="headbox" style="border:1px solid #f0b429;border-radius:10px;padding:8px 10px;margin:6px 0;font-size:13px;line-height:1.4"><div style="font-weight:700;color:#f0b429">⭐ HEAD TICKET · ${esc(nm)}</div><div>${on.length} open tickets touch this game (${money(stake)} staked, ${money(gross)} gross to-win). Hedges netted: ${body}</div></div>`;}catch(e){return""}}
 function render(TA){const today=pkey(new Date());$("title").textContent="Live Bets · "+dlab(today);
  const ARC={},T=[];for(const t of TA){const d=setDay(t);if(d&&d<today)(ARC[d]=ARC[d]||[]).push(t);else T.push(t);}
- const [plc,plf]=renderPL(T,[],"TODAY");const live=T.filter(t=>t.roll==="ALIVE"||t.roll==="NOT STARTED");
+ renderMaxWin(T,LASTG);const [plc,plf]=renderPL(T,[],"TODAY");const live=T.filter(t=>t.roll==="ALIVE"||t.roll==="NOT STARTED");
  $("s_live").textContent=m(live.reduce((a,t)=>a+t.stake,0));renderMaxWin(T,LASTG);
  $("s_won").textContent="$"+T.filter(t=>t.roll==="CASHED").reduce((a,t)=>a+t.towin,0).toFixed(2);$("s_lost").textContent=m(T.filter(t=>t.roll==="DEAD").reduce((a,t)=>a+t.stake,0));$("s_ref").textContent=m(T.filter(t=>t.roll==="PUSH").reduce((a,t)=>a+t.stake,0));
- const G=[[],[],[],[],[]];for(const t of order(T))G[t.sec].push(card(t));
+ const G=[[],[],[],[],[]];let headDone=false;for(const t of order(T)){const isF=FEAT.includes(String(t.ticket_id??TICKETS[t.idx]?.[7]??""))&&t.sec<4;G[t.sec].push((isF&&!headDone?headBox(T):"")+card(t));if(isF)headDone=true;}
  let h="";for(const i of [0,1,2,3]){if(G[i].length)h+=section(SECK[i],SECN[i],SECC[i],G[i].join(""),G[i].length);}
  h+=section("results","✅ Settled",SECC[4],plf+G[4].join(""),G[4].length,null,plc);h+=futHTML();
  const days=Object.keys(ARC).sort().reverse();
