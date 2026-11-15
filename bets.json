@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-15.4",
+  "version": "2026-11-15.5",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -516,6 +516,11 @@
     "TEN1115": [
       "Tennessee Titans",
       "Jacksonville Jaguars",
+      "20261115"
+    ],
+    "ATL1115": [
+      "Atlanta Falcons",
+      "Kansas City Chiefs",
       "20261115"
     ]
   },
@@ -6967,6 +6972,24 @@
           "odds": -105,
           "lab": "NYJ",
           "needs": "New York Jets win or lose by 7 or fewer (+7½ vs Buffalo)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015650189",
+      "sport": "NFL",
+      "stake": 11,
+      "towin": 9.17,
+      "accepted_date_pt": "2026-11-15",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "ATL1115",
+          "side": "a",
+          "line": -9.5,
+          "odds": null,
+          "lab": "KC",
+          "needs": "Kansas City Chiefs win by 10 or more (-9½ at Atlanta, live)"
         }
       ]
     }
