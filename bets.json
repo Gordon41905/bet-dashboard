@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-15.2",
+  "version": "2026-11-15.3",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -5992,9 +5992,19 @@
           "line": -3,
           "odds": -105,
           "lab": "ISU",
-          "needs": "Iowa State wins by 4 or more (-3 vs Cincinnati; win by exactly 3 = push)"
+          "needs": "Iowa State wins by 4 or more (-3 vs Cincinnati; win by exactly 3 = push)",
+          "bookmaker_status": "WON"
         }
-      ]
+      ],
+      "settled": "2026-11-14",
+      "bookmaker_status": "WON",
+      "bookmaker_settlement": {
+        "result": "WON",
+        "actual_return": 21.48,
+        "graded_at": "2026-11-14",
+        "source": "BetOnline Graded screenshots Nov 14 11:45 PM PT",
+        "note": "Graded 11/14 12:12 PM PT. $11 + $10.48 = $21.48."
+      }
     },
     {
       "ticket_id": "1015254900",
@@ -6704,6 +6714,135 @@
           "needs": "Tennessee Titans win or lose by 10 or fewer (+10½ vs Jacksonville)"
         }
       ]
+    },
+    {
+      "ticket_id": "1015000463",
+      "sport": "CFB",
+      "stake": 11,
+      "towin": null,
+      "accepted_date_pt": "2026-11-13",
+      "settled": "2026-11-13",
+      "bookmaker_status": "LOST",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "HIST_ILL_UCLA_20261113",
+          "side": "h",
+          "line": -10,
+          "odds": -118,
+          "lab": "UCLA",
+          "needs": "UCLA wins by 11 or more (-10 vs Illinois)",
+          "event_date_pt": "2026-11-13",
+          "bookmaker_status": "LOST"
+        },
+        {
+          "type": "tot",
+          "game": "HIST_ILL_UCLA_20261113",
+          "ou": "u",
+          "line": 49,
+          "odds": -110,
+          "lab": "U49",
+          "needs": "48 or fewer total points, Illinois + UCLA",
+          "event_date_pt": "2026-11-13",
+          "bookmaker_status": "WON"
+        }
+      ],
+      "bookmaker_settlement": {
+        "result": "LOST",
+        "actual_return": 0,
+        "graded_at": "2026-11-13",
+        "source": "BetOnline Graded screenshots Nov 14 11:45 PM PT",
+        "note": "Accepted 11/13 5:22 PM PT, graded 10:22 PM PT. Original to-win not shown on graded ticket."
+      }
+    },
+    {
+      "ticket_id": "1014688349",
+      "sport": "NFL",
+      "stake": 11,
+      "towin": null,
+      "accepted_date_pt": "2026-11-12",
+      "settled": "2026-11-12",
+      "bookmaker_status": "LOST",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "HIST_NYG_WAS_20261112",
+          "side": "a",
+          "line": -1.5,
+          "odds": null,
+          "lab": "NYG",
+          "needs": "New York Giants win by 2 or more (-1.5 at Washington)",
+          "event_date_pt": "2026-11-12"
+        },
+        {
+          "type": "tot",
+          "game": "HIST_NYG_WAS_20261112",
+          "ou": "u",
+          "line": 40.5,
+          "odds": null,
+          "lab": "U40.5",
+          "needs": "40 or fewer total points, Giants + Commanders",
+          "event_date_pt": "2026-11-12"
+        }
+      ],
+      "bookmaker_settlement": {
+        "result": "LOST",
+        "actual_return": 0,
+        "graded_at": "2026-11-12",
+        "source": "BetOnline Graded screenshots Nov 14 11:45 PM PT",
+        "note": "Same Game Parlay. Accepted 11/12 2:32 PM PT, graded 8:39 PM PT. Leg results and odds not shown."
+      }
+    },
+    {
+      "ticket_id": "1014691960",
+      "sport": "NBA",
+      "stake": 22,
+      "towin": null,
+      "accepted_date_pt": "2026-11-12",
+      "settled": "2026-11-12",
+      "bookmaker_status": "LOST",
+      "legs": [
+        {
+          "type": "tot",
+          "game": "HIST_TOR_PHI_20261112",
+          "ou": "u",
+          "line": 224.5,
+          "odds": -115,
+          "lab": "U224.5",
+          "needs": "224 or fewer total points, Raptors + 76ers",
+          "event_date_pt": "2026-11-12",
+          "bookmaker_status": "LOST"
+        },
+        {
+          "type": "sp",
+          "game": "HIST_DET_WAS_20261112",
+          "side": "a",
+          "line": -10,
+          "odds": -110,
+          "lab": "DET",
+          "needs": "Detroit Pistons win by 11 or more (-10 at Washington)",
+          "event_date_pt": "2026-11-12",
+          "bookmaker_status": "LOST"
+        },
+        {
+          "type": "tot",
+          "game": "HIST_DAL_MIN_20261112",
+          "ou": "u",
+          "line": 226.5,
+          "odds": -115,
+          "lab": "U226.5",
+          "needs": "226 or fewer total points, Mavericks + Timberwolves",
+          "event_date_pt": "2026-11-12",
+          "bookmaker_status": "LOST"
+        }
+      ],
+      "bookmaker_settlement": {
+        "result": "LOST",
+        "actual_return": 0,
+        "graded_at": "2026-11-12",
+        "source": "BetOnline Graded screenshots Nov 14 11:45 PM PT",
+        "note": "Accepted 11/12 2:49 PM PT, graded 6:29 PM PT."
+      }
     }
   ],
   "futures": [
