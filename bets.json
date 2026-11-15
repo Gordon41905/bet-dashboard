@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-15.1",
+  "version": "2026-11-15.2",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -512,6 +512,11 @@
       "Baltimore Ravens",
       "Los Angeles Chargers",
       "20261116"
+    ],
+    "TEN1115": [
+      "Tennessee Titans",
+      "Jacksonville Jaguars",
+      "20261115"
     ]
   },
   "tickets": [
@@ -6662,6 +6667,41 @@
           "odds": -105,
           "lab": "U49.5",
           "needs": "49 or fewer total points, New England + Detroit (Munich)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015528907",
+      "sport": "NFL",
+      "stake": 22,
+      "towin": 122.1,
+      "legs": [
+        {
+          "type": "tot",
+          "game": "DET1115",
+          "ou": "o",
+          "line": 49.5,
+          "odds": -115,
+          "lab": "O49.5",
+          "needs": "50 or more total points, New England + Detroit (Munich)"
+        },
+        {
+          "type": "sp",
+          "game": "NYJ1115",
+          "side": "h",
+          "line": 9,
+          "odds": -125,
+          "lab": "NYJ",
+          "needs": "New York Jets win or lose by 8 or fewer (+9 vs Buffalo; lose by 9 pushes)"
+        },
+        {
+          "type": "sp",
+          "game": "TEN1115",
+          "side": "h",
+          "line": 10.5,
+          "odds": -107,
+          "lab": "TEN",
+          "needs": "Tennessee Titans win or lose by 10 or fewer (+10½ vs Jacksonville)"
         }
       ]
     }
