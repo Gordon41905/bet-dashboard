@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-14.7",
+  "version": "2026-11-14.8",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -279,6 +279,26 @@
     "ORE1114": [
       "Oregon",
       "Michigan",
+      "20261114"
+    ],
+    "SDSU1114": [
+      "San Diego State",
+      "Utah State",
+      "20261114"
+    ],
+    "ARIZ1114": [
+      "Arizona",
+      "Utah",
+      "20261114"
+    ],
+    "WSU1114": [
+      "Washington State",
+      "Colorado State",
+      "20261114"
+    ],
+    "HAW1114": [
+      "Hawai",
+      "North Dakota State",
       "20261114"
     ]
   },
@@ -6136,6 +6156,198 @@
           "odds": -112,
           "lab": "UGA",
           "needs": "Georgia wins by 17 or more (-16 vs Missouri; win by exactly 16 = push)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015371669",
+      "sport": "CFB",
+      "stake": 22,
+      "towin": 143.44,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "SDSU1114",
+          "side": "h",
+          "line": 2.5,
+          "odds": 105,
+          "lab": "SDSU",
+          "needs": "San Diego State wins or loses by 2 or fewer (+2½ vs Utah State)"
+        },
+        {
+          "type": "sp",
+          "game": "WSU1114",
+          "side": "h",
+          "line": -8,
+          "odds": -110,
+          "lab": "WSU",
+          "needs": "Washington State wins by 9 or more (-8 vs Colorado State; win by exactly 8 = push)"
+        },
+        {
+          "type": "sp",
+          "game": "OKST1114",
+          "side": "h",
+          "line": -3.5,
+          "odds": -110,
+          "lab": "OKST",
+          "needs": "Oklahoma State wins by 4 or more (-3½ vs Texas Tech)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015371612",
+      "sport": "CFB",
+      "stake": 11,
+      "towin": 29.04,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "WSU1114",
+          "side": "h",
+          "line": -8,
+          "odds": -110,
+          "lab": "WSU",
+          "needs": "Washington State wins by 9 or more (-8 vs Colorado State; win by exactly 8 = push)"
+        },
+        {
+          "type": "sp",
+          "game": "OKST1114",
+          "side": "h",
+          "line": -3.5,
+          "odds": -110,
+          "lab": "OKST",
+          "needs": "Oklahoma State wins by 4 or more (-3½ vs Texas Tech)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015371251",
+      "sport": "CFB",
+      "stake": 11,
+      "towin": 72.82,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "SDSU1114",
+          "side": "h",
+          "line": 2.5,
+          "odds": 105,
+          "lab": "SDSU",
+          "needs": "San Diego State wins or loses by 2 or fewer (+2½ vs Utah State)"
+        },
+        {
+          "type": "sp",
+          "game": "ARIZ1114",
+          "side": "a",
+          "line": -1,
+          "odds": -107,
+          "lab": "UTAH",
+          "needs": "Utah wins by 2 or more (-1 at Arizona; win by exactly 1 = push)"
+        },
+        {
+          "type": "sp",
+          "game": "WSU1114",
+          "side": "h",
+          "line": -8,
+          "odds": -110,
+          "lab": "WSU",
+          "needs": "Washington State wins by 9 or more (-8 vs Colorado State; win by exactly 8 = push)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015371162",
+      "sport": "CFB",
+      "stake": 22,
+      "towin": 59.18,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "ARIZ1114",
+          "side": "a",
+          "line": -1,
+          "odds": -107,
+          "lab": "UTAH",
+          "needs": "Utah wins by 2 or more (-1 at Arizona; win by exactly 1 = push)"
+        },
+        {
+          "type": "sp",
+          "game": "WSU1114",
+          "side": "h",
+          "line": -8,
+          "odds": -110,
+          "lab": "WSU",
+          "needs": "Washington State wins by 9 or more (-8 vs Colorado State; win by exactly 8 = push)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015371047",
+      "sport": "CFB",
+      "stake": 11,
+      "towin": 147.95,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "SDSU1114",
+          "side": "h",
+          "line": 2.5,
+          "odds": 105,
+          "lab": "SDSU",
+          "needs": "San Diego State wins or loses by 2 or fewer (+2½ vs Utah State)"
+        },
+        {
+          "type": "sp",
+          "game": "HAW1114",
+          "side": "a",
+          "line": -7,
+          "odds": -110,
+          "lab": "NDSU",
+          "needs": "North Dakota State wins by 8 or more (-7 at Hawai'i; win by exactly 7 = push)"
+        },
+        {
+          "type": "sp",
+          "game": "ARIZ1114",
+          "side": "a",
+          "line": -1,
+          "odds": -107,
+          "lab": "UTAH",
+          "needs": "Utah wins by 2 or more (-1 at Arizona; win by exactly 1 = push)"
+        },
+        {
+          "type": "sp",
+          "game": "WSU1114",
+          "side": "h",
+          "line": -8,
+          "odds": -110,
+          "lab": "WSU",
+          "needs": "Washington State wins by 9 or more (-8 vs Colorado State; win by exactly 8 = push)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015370731",
+      "sport": "CFB",
+      "stake": 22,
+      "towin": 64.02,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "SDSU1114",
+          "side": "h",
+          "line": 2.5,
+          "odds": 105,
+          "lab": "SDSU",
+          "needs": "San Diego State wins or loses by 2 or fewer (+2½ vs Utah State)"
+        },
+        {
+          "type": "sp",
+          "game": "HAW1114",
+          "side": "a",
+          "line": -7,
+          "odds": -110,
+          "lab": "NDSU",
+          "needs": "North Dakota State wins by 8 or more (-7 at Hawai'i; win by exactly 7 = push)"
         }
       ]
     }
