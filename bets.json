@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-15.5",
+  "version": "2026-11-15.6",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -6990,6 +6990,41 @@
           "odds": null,
           "lab": "KC",
           "needs": "Kansas City Chiefs win by 10 or more (-9½ at Atlanta, live)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015733674",
+      "sport": "NFL",
+      "stake": 22,
+      "towin": 20.0,
+      "accepted_date_pt": "2026-11-15",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "DAL1115",
+          "side": "h",
+          "line": 3,
+          "odds": null,
+          "lab": "DAL",
+          "needs": "Dallas Cowboys win or lose by 2 or fewer (+3 vs San Francisco, live; lose by 3 pushes)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015732908",
+      "sport": "NFL",
+      "stake": 11,
+      "towin": 9.57,
+      "accepted_date_pt": "2026-11-15",
+      "legs": [
+        {
+          "type": "nt",
+          "game": "DAL1115",
+          "odds": null,
+          "lab": "Purdy U308.5",
+          "needs": "Brock Purdy (SF) under 308.5 passing yards (308 or fewer, live)",
+          "ntxt": "Passing yards not tracked — check BetOnline"
         }
       ]
     }
