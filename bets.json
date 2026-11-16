@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-15.8",
+  "version": "2026-11-15.9",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -7068,6 +7068,56 @@
           "odds": -105,
           "lab": "PIT",
           "needs": "Pittsburgh Steelers win or lose by 3 or fewer (+4 at Cincinnati; lose by 4 pushes)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015772206",
+      "sport": "NFL",
+      "stake": 11,
+      "towin": 44.0,
+      "legs": [
+        {
+          "type": "nt",
+          "game": "CIN1115",
+          "odds": null,
+          "lab": "Burrow U2.5 TD",
+          "needs": "Joe Burrow (CIN) under 2.5 passing TDs (2 or fewer)",
+          "ntxt": "Passing TDs not tracked — check BetOnline"
+        },
+        {
+          "type": "sp",
+          "game": "CIN1115",
+          "side": "a",
+          "line": 4.5,
+          "odds": null,
+          "lab": "PIT",
+          "needs": "Pittsburgh Steelers win or lose by 4 or fewer (+4½ at Cincinnati)"
+        },
+        {
+          "type": "tot",
+          "game": "CIN1115",
+          "ou": "o",
+          "line": 49.5,
+          "odds": null,
+          "lab": "O49.5",
+          "needs": "50 or more total points, Pittsburgh + Cincinnati"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015772128",
+      "sport": "NFL",
+      "stake": 11,
+      "towin": 5.39,
+      "legs": [
+        {
+          "type": "nt",
+          "game": "CIN1115",
+          "odds": null,
+          "lab": "Burrow U2.5 TD",
+          "needs": "Joe Burrow (CIN) under 2.5 passing TDs (2 or fewer)",
+          "ntxt": "Passing TDs not tracked — check BetOnline"
         }
       ]
     }
