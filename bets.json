@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-16.1",
+  "version": "2026-11-16.2",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -7157,6 +7157,134 @@
           "needs": "48 or fewer total points, Pittsburgh + Cincinnati (exactly 49 pushes)"
         }
       ]
+    },
+    {
+      "ticket_id": "1015902302",
+      "sport": "NFL",
+      "stake": 11,
+      "towin": 60.5,
+      "legs": [
+        {
+          "type": "nt",
+          "game": "BAL1116",
+          "odds": null,
+          "lab": "Flowers O5.5 rec",
+          "needs": "Zay Flowers (BAL) over 5.5 receptions (6 or more)"
+        },
+        {
+          "type": "sp",
+          "game": "BAL1116",
+          "side": "h",
+          "line": -4.5,
+          "odds": null,
+          "lab": "BAL",
+          "needs": "Baltimore Ravens win by 5 or more (-4½ vs LA Chargers)"
+        },
+        {
+          "type": "tot",
+          "game": "BAL1116",
+          "ou": "u",
+          "line": 39.5,
+          "odds": null,
+          "lab": "U39.5",
+          "needs": "39 or fewer total points, LA Chargers + Baltimore"
+        }
+      ],
+      "accepted_date_pt": "2026-11-16"
+    },
+    {
+      "ticket_id": "1015901771",
+      "sport": "NFL",
+      "stake": 33,
+      "towin": 87.78,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "BAL1116",
+          "side": "h",
+          "line": -4.5,
+          "odds": -110,
+          "lab": "BAL",
+          "needs": "Baltimore Ravens win by 5 or more (-4½ vs LA Chargers)"
+        },
+        {
+          "type": "tot",
+          "game": "BAL1116",
+          "ou": "u",
+          "line": 39,
+          "odds": -109,
+          "lab": "U39",
+          "needs": "38 or fewer total points, LA Chargers + Baltimore (exactly 39 pushes)"
+        }
+      ],
+      "accepted_date_pt": "2026-11-16"
+    },
+    {
+      "ticket_id": "1015901663",
+      "sport": "NFL",
+      "stake": 22,
+      "towin": 39.38,
+      "legs": [
+        {
+          "type": "tot",
+          "game": "BAL1116",
+          "ou": "u",
+          "line": 39,
+          "odds": -109,
+          "lab": "U39",
+          "needs": "38 or fewer total points, LA Chargers + Baltimore (exactly 39 pushes)"
+        },
+        {
+          "type": "ml",
+          "game": "BAL1116",
+          "side": "h",
+          "odds": -220,
+          "lab": "BAL",
+          "needs": "Baltimore Ravens beat the LA Chargers (moneyline)"
+        }
+      ],
+      "accepted_date_pt": "2026-11-16"
+    },
+    {
+      "ticket_id": "1015901616",
+      "sport": "NFL",
+      "stake": 11,
+      "towin": 28.38,
+      "legs": [
+        {
+          "type": "tot",
+          "game": "BAL1116",
+          "ou": "u",
+          "line": 39,
+          "odds": -109,
+          "lab": "U39",
+          "needs": "38 or fewer total points, LA Chargers + Baltimore (exactly 39 pushes)"
+        },
+        {
+          "type": "nt",
+          "game": "BAL1116",
+          "odds": -115,
+          "lab": "BAL 1H -3",
+          "needs": "Baltimore Ravens lead by 4 or more at halftime (1st half -3; exactly 3 pushes)"
+        }
+      ],
+      "accepted_date_pt": "2026-11-16"
+    },
+    {
+      "ticket_id": "1015901502",
+      "sport": "NFL",
+      "stake": 11,
+      "towin": 9.57,
+      "legs": [
+        {
+          "type": "nt",
+          "game": "BAL1116",
+          "odds": -115,
+          "lab": "BAL 1H -3",
+          "needs": "Baltimore Ravens lead by 4 or more at halftime (1st half -3; exactly 3 pushes)"
+        }
+      ],
+      "accepted_date_pt": "2026-11-16"
     }
   ],
   "futures": [
