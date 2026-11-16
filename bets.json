@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-15.7",
+  "version": "2026-11-15.8",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -7025,6 +7025,49 @@
           "lab": "Purdy U308.5",
           "needs": "Brock Purdy (SF) under 308.5 passing yards (308 or fewer, live)",
           "ntxt": "Passing yards not tracked — check BetOnline"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015763966",
+      "sport": "NFL",
+      "stake": 11,
+      "towin": 29.92,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "CIN1115",
+          "side": "a",
+          "line": 4,
+          "odds": -105,
+          "lab": "PIT",
+          "needs": "Pittsburgh Steelers win or lose by 3 or fewer (+4 at Cincinnati; lose by 4 pushes)"
+        },
+        {
+          "type": "tot",
+          "game": "CIN1115",
+          "ou": "o",
+          "line": 49.5,
+          "odds": -110,
+          "lab": "O49.5",
+          "needs": "50 or more total points, Pittsburgh + Cincinnati"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015763493",
+      "sport": "NFL",
+      "stake": 22,
+      "towin": 20.95,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "CIN1115",
+          "side": "a",
+          "line": 4,
+          "odds": -105,
+          "lab": "PIT",
+          "needs": "Pittsburgh Steelers win or lose by 3 or fewer (+4 at Cincinnati; lose by 4 pushes)"
         }
       ]
     }
