@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-15.9",
+  "version": "2026-11-15.10",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -7024,9 +7024,19 @@
           "odds": null,
           "lab": "Purdy U308.5",
           "needs": "Brock Purdy (SF) under 308.5 passing yards (308 or fewer, live)",
-          "ntxt": "Passing yards not tracked — check BetOnline"
+          "ntxt": "Purdy went over 308.5 passing yards; graded LOST by BetOnline",
+          "nres": "LOST"
         }
-      ]
+      ],
+      "settled": "2026-11-15",
+      "bookmaker_status": "LOST",
+      "bookmaker_settlement": {
+        "result": "LOST",
+        "actual_return": 0.0,
+        "graded_at": "2026-11-15",
+        "source": "BetOnline Graded screenshot Nov 15 5:10 PM PT",
+        "note": "Return $0.00. Book graded date 11/16 omitted."
+      }
     },
     {
       "ticket_id": "1015763966",
