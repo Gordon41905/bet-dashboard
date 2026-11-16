@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-15.10",
+  "version": "2026-11-15.11",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -7128,6 +7128,31 @@
           "lab": "Burrow U2.5 TD",
           "needs": "Joe Burrow (CIN) under 2.5 passing TDs (2 or fewer)",
           "ntxt": "Passing TDs not tracked — check BetOnline"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1015775399",
+      "sport": "NFL",
+      "stake": 22,
+      "towin": 38.72,
+      "legs": [
+        {
+          "type": "ml",
+          "game": "CIN1115",
+          "side": "h",
+          "odds": -230,
+          "lab": "CIN",
+          "needs": "Cincinnati Bengals win (moneyline vs Pittsburgh)"
+        },
+        {
+          "type": "tot",
+          "game": "CIN1115",
+          "ou": "u",
+          "line": 49,
+          "odds": -108,
+          "lab": "U49",
+          "needs": "48 or fewer total points, Pittsburgh + Cincinnati (exactly 49 pushes)"
         }
       ]
     }
