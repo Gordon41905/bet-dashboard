@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-15.11",
+  "version": "2026-11-16.1",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -7093,7 +7093,8 @@
           "odds": null,
           "lab": "Burrow U2.5 TD",
           "needs": "Joe Burrow (CIN) under 2.5 passing TDs (2 or fewer)",
-          "ntxt": "Passing TDs not tracked — check BetOnline"
+          "ntxt": "Burrow threw 4 passing TDs (ESPN final box score, CIN 38-18 PIT); leg LOST",
+          "nres": "LOST"
         },
         {
           "type": "sp",
@@ -7127,7 +7128,8 @@
           "odds": null,
           "lab": "Burrow U2.5 TD",
           "needs": "Joe Burrow (CIN) under 2.5 passing TDs (2 or fewer)",
-          "ntxt": "Passing TDs not tracked — check BetOnline"
+          "ntxt": "Burrow threw 4 passing TDs (ESPN final box score, CIN 38-18 PIT); leg LOST",
+          "nres": "LOST"
         }
       ]
     },
