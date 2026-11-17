@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-16.2",
+  "version": "2026-11-17.1",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -7169,7 +7169,9 @@
           "game": "BAL1116",
           "odds": null,
           "lab": "Flowers O5.5 rec",
-          "needs": "Zay Flowers (BAL) over 5.5 receptions (6 or more)"
+          "needs": "Zay Flowers (BAL) over 5.5 receptions (6 or more)",
+          "ntxt": "Zay Flowers had 6 receptions (ESPN final box score, LAC 23-20 BAL); leg WON",
+          "nres": "WON"
         },
         {
           "type": "sp",
@@ -7265,7 +7267,9 @@
           "game": "BAL1116",
           "odds": -115,
           "lab": "BAL 1H -3",
-          "needs": "Baltimore Ravens lead by 4 or more at halftime (1st half -3; exactly 3 pushes)"
+          "needs": "Baltimore Ravens lead by 4 or more at halftime (1st half -3; exactly 3 pushes)",
+          "ntxt": "Halftime LAC 17-10 BAL (ESPN linescores); leg LOST",
+          "nres": "LOST"
         }
       ],
       "accepted_date_pt": "2026-11-16"
@@ -7281,7 +7285,9 @@
           "game": "BAL1116",
           "odds": -115,
           "lab": "BAL 1H -3",
-          "needs": "Baltimore Ravens lead by 4 or more at halftime (1st half -3; exactly 3 pushes)"
+          "needs": "Baltimore Ravens lead by 4 or more at halftime (1st half -3; exactly 3 pushes)",
+          "ntxt": "Halftime LAC 17-10 BAL (ESPN linescores); leg LOST",
+          "nres": "LOST"
         }
       ],
       "accepted_date_pt": "2026-11-16"
