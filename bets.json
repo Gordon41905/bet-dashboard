@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-18.1",
+  "version": "2026-11-18.2",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -7354,6 +7354,23 @@
           "odds": -113,
           "lab": "MIA",
           "needs": "Miami Heat win by 13 or more (-12 vs Milwaukee; exactly 12 pushes)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1016635762",
+      "sport": "CFB",
+      "stake": 55,
+      "towin": 44.0,
+      "legs": [
+        {
+          "type": "tot",
+          "game": "BUF1118",
+          "ou": "o",
+          "line": 46.5,
+          "odds": -125,
+          "lab": "O46.5",
+          "needs": "47 or more total points, Central Michigan + Buffalo (bought ½ point)"
         }
       ]
     }
