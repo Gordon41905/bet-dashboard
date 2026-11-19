@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-17.1",
+  "version": "2026-11-18.1",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -300,6 +300,11 @@
       "Hawai",
       "North Dakota State",
       "20261114"
+    ],
+    "BUF1118": [
+      "Buffalo",
+      "Central Michigan",
+      "20261118"
     ]
   },
   "nfl_games": {
@@ -7291,6 +7296,66 @@
         }
       ],
       "accepted_date_pt": "2026-11-16"
+    },
+    {
+      "ticket_id": "1016632675",
+      "sport": "CFB",
+      "stake": 33,
+      "towin": 77.88,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "BUF1118",
+          "side": "h",
+          "line": -2.5,
+          "odds": -120,
+          "lab": "BUF",
+          "needs": "Buffalo wins by 3 or more (-2½ vs Central Michigan)"
+        },
+        {
+          "type": "tot",
+          "game": "BUF1118",
+          "ou": "o",
+          "line": 47,
+          "odds": -120,
+          "lab": "O47",
+          "needs": "48 or more total points, Central Michigan + Buffalo (exactly 47 pushes)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1016632506",
+      "sport": "CFB",
+      "stake": 22,
+      "towin": 18.33,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "BUF1118",
+          "side": "h",
+          "line": -2.5,
+          "odds": -120,
+          "lab": "BUF",
+          "needs": "Buffalo wins by 3 or more (-2½ vs Central Michigan)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1016632276",
+      "sport": "NBA",
+      "stake": 11,
+      "towin": 9.73,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "MIA1118",
+          "side": "h",
+          "line": -12,
+          "odds": -113,
+          "lab": "MIA",
+          "needs": "Miami Heat win by 13 or more (-12 vs Milwaukee; exactly 12 pushes)"
+        }
+      ]
     }
   ],
   "futures": [
@@ -7457,6 +7522,10 @@
     "GSW1101": [
       "401909905",
       "2026-11-01"
+    ],
+    "MIA1118": [
+      "401910009",
+      "2026-11-18"
     ]
   },
   "mma_games": {
