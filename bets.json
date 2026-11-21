@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-21.1",
+  "version": "2026-11-21.2",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -334,6 +334,26 @@
     "TENN1121": [
       "Tennessee",
       "LSU",
+      "20261121"
+    ],
+    "LOU1121": [
+      "Louisville",
+      "Pittsburgh",
+      "20261121"
+    ],
+    "SJSU1121": [
+      "San José State",
+      "UNLV",
+      "20261121"
+    ],
+    "USC1121": [
+      "USC",
+      "Maryland",
+      "20261121"
+    ],
+    "TXST1121": [
+      "Texas State",
+      "Washington State",
       "20261121"
     ]
   },
@@ -7634,6 +7654,87 @@
           "odds": -100,
           "lab": "JAX",
           "needs": "Jaguars win by 6 or more (-5½ at New York Giants)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1017593753",
+      "sport": "CFB",
+      "stake": 22,
+      "towin": 55.88,
+      "accepted_date_pt": "2026-11-21",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "LOU1121",
+          "side": "h",
+          "line": -10.5,
+          "odds": -117,
+          "lab": "LOU",
+          "needs": "Louisville wins by 11 or more (-10½ vs Pittsburgh)"
+        },
+        {
+          "type": "sp",
+          "game": "SJSU1121",
+          "side": "a",
+          "line": -6.5,
+          "odds": -110,
+          "lab": "UNLV",
+          "needs": "UNLV wins by 7 or more (-6½ at San Jose State)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1017593691",
+      "sport": "CFB",
+      "stake": 22,
+      "towin": 55.88,
+      "accepted_date_pt": "2026-11-21",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "LOU1121",
+          "side": "h",
+          "line": -10.5,
+          "odds": -117,
+          "lab": "LOU",
+          "needs": "Louisville wins by 11 or more (-10½ vs Pittsburgh)"
+        },
+        {
+          "type": "sp",
+          "game": "SJSU1121",
+          "side": "a",
+          "line": -6.5,
+          "odds": -110,
+          "lab": "UNLV",
+          "needs": "UNLV wins by 7 or more (-6½ at San Jose State)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1017593268",
+      "sport": "CFB",
+      "stake": 22,
+      "towin": 56.32,
+      "accepted_date_pt": "2026-11-21",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "USC1121",
+          "side": "a",
+          "line": 17.5,
+          "odds": -110,
+          "lab": "MD",
+          "needs": "Maryland wins, or loses by 17 or fewer (+17½ at USC)"
+        },
+        {
+          "type": "sp",
+          "game": "TXST1121",
+          "side": "h",
+          "line": -13.5,
+          "odds": -115,
+          "lab": "TXST",
+          "needs": "Texas State wins by 14 or more (-13½ vs Washington State, bought ½)"
         }
       ]
     }
