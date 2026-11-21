@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-18.6",
+  "version": "2026-11-21.1",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -305,6 +305,36 @@
       "Buffalo",
       "Central Michigan",
       "20261118"
+    ],
+    "NEB1121": [
+      "Nebraska",
+      "Ohio State",
+      "20261121"
+    ],
+    "MICH1121": [
+      "Michigan",
+      "UCLA",
+      "20261121"
+    ],
+    "UVA1121": [
+      "Virginia",
+      "North Carolina",
+      "20261121"
+    ],
+    "KU1121": [
+      "Kansas",
+      "BYU",
+      "20261121"
+    ],
+    "BC1121": [
+      "Boston College",
+      "Syracuse",
+      "20261121"
+    ],
+    "TENN1121": [
+      "Tennessee",
+      "LSU",
+      "20261121"
     ]
   },
   "nfl_games": {
@@ -527,6 +557,11 @@
       "Atlanta Falcons",
       "Kansas City Chiefs",
       "20261115"
+    ],
+    "NYG1122": [
+      "New York Giants",
+      "Jacksonville Jaguars",
+      "20261122"
     ]
   },
   "tickets": [
@@ -7430,6 +7465,175 @@
           "odds": -118,
           "lab": "SAC",
           "needs": "Sacramento Kings lose by 7 or fewer, or win (+7½ vs Phoenix, bought ½ point)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1017458911",
+      "sport": "CFB",
+      "stake": 11,
+      "towin": 62.26,
+      "accepted_date_pt": "2026-11-21",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "NEB1121",
+          "side": "a",
+          "line": -3.5,
+          "odds": -115,
+          "lab": "OSU",
+          "needs": "Ohio State wins by 4 or more (-3½ at Nebraska)"
+        },
+        {
+          "type": "sp",
+          "game": "MICH1121",
+          "side": "a",
+          "line": -3.5,
+          "odds": -111,
+          "lab": "UCLA",
+          "needs": "UCLA wins by 4 or more (-3½ at Michigan)"
+        },
+        {
+          "type": "sp",
+          "game": "UVA1121",
+          "side": "a",
+          "line": -1,
+          "odds": -116,
+          "lab": "UNC",
+          "needs": "North Carolina wins by 2 or more (-1 at Virginia; win by exactly 1 = push)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1017457524",
+      "sport": "CFB",
+      "stake": 22,
+      "towin": 56.1,
+      "accepted_date_pt": "2026-11-21",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "NEB1121",
+          "side": "a",
+          "line": -3.5,
+          "odds": -115,
+          "lab": "OSU",
+          "needs": "Ohio State wins by 4 or more (-3½ at Nebraska)"
+        },
+        {
+          "type": "sp",
+          "game": "MICH1121",
+          "side": "a",
+          "line": -3.5,
+          "odds": -111,
+          "lab": "UCLA",
+          "needs": "UCLA wins by 4 or more (-3½ at Michigan)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1017457337",
+      "sport": "CFB",
+      "stake": 33,
+      "towin": 86.13,
+      "accepted_date_pt": "2026-11-21",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "KU1121",
+          "side": "a",
+          "line": -4.5,
+          "odds": -107,
+          "lab": "BYU",
+          "needs": "BYU wins by 5 or more (-4½ at Kansas)"
+        },
+        {
+          "type": "sp",
+          "game": "NEB1121",
+          "side": "a",
+          "line": -3.5,
+          "odds": -115,
+          "lab": "OSU",
+          "needs": "Ohio State wins by 4 or more (-3½ at Nebraska)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1017279731",
+      "sport": "CFB",
+      "stake": 22,
+      "towin": 53.9,
+      "accepted_date_pt": "2026-11-21",
+      "legs": [
+        {
+          "type": "ml",
+          "game": "BC1121",
+          "side": "h",
+          "odds": 128,
+          "lab": "BC",
+          "needs": "Boston College beats Syracuse"
+        },
+        {
+          "type": "ml",
+          "game": "KU1121",
+          "side": "a",
+          "odds": -195,
+          "lab": "BYU",
+          "needs": "BYU beats Kansas"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1017279513",
+      "sport": "CFB",
+      "stake": 11,
+      "towin": 10.0,
+      "accepted_date_pt": "2026-11-21",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "BC1121",
+          "side": "a",
+          "line": -3,
+          "odds": -110,
+          "lab": "SYR",
+          "needs": "Syracuse wins by 4 or more (-3 at Boston College; win by exactly 3 = push)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1016906461",
+      "sport": "CFB",
+      "stake": 33,
+      "towin": 33.0,
+      "accepted_date_pt": "2026-11-20",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "TENN1121",
+          "side": "h",
+          "line": 0,
+          "odds": -100,
+          "lab": "TENN",
+          "needs": "Tennessee beats LSU (pick'em vs LSU; a tie pushes)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1016905981",
+      "sport": "NFL",
+      "stake": 33,
+      "towin": 33.0,
+      "accepted_date_pt": "2026-11-20",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "NYG1122",
+          "side": "a",
+          "line": -5.5,
+          "odds": -100,
+          "lab": "JAX",
+          "needs": "Jaguars win by 6 or more (-5½ at New York Giants)"
         }
       ]
     }
