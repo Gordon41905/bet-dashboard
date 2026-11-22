@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-21.4",
+  "version": "2026-11-21.5",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -596,6 +596,31 @@
     "NYG1122": [
       "New York Giants",
       "Jacksonville Jaguars",
+      "20261122"
+    ],
+    "LAC1122": [
+      "Los Angeles Chargers",
+      "New York Jets",
+      "20261122"
+    ],
+    "SF1122": [
+      "San Francisco 49ers",
+      "Minnesota Vikings",
+      "20261122"
+    ],
+    "DAL1122": [
+      "Dallas Cowboys",
+      "Tennessee Titans",
+      "20261122"
+    ],
+    "DET1122": [
+      "Detroit Lions",
+      "Tampa Bay Buccaneers",
+      "20261122"
+    ],
+    "DEN1122": [
+      "Denver Broncos",
+      "Las Vegas Raiders",
       "20261122"
     ]
   },
@@ -7888,6 +7913,133 @@
           "odds": null,
           "lab": "ASU",
           "needs": "Arizona State beats Oklahoma State (pick'em vs Oklahoma State; a tie pushes)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1017770974",
+      "sport": "NFL",
+      "stake": 11,
+      "towin": 8.59,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "LAC1122",
+          "side": "a",
+          "line": 3.5,
+          "odds": -128,
+          "lab": "NYJ",
+          "needs": "New York Jets win, or lose by 3 or fewer (+3½ at Chargers, bought ½)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1017770764",
+      "sport": "NFL",
+      "stake": 33,
+      "towin": 163.02,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "SF1122",
+          "side": "h",
+          "line": -3,
+          "odds": -127,
+          "lab": "SF",
+          "needs": "San Francisco 49ers win by 4 or more (-3 vs Minnesota, Mexico City, bought ½; win by exactly 3 = push)"
+        },
+        {
+          "type": "sp",
+          "game": "LAC1122",
+          "side": "a",
+          "line": 3.5,
+          "odds": -128,
+          "lab": "NYJ",
+          "needs": "New York Jets win, or lose by 3 or fewer (+3½ at Chargers, bought ½)"
+        },
+        {
+          "type": "tot",
+          "game": "DAL1122",
+          "ou": "o",
+          "line": 54.5,
+          "odds": -117,
+          "lab": "O54.5",
+          "needs": "55 or more total points, Tennessee + Dallas (bought ½)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1017770313",
+      "sport": "NFL",
+      "stake": 11,
+      "towin": 28.71,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "DET1122",
+          "side": "h",
+          "line": -4,
+          "odds": -110,
+          "lab": "DET",
+          "needs": "Detroit Lions win by 5 or more (-4 vs Tampa Bay; win by exactly 4 = push)"
+        },
+        {
+          "type": "tot",
+          "game": "DET1122",
+          "ou": "u",
+          "line": 47.5,
+          "odds": -112,
+          "lab": "U47.5",
+          "needs": "47 or fewer total points, Tampa Bay + Detroit"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1017690926",
+      "sport": "NFL",
+      "stake": 44,
+      "towin": 58.08,
+      "legs": [
+        {
+          "type": "ml",
+          "game": "DET1122",
+          "side": "h",
+          "odds": -220,
+          "lab": "DET",
+          "needs": "Detroit Lions beat the Buccaneers"
+        },
+        {
+          "type": "ml",
+          "game": "NYG1122",
+          "side": "a",
+          "odds": -280,
+          "lab": "JAX",
+          "needs": "Jaguars beat the Giants"
+        },
+        {
+          "type": "ml",
+          "game": "DEN1122",
+          "side": "h",
+          "odds": -570,
+          "lab": "DEN",
+          "needs": "Broncos beat the Raiders"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1017690637",
+      "sport": "NFL",
+      "stake": 22,
+      "towin": 15.71,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "DET1122",
+          "side": "h",
+          "line": -3,
+          "odds": -140,
+          "lab": "DET",
+          "needs": "Detroit Lions win by 4 or more (-3 vs Tampa Bay, bought 1; win by exactly 3 = push)"
         }
       ]
     }
