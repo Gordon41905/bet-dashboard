@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-22.1",
+  "version": "2026-11-22.2",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -8084,6 +8084,49 @@
           "odds": null,
           "lab": "NYJ",
           "needs": "New York Jets win, or lose by 3 or fewer (+3½ at Chargers)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1017878591",
+      "sport": "NFL",
+      "stake": 11,
+      "towin": 87.36,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "DAL1122",
+          "side": "h",
+          "line": -7.5,
+          "odds": null,
+          "lab": "DAL",
+          "needs": "Dallas Cowboys win by 8 or more (-7½ vs Tennessee)"
+        },
+        {
+          "type": "tot",
+          "game": "DAL1122",
+          "ou": "o",
+          "line": 54.5,
+          "odds": null,
+          "lab": "O54.5",
+          "needs": "55 or more total points, Tennessee + Dallas"
+        },
+        {
+          "type": "ml",
+          "game": "LAC1122",
+          "side": "h",
+          "odds": null,
+          "lab": "LAC",
+          "needs": "Chargers beat the Jets"
+        },
+        {
+          "type": "tot",
+          "game": "LAC1122",
+          "ou": "o",
+          "line": 42.5,
+          "odds": null,
+          "lab": "O42.5",
+          "needs": "43 or more total points, Jets + Chargers"
         }
       ]
     }
