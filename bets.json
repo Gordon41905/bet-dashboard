@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-22.2",
+  "version": "2026-11-22.3",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -8127,6 +8127,35 @@
           "odds": null,
           "lab": "O42.5",
           "needs": "43 or more total points, Jets + Chargers"
+        }
+      ]
+    },
+    {
+      "ticket_id": "TBD-20261122-JAXDEN",
+      "sport": "NFL",
+      "stake": 11,
+      "towin": 24.42,
+      "accepted_date_pt": "2026-11-22",
+      "review_needed": true,
+      "review_note": "Ticket number was cut off in the 12:59 PM PT Nov 22 video; real Bet ID pending.",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "NYG1122",
+          "side": "a",
+          "line": -5.5,
+          "odds": -122,
+          "lab": "JAX",
+          "needs": "Jaguars win by 6 or more (-5½ at New York Giants, bought ½)"
+        },
+        {
+          "type": "tot",
+          "game": "DEN1122",
+          "ou": "o",
+          "line": 40.5,
+          "odds": -130,
+          "lab": "O40.5",
+          "needs": "41 or more total points, Raiders + Broncos (bought 1)"
         }
       ]
     }
