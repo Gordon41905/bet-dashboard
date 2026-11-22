@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-21.2",
+  "version": "2026-11-21.3",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -354,6 +354,21 @@
     "TXST1121": [
       "Texas State",
       "Washington State",
+      "20261121"
+    ],
+    "ASU1121": [
+      "Arizona State",
+      "Oklahoma State",
+      "20261121"
+    ],
+    "ORST1121": [
+      "Oregon State",
+      "Utah State",
+      "20261121"
+    ],
+    "NEV1121": [
+      "Nevada",
+      "Hawai'i",
       "20261121"
     ]
   },
@@ -7735,6 +7750,110 @@
           "odds": -115,
           "lab": "TXST",
           "needs": "Texas State wins by 14 or more (-13½ vs Washington State, bought ½)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1017673468",
+      "sport": "CFB",
+      "stake": 22,
+      "towin": 121.88,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "ORST1121",
+          "side": "h",
+          "line": -6.5,
+          "odds": -120,
+          "lab": "ORST",
+          "needs": "Oregon State wins by 7 or more (-6½ vs Utah State)"
+        },
+        {
+          "type": "sp",
+          "game": "NEV1121",
+          "side": "h",
+          "line": -7,
+          "odds": -104,
+          "lab": "NEV",
+          "needs": "Nevada wins by 8 or more (-7 vs Hawaii)"
+        },
+        {
+          "type": "sp",
+          "game": "ASU1121",
+          "side": "a",
+          "line": -2.5,
+          "odds": -124,
+          "lab": "OKST",
+          "needs": "Oklahoma State wins by 3 or more (-2½ at Arizona State, bought ½)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1017673288",
+      "sport": "CFB",
+      "stake": 22,
+      "towin": 55.88,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "ASU1121",
+          "side": "a",
+          "line": -2.5,
+          "odds": -124,
+          "lab": "OKST",
+          "needs": "Oklahoma State wins by 3 or more (-2½ at Arizona State, bought ½)"
+        },
+        {
+          "type": "sp",
+          "game": "NEV1121",
+          "side": "h",
+          "line": -7,
+          "odds": -104,
+          "lab": "NEV",
+          "needs": "Nevada wins by 8 or more (-7 vs Hawaii)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1017673224",
+      "sport": "CFB",
+      "stake": 22,
+      "towin": 55.88,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "ASU1121",
+          "side": "a",
+          "line": -2.5,
+          "odds": -124,
+          "lab": "OKST",
+          "needs": "Oklahoma State wins by 3 or more (-2½ at Arizona State, bought ½)"
+        },
+        {
+          "type": "sp",
+          "game": "NEV1121",
+          "side": "h",
+          "line": -7,
+          "odds": -104,
+          "lab": "NEV",
+          "needs": "Nevada wins by 8 or more (-7 vs Hawaii)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1017673069",
+      "sport": "CFB",
+      "stake": 11,
+      "towin": 8.87,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "ASU1121",
+          "side": "a",
+          "line": -2.5,
+          "odds": -124,
+          "lab": "OKST",
+          "needs": "Oklahoma State wins by 3 or more (-2½ at Arizona State, bought ½)"
         }
       ]
     }
