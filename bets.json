@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-22.3",
+  "version": "2026-11-22.4",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -8156,6 +8156,49 @@
           "odds": -130,
           "lab": "O40.5",
           "needs": "41 or more total points, Raiders + Broncos (bought 1)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1017926353",
+      "sport": "NFL",
+      "stake": 55,
+      "towin": 44.0,
+      "legs": [
+        {
+          "type": "tot",
+          "game": "LAC1122",
+          "ou": "u",
+          "line": 44,
+          "odds": -125,
+          "lab": "U44",
+          "needs": "43 or fewer total points, Jets + Chargers (bought ½; exactly 44 pushes)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1017925032",
+      "sport": "NFL",
+      "stake": 22,
+      "towin": 45.98,
+      "legs": [
+        {
+          "type": "tot",
+          "game": "DEN1122",
+          "ou": "o",
+          "line": 41,
+          "odds": -120,
+          "lab": "O41",
+          "needs": "42 or more total points, Raiders + Broncos (bought ½; exactly 41 pushes)"
+        },
+        {
+          "type": "sp",
+          "game": "SF1122",
+          "side": "h",
+          "line": -3,
+          "odds": -145,
+          "lab": "SF",
+          "needs": "San Francisco 49ers win by 4 or more (-3 vs Minnesota, Mexico City, bought 1; win by exactly 3 = push)"
         }
       ]
     }
