@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-22.6",
+  "version": "2026-11-22.7",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -8426,6 +8426,32 @@
           "odds": -130,
           "lab": "O44",
           "needs": "45 or more total points, Vikings + 49ers (bought 1; exactly 44 pushes)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1018020062",
+      "sport": "NFL",
+      "stake": 22,
+      "towin": 53.68,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "SF1122",
+          "side": "a",
+          "line": 4.5,
+          "odds": null,
+          "lab": "MIN",
+          "needs": "Minnesota Vikings win, or lose by 4 or fewer (+4½ at 49ers, Mexico City)"
+        },
+        {
+          "type": "tot",
+          "game": "SF1122",
+          "ou": "o",
+          "line": 44.5,
+          "odds": null,
+          "lab": "O44.5",
+          "needs": "45 or more total points, Vikings + 49ers (over 44½)"
         }
       ]
     }
