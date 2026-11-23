@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-22.7",
+  "version": "2026-11-22.8",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -8240,37 +8240,48 @@
           "game": "SF1122",
           "odds": null,
           "lab": "Cousins 299+ yds",
-          "needs": "Kirk Cousins (MIN) 299 or more passing yards"
+          "needs": "Kirk Cousins (MIN) 299 or more passing yards",
+          "nres": "LOST",
+          "ntxt": "Cousins threw for 235 yards (needed 299+; SF 35–10 MIN); graded LOST"
         },
         {
           "type": "nt",
           "game": "SF1122",
           "odds": null,
           "lab": "Cousins 2+ TD",
-          "needs": "Kirk Cousins (MIN) 2 or more passing touchdowns"
+          "needs": "Kirk Cousins (MIN) 2 or more passing touchdowns",
+          "nres": "LOST",
+          "ntxt": "Cousins threw 0 passing TDs (needed 2+; SF 35–10 MIN); graded LOST"
         },
         {
           "type": "nt",
           "game": "SF1122",
           "odds": null,
           "lab": "Purdy 307+ yds",
-          "needs": "Brock Purdy (SF) 307 or more passing yards"
+          "needs": "Brock Purdy (SF) 307 or more passing yards",
+          "nres": "LOST",
+          "ntxt": "Purdy threw for 255 yards (needed 307+; SF 35–10 MIN); graded LOST"
         },
         {
           "type": "nt",
           "game": "SF1122",
           "odds": null,
           "lab": "Purdy 2+ TD",
-          "needs": "Brock Purdy (SF) 2 or more passing touchdowns"
+          "needs": "Brock Purdy (SF) 2 or more passing touchdowns",
+          "nres": "WON",
+          "ntxt": "Purdy threw 3 passing TDs (SF 35–10 MIN); graded WON"
         },
         {
           "type": "nt",
           "game": "SF1122",
           "odds": null,
           "lab": "CMC 1+ TD",
-          "needs": "Christian McCaffrey (SF) 1 or more touchdowns"
+          "needs": "Christian McCaffrey (SF) 1 or more touchdowns",
+          "nres": "WON",
+          "ntxt": "McCaffrey scored 1 rushing TD (SF 35–10 MIN); graded WON"
         }
-      ]
+      ],
+      "settled": "2026-11-22"
     },
     {
       "ticket_id": "1018019399",
@@ -8283,9 +8294,12 @@
           "game": "SF1122",
           "odds": null,
           "lab": "CMC 1+ TD",
-          "needs": "Christian McCaffrey (SF) 1 or more touchdowns"
+          "needs": "Christian McCaffrey (SF) 1 or more touchdowns",
+          "nres": "WON",
+          "ntxt": "McCaffrey scored 1 rushing TD (SF 35–10 MIN); graded WON"
         }
-      ]
+      ],
+      "settled": "2026-11-22"
     },
     {
       "ticket_id": "1018018848",
@@ -8298,37 +8312,48 @@
           "game": "SF1122",
           "odds": null,
           "lab": "Cousins 299+ yds",
-          "needs": "Kirk Cousins (MIN) 299 or more passing yards"
+          "needs": "Kirk Cousins (MIN) 299 or more passing yards",
+          "nres": "LOST",
+          "ntxt": "Cousins threw for 235 yards (needed 299+; SF 35–10 MIN); graded LOST"
         },
         {
           "type": "nt",
           "game": "SF1122",
           "odds": null,
           "lab": "Cousins 2+ TD",
-          "needs": "Kirk Cousins (MIN) 2 or more passing touchdowns"
+          "needs": "Kirk Cousins (MIN) 2 or more passing touchdowns",
+          "nres": "LOST",
+          "ntxt": "Cousins threw 0 passing TDs (needed 2+; SF 35–10 MIN); graded LOST"
         },
         {
           "type": "nt",
           "game": "SF1122",
           "odds": null,
           "lab": "Purdy 307+ yds",
-          "needs": "Brock Purdy (SF) 307 or more passing yards"
+          "needs": "Brock Purdy (SF) 307 or more passing yards",
+          "nres": "LOST",
+          "ntxt": "Purdy threw for 255 yards (needed 307+; SF 35–10 MIN); graded LOST"
         },
         {
           "type": "nt",
           "game": "SF1122",
           "odds": null,
           "lab": "Purdy 2+ TD",
-          "needs": "Brock Purdy (SF) 2 or more passing touchdowns"
+          "needs": "Brock Purdy (SF) 2 or more passing touchdowns",
+          "nres": "WON",
+          "ntxt": "Purdy threw 3 passing TDs (SF 35–10 MIN); graded WON"
         },
         {
           "type": "nt",
           "game": "SF1122",
           "odds": null,
           "lab": "CMC 1+ TD",
-          "needs": "Christian McCaffrey (SF) 1 or more touchdowns"
+          "needs": "Christian McCaffrey (SF) 1 or more touchdowns",
+          "nres": "WON",
+          "ntxt": "McCaffrey scored 1 rushing TD (SF 35–10 MIN); graded WON"
         }
-      ]
+      ],
+      "settled": "2026-11-22"
     },
     {
       "ticket_id": "1017997967",
