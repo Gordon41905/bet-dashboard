@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-22.8",
+  "version": "2026-11-23.1",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -622,6 +622,11 @@
       "Denver Broncos",
       "Las Vegas Raiders",
       "20261122"
+    ],
+    "WSH1123": [
+      "Washington Commanders",
+      "Cincinnati Bengals",
+      "20261123"
     ]
   },
   "tickets": [
@@ -8479,6 +8484,183 @@
           "needs": "45 or more total points, Vikings + 49ers (over 44½)"
         }
       ]
+    },
+    {
+      "ticket_id": "1018262536",
+      "sport": "NFL",
+      "stake": 111,
+      "towin": 88.8,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "WSH1123",
+          "side": "a",
+          "line": -5.5,
+          "odds": -125,
+          "lab": "CIN",
+          "needs": "Cincinnati Bengals win by 6 or more (-5½ at Washington, bought ½)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1018262107",
+      "sport": "NFL",
+      "stake": 88,
+      "towin": 211.2,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "WSH1123",
+          "side": "a",
+          "line": -6.5,
+          "odds": null,
+          "lab": "CIN",
+          "needs": "Cincinnati Bengals win by 7 or more (-6½ at Washington)"
+        },
+        {
+          "type": "tot",
+          "game": "WSH1123",
+          "ou": "o",
+          "line": 54.5,
+          "odds": null,
+          "lab": "O54.5",
+          "needs": "55 or more total points, Bengals + Commanders (over 54½)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1018121839",
+      "sport": "NBA",
+      "stake": 11,
+      "towin": 23.76,
+      "accepted_date_pt": "2026-11-23",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "PHI1123",
+          "side": "h",
+          "line": -3,
+          "odds": -131,
+          "lab": "PHI",
+          "needs": "Philadelphia 76ers win by 4 or more (-3 vs Portland, bought ½; win by exactly 3 = push)"
+        },
+        {
+          "type": "sp",
+          "game": "MIN1123",
+          "side": "h",
+          "line": -11,
+          "odds": -126,
+          "lab": "MIN",
+          "needs": "Minnesota Timberwolves win by 12 or more (-11 vs Brooklyn, bought ½; win by exactly 11 = push)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1018121674",
+      "sport": "NFL",
+      "stake": 11,
+      "towin": 22.88,
+      "accepted_date_pt": "2026-11-23",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "WSH1123",
+          "side": "h",
+          "line": 7,
+          "odds": -135,
+          "lab": "WSH",
+          "needs": "Washington Commanders win, or lose by 6 or fewer (+7 vs Cincinnati, bought 1; lose by exactly 7 = push)"
+        },
+        {
+          "type": "tot",
+          "game": "WSH1123",
+          "ou": "u",
+          "line": 56,
+          "odds": -130,
+          "lab": "U56",
+          "needs": "55 or fewer total points, Bengals + Commanders (bought 1; exactly 56 pushes)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1018121550",
+      "sport": "NFL",
+      "stake": 11,
+      "towin": 19.25,
+      "accepted_date_pt": "2026-11-23",
+      "legs": [
+        {
+          "type": "ml",
+          "game": "WSH1123",
+          "side": "a",
+          "odds": null,
+          "lab": "CIN",
+          "needs": "Cincinnati Bengals beat the Commanders"
+        },
+        {
+          "type": "tot",
+          "game": "WSH1123",
+          "ou": "u",
+          "line": 54.5,
+          "odds": null,
+          "lab": "U54.5",
+          "needs": "54 or fewer total points, Bengals + Commanders (under 54½)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1018077396",
+      "sport": "NFL",
+      "stake": 22,
+      "towin": 45.76,
+      "accepted_date_pt": "2026-11-23",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "WSH1123",
+          "side": "h",
+          "line": 7,
+          "odds": -135,
+          "lab": "WSH",
+          "needs": "Washington Commanders win, or lose by 6 or fewer (+7 vs Cincinnati, bought 1; lose by exactly 7 = push)"
+        },
+        {
+          "type": "tot",
+          "game": "WSH1123",
+          "ou": "u",
+          "line": 56,
+          "odds": -130,
+          "lab": "U56",
+          "needs": "55 or fewer total points, Bengals + Commanders (bought 1; exactly 56 pushes)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1018077290",
+      "sport": "NFL",
+      "stake": 2,
+      "towin": 4.16,
+      "accepted_date_pt": "2026-11-23",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "WSH1123",
+          "side": "h",
+          "line": 7,
+          "odds": -135,
+          "lab": "WSH",
+          "needs": "Washington Commanders win, or lose by 6 or fewer (+7 vs Cincinnati, bought 1; lose by exactly 7 = push)"
+        },
+        {
+          "type": "tot",
+          "game": "WSH1123",
+          "ou": "u",
+          "line": 56,
+          "odds": -130,
+          "lab": "U56",
+          "needs": "55 or fewer total points, Bengals + Commanders (bought 1; exactly 56 pushes)"
+        }
+      ]
     }
   ],
   "futures": [
@@ -8657,6 +8839,14 @@
     "LAL1118": [
       "401910017",
       "2026-11-18"
+    ],
+    "PHI1123": [
+      "401910037",
+      "2026-11-23"
+    ],
+    "MIN1123": [
+      "401910040",
+      "2026-11-23"
     ]
   },
   "mma_games": {
