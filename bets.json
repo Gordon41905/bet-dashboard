@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-24.1",
+  "version": "2026-11-24.2",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -8774,6 +8774,49 @@
           "needs": "St. John's Red Storm win by 11 or more (-10½ vs Oregon, Players Era, Las Vegas)"
         }
       ]
+    },
+    {
+      "ticket_id": "1018662428",
+      "sport": "NCAAB",
+      "stake": 11,
+      "towin": 29.04,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "LOU1124",
+          "side": "a",
+          "line": -2,
+          "odds": -110,
+          "lab": "TTU",
+          "needs": "Texas Tech Red Raiders win by 3 or more (-2 vs Louisville, Players Era, Las Vegas; win by exactly 2 = push)"
+        },
+        {
+          "type": "tot",
+          "game": "LOU1124",
+          "ou": "u",
+          "line": 153.5,
+          "odds": -110,
+          "lab": "U153.5",
+          "needs": "153 or fewer total points, Texas Tech + Louisville (under 153½)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1018662343",
+      "sport": "NCAAB",
+      "stake": 11,
+      "towin": 10.0,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "LOU1124",
+          "side": "a",
+          "line": -2,
+          "odds": -110,
+          "lab": "TTU",
+          "needs": "Texas Tech Red Raiders win by 3 or more (-2 vs Louisville, Players Era, Las Vegas; win by exactly 2 = push)"
+        }
+      ]
     }
   ],
   "futures": [
@@ -9028,6 +9071,11 @@
     "SJU1124": [
       "St. John's Red Storm",
       "Oregon Ducks",
+      "20261124"
+    ],
+    "LOU1124": [
+      "Louisville Cardinals",
+      "Texas Tech Red Raiders",
       "20261124"
     ]
   },
