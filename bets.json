@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-23.1",
+  "version": "2026-11-24.1",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -8661,6 +8661,119 @@
           "needs": "55 or fewer total points, Bengals + Commanders (bought 1; exactly 56 pushes)"
         }
       ]
+    },
+    {
+      "ticket_id": "1018661157",
+      "sport": "NCAAB",
+      "stake": 11,
+      "towin": 24.75,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "WASH1124",
+          "side": "a",
+          "line": -2,
+          "odds": -110,
+          "lab": "CLEM",
+          "needs": "Clemson Tigers win by 3 or more (-2 vs Washington, Maui Invitational; win by exactly 2 = push)"
+        },
+        {
+          "type": "sp",
+          "game": "KC1124",
+          "side": "a",
+          "line": 2.5,
+          "odds": -142,
+          "lab": "GB",
+          "needs": "Green Bay Phoenix win, or lose by 2 or fewer (+2½ at Kansas City, bought 1½)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1018661094",
+      "sport": "NCAAB",
+      "stake": 11,
+      "towin": 54.12,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "UTA1124",
+          "side": "h",
+          "line": -5,
+          "odds": -115,
+          "lab": "UTA",
+          "needs": "UT Arlington Mavericks win by 6 or more (-5 vs Oral Roberts; win by exactly 5 = push)"
+        },
+        {
+          "type": "sp",
+          "game": "WASH1124",
+          "side": "a",
+          "line": -2,
+          "odds": -110,
+          "lab": "CLEM",
+          "needs": "Clemson Tigers win by 3 or more (-2 vs Washington, Maui Invitational; win by exactly 2 = push)"
+        },
+        {
+          "type": "sp",
+          "game": "KC1124",
+          "side": "a",
+          "line": 3,
+          "odds": -154,
+          "lab": "GB",
+          "needs": "Green Bay Phoenix win, or lose by 2 or fewer (+3 at Kansas City, bought 2; lose by exactly 3 = push)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1018652006",
+      "sport": "NCAAB",
+      "stake": 11,
+      "towin": 28.49,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "TNTC1124",
+          "side": "h",
+          "line": -13.5,
+          "odds": -113,
+          "lab": "TNTC",
+          "needs": "Tennessee Tech Golden Eagles win by 14 or more (-13½ vs West Georgia)"
+        },
+        {
+          "type": "sp",
+          "game": "SEMO1124",
+          "side": "a",
+          "line": 3.5,
+          "odds": -110,
+          "lab": "PFW",
+          "needs": "Purdue Fort Wayne Mastodons win, or lose by 3 or fewer (+3½ at Southeast Missouri State)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1018651365",
+      "sport": "NCAAB",
+      "stake": 22,
+      "towin": 56.32,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "ALA1124",
+          "side": "h",
+          "line": -1.5,
+          "odds": -110,
+          "lab": "ALA",
+          "needs": "Alabama Crimson Tide win by 2 or more (-1½ vs Baylor, Players Era, Las Vegas)"
+        },
+        {
+          "type": "sp",
+          "game": "SJU1124",
+          "side": "h",
+          "line": -10.5,
+          "odds": -115,
+          "lab": "SJU",
+          "needs": "St. John's Red Storm win by 11 or more (-10½ vs Oregon, Players Era, Las Vegas)"
+        }
+      ]
     }
   ],
   "futures": [
@@ -8881,6 +8994,41 @@
       "California Golden Bears",
       "USC Trojans",
       "20261111"
+    ],
+    "WASH1124": [
+      "Washington Huskies",
+      "Clemson Tigers",
+      "20261124"
+    ],
+    "KC1124": [
+      "Kansas City Roos",
+      "Green Bay Phoenix",
+      "20261124"
+    ],
+    "UTA1124": [
+      "UT Arlington Mavericks",
+      "Oral Roberts Golden Eagles",
+      "20261124"
+    ],
+    "TNTC1124": [
+      "Tennessee Tech Golden Eagles",
+      "West Georgia Wolves",
+      "20261124"
+    ],
+    "SEMO1124": [
+      "Southeast Missouri State Redhawks",
+      "Purdue Fort Wayne Mastodons",
+      "20261124"
+    ],
+    "ALA1124": [
+      "Alabama Crimson Tide",
+      "Baylor Bears",
+      "20261124"
+    ],
+    "SJU1124": [
+      "St. John's Red Storm",
+      "Oregon Ducks",
+      "20261124"
     ]
   },
   "featured_ticket_ids": [
