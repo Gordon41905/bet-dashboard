@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-24.2",
+  "version": "2026-11-25.1",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -8817,6 +8817,129 @@
           "needs": "Texas Tech Red Raiders win by 3 or more (-2 vs Louisville, Players Era, Las Vegas; win by exactly 2 = push)"
         }
       ]
+    },
+    {
+      "ticket_id": "1018848133",
+      "sport": "NCAAB",
+      "stake": 11,
+      "towin": 29.37,
+      "accepted_date_pt": "2026-11-25",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "FIU1125",
+          "side": "h",
+          "line": -2,
+          "odds": -108,
+          "lab": "FIU",
+          "needs": "Florida International Panthers win by 3 or more (-2 vs Arkansas State; win by exactly 2 = push)"
+        },
+        {
+          "type": "tot",
+          "game": "FIU1125",
+          "ou": "u",
+          "line": 178.5,
+          "odds": -110,
+          "lab": "U178.5",
+          "needs": "178 or fewer total points, Arkansas State + Florida International (under 178½)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1018845976",
+      "sport": "NCAAB",
+      "stake": 22,
+      "towin": 87.12,
+      "accepted_date_pt": "2026-11-25",
+      "legs": [
+        {
+          "type": "ml",
+          "game": "PROV1125",
+          "side": "a",
+          "odds": -145,
+          "lab": "BYU",
+          "needs": "BYU Cougars beat Providence (Maui Invitational final)"
+        },
+        {
+          "type": "ml",
+          "game": "PSU1125",
+          "side": "a",
+          "odds": -170,
+          "lab": "MEM",
+          "needs": "Memphis Tigers beat Penn State (Battle 4 Atlantis, Nassau)"
+        },
+        {
+          "type": "ml",
+          "game": "DUKE1125",
+          "side": "a",
+          "odds": -118,
+          "lab": "UCONN",
+          "needs": "UConn Huskies beat Duke (neutral court, Las Vegas)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1018845801",
+      "sport": "NCAAB",
+      "stake": 11,
+      "towin": 66.0,
+      "accepted_date_pt": "2026-11-25",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "PSU1125",
+          "side": "a",
+          "line": -4,
+          "odds": -112,
+          "lab": "MEM",
+          "needs": "Memphis Tigers win by 5 or more (-4 vs Penn State, Battle 4 Atlantis, Nassau; win by exactly 4 = push)"
+        },
+        {
+          "type": "sp",
+          "game": "USC1125",
+          "side": "h",
+          "line": -10.5,
+          "odds": -110,
+          "lab": "USC",
+          "needs": "USC Trojans win by 11 or more (-10½ vs South Carolina, neutral court)"
+        },
+        {
+          "type": "sp",
+          "game": "FIU1125",
+          "side": "h",
+          "line": -2,
+          "odds": -108,
+          "lab": "FIU",
+          "needs": "Florida International Panthers win by 3 or more (-2 vs Arkansas State; win by exactly 2 = push)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1018845717",
+      "sport": "NCAAB",
+      "stake": 33,
+      "towin": 72.6,
+      "accepted_date_pt": "2026-11-25",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "USC1125",
+          "side": "h",
+          "line": -9.5,
+          "odds": -131,
+          "lab": "USC",
+          "needs": "USC Trojans win by 10 or more (-9½ vs South Carolina, neutral court, bought 1)"
+        },
+        {
+          "type": "sp",
+          "game": "PSU1125",
+          "side": "a",
+          "line": -3.5,
+          "odds": -122,
+          "lab": "MEM",
+          "needs": "Memphis Tigers win by 4 or more (-3½ vs Penn State, Battle 4 Atlantis, Nassau, bought ½)"
+        }
+      ]
     }
   ],
   "futures": [
@@ -9077,6 +9200,31 @@
       "Louisville Cardinals",
       "Texas Tech Red Raiders",
       "20261124"
+    ],
+    "FIU1125": [
+      "Florida International Panthers",
+      "Arkansas State Red Wolves",
+      "20261125"
+    ],
+    "PROV1125": [
+      "Providence Friars",
+      "BYU Cougars",
+      "20261125"
+    ],
+    "PSU1125": [
+      "Penn State Nittany Lions",
+      "Memphis Tigers",
+      "20261125"
+    ],
+    "DUKE1125": [
+      "Duke Blue Devils",
+      "UConn Huskies",
+      "20261125"
+    ],
+    "USC1125": [
+      "USC Trojans",
+      "South Carolina Gamecocks",
+      "20261125"
     ]
   },
   "featured_ticket_ids": [
