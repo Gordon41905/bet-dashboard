@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-25.1",
+  "version": "2026-11-26.1",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -627,6 +627,16 @@
       "Washington Commanders",
       "Cincinnati Bengals",
       "20261123"
+    ],
+    "DET1126": [
+      "Detroit Lions",
+      "Chicago Bears",
+      "20261126"
+    ],
+    "BUF1126": [
+      "Buffalo Bills",
+      "Kansas City Chiefs",
+      "20261126"
     ]
   },
   "tickets": [
@@ -8871,7 +8881,7 @@
         {
           "type": "ml",
           "game": "DUKE1125",
-          "side": "a",
+          "side": "h",
           "odds": -118,
           "lab": "UCONN",
           "needs": "UConn Huskies beat Duke (neutral court, Las Vegas)"
@@ -8938,6 +8948,59 @@
           "odds": -122,
           "lab": "MEM",
           "needs": "Memphis Tigers win by 4 or more (-3½ vs Penn State, Battle 4 Atlantis, Nassau, bought ½)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1019064855",
+      "sport": "NFL",
+      "stake": 11,
+      "towin": 27.5,
+      "accepted_date_pt": "2026-11-26",
+      "legs": [
+        {
+          "type": "ml",
+          "game": "DET1126",
+          "side": "a",
+          "odds": null,
+          "lab": "CHI",
+          "needs": "Chicago Bears beat the Lions"
+        },
+        {
+          "type": "tot",
+          "game": "DET1126",
+          "ou": "u",
+          "line": 56.5,
+          "odds": null,
+          "lab": "U56.5",
+          "needs": "56 or fewer total points, Bears + Lions (under 56½)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1019064328",
+      "sport": "NFL",
+      "stake": 11,
+      "towin": 26.84,
+      "accepted_date_pt": "2026-11-26",
+      "legs": [
+        {
+          "type": "sp",
+          "game": "BUF1126",
+          "side": "a",
+          "line": 3,
+          "odds": -119,
+          "lab": "KC",
+          "needs": "Kansas City Chiefs win, or lose by 2 or fewer (+3 at Buffalo; lose by exactly 3 = push)"
+        },
+        {
+          "type": "sp",
+          "game": "DET1126",
+          "side": "h",
+          "line": 1,
+          "odds": -115,
+          "lab": "DET",
+          "needs": "Detroit Lions win, or lose by exactly 1 = push (+1 vs Chicago)"
         }
       ]
     }
@@ -9217,8 +9280,8 @@
       "20261125"
     ],
     "DUKE1125": [
-      "Duke Blue Devils",
       "UConn Huskies",
+      "Duke Blue Devils",
       "20261125"
     ],
     "USC1125": [
