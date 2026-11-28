@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-26.1",
+  "version": "2026-11-28.1",
   "cfb_games": {
     "BG": [
       "Bowling Green",
@@ -342,7 +342,7 @@
       "20261121"
     ],
     "SJSU1121": [
-      "San José State",
+      "San Jos\u00e9 State",
       "UNLV",
       "20261121"
     ],
@@ -370,6 +370,91 @@
       "Nevada",
       "Hawai'i",
       "20261121"
+    ],
+    "BALL1128": [
+      "Ball State",
+      "Central Michigan",
+      "20261128"
+    ],
+    "CLT1128": [
+      "Charlotte",
+      "Navy",
+      "20261128"
+    ],
+    "SYR1128": [
+      "Syracuse",
+      "Notre Dame",
+      "20261128"
+    ],
+    "MIA1128": [
+      "Miami",
+      "Boston College",
+      "20261128"
+    ],
+    "UK1128": [
+      "Kentucky",
+      "Louisville",
+      "20261128"
+    ],
+    "ISU1128": [
+      "Iowa State",
+      "Kansas State",
+      "20261128"
+    ],
+    "UCLA1128": [
+      "UCLA",
+      "USC",
+      "20261128"
+    ],
+    "COLO1128": [
+      "Colorado",
+      "UCF",
+      "20261128"
+    ],
+    "ULM1128": [
+      "UL Monroe",
+      "Marshall",
+      "20261128"
+    ],
+    "GASO1128": [
+      "Georgia Southern",
+      "Louisiana Tech",
+      "20261128"
+    ],
+    "NU1128": [
+      "Northwestern",
+      "Illinois",
+      "20261128"
+    ],
+    "WIS1127": [
+      "Wisconsin",
+      "Minnesota",
+      "20261127"
+    ],
+    "TAMU1127": [
+      "Texas A&M",
+      "Texas",
+      "20261127"
+    ],
+    "IOWA1127": [
+      "Iowa",
+      "Nebraska",
+      "20261127"
+    ],
+    "AKR1127": [
+      "Akron",
+      "Buffalo",
+      "20261127"
+    ],
+    "MISS1127": [
+      "Ole Miss",
+      "Mississippi State",
+      "20261127"
+    ],
+    "TTU1126": [
+      "Texas Tech",
+      "TCU",
+      "20261126"
     ]
   },
   "nfl_games": {
@@ -637,6 +722,16 @@
       "Buffalo Bills",
       "Kansas City Chiefs",
       "20261126"
+    ],
+    "DAL1126": [
+      "Dallas Cowboys",
+      "Philadelphia Eagles",
+      "20261126"
+    ],
+    "PIT1127": [
+      "Pittsburgh Steelers",
+      "Denver Broncos",
+      "20261127"
     ]
   },
   "tickets": [
@@ -2204,7 +2299,7 @@
         {
           "type": "sp",
           "game": "OKC",
-          "needs": "Thunder win by 8 or more (-7½ vs Nuggets, bought ½)",
+          "needs": "Thunder win by 8 or more (-7\u00bd vs Nuggets, bought \u00bd)",
           "odds": -121,
           "side": "h",
           "line": -7.5,
@@ -2220,7 +2315,7 @@
         {
           "type": "tot",
           "game": "OKC",
-          "needs": "236 or fewer total points, Nuggets + Thunder (Under 236½, bought ½)",
+          "needs": "236 or fewer total points, Nuggets + Thunder (Under 236\u00bd, bought \u00bd)",
           "odds": -115,
           "ou": "u",
           "line": 236.5
@@ -2390,7 +2485,7 @@
         {
           "type": "sp",
           "game": "MIL",
-          "needs": "Bulls win, or lose by 1 or fewer (+1½ at Bucks, bought ½)",
+          "needs": "Bulls win, or lose by 1 or fewer (+1\u00bd at Bucks, bought \u00bd)",
           "odds": -121,
           "side": "a",
           "line": 1.5,
@@ -2437,7 +2532,7 @@
         {
           "type": "sp",
           "game": "MIL",
-          "needs": "Bulls win, or lose by 1 or fewer (+1½ at Bucks, bought ½)",
+          "needs": "Bulls win, or lose by 1 or fewer (+1\u00bd at Bucks, bought \u00bd)",
           "odds": -121,
           "side": "a",
           "line": 1.5,
@@ -2461,7 +2556,7 @@
         {
           "type": "sp",
           "game": "BOS",
-          "needs": "Knicks win, or lose by 3 or fewer (+3½ at Celtics, bought ½)",
+          "needs": "Knicks win, or lose by 3 or fewer (+3\u00bd at Celtics, bought \u00bd)",
           "odds": -124,
           "side": "a",
           "line": 3.5,
@@ -2470,7 +2565,7 @@
         {
           "type": "tot",
           "game": "BOS",
-          "needs": "220 or more total points, Knicks + Celtics (over 219½, bought ½)",
+          "needs": "220 or more total points, Knicks + Celtics (over 219\u00bd, bought \u00bd)",
           "odds": -115,
           "ou": "o",
           "line": 219.5
@@ -2508,7 +2603,7 @@
         {
           "type": "sp",
           "game": "BOS",
-          "needs": "Celtics win by 3 or more (-2½ vs Knicks)",
+          "needs": "Celtics win by 3 or more (-2\u00bd vs Knicks)",
           "odds": -115,
           "side": "h",
           "line": -2.5,
@@ -2537,7 +2632,7 @@
         {
           "type": "tot",
           "game": "WS1",
-          "needs": "7 or more total runs, Rays + Brewers (over 6½)",
+          "needs": "7 or more total runs, Rays + Brewers (over 6\u00bd)",
           "odds": -115,
           "ou": "o",
           "line": 6.5
@@ -2657,7 +2752,7 @@
         {
           "type": "sp",
           "game": "MICH1024",
-          "needs": "Indiana wins by 7 or more (-6½ at Michigan, bought 1 point)",
+          "needs": "Indiana wins by 7 or more (-6\u00bd at Michigan, bought 1 point)",
           "odds": -146,
           "side": "a",
           "line": -6.5,
@@ -2812,7 +2907,7 @@
         {
           "type": "tot",
           "game": "WS2",
-          "needs": "7 or more total runs, Rays + Brewers (over 6½)",
+          "needs": "7 or more total runs, Rays + Brewers (over 6\u00bd)",
           "odds": -103,
           "ou": "o",
           "line": 6.5
@@ -2827,7 +2922,7 @@
         {
           "type": "sp",
           "game": "ARST1024",
-          "needs": "Georgia State wins by 3 or more (-2½ at Arkansas State)",
+          "needs": "Georgia State wins by 3 or more (-2\u00bd at Arkansas State)",
           "odds": -115,
           "side": "a",
           "line": -2.5,
@@ -2851,7 +2946,7 @@
         {
           "type": "sp",
           "game": "ARST1024",
-          "needs": "Georgia State wins by 3 or more (-2½ at Arkansas State)",
+          "needs": "Georgia State wins by 3 or more (-2\u00bd at Arkansas State)",
           "odds": -115,
           "side": "a",
           "line": -2.5,
@@ -2891,7 +2986,7 @@
         {
           "type": "tot",
           "game": "KEN1024",
-          "needs": "51 or more total points, Vanderbilt + Kentucky (over 50½, bought ½)",
+          "needs": "51 or more total points, Vanderbilt + Kentucky (over 50\u00bd, bought \u00bd)",
           "odds": -125,
           "ou": "o",
           "line": 50.5
@@ -2924,7 +3019,7 @@
         {
           "type": "tot",
           "game": "WS2",
-          "needs": "7 or more total runs, Rays + Brewers (over 6½)",
+          "needs": "7 or more total runs, Rays + Brewers (over 6\u00bd)",
           "odds": null,
           "ou": "o",
           "line": 6.5
@@ -2963,7 +3058,7 @@
         {
           "type": "sp",
           "game": "CLEM1024",
-          "needs": "Virginia Tech wins, or loses by 2 or fewer (+2½ at Clemson)",
+          "needs": "Virginia Tech wins, or loses by 2 or fewer (+2\u00bd at Clemson)",
           "odds": -103,
           "side": "a",
           "line": 2.5,
@@ -2972,7 +3067,7 @@
         {
           "type": "sp",
           "game": "ARST1024",
-          "needs": "Georgia State wins by 3 or more (-2½ at Arkansas State)",
+          "needs": "Georgia State wins by 3 or more (-2\u00bd at Arkansas State)",
           "odds": -115,
           "side": "a",
           "line": -2.5,
@@ -2997,7 +3092,7 @@
         {
           "type": "sp",
           "game": "CLEM1024",
-          "needs": "Virginia Tech wins, or loses by 2 or fewer (+2½ at Clemson)",
+          "needs": "Virginia Tech wins, or loses by 2 or fewer (+2\u00bd at Clemson)",
           "odds": -103,
           "side": "a",
           "line": 2.5,
@@ -3006,7 +3101,7 @@
         {
           "type": "sp",
           "game": "ARST1024",
-          "needs": "Georgia State wins by 3 or more (-2½ at Arkansas State)",
+          "needs": "Georgia State wins by 3 or more (-2\u00bd at Arkansas State)",
           "odds": -115,
           "side": "a",
           "line": -2.5,
@@ -3085,7 +3180,7 @@
         {
           "type": "sp",
           "game": "NO1025",
-          "needs": "Saints win, or lose by 3 or fewer (+3½ vs Steelers, Paris)",
+          "needs": "Saints win, or lose by 3 or fewer (+3\u00bd vs Steelers, Paris)",
           "odds": -133,
           "side": "h",
           "line": 3.5,
@@ -3101,7 +3196,7 @@
         {
           "type": "sp",
           "game": "NO1025",
-          "needs": "Saints win, or lose by 3 or fewer (+3½ vs Steelers, Paris)",
+          "needs": "Saints win, or lose by 3 or fewer (+3\u00bd vs Steelers, Paris)",
           "odds": -133,
           "side": "h",
           "line": 3.5,
@@ -3117,7 +3212,7 @@
         {
           "type": "sp",
           "game": "DET1025",
-          "needs": "Packers win, or lose by 3 or fewer (+3½ at Lions)",
+          "needs": "Packers win, or lose by 3 or fewer (+3\u00bd at Lions)",
           "odds": -105,
           "side": "a",
           "line": 3.5,
@@ -3126,7 +3221,7 @@
         {
           "type": "sp",
           "game": "NO1025",
-          "needs": "Saints win, or lose by 3 or fewer (+3½ vs Steelers, Paris)",
+          "needs": "Saints win, or lose by 3 or fewer (+3\u00bd vs Steelers, Paris)",
           "odds": -133,
           "side": "h",
           "line": 3.5,
@@ -3166,7 +3261,7 @@
         {
           "type": "sp",
           "game": "DET1025",
-          "needs": "Packers win, or lose by 3 or fewer (+3½ at Lions)",
+          "needs": "Packers win, or lose by 3 or fewer (+3\u00bd at Lions)",
           "odds": -105,
           "side": "a",
           "line": 3.5,
@@ -3249,7 +3344,7 @@
         {
           "type": "sp",
           "game": "SEA1025",
-          "needs": "Chiefs win, or lose by 3 or fewer (+3½ at Seahawks)",
+          "needs": "Chiefs win, or lose by 3 or fewer (+3\u00bd at Seahawks)",
           "odds": null,
           "side": "a",
           "line": 3.5,
@@ -3354,7 +3449,7 @@
         {
           "type": "sp",
           "game": "SEA1025",
-          "needs": "Seahawks win by 4 or more (live -3½)",
+          "needs": "Seahawks win by 4 or more (live -3\u00bd)",
           "odds": -115,
           "side": "h",
           "line": -3.5,
@@ -3394,7 +3489,7 @@
         {
           "type": "sp",
           "game": "PHI1025",
-          "needs": "76ers win, or lose by 10 or fewer (live +10½ vs Pistons)",
+          "needs": "76ers win, or lose by 10 or fewer (live +10\u00bd vs Pistons)",
           "odds": -115,
           "side": "h",
           "line": 10.5,
@@ -3835,7 +3930,7 @@
         {
           "type": "sp",
           "game": "GB1029",
-          "needs": "Packers win by 4 or more (bought from -3½; win by exactly 3 = push)",
+          "needs": "Packers win by 4 or more (bought from -3\u00bd; win by exactly 3 = push)",
           "odds": -130,
           "side": "h",
           "line": -3.0,
@@ -3908,7 +4003,7 @@
         {
           "type": "sp",
           "game": "MIN1030",
-          "needs": "Clippers win, or lose by 7 or fewer (+7½ at Timberwolves, bought ½)",
+          "needs": "Clippers win, or lose by 7 or fewer (+7\u00bd at Timberwolves, bought \u00bd)",
           "odds": -121,
           "side": "a",
           "line": 7.5,
@@ -3958,7 +4053,7 @@
         {
           "type": "sp",
           "game": "SAC1030",
-          "needs": "Sacramento State wins, or loses by 7 or fewer (+7½ vs Kent State, bought ½)",
+          "needs": "Sacramento State wins, or loses by 7 or fewer (+7\u00bd vs Kent State, bought \u00bd)",
           "odds": -121,
           "side": "h",
           "line": 7.5,
@@ -4015,7 +4110,7 @@
         {
           "type": "sp",
           "game": "MISS1031",
-          "needs": "Auburn wins, or loses by 11 or fewer (+11½ at Ole Miss)",
+          "needs": "Auburn wins, or loses by 11 or fewer (+11\u00bd at Ole Miss)",
           "odds": -110,
           "side": "a",
           "line": 11.5,
@@ -4031,7 +4126,7 @@
         {
           "type": "sp",
           "game": "SYR1031",
-          "needs": "Syracuse wins, or loses by 10 or fewer (+10½ vs SMU, bought ½)",
+          "needs": "Syracuse wins, or loses by 10 or fewer (+10\u00bd vs SMU, bought \u00bd)",
           "odds": -126,
           "side": "h",
           "line": 10.5,
@@ -4047,7 +4142,7 @@
         {
           "type": "sp",
           "game": "WMU1031",
-          "needs": "Western Michigan wins by 14 or more (-13½ vs Bowling Green)",
+          "needs": "Western Michigan wins by 14 or more (-13\u00bd vs Bowling Green)",
           "odds": -117,
           "side": "h",
           "line": -13.5,
@@ -4056,7 +4151,7 @@
         {
           "type": "sp",
           "game": "MD1031",
-          "needs": "Illinois wins by 3 or more (-2½ at Maryland)",
+          "needs": "Illinois wins by 3 or more (-2\u00bd at Maryland)",
           "odds": -113,
           "side": "a",
           "line": -2.5,
@@ -4065,7 +4160,7 @@
         {
           "type": "sp",
           "game": "NCST1031",
-          "needs": "NC State wins by 10 or more (-9½ vs California)",
+          "needs": "NC State wins by 10 or more (-9\u00bd vs California)",
           "odds": -110,
           "side": "h",
           "line": -9.5,
@@ -4081,7 +4176,7 @@
         {
           "type": "sp",
           "game": "NCST1031",
-          "needs": "NC State wins by 10 or more (-9½ vs California)",
+          "needs": "NC State wins by 10 or more (-9\u00bd vs California)",
           "odds": -110,
           "side": "h",
           "line": -9.5,
@@ -4090,7 +4185,7 @@
         {
           "type": "sp",
           "game": "TTU1031",
-          "needs": "Arizona wins, or loses by 3 or fewer (+3½ at Texas Tech)",
+          "needs": "Arizona wins, or loses by 3 or fewer (+3\u00bd at Texas Tech)",
           "odds": -106,
           "side": "a",
           "line": 3.5,
@@ -4115,7 +4210,7 @@
         {
           "type": "sp",
           "game": "NCST1031",
-          "needs": "NC State wins by 10 or more (-9½ vs California)",
+          "needs": "NC State wins by 10 or more (-9\u00bd vs California)",
           "odds": -115,
           "side": "h",
           "line": -9.5,
@@ -4131,7 +4226,7 @@
         {
           "type": "sp",
           "game": "TCU1031",
-          "needs": "TCU wins by 7 or more (-6½ vs Kansas)",
+          "needs": "TCU wins by 7 or more (-6\u00bd vs Kansas)",
           "odds": -115,
           "side": "h",
           "line": -6.5,
@@ -4140,7 +4235,7 @@
         {
           "type": "sp",
           "game": "LIB1031",
-          "needs": "Liberty wins by 14 or more (-13½ vs FIU, bought ½)",
+          "needs": "Liberty wins by 14 or more (-13\u00bd vs FIU, bought \u00bd)",
           "odds": -117,
           "side": "h",
           "line": -13.5,
@@ -4156,7 +4251,7 @@
         {
           "type": "sp",
           "game": "ORE1031",
-          "needs": "Oregon wins by 4 or more (-3½ vs Northwestern)",
+          "needs": "Oregon wins by 4 or more (-3\u00bd vs Northwestern)",
           "odds": -120,
           "side": "h",
           "line": -3.5,
@@ -4181,7 +4276,7 @@
         {
           "type": "sp",
           "game": "BYU1031",
-          "needs": "Arizona State wins, or loses by 17 or fewer (+17½ at BYU, bought ½)",
+          "needs": "Arizona State wins, or loses by 17 or fewer (+17\u00bd at BYU, bought \u00bd)",
           "odds": -115,
           "side": "a",
           "line": 17.5,
@@ -4197,7 +4292,7 @@
         {
           "type": "sp",
           "game": "LIB1031",
-          "needs": "Liberty wins by 14 or more (-13½ vs FIU, bought ½)",
+          "needs": "Liberty wins by 14 or more (-13\u00bd vs FIU, bought \u00bd)",
           "odds": -117,
           "side": "h",
           "line": -13.5,
@@ -4213,7 +4308,7 @@
         {
           "type": "ttot",
           "game": "UGA1031",
-          "needs": "Georgia scores 34 or more vs Florida (team total over 33½)",
+          "needs": "Georgia scores 34 or more vs Florida (team total over 33\u00bd)",
           "odds": -150,
           "side": "h",
           "ou": "o",
@@ -4239,7 +4334,7 @@
         {
           "type": "tot",
           "game": "TEX1031",
-          "needs": "Mississippi State-Texas total under 49½ (49 or fewer)",
+          "needs": "Mississippi State-Texas total under 49\u00bd (49 or fewer)",
           "odds": -110,
           "ou": "u",
           "line": 49.5,
@@ -4255,7 +4350,7 @@
         {
           "type": "tot",
           "game": "TEX1031",
-          "needs": "Mississippi State-Texas total under 49½ (49 or fewer)",
+          "needs": "Mississippi State-Texas total under 49\u00bd (49 or fewer)",
           "odds": -110,
           "ou": "u",
           "line": 49.5,
@@ -4271,7 +4366,7 @@
         {
           "type": "sp",
           "game": "ISU1031",
-          "needs": "Oklahoma State wins by 10 or more (-9½ at Iowa State)",
+          "needs": "Oklahoma State wins by 10 or more (-9\u00bd at Iowa State)",
           "odds": -121,
           "side": "a",
           "line": -9.5,
@@ -4280,7 +4375,7 @@
         {
           "type": "sp",
           "game": "FSU1031",
-          "needs": "Florida State wins by 5 or more (-4½ vs Clemson, bought ½)",
+          "needs": "Florida State wins by 5 or more (-4\u00bd vs Clemson, bought \u00bd)",
           "odds": -117,
           "side": "h",
           "line": -4.5,
@@ -4296,7 +4391,7 @@
         {
           "type": "sp",
           "game": "FSU1031",
-          "needs": "Florida State wins by 5 or more (-4½ vs Clemson, bought ½)",
+          "needs": "Florida State wins by 5 or more (-4\u00bd vs Clemson, bought \u00bd)",
           "odds": -117,
           "side": "h",
           "line": -4.5,
@@ -4305,7 +4400,7 @@
         {
           "type": "tot",
           "game": "FSU1031",
-          "needs": "Clemson-Florida State total under 52 (exactly 52 pushes; bought ½)",
+          "needs": "Clemson-Florida State total under 52 (exactly 52 pushes; bought \u00bd)",
           "odds": -120,
           "ou": "u",
           "line": 52.0,
@@ -4321,7 +4416,7 @@
         {
           "type": "sp",
           "game": "FSU1031",
-          "needs": "Florida State wins by 5 or more (-4½ vs Clemson, bought ½)",
+          "needs": "Florida State wins by 5 or more (-4\u00bd vs Clemson, bought \u00bd)",
           "odds": -117,
           "side": "h",
           "line": -4.5,
@@ -4337,7 +4432,7 @@
         {
           "type": "sp",
           "game": "DET1101",
-          "needs": "Vikings lose by 3 or fewer, or win (+3½ at Lions)",
+          "needs": "Vikings lose by 3 or fewer, or win (+3\u00bd at Lions)",
           "odds": null,
           "side": "a",
           "line": 3.5,
@@ -4346,7 +4441,7 @@
         {
           "type": "tot",
           "game": "DET1101",
-          "needs": "Vikings-Lions total over 45½",
+          "needs": "Vikings-Lions total over 45\u00bd",
           "odds": null,
           "ou": "o",
           "line": 45.5,
@@ -4362,7 +4457,7 @@
         {
           "type": "sp",
           "game": "CIN1101",
-          "needs": "Titans lose by 12 or fewer, or win (+12½ vs Bengals)",
+          "needs": "Titans lose by 12 or fewer, or win (+12\u00bd vs Bengals)",
           "odds": -110,
           "side": "a",
           "line": 12.5,
@@ -4371,7 +4466,7 @@
         {
           "type": "tot",
           "game": "CIN1101",
-          "needs": "Titans-Bengals total under 46½",
+          "needs": "Titans-Bengals total under 46\u00bd",
           "odds": -110,
           "ou": "u",
           "line": 46.5,
@@ -4403,7 +4498,7 @@
         {
           "type": "sp",
           "game": "PIT1101",
-          "needs": "Browns lose by 3 or fewer, or win (+3½ at Steelers, bought ½)",
+          "needs": "Browns lose by 3 or fewer, or win (+3\u00bd at Steelers, bought \u00bd)",
           "odds": -120,
           "side": "a",
           "line": 3.5,
@@ -4412,7 +4507,7 @@
         {
           "type": "sp",
           "game": "CIN1101",
-          "needs": "Titans lose by 12 or fewer, or win (+12½ vs Bengals)",
+          "needs": "Titans lose by 12 or fewer, or win (+12\u00bd vs Bengals)",
           "odds": -110,
           "side": "a",
           "line": 12.5,
@@ -4453,7 +4548,7 @@
         {
           "type": "sp",
           "game": "GSW1101",
-          "needs": "Clippers win, or lose by 1 (+1½ at Warriors)",
+          "needs": "Clippers win, or lose by 1 (+1\u00bd at Warriors)",
           "odds": -106,
           "side": "a",
           "line": 1.5,
@@ -4462,7 +4557,7 @@
         {
           "type": "tot",
           "game": "GSW1101",
-          "needs": "Clippers-Warriors total over 220½",
+          "needs": "Clippers-Warriors total over 220\u00bd",
           "odds": -107,
           "ou": "o",
           "line": 220.5,
@@ -4478,7 +4573,7 @@
         {
           "type": "sp",
           "game": "GSW1101",
-          "needs": "Clippers win, or lose by 1 (+1½ at Warriors)",
+          "needs": "Clippers win, or lose by 1 (+1\u00bd at Warriors)",
           "odds": -106,
           "side": "a",
           "line": 1.5,
@@ -4494,7 +4589,7 @@
         {
           "type": "sp",
           "game": "WSH1101",
-          "needs": "Commanders win by 6 or more (-5½ vs Eagles)",
+          "needs": "Commanders win by 6 or more (-5\u00bd vs Eagles)",
           "odds": -110,
           "side": "h",
           "line": -5.5,
@@ -4503,7 +4598,7 @@
         {
           "type": "tot",
           "game": "WSH1101",
-          "needs": "Eagles-Commanders total over 40½",
+          "needs": "Eagles-Commanders total over 40\u00bd",
           "odds": -105,
           "ou": "o",
           "line": 40.5,
@@ -4519,7 +4614,7 @@
         {
           "type": "tot",
           "game": "WSH1101",
-          "needs": "Eagles-Commanders total over 40½",
+          "needs": "Eagles-Commanders total over 40\u00bd",
           "odds": -105,
           "ou": "o",
           "line": 40.5,
@@ -4544,7 +4639,7 @@
         {
           "type": "tot",
           "game": "WSH1101",
-          "needs": "Eagles-Commanders total over 40½",
+          "needs": "Eagles-Commanders total over 40\u00bd",
           "odds": -105,
           "ou": "o",
           "line": 40.5,
@@ -4560,7 +4655,7 @@
         {
           "type": "sp",
           "game": "DEN1101",
-          "needs": "Chiefs win, or lose by 2 or fewer (live +2½ at Broncos)",
+          "needs": "Chiefs win, or lose by 2 or fewer (live +2\u00bd at Broncos)",
           "odds": null,
           "side": "a",
           "line": 2.5,
@@ -4576,7 +4671,7 @@
         {
           "type": "tot",
           "game": "WSH1101",
-          "needs": "Eagles-Commanders total over 40½",
+          "needs": "Eagles-Commanders total over 40\u00bd",
           "odds": -105,
           "ou": "o",
           "line": 40.5,
@@ -4601,7 +4696,7 @@
         {
           "type": "sp",
           "game": "UTAH1107",
-          "needs": "BYU wins, or loses by 4 or fewer (+4½ at Utah)",
+          "needs": "BYU wins, or loses by 4 or fewer (+4\u00bd at Utah)",
           "odds": null,
           "side": "a",
           "line": 4.5,
@@ -4610,7 +4705,7 @@
         {
           "type": "tot",
           "game": "UTAH1107",
-          "needs": "BYU-Utah total over 49½",
+          "needs": "BYU-Utah total over 49\u00bd",
           "odds": null,
           "ou": "o",
           "line": 49.5,
@@ -4635,7 +4730,7 @@
         {
           "type": "tot",
           "game": "UTAH1107",
-          "needs": "BYU-Utah total over 49½",
+          "needs": "BYU-Utah total over 49\u00bd",
           "odds": -110,
           "ou": "o",
           "line": 49.5,
@@ -4651,7 +4746,7 @@
         {
           "type": "sp",
           "game": "MIZ1107",
-          "needs": "Texas wins by 3 or more (-2½ at Missouri)",
+          "needs": "Texas wins by 3 or more (-2\u00bd at Missouri)",
           "odds": -111,
           "side": "a",
           "line": -2.5,
@@ -4660,7 +4755,7 @@
         {
           "type": "sp",
           "game": "UTAH1107",
-          "needs": "BYU wins, or loses by 3 or fewer (+3½ at Utah)",
+          "needs": "BYU wins, or loses by 3 or fewer (+3\u00bd at Utah)",
           "odds": -105,
           "side": "a",
           "line": 3.5,
@@ -5045,7 +5140,7 @@
         {
           "type": "nt",
           "game": "HIST_UNKNOWN_1011484694",
-          "needs": "Second parlay leg not visible in supplied history — awaiting ticket details",
+          "needs": "Second parlay leg not visible in supplied history \u2014 awaiting ticket details",
           "odds": null,
           "lab": "Unknown leg",
           "ntxt": "Selection not visible in supplied history",
@@ -5472,7 +5567,7 @@
         "graded_at": null,
         "source": "/workspace/videos/nov11-archive.mp4",
         "note": "To win corrected from $49.56 to $49.57 from a clear BetOnline frame. $33 + $49.57 = $82.57 returned. Settled Nov 9 PT (Oilers/Bills game date). BetOnline graded stamp may show 11/10 (server date ahead of PT).",
-        "review_note": "towin 49.56 → 49.57 so the WON bookmaker override matches actual_return 82.57."
+        "review_note": "towin 49.56 \u2192 49.57 so the WON bookmaker override matches actual_return 82.57."
       }
     },
     {
@@ -5942,7 +6037,7 @@
           "line": -3,
           "odds": -123,
           "lab": "OKST",
-          "needs": "Oklahoma State wins by 4 or more (-3 vs Texas Tech, bought ½; win by exactly 3 = push)"
+          "needs": "Oklahoma State wins by 4 or more (-3 vs Texas Tech, bought \u00bd; win by exactly 3 = push)"
         }
       ]
     },
@@ -5969,7 +6064,7 @@
           "line": -3.5,
           "odds": -105,
           "lab": "OKST",
-          "needs": "Oklahoma State wins by 4 or more (-3½ vs Texas Tech)"
+          "needs": "Oklahoma State wins by 4 or more (-3\u00bd vs Texas Tech)"
         }
       ]
     },
@@ -6005,7 +6100,7 @@
           "line": -14,
           "odds": -115,
           "lab": "OSU",
-          "needs": "Ohio State wins by 15 or more (-14 vs Northwestern, bought ½; win by exactly 14 = push)"
+          "needs": "Ohio State wins by 15 or more (-14 vs Northwestern, bought \u00bd; win by exactly 14 = push)"
         },
         {
           "type": "tot",
@@ -6067,7 +6162,7 @@
           "line": -2.5,
           "odds": -110,
           "lab": "ISU",
-          "needs": "Iowa State wins by 3 or more (-2½ vs Cincinnati)"
+          "needs": "Iowa State wins by 3 or more (-2\u00bd vs Cincinnati)"
         },
         {
           "type": "sp",
@@ -6094,7 +6189,7 @@
           "line": 1.5,
           "odds": -105,
           "lab": "WAKE",
-          "needs": "Wake Forest wins, or loses by 1 or fewer (+1½ at SMU)"
+          "needs": "Wake Forest wins, or loses by 1 or fewer (+1\u00bd at SMU)"
         }
       ]
     },
@@ -6222,7 +6317,7 @@
           "line": -16.5,
           "odds": -110,
           "lab": "UGA",
-          "needs": "Georgia wins by 17 or more (-16½ vs Missouri)"
+          "needs": "Georgia wins by 17 or more (-16\u00bd vs Missouri)"
         }
       ]
     },
@@ -6239,7 +6334,7 @@
           "line": -10.5,
           "odds": -105,
           "lab": "ORE",
-          "needs": "Oregon wins by 11 or more (-10½ vs Michigan)"
+          "needs": "Oregon wins by 11 or more (-10\u00bd vs Michigan)"
         },
         {
           "type": "sp",
@@ -6248,7 +6343,7 @@
           "line": -16.5,
           "odds": -110,
           "lab": "UGA",
-          "needs": "Georgia wins by 17 or more (-16½ vs Missouri)"
+          "needs": "Georgia wins by 17 or more (-16\u00bd vs Missouri)"
         }
       ],
       "accepted_date_pt": "2026-11-14"
@@ -6337,7 +6432,7 @@
           "line": 2.5,
           "odds": 105,
           "lab": "SDSU",
-          "needs": "San Diego State wins or loses by 2 or fewer (+2½ vs Utah State)"
+          "needs": "San Diego State wins or loses by 2 or fewer (+2\u00bd vs Utah State)"
         },
         {
           "type": "sp",
@@ -6355,7 +6450,7 @@
           "line": -3.5,
           "odds": -110,
           "lab": "OKST",
-          "needs": "Oklahoma State wins by 4 or more (-3½ vs Texas Tech)"
+          "needs": "Oklahoma State wins by 4 or more (-3\u00bd vs Texas Tech)"
         }
       ]
     },
@@ -6381,7 +6476,7 @@
           "line": -3.5,
           "odds": -110,
           "lab": "OKST",
-          "needs": "Oklahoma State wins by 4 or more (-3½ vs Texas Tech)"
+          "needs": "Oklahoma State wins by 4 or more (-3\u00bd vs Texas Tech)"
         }
       ]
     },
@@ -6398,7 +6493,7 @@
           "line": 2.5,
           "odds": 105,
           "lab": "SDSU",
-          "needs": "San Diego State wins or loses by 2 or fewer (+2½ vs Utah State)"
+          "needs": "San Diego State wins or loses by 2 or fewer (+2\u00bd vs Utah State)"
         },
         {
           "type": "sp",
@@ -6459,7 +6554,7 @@
           "line": 2.5,
           "odds": 105,
           "lab": "SDSU",
-          "needs": "San Diego State wins or loses by 2 or fewer (+2½ vs Utah State)"
+          "needs": "San Diego State wins or loses by 2 or fewer (+2\u00bd vs Utah State)"
         },
         {
           "type": "sp",
@@ -6503,7 +6598,7 @@
           "line": 2.5,
           "odds": 105,
           "lab": "SDSU",
-          "needs": "San Diego State wins or loses by 2 or fewer (+2½ vs Utah State)"
+          "needs": "San Diego State wins or loses by 2 or fewer (+2\u00bd vs Utah State)"
         },
         {
           "type": "sp",
@@ -6530,7 +6625,7 @@
           "line": 3.5,
           "odds": -105,
           "lab": "TTU",
-          "needs": "Texas Tech wins or loses by 3 or fewer (+3½ at Oklahoma State)"
+          "needs": "Texas Tech wins or loses by 3 or fewer (+3\u00bd at Oklahoma State)"
         },
         {
           "type": "tot",
@@ -6588,7 +6683,7 @@
           "line": -4.5,
           "odds": -108,
           "lab": "BAL",
-          "needs": "Baltimore Ravens win by 5 or more (-4½ vs LA Chargers, Mon)"
+          "needs": "Baltimore Ravens win by 5 or more (-4\u00bd vs LA Chargers, Mon)"
         },
         {
           "type": "sp",
@@ -6606,7 +6701,7 @@
           "line": 3.5,
           "odds": -113,
           "lab": "PIT",
-          "needs": "Pittsburgh Steelers win or lose by 3 or fewer (+3½ at Cincinnati)"
+          "needs": "Pittsburgh Steelers win or lose by 3 or fewer (+3\u00bd at Cincinnati)"
         }
       ]
     },
@@ -6632,7 +6727,7 @@
           "line": 3.5,
           "odds": -113,
           "lab": "PIT",
-          "needs": "Pittsburgh Steelers win or lose by 3 or fewer (+3½ at Cincinnati)"
+          "needs": "Pittsburgh Steelers win or lose by 3 or fewer (+3\u00bd at Cincinnati)"
         },
         {
           "type": "ml",
@@ -6666,7 +6761,7 @@
           "line": 3.5,
           "odds": -113,
           "lab": "PIT",
-          "needs": "Pittsburgh Steelers win or lose by 3 or fewer (+3½ at Cincinnati)"
+          "needs": "Pittsburgh Steelers win or lose by 3 or fewer (+3\u00bd at Cincinnati)"
         }
       ]
     },
@@ -6770,7 +6865,7 @@
           "line": -2.5,
           "odds": -115,
           "lab": "DET",
-          "needs": "Detroit Lions win by 3 or more (-2½ vs New England, Munich)"
+          "needs": "Detroit Lions win by 3 or more (-2\u00bd vs New England, Munich)"
         },
         {
           "type": "tot",
@@ -6831,7 +6926,7 @@
           "line": 10.5,
           "odds": -107,
           "lab": "TEN",
-          "needs": "Tennessee Titans win or lose by 10 or fewer (+10½ vs Jacksonville)"
+          "needs": "Tennessee Titans win or lose by 10 or fewer (+10\u00bd vs Jacksonville)"
         }
       ]
     },
@@ -6978,7 +7073,7 @@
           "line": -8.5,
           "odds": null,
           "lab": "BUF",
-          "needs": "Buffalo Bills win by 9 or more (-8½ at NY Jets)"
+          "needs": "Buffalo Bills win by 9 or more (-8\u00bd at NY Jets)"
         },
         {
           "type": "tot",
@@ -7005,7 +7100,7 @@
           "line": 7.5,
           "odds": -105,
           "lab": "NYJ",
-          "needs": "New York Jets win or lose by 7 or fewer (+7½ vs Buffalo)"
+          "needs": "New York Jets win or lose by 7 or fewer (+7\u00bd vs Buffalo)"
         },
         {
           "type": "sp",
@@ -7041,7 +7136,7 @@
           "line": 7.5,
           "odds": -105,
           "lab": "NYJ",
-          "needs": "New York Jets win or lose by 7 or fewer (+7½ vs Buffalo)"
+          "needs": "New York Jets win or lose by 7 or fewer (+7\u00bd vs Buffalo)"
         },
         {
           "type": "sp",
@@ -7086,7 +7181,7 @@
           "line": 7.5,
           "odds": -105,
           "lab": "NYJ",
-          "needs": "New York Jets win or lose by 7 or fewer (+7½ vs Buffalo)"
+          "needs": "New York Jets win or lose by 7 or fewer (+7\u00bd vs Buffalo)"
         }
       ]
     },
@@ -7104,7 +7199,7 @@
           "line": -9.5,
           "odds": null,
           "lab": "KC",
-          "needs": "Kansas City Chiefs win by 10 or more (-9½ at Atlanta, live)"
+          "needs": "Kansas City Chiefs win by 10 or more (-9\u00bd at Atlanta, live)"
         }
       ]
     },
@@ -7218,7 +7313,7 @@
           "line": 4.5,
           "odds": null,
           "lab": "PIT",
-          "needs": "Pittsburgh Steelers win or lose by 4 or fewer (+4½ at Cincinnati)"
+          "needs": "Pittsburgh Steelers win or lose by 4 or fewer (+4\u00bd at Cincinnati)"
         },
         {
           "type": "tot",
@@ -7295,7 +7390,7 @@
           "line": -4.5,
           "odds": null,
           "lab": "BAL",
-          "needs": "Baltimore Ravens win by 5 or more (-4½ vs LA Chargers)"
+          "needs": "Baltimore Ravens win by 5 or more (-4\u00bd vs LA Chargers)"
         },
         {
           "type": "tot",
@@ -7322,7 +7417,7 @@
           "line": -4.5,
           "odds": -110,
           "lab": "BAL",
-          "needs": "Baltimore Ravens win by 5 or more (-4½ vs LA Chargers)"
+          "needs": "Baltimore Ravens win by 5 or more (-4\u00bd vs LA Chargers)"
         },
         {
           "type": "tot",
@@ -7420,7 +7515,7 @@
           "line": -2.5,
           "odds": -120,
           "lab": "BUF",
-          "needs": "Buffalo wins by 3 or more (-2½ vs Central Michigan)"
+          "needs": "Buffalo wins by 3 or more (-2\u00bd vs Central Michigan)"
         },
         {
           "type": "tot",
@@ -7446,7 +7541,7 @@
           "line": -2.5,
           "odds": -120,
           "lab": "BUF",
-          "needs": "Buffalo wins by 3 or more (-2½ vs Central Michigan)"
+          "needs": "Buffalo wins by 3 or more (-2\u00bd vs Central Michigan)"
         }
       ]
     },
@@ -7480,7 +7575,7 @@
           "line": 46.5,
           "odds": -125,
           "lab": "O46.5",
-          "needs": "47 or more total points, Central Michigan + Buffalo (bought ½ point)"
+          "needs": "47 or more total points, Central Michigan + Buffalo (bought \u00bd point)"
         }
       ]
     },
@@ -7522,7 +7617,7 @@
           "line": 11.5,
           "odds": -110,
           "lab": "UTA",
-          "needs": "Utah Jazz lose by 11 or fewer, or win (+11½ at LA Lakers)"
+          "needs": "Utah Jazz lose by 11 or fewer, or win (+11\u00bd at LA Lakers)"
         }
       ]
     },
@@ -7539,7 +7634,7 @@
           "line": 7.5,
           "odds": -118,
           "lab": "SAC",
-          "needs": "Sacramento Kings lose by 7 or fewer, or win (+7½ vs Phoenix, bought ½ point)"
+          "needs": "Sacramento Kings lose by 7 or fewer, or win (+7\u00bd vs Phoenix, bought \u00bd point)"
         }
       ]
     },
@@ -7557,7 +7652,7 @@
           "line": -3.5,
           "odds": -115,
           "lab": "OSU",
-          "needs": "Ohio State wins by 4 or more (-3½ at Nebraska)"
+          "needs": "Ohio State wins by 4 or more (-3\u00bd at Nebraska)"
         },
         {
           "type": "sp",
@@ -7566,7 +7661,7 @@
           "line": -3.5,
           "odds": -111,
           "lab": "UCLA",
-          "needs": "UCLA wins by 4 or more (-3½ at Michigan)"
+          "needs": "UCLA wins by 4 or more (-3\u00bd at Michigan)"
         },
         {
           "type": "sp",
@@ -7593,7 +7688,7 @@
           "line": -3.5,
           "odds": -115,
           "lab": "OSU",
-          "needs": "Ohio State wins by 4 or more (-3½ at Nebraska)"
+          "needs": "Ohio State wins by 4 or more (-3\u00bd at Nebraska)"
         },
         {
           "type": "sp",
@@ -7602,7 +7697,7 @@
           "line": -3.5,
           "odds": -111,
           "lab": "UCLA",
-          "needs": "UCLA wins by 4 or more (-3½ at Michigan)"
+          "needs": "UCLA wins by 4 or more (-3\u00bd at Michigan)"
         }
       ]
     },
@@ -7620,7 +7715,7 @@
           "line": -4.5,
           "odds": -107,
           "lab": "BYU",
-          "needs": "BYU wins by 5 or more (-4½ at Kansas)"
+          "needs": "BYU wins by 5 or more (-4\u00bd at Kansas)"
         },
         {
           "type": "sp",
@@ -7629,7 +7724,7 @@
           "line": -3.5,
           "odds": -115,
           "lab": "OSU",
-          "needs": "Ohio State wins by 4 or more (-3½ at Nebraska)"
+          "needs": "Ohio State wins by 4 or more (-3\u00bd at Nebraska)"
         }
       ]
     },
@@ -7708,7 +7803,7 @@
           "line": -5.5,
           "odds": -100,
           "lab": "JAX",
-          "needs": "Jaguars win by 6 or more (-5½ at New York Giants)"
+          "needs": "Jaguars win by 6 or more (-5\u00bd at New York Giants)"
         }
       ]
     },
@@ -7726,7 +7821,7 @@
           "line": -10.5,
           "odds": -117,
           "lab": "LOU",
-          "needs": "Louisville wins by 11 or more (-10½ vs Pittsburgh)"
+          "needs": "Louisville wins by 11 or more (-10\u00bd vs Pittsburgh)"
         },
         {
           "type": "sp",
@@ -7735,7 +7830,7 @@
           "line": -6.5,
           "odds": -110,
           "lab": "UNLV",
-          "needs": "UNLV wins by 7 or more (-6½ at San Jose State)"
+          "needs": "UNLV wins by 7 or more (-6\u00bd at San Jose State)"
         }
       ]
     },
@@ -7753,7 +7848,7 @@
           "line": -10.5,
           "odds": -117,
           "lab": "LOU",
-          "needs": "Louisville wins by 11 or more (-10½ vs Pittsburgh)"
+          "needs": "Louisville wins by 11 or more (-10\u00bd vs Pittsburgh)"
         },
         {
           "type": "sp",
@@ -7762,7 +7857,7 @@
           "line": -6.5,
           "odds": -110,
           "lab": "UNLV",
-          "needs": "UNLV wins by 7 or more (-6½ at San Jose State)"
+          "needs": "UNLV wins by 7 or more (-6\u00bd at San Jose State)"
         }
       ]
     },
@@ -7780,7 +7875,7 @@
           "line": 17.5,
           "odds": -110,
           "lab": "MD",
-          "needs": "Maryland wins, or loses by 17 or fewer (+17½ at USC)"
+          "needs": "Maryland wins, or loses by 17 or fewer (+17\u00bd at USC)"
         },
         {
           "type": "sp",
@@ -7789,7 +7884,7 @@
           "line": -13.5,
           "odds": -115,
           "lab": "TXST",
-          "needs": "Texas State wins by 14 or more (-13½ vs Washington State, bought ½)"
+          "needs": "Texas State wins by 14 or more (-13\u00bd vs Washington State, bought \u00bd)"
         }
       ]
     },
@@ -7806,7 +7901,7 @@
           "line": -6.5,
           "odds": -120,
           "lab": "ORST",
-          "needs": "Oregon State wins by 7 or more (-6½ vs Utah State)"
+          "needs": "Oregon State wins by 7 or more (-6\u00bd vs Utah State)"
         },
         {
           "type": "sp",
@@ -7824,7 +7919,7 @@
           "line": -2.5,
           "odds": -124,
           "lab": "OKST",
-          "needs": "Oklahoma State wins by 3 or more (-2½ at Arizona State, bought ½)"
+          "needs": "Oklahoma State wins by 3 or more (-2\u00bd at Arizona State, bought \u00bd)"
         }
       ]
     },
@@ -7841,7 +7936,7 @@
           "line": -2.5,
           "odds": -124,
           "lab": "OKST",
-          "needs": "Oklahoma State wins by 3 or more (-2½ at Arizona State, bought ½)"
+          "needs": "Oklahoma State wins by 3 or more (-2\u00bd at Arizona State, bought \u00bd)"
         },
         {
           "type": "sp",
@@ -7867,7 +7962,7 @@
           "line": -2.5,
           "odds": -124,
           "lab": "OKST",
-          "needs": "Oklahoma State wins by 3 or more (-2½ at Arizona State, bought ½)"
+          "needs": "Oklahoma State wins by 3 or more (-2\u00bd at Arizona State, bought \u00bd)"
         },
         {
           "type": "sp",
@@ -7893,7 +7988,7 @@
           "line": -2.5,
           "odds": -124,
           "lab": "OKST",
-          "needs": "Oklahoma State wins by 3 or more (-2½ at Arizona State, bought ½)"
+          "needs": "Oklahoma State wins by 3 or more (-2\u00bd at Arizona State, bought \u00bd)"
         }
       ]
     },
@@ -7944,7 +8039,7 @@
           "line": 3.5,
           "odds": -128,
           "lab": "NYJ",
-          "needs": "New York Jets win, or lose by 3 or fewer (+3½ at Chargers, bought ½)"
+          "needs": "New York Jets win, or lose by 3 or fewer (+3\u00bd at Chargers, bought \u00bd)"
         }
       ]
     },
@@ -7961,7 +8056,7 @@
           "line": -3,
           "odds": -127,
           "lab": "SF",
-          "needs": "San Francisco 49ers win by 4 or more (-3 vs Minnesota, Mexico City, bought ½; win by exactly 3 = push)"
+          "needs": "San Francisco 49ers win by 4 or more (-3 vs Minnesota, Mexico City, bought \u00bd; win by exactly 3 = push)"
         },
         {
           "type": "sp",
@@ -7970,7 +8065,7 @@
           "line": 3.5,
           "odds": -128,
           "lab": "NYJ",
-          "needs": "New York Jets win, or lose by 3 or fewer (+3½ at Chargers, bought ½)"
+          "needs": "New York Jets win, or lose by 3 or fewer (+3\u00bd at Chargers, bought \u00bd)"
         },
         {
           "type": "tot",
@@ -7979,7 +8074,7 @@
           "line": 54.5,
           "odds": -117,
           "lab": "O54.5",
-          "needs": "55 or more total points, Tennessee + Dallas (bought ½)"
+          "needs": "55 or more total points, Tennessee + Dallas (bought \u00bd)"
         }
       ]
     },
@@ -8071,7 +8166,7 @@
           "line": -7.5,
           "odds": null,
           "lab": "DAL",
-          "needs": "Dallas Cowboys win by 8 or more (-7½ vs Tennessee)"
+          "needs": "Dallas Cowboys win by 8 or more (-7\u00bd vs Tennessee)"
         },
         {
           "type": "tot",
@@ -8098,7 +8193,7 @@
           "line": 3.5,
           "odds": null,
           "lab": "NYJ",
-          "needs": "New York Jets win, or lose by 3 or fewer (+3½ at Chargers)"
+          "needs": "New York Jets win, or lose by 3 or fewer (+3\u00bd at Chargers)"
         }
       ]
     },
@@ -8115,7 +8210,7 @@
           "line": -7.5,
           "odds": null,
           "lab": "DAL",
-          "needs": "Dallas Cowboys win by 8 or more (-7½ vs Tennessee)"
+          "needs": "Dallas Cowboys win by 8 or more (-7\u00bd vs Tennessee)"
         },
         {
           "type": "tot",
@@ -8161,7 +8256,7 @@
           "line": -5.5,
           "odds": -122,
           "lab": "JAX",
-          "needs": "Jaguars win by 6 or more (-5½ at New York Giants, bought ½)"
+          "needs": "Jaguars win by 6 or more (-5\u00bd at New York Giants, bought \u00bd)"
         },
         {
           "type": "tot",
@@ -8187,7 +8282,7 @@
           "line": 44,
           "odds": -125,
           "lab": "U44",
-          "needs": "43 or fewer total points, Jets + Chargers (bought ½; exactly 44 pushes)"
+          "needs": "43 or fewer total points, Jets + Chargers (bought \u00bd; exactly 44 pushes)"
         }
       ]
     },
@@ -8204,7 +8299,7 @@
           "line": 41,
           "odds": -120,
           "lab": "O41",
-          "needs": "42 or more total points, Raiders + Broncos (bought ½; exactly 41 pushes)"
+          "needs": "42 or more total points, Raiders + Broncos (bought \u00bd; exactly 41 pushes)"
         },
         {
           "type": "sp",
@@ -8231,7 +8326,7 @@
           "line": -11.5,
           "odds": -114,
           "lab": "DEN",
-          "needs": "Broncos win by 12 or more (-11½ vs Raiders)"
+          "needs": "Broncos win by 12 or more (-11\u00bd vs Raiders)"
         },
         {
           "type": "tot",
@@ -8257,7 +8352,7 @@
           "lab": "Cousins 299+ yds",
           "needs": "Kirk Cousins (MIN) 299 or more passing yards",
           "nres": "LOST",
-          "ntxt": "Cousins threw for 235 yards (needed 299+; SF 35–10 MIN); graded LOST"
+          "ntxt": "Cousins threw for 235 yards (needed 299+; SF 35\u201310 MIN); graded LOST"
         },
         {
           "type": "nt",
@@ -8266,7 +8361,7 @@
           "lab": "Cousins 2+ TD",
           "needs": "Kirk Cousins (MIN) 2 or more passing touchdowns",
           "nres": "LOST",
-          "ntxt": "Cousins threw 0 passing TDs (needed 2+; SF 35–10 MIN); graded LOST"
+          "ntxt": "Cousins threw 0 passing TDs (needed 2+; SF 35\u201310 MIN); graded LOST"
         },
         {
           "type": "nt",
@@ -8275,7 +8370,7 @@
           "lab": "Purdy 307+ yds",
           "needs": "Brock Purdy (SF) 307 or more passing yards",
           "nres": "LOST",
-          "ntxt": "Purdy threw for 255 yards (needed 307+; SF 35–10 MIN); graded LOST"
+          "ntxt": "Purdy threw for 255 yards (needed 307+; SF 35\u201310 MIN); graded LOST"
         },
         {
           "type": "nt",
@@ -8284,7 +8379,7 @@
           "lab": "Purdy 2+ TD",
           "needs": "Brock Purdy (SF) 2 or more passing touchdowns",
           "nres": "WON",
-          "ntxt": "Purdy threw 3 passing TDs (SF 35–10 MIN); graded WON"
+          "ntxt": "Purdy threw 3 passing TDs (SF 35\u201310 MIN); graded WON"
         },
         {
           "type": "nt",
@@ -8293,7 +8388,7 @@
           "lab": "CMC 1+ TD",
           "needs": "Christian McCaffrey (SF) 1 or more touchdowns",
           "nres": "WON",
-          "ntxt": "McCaffrey scored 1 rushing TD (SF 35–10 MIN); graded WON"
+          "ntxt": "McCaffrey scored 1 rushing TD (SF 35\u201310 MIN); graded WON"
         }
       ],
       "settled": "2026-11-22"
@@ -8311,7 +8406,7 @@
           "lab": "CMC 1+ TD",
           "needs": "Christian McCaffrey (SF) 1 or more touchdowns",
           "nres": "WON",
-          "ntxt": "McCaffrey scored 1 rushing TD (SF 35–10 MIN); graded WON"
+          "ntxt": "McCaffrey scored 1 rushing TD (SF 35\u201310 MIN); graded WON"
         }
       ],
       "settled": "2026-11-22"
@@ -8329,7 +8424,7 @@
           "lab": "Cousins 299+ yds",
           "needs": "Kirk Cousins (MIN) 299 or more passing yards",
           "nres": "LOST",
-          "ntxt": "Cousins threw for 235 yards (needed 299+; SF 35–10 MIN); graded LOST"
+          "ntxt": "Cousins threw for 235 yards (needed 299+; SF 35\u201310 MIN); graded LOST"
         },
         {
           "type": "nt",
@@ -8338,7 +8433,7 @@
           "lab": "Cousins 2+ TD",
           "needs": "Kirk Cousins (MIN) 2 or more passing touchdowns",
           "nres": "LOST",
-          "ntxt": "Cousins threw 0 passing TDs (needed 2+; SF 35–10 MIN); graded LOST"
+          "ntxt": "Cousins threw 0 passing TDs (needed 2+; SF 35\u201310 MIN); graded LOST"
         },
         {
           "type": "nt",
@@ -8347,7 +8442,7 @@
           "lab": "Purdy 307+ yds",
           "needs": "Brock Purdy (SF) 307 or more passing yards",
           "nres": "LOST",
-          "ntxt": "Purdy threw for 255 yards (needed 307+; SF 35–10 MIN); graded LOST"
+          "ntxt": "Purdy threw for 255 yards (needed 307+; SF 35\u201310 MIN); graded LOST"
         },
         {
           "type": "nt",
@@ -8356,7 +8451,7 @@
           "lab": "Purdy 2+ TD",
           "needs": "Brock Purdy (SF) 2 or more passing touchdowns",
           "nres": "WON",
-          "ntxt": "Purdy threw 3 passing TDs (SF 35–10 MIN); graded WON"
+          "ntxt": "Purdy threw 3 passing TDs (SF 35\u201310 MIN); graded WON"
         },
         {
           "type": "nt",
@@ -8365,7 +8460,7 @@
           "lab": "CMC 1+ TD",
           "needs": "Christian McCaffrey (SF) 1 or more touchdowns",
           "nres": "WON",
-          "ntxt": "McCaffrey scored 1 rushing TD (SF 35–10 MIN); graded WON"
+          "ntxt": "McCaffrey scored 1 rushing TD (SF 35\u201310 MIN); graded WON"
         }
       ],
       "settled": "2026-11-22"
@@ -8482,7 +8577,7 @@
           "line": 4.5,
           "odds": null,
           "lab": "MIN",
-          "needs": "Minnesota Vikings win, or lose by 4 or fewer (+4½ at 49ers, Mexico City)"
+          "needs": "Minnesota Vikings win, or lose by 4 or fewer (+4\u00bd at 49ers, Mexico City)"
         },
         {
           "type": "tot",
@@ -8491,7 +8586,7 @@
           "line": 44.5,
           "odds": null,
           "lab": "O44.5",
-          "needs": "45 or more total points, Vikings + 49ers (over 44½)"
+          "needs": "45 or more total points, Vikings + 49ers (over 44\u00bd)"
         }
       ]
     },
@@ -8508,7 +8603,7 @@
           "line": -5.5,
           "odds": -125,
           "lab": "CIN",
-          "needs": "Cincinnati Bengals win by 6 or more (-5½ at Washington, bought ½)"
+          "needs": "Cincinnati Bengals win by 6 or more (-5\u00bd at Washington, bought \u00bd)"
         }
       ]
     },
@@ -8525,7 +8620,7 @@
           "line": -6.5,
           "odds": null,
           "lab": "CIN",
-          "needs": "Cincinnati Bengals win by 7 or more (-6½ at Washington)"
+          "needs": "Cincinnati Bengals win by 7 or more (-6\u00bd at Washington)"
         },
         {
           "type": "tot",
@@ -8534,7 +8629,7 @@
           "line": 54.5,
           "odds": null,
           "lab": "O54.5",
-          "needs": "55 or more total points, Bengals + Commanders (over 54½)"
+          "needs": "55 or more total points, Bengals + Commanders (over 54\u00bd)"
         }
       ]
     },
@@ -8552,7 +8647,7 @@
           "line": -3,
           "odds": -131,
           "lab": "PHI",
-          "needs": "Philadelphia 76ers win by 4 or more (-3 vs Portland, bought ½; win by exactly 3 = push)"
+          "needs": "Philadelphia 76ers win by 4 or more (-3 vs Portland, bought \u00bd; win by exactly 3 = push)"
         },
         {
           "type": "sp",
@@ -8561,7 +8656,7 @@
           "line": -11,
           "odds": -126,
           "lab": "MIN",
-          "needs": "Minnesota Timberwolves win by 12 or more (-11 vs Brooklyn, bought ½; win by exactly 11 = push)"
+          "needs": "Minnesota Timberwolves win by 12 or more (-11 vs Brooklyn, bought \u00bd; win by exactly 11 = push)"
         }
       ]
     },
@@ -8614,7 +8709,7 @@
           "line": 54.5,
           "odds": null,
           "lab": "U54.5",
-          "needs": "54 or fewer total points, Bengals + Commanders (under 54½)"
+          "needs": "54 or fewer total points, Bengals + Commanders (under 54\u00bd)"
         }
       ]
     },
@@ -8694,7 +8789,7 @@
           "line": 2.5,
           "odds": -142,
           "lab": "GB",
-          "needs": "Green Bay Phoenix win, or lose by 2 or fewer (+2½ at Kansas City, bought 1½)"
+          "needs": "Green Bay Phoenix win, or lose by 2 or fewer (+2\u00bd at Kansas City, bought 1\u00bd)"
         }
       ]
     },
@@ -8746,7 +8841,7 @@
           "line": -13.5,
           "odds": -113,
           "lab": "TNTC",
-          "needs": "Tennessee Tech Golden Eagles win by 14 or more (-13½ vs West Georgia)"
+          "needs": "Tennessee Tech Golden Eagles win by 14 or more (-13\u00bd vs West Georgia)"
         },
         {
           "type": "sp",
@@ -8755,7 +8850,7 @@
           "line": 3.5,
           "odds": -110,
           "lab": "PFW",
-          "needs": "Purdue Fort Wayne Mastodons win, or lose by 3 or fewer (+3½ at Southeast Missouri State)"
+          "needs": "Purdue Fort Wayne Mastodons win, or lose by 3 or fewer (+3\u00bd at Southeast Missouri State)"
         }
       ]
     },
@@ -8772,7 +8867,7 @@
           "line": -1.5,
           "odds": -110,
           "lab": "ALA",
-          "needs": "Alabama Crimson Tide win by 2 or more (-1½ vs Baylor, Players Era, Las Vegas)"
+          "needs": "Alabama Crimson Tide win by 2 or more (-1\u00bd vs Baylor, Players Era, Las Vegas)"
         },
         {
           "type": "sp",
@@ -8781,7 +8876,7 @@
           "line": -10.5,
           "odds": -115,
           "lab": "SJU",
-          "needs": "St. John's Red Storm win by 11 or more (-10½ vs Oregon, Players Era, Las Vegas)"
+          "needs": "St. John's Red Storm win by 11 or more (-10\u00bd vs Oregon, Players Era, Las Vegas)"
         }
       ]
     },
@@ -8807,7 +8902,7 @@
           "line": 153.5,
           "odds": -110,
           "lab": "U153.5",
-          "needs": "153 or fewer total points, Texas Tech + Louisville (under 153½)"
+          "needs": "153 or fewer total points, Texas Tech + Louisville (under 153\u00bd)"
         }
       ]
     },
@@ -8851,7 +8946,7 @@
           "line": 178.5,
           "odds": -110,
           "lab": "U178.5",
-          "needs": "178 or fewer total points, Arkansas State + Florida International (under 178½)"
+          "needs": "178 or fewer total points, Arkansas State + Florida International (under 178\u00bd)"
         }
       ]
     },
@@ -8911,7 +9006,7 @@
           "line": -10.5,
           "odds": -110,
           "lab": "USC",
-          "needs": "USC Trojans win by 11 or more (-10½ vs South Carolina, neutral court)"
+          "needs": "USC Trojans win by 11 or more (-10\u00bd vs South Carolina, neutral court)"
         },
         {
           "type": "sp",
@@ -8938,7 +9033,7 @@
           "line": -9.5,
           "odds": -131,
           "lab": "USC",
-          "needs": "USC Trojans win by 10 or more (-9½ vs South Carolina, neutral court, bought 1)"
+          "needs": "USC Trojans win by 10 or more (-9\u00bd vs South Carolina, neutral court, bought 1)"
         },
         {
           "type": "sp",
@@ -8947,7 +9042,7 @@
           "line": -3.5,
           "odds": -122,
           "lab": "MEM",
-          "needs": "Memphis Tigers win by 4 or more (-3½ vs Penn State, Battle 4 Atlantis, Nassau, bought ½)"
+          "needs": "Memphis Tigers win by 4 or more (-3\u00bd vs Penn State, Battle 4 Atlantis, Nassau, bought \u00bd)"
         }
       ]
     },
@@ -8973,7 +9068,7 @@
           "line": 56.5,
           "odds": null,
           "lab": "U56.5",
-          "needs": "56 or fewer total points, Bears + Lions (under 56½)"
+          "needs": "56 or fewer total points, Bears + Lions (under 56\u00bd)"
         }
       ]
     },
@@ -9003,6 +9098,583 @@
           "needs": "Detroit Lions win, or lose by exactly 1 = push (+1 vs Chicago)"
         }
       ]
+    },
+    {
+      "ticket_id": "1019595817",
+      "sport": "CFB",
+      "stake": 2,
+      "towin": 132.99,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "BALL1128",
+          "side": "a",
+          "line": -4.5,
+          "odds": null,
+          "lab": "CMU",
+          "needs": "Central Michigan win by 5 or more (-4\u00bd at Ball State)"
+        },
+        {
+          "type": "tot",
+          "game": "BALL1128",
+          "ou": "o",
+          "line": 50.5,
+          "odds": null,
+          "lab": "O50.5",
+          "needs": "51 or more total points, Central Michigan + Ball State (over 50\u00bd)"
+        },
+        {
+          "type": "tot",
+          "game": "CLT1128",
+          "ou": "u",
+          "line": 53.5,
+          "odds": null,
+          "lab": "U53.5",
+          "needs": "53 or fewer total points, Navy + Charlotte (under 53\u00bd)"
+        },
+        {
+          "type": "sp",
+          "game": "CLT1128",
+          "side": "a",
+          "line": -16.5,
+          "odds": null,
+          "lab": "NAVY",
+          "needs": "Navy win by 17 or more (-16\u00bd at Charlotte)"
+        },
+        {
+          "type": "sp",
+          "game": "SYR1128",
+          "side": "h",
+          "line": 24.5,
+          "odds": null,
+          "lab": "SYR",
+          "needs": "Syracuse win, or lose by 24 or fewer (+24\u00bd vs Notre Dame)"
+        },
+        {
+          "type": "tot",
+          "game": "SYR1128",
+          "ou": "o",
+          "line": 53.5,
+          "odds": null,
+          "lab": "O53.5",
+          "needs": "54 or more total points, Notre Dame + Syracuse (over 53\u00bd)"
+        }
+      ],
+      "accepted_date_pt": "2026-11-28"
+    },
+    {
+      "ticket_id": "1019595603",
+      "sport": "CFB",
+      "stake": 11,
+      "towin": 195.24,
+      "legs": [
+        {
+          "type": "tot",
+          "game": "CLT1128",
+          "ou": "u",
+          "line": 53.5,
+          "odds": null,
+          "lab": "U53.5",
+          "needs": "53 or fewer total points, Navy + Charlotte (under 53\u00bd)"
+        },
+        {
+          "type": "sp",
+          "game": "CLT1128",
+          "side": "a",
+          "line": -16.5,
+          "odds": null,
+          "lab": "NAVY",
+          "needs": "Navy win by 17 or more (-16\u00bd at Charlotte)"
+        },
+        {
+          "type": "tot",
+          "game": "MIA1128",
+          "ou": "u",
+          "line": 54.5,
+          "odds": null,
+          "lab": "U54.5",
+          "needs": "54 or fewer total points, Boston College + Miami (under 54\u00bd)"
+        },
+        {
+          "type": "sp",
+          "game": "MIA1128",
+          "side": "h",
+          "line": -23.5,
+          "odds": null,
+          "lab": "MIA",
+          "needs": "Miami win by 24 or more (-23\u00bd vs Boston College)"
+        }
+      ],
+      "accepted_date_pt": "2026-11-28"
+    },
+    {
+      "ticket_id": "1019595153",
+      "sport": "CFB",
+      "stake": 10,
+      "towin": 9.8,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "UK1128",
+          "side": "a",
+          "line": -3,
+          "odds": -102,
+          "lab": "LOU",
+          "needs": "Louisville win by 4 or more (-3 at Kentucky; win by exactly 3 = push)"
+        }
+      ],
+      "accepted_date_pt": "2026-11-28"
+    },
+    {
+      "ticket_id": "1019595071",
+      "sport": "CFB",
+      "stake": 11,
+      "towin": 63.14,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "ISU1128",
+          "side": "h",
+          "line": -4,
+          "odds": -115,
+          "lab": "ISU",
+          "needs": "Iowa State win by 5 or more (-4 vs Kansas State; win by exactly 4 = push)"
+        },
+        {
+          "type": "sp",
+          "game": "UCLA1128",
+          "side": "a",
+          "line": -4.5,
+          "odds": -114,
+          "lab": "USC",
+          "needs": "USC win by 5 or more (-4\u00bd at UCLA)"
+        },
+        {
+          "type": "sp",
+          "game": "COLO1128",
+          "side": "a",
+          "line": 2.5,
+          "odds": -110,
+          "lab": "UCF",
+          "needs": "UCF win, or lose by 2 or fewer (+2\u00bd at Colorado)"
+        }
+      ],
+      "accepted_date_pt": "2026-11-28"
+    },
+    {
+      "ticket_id": "1019595001",
+      "sport": "CFB",
+      "stake": 11,
+      "towin": 64.35,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "ULM1128",
+          "side": "a",
+          "line": -6,
+          "odds": -115,
+          "lab": "MRSH",
+          "needs": "Marshall win by 7 or more (-6 at UL Monroe; win by exactly 6 = push)"
+        },
+        {
+          "type": "sp",
+          "game": "CLT1128",
+          "side": "a",
+          "line": -16.5,
+          "odds": -110,
+          "lab": "NAVY",
+          "needs": "Navy win by 17 or more (-16\u00bd at Charlotte)"
+        },
+        {
+          "type": "sp",
+          "game": "SYR1128",
+          "side": "h",
+          "line": 25.5,
+          "odds": -110,
+          "lab": "SYR",
+          "needs": "Syracuse win, or lose by 25 or fewer (+25\u00bd vs Notre Dame)"
+        }
+      ],
+      "accepted_date_pt": "2026-11-28"
+    },
+    {
+      "ticket_id": "1019594698",
+      "sport": "CFB",
+      "stake": 11,
+      "towin": 57.53,
+      "legs": [
+        {
+          "type": "ml",
+          "game": "GASO1128",
+          "side": "h",
+          "odds": -117,
+          "lab": "GASO",
+          "needs": "Georgia Southern beat Louisiana Tech"
+        },
+        {
+          "type": "sp",
+          "game": "CLT1128",
+          "side": "a",
+          "line": -16,
+          "odds": -120,
+          "lab": "NAVY",
+          "needs": "Navy win by 17 or more (-16 at Charlotte, bought \u00bd; win by exactly 16 = push)"
+        },
+        {
+          "type": "sp",
+          "game": "UK1128",
+          "side": "a",
+          "line": -2.5,
+          "odds": -120,
+          "lab": "LOU",
+          "needs": "Louisville win by 3 or more (-2\u00bd at Kentucky, bought \u00bd)"
+        }
+      ],
+      "accepted_date_pt": "2026-11-28"
+    },
+    {
+      "ticket_id": "1019594584",
+      "sport": "CFB",
+      "stake": 22,
+      "towin": 53.68,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "MIA1128",
+          "side": "h",
+          "line": -24.5,
+          "odds": -117,
+          "lab": "MIA",
+          "needs": "Miami win by 25 or more (-24\u00bd vs Boston College, bought \u00bd)"
+        },
+        {
+          "type": "ml",
+          "game": "GASO1128",
+          "side": "h",
+          "odds": -117,
+          "lab": "GASO",
+          "needs": "Georgia Southern beat Louisiana Tech"
+        }
+      ],
+      "accepted_date_pt": "2026-11-28"
+    },
+    {
+      "ticket_id": "1019594516",
+      "sport": "CFB",
+      "stake": 22,
+      "towin": 43.56,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "UK1128",
+          "side": "a",
+          "line": -2.5,
+          "odds": -120,
+          "lab": "LOU",
+          "needs": "Louisville win by 3 or more (-2\u00bd at Kentucky, bought \u00bd)"
+        },
+        {
+          "type": "ml",
+          "game": "NU1128",
+          "side": "h",
+          "odds": -160,
+          "lab": "NW",
+          "needs": "Northwestern beat Illinois"
+        }
+      ],
+      "accepted_date_pt": "2026-11-28"
+    },
+    {
+      "ticket_id": "1019535116",
+      "sport": "NCAAB",
+      "stake": 11,
+      "towin": 8.59,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "TTU1127",
+          "side": "h",
+          "line": -8.5,
+          "odds": -128,
+          "lab": "TTU",
+          "needs": "Texas Tech Red Raiders win by 9 or more (-8\u00bd vs San Diego State, Players Era final, Las Vegas, bought \u00bd)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1019465249",
+      "sport": "CFB",
+      "stake": 11,
+      "towin": 28.21,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "WIS1127",
+          "side": "h",
+          "line": -8,
+          "odds": -110,
+          "lab": "WIS",
+          "needs": "Wisconsin win by 9 or more (-8 vs Minnesota; win by exactly 8 = push)"
+        },
+        {
+          "type": "sp",
+          "game": "TAMU1127",
+          "side": "a",
+          "line": -9.5,
+          "odds": -115,
+          "lab": "TEX",
+          "needs": "Texas win by 10 or more (-9\u00bd at Texas A&M, bought \u00bd)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1019464729",
+      "sport": "CFB",
+      "stake": 22,
+      "towin": 30.8,
+      "legs": [
+        {
+          "type": "ml",
+          "game": "TAMU1127",
+          "side": "a",
+          "odds": null,
+          "lab": "TEX",
+          "needs": "Texas beat Texas A&M"
+        },
+        {
+          "type": "tot",
+          "game": "TAMU1127",
+          "ou": "u",
+          "line": 39.5,
+          "odds": null,
+          "lab": "U39.5",
+          "needs": "39 or fewer total points, Texas + Texas A&M (under 39\u00bd)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1019342487",
+      "sport": "CFB",
+      "stake": 22,
+      "towin": 49.87,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "IOWA1127",
+          "side": "h",
+          "line": -3.5,
+          "odds": -113,
+          "lab": "IOWA",
+          "needs": "Iowa win by 4 or more (-3\u00bd vs Nebraska)"
+        },
+        {
+          "type": "sp",
+          "game": "AKR1127",
+          "side": "a",
+          "line": -6.5,
+          "odds": -136,
+          "lab": "BUFF",
+          "needs": "Buffalo win by 7 or more (-6\u00bd at Akron, bought 1)"
+        }
+      ],
+      "accepted_date_pt": "2026-11-27"
+    },
+    {
+      "ticket_id": "1019341995",
+      "sport": "CFB",
+      "stake": 22,
+      "towin": 58.12,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "MISS1127",
+          "side": "h",
+          "line": -17.5,
+          "odds": -107,
+          "lab": "MISS",
+          "needs": "Ole Miss win by 18 or more (-17\u00bd vs Mississippi State)"
+        },
+        {
+          "type": "sp",
+          "game": "IOWA1127",
+          "side": "h",
+          "line": -3.5,
+          "odds": -113,
+          "lab": "IOWA",
+          "needs": "Iowa win by 4 or more (-3\u00bd vs Nebraska)"
+        }
+      ],
+      "accepted_date_pt": "2026-11-27"
+    },
+    {
+      "ticket_id": "1019341821",
+      "sport": "CFB",
+      "stake": 22,
+      "towin": 20.56,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "MISS1127",
+          "side": "h",
+          "line": -17.5,
+          "odds": -107,
+          "lab": "MISS",
+          "needs": "Ole Miss win by 18 or more (-17\u00bd vs Mississippi State)"
+        }
+      ],
+      "accepted_date_pt": "2026-11-27"
+    },
+    {
+      "ticket_id": "1019341625",
+      "sport": "NFL",
+      "stake": 55,
+      "towin": 49.11,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "PIT1127",
+          "side": "a",
+          "line": -4.5,
+          "odds": -112,
+          "lab": "DEN",
+          "needs": "Denver Broncos win by 5 or more (-4\u00bd at Pittsburgh)"
+        }
+      ],
+      "accepted_date_pt": "2026-11-27"
+    },
+    {
+      "ticket_id": "1019208787",
+      "sport": "NFL",
+      "stake": 99,
+      "towin": 82.5,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "BUF1126",
+          "side": "a",
+          "line": 2.5,
+          "odds": null,
+          "lab": "KC",
+          "needs": "Kansas City Chiefs win, or lose by 2 or fewer (+2\u00bd at Buffalo, live)"
+        }
+      ]
+    },
+    {
+      "ticket_id": "1019083573",
+      "sport": "NFL",
+      "stake": 22,
+      "towin": 47.96,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "DET1126",
+          "side": "h",
+          "line": 2,
+          "odds": -133,
+          "lab": "DET",
+          "needs": "Detroit Lions win, or lose by 1 or fewer (+2 vs Chicago, bought 1; lose by exactly 2 = push)"
+        },
+        {
+          "type": "tot",
+          "game": "DET1126",
+          "ou": "u",
+          "line": 57,
+          "odds": -122,
+          "lab": "U57",
+          "needs": "56 or fewer total points, Bears + Lions (under 57, bought \u00bd; exactly 57 pushes)"
+        }
+      ],
+      "accepted_date_pt": "2026-11-26"
+    },
+    {
+      "ticket_id": "1019083177",
+      "sport": "NFL",
+      "stake": 11,
+      "towin": 27.5,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "DET1126",
+          "side": "h",
+          "line": 1.5,
+          "odds": null,
+          "lab": "DET",
+          "needs": "Detroit Lions win, or lose by 1 or fewer (+1\u00bd vs Chicago)"
+        },
+        {
+          "type": "tot",
+          "game": "DET1126",
+          "ou": "u",
+          "line": 56.5,
+          "odds": null,
+          "lab": "U56.5",
+          "needs": "56 or fewer total points, Bears + Lions (under 56\u00bd)"
+        }
+      ],
+      "accepted_date_pt": "2026-11-26"
+    },
+    {
+      "ticket_id": "1019050702",
+      "sport": "CFB",
+      "stake": 22,
+      "towin": 49.27,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "TTU1126",
+          "side": "h",
+          "line": -14,
+          "odds": -130,
+          "lab": "TTU",
+          "needs": "Texas Tech win by 15 or more (-14 vs TCU, bought 1; win by exactly 14 = push)"
+        },
+        {
+          "type": "sp",
+          "game": "AKR1127",
+          "side": "a",
+          "line": -7,
+          "odds": -120,
+          "lab": "BUFF",
+          "needs": "Buffalo win by 8 or more (-7 at Akron, bought \u00bd; win by exactly 7 = push)"
+        }
+      ],
+      "accepted_date_pt": "2026-11-26"
+    },
+    {
+      "ticket_id": "1019065234",
+      "sport": "NFL",
+      "stake": 11,
+      "towin": 71.06,
+      "legs": [
+        {
+          "type": "sp",
+          "game": "DET1126",
+          "side": "a",
+          "line": -1,
+          "odds": -105,
+          "lab": "CHI",
+          "needs": "Chicago Bears win by 2 or more (-1 at Detroit; win by exactly 1 = push)"
+        },
+        {
+          "type": "sp",
+          "game": "BUF1126",
+          "side": "h",
+          "line": -3,
+          "odds": -101,
+          "lab": "BUF",
+          "needs": "Buffalo Bills win by 4 or more (-3 vs Kansas City; win by exactly 3 = push)"
+        },
+        {
+          "type": "sp",
+          "game": "DAL1126",
+          "side": "h",
+          "line": -9,
+          "odds": -110,
+          "lab": "DAL",
+          "needs": "Dallas Cowboys win by 10 or more (-9 vs Philadelphia; win by exactly 9 = push)"
+        }
+      ],
+      "accepted_date_pt": "2026-11-26"
     }
   ],
   "futures": [
@@ -9288,6 +9960,11 @@
       "USC Trojans",
       "South Carolina Gamecocks",
       "20261125"
+    ],
+    "TTU1127": [
+      "Texas Tech Red Raiders",
+      "San Diego State Aztecs",
+      "20261127"
     ]
   },
   "featured_ticket_ids": [
